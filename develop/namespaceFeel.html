@@ -1950,22 +1950,22 @@ gmsh_ptrtype&#160;</td><td class="memItemRight" valign="bottom"><b>createRing</b
 <tr class="memitem:af8f004c2373bc19f84de9ab49854bc29"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8f004c2373bc19f84de9ab49854bc29"></a>
 gmsh_ptrtype&#160;</td><td class="memItemRight" valign="bottom"><b>createRoom</b> (int Dim, double meshSize)</td></tr>
 <tr class="separator:af8f004c2373bc19f84de9ab49854bc29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1ffc3b6e6203f83e48101d29eef4ea7"><td class="memTemplParams" colspan="2"><a class="anchor" id="ad1ffc3b6e6203f83e48101d29eef4ea7"></a>
+<tr class="memitem:aee41d7f77ef28e2348c7eda35fbd81c2"><td class="memTemplParams" colspan="2"><a class="anchor" id="aee41d7f77ef28e2348c7eda35fbd81c2"></a>
 template&lt;typename MeshType , typename IteratorRange , int TheTag = MeshType::tag&gt; </td></tr>
-<tr class="memitem:ad1ffc3b6e6203f83e48101d29eef4ea7"><td class="memTemplItemLeft" align="right" valign="top">createSubmeshTool&lt; MeshType, <br class="typebreak"/>
+<tr class="memitem:aee41d7f77ef28e2348c7eda35fbd81c2"><td class="memTemplItemLeft" align="right" valign="top">createSubmeshTool&lt; MeshType, <br class="typebreak"/>
 typename <br class="typebreak"/>
 detail::submeshrangetype<br class="typebreak"/>
 &lt; IteratorRange &gt;::type, <br class="typebreak"/>
-TheTag &gt;::mesh_build_ptrtype&#160;</td><td class="memTemplItemRight" valign="bottom"><b>createSubmesh</b> (boost::shared_ptr&lt; MeshType &gt; inputMesh, IteratorRange const &amp;range, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> ctx=EXTRACTION_KEEP_MESH_RELATION)</td></tr>
-<tr class="separator:ad1ffc3b6e6203f83e48101d29eef4ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2040d63098251dcd30506c8161c80e5e"><td class="memTemplParams" colspan="2"><a class="anchor" id="a2040d63098251dcd30506c8161c80e5e"></a>
+TheTag &gt;::mesh_build_ptrtype&#160;</td><td class="memTemplItemRight" valign="bottom"><b>createSubmesh</b> (boost::shared_ptr&lt; MeshType &gt; inputMesh, IteratorRange const &amp;range, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> ctx=EXTRACTION_KEEP_MESH_RELATION, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> updateComponentsMesh=MESH_CHECK|MESH_UPDATE_FACES|MESH_UPDATE_EDGES)</td></tr>
+<tr class="separator:aee41d7f77ef28e2348c7eda35fbd81c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf746565cfbd2735aaf63be13f4e324e"><td class="memTemplParams" colspan="2"><a class="anchor" id="abf746565cfbd2735aaf63be13f4e324e"></a>
 template&lt;typename MeshType , typename IteratorRange , int TheTag = MeshType::tag&gt; </td></tr>
-<tr class="memitem:a2040d63098251dcd30506c8161c80e5e"><td class="memTemplItemLeft" align="right" valign="top">createSubmeshTool&lt; MeshType, <br class="typebreak"/>
+<tr class="memitem:abf746565cfbd2735aaf63be13f4e324e"><td class="memTemplItemLeft" align="right" valign="top">createSubmeshTool&lt; MeshType, <br class="typebreak"/>
 typename <br class="typebreak"/>
 detail::submeshrangetype<br class="typebreak"/>
 &lt; IteratorRange &gt;::type, <br class="typebreak"/>
-TheTag &gt;::mesh_build_ptrtype&#160;</td><td class="memTemplItemRight" valign="bottom"><b>createSubmesh</b> (boost::shared_ptr&lt; MeshType &gt; inputMesh, IteratorRange const &amp;range, WorldComm wc, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> ctx=EXTRACTION_KEEP_MESH_RELATION)</td></tr>
-<tr class="separator:a2040d63098251dcd30506c8161c80e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+TheTag &gt;::mesh_build_ptrtype&#160;</td><td class="memTemplItemRight" valign="bottom"><b>createSubmesh</b> (boost::shared_ptr&lt; MeshType &gt; inputMesh, IteratorRange const &amp;range, WorldComm wc, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> ctx=EXTRACTION_KEEP_MESH_RELATION, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> updateComponentsMesh=MESH_CHECK|MESH_UPDATE_FACES|MESH_UPDATE_EDGES)</td></tr>
+<tr class="separator:abf746565cfbd2735aaf63be13f4e324e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa393db87731d2b97f5be2785081ea8ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa393db87731d2b97f5be2785081ea8ab"></a>
 boost::shared_ptr&lt; <a class="el" href="classFeel_1_1Mesh.html">Mesh</a><br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1Simplex.html">Simplex</a>&lt; 2 &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>createSubMeshLaplacianBlock</b> (boost::shared_ptr&lt; <a class="el" href="classFeel_1_1Mesh.html">Mesh</a>&lt; <a class="el" href="classFeel_1_1Simplex.html">Simplex</a>&lt; 2 &gt; &gt; &gt; mesh)</td></tr>
