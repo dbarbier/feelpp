@@ -21,7 +21,11 @@ var GettingStarted =
         [ "Compilers", "Building.html#Compilers", null ],
         [ "Package management systems", "Building.html#PMS", null ],
         [ "Homebrew", "Building.html#Homebrew", null ],
-        [ "Homebrew and Feel++", "Building.html#HomebrewFeel", null ]
+        [ "Homebrew and Feel++", "Building.html#HomebrewFeel", null ],
+        [ "MacPorts", "Building.html#MacPorts", null ],
+        [ "MacPorts and Feel++", "Building.html#MacPortsFeel", null ],
+        [ "Missing ports", "Building.html#Missing", null ],
+        [ "MacPorts and XCode 5", "Building.html#MacPortsXC5", null ]
       ] ],
       [ "Compiling", "Building.html#Compiling", null ]
     ] ],

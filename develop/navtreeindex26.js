@@ -1,5 +1,9 @@
 var NAVTREEINDEX26 =
 {
+"structFeel_1_1MeshTraits.html":[10,0,134],
+"structFeel_1_1MeshTraits.html#a00ca8efb7b93c88b4af039c078b85837":[10,0,134,35],
+"structFeel_1_1MeshTraits.html#a047851c4b9e6475ea855a328d16ceda3":[10,0,134,25],
+"structFeel_1_1MeshTraits.html#a0488bca001a81a526d70913b4efd46fc":[10,0,134,37],
 "structFeel_1_1MeshTraits.html#a0648c69e1bcedb96f95d1bb8bfa0862c":[10,0,134,29],
 "structFeel_1_1MeshTraits.html#a0786ceb50bc2ca259dbd11d8cc787ee6":[10,0,134,27],
 "structFeel_1_1MeshTraits.html#a1f88fece94b02bb05529b1d5a8687116":[10,0,134,22],

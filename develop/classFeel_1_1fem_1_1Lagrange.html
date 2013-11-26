@@ -297,6 +297,8 @@ static const uint16_type&#160;</td><td class="memItemRight" valign="bottom"><b>n
 <tr class="memitem:adf9b32720be3f7a146a7550c03660d51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf9b32720be3f7a146a7550c03660d51"></a>
 static const uint16_type&#160;</td><td class="memItemRight" valign="bottom"><b>nbPtsPerVolume</b> = reference_convex_type::nbPtsPerVolume</td></tr>
 <tr class="separator:adf9b32720be3f7a146a7550c03660d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13b4105e5874ae729584630d9e232b3b"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLagrangeP0Continuous</b></td></tr>
+<tr class="separator:a13b4105e5874ae729584630d9e232b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -455,6 +457,31 @@ template&lt;uint16_type N, uint16_type RealDim, uint16_type O, template&lt; uint
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the reference convex associated with the lagrange polynomials </dd></dl>
 
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a13b4105e5874ae729584630d9e232b3b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;uint16_type N, uint16_type RealDim, uint16_type O, template&lt; uint16_type Dim &gt; class PolySetType, typename ContinuityType  = Continuous, typename T  = double, template&lt; uint16_type, uint16_type, uint16_type &gt; class Convex = Simplex, template&lt; class, uint16_type, class &gt; class Pts = PointSetEquiSpaced, uint16_type TheTAG = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classFeel_1_1fem_1_1Lagrange.html">Feel::fem::Lagrange</a>&lt; N, RealDim, O, PolySetType, ContinuityType, T, <a class="el" href="classFeel_1_1Convex.html">Convex</a>, Pts, TheTAG &gt;::isLagrangeP0Continuous</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= mpl::and_&lt; boost::is_same&lt;mpl::int_&lt;nOrder&gt;,mpl::int_&lt;0&gt; &gt;,</div>
+<div class="line">                                                          boost::is_same&lt;continuity_type, Continuous &gt; &gt;::type::value</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

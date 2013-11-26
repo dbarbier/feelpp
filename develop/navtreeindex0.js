@@ -20,6 +20,10 @@ var NAVTREEINDEX0 =
 "Building.html#Homebrew":[4,1,4,2],
 "Building.html#HomebrewFeel":[4,1,4,3],
 "Building.html#Mac":[4,1,4],
+"Building.html#MacPorts":[4,1,4,4],
+"Building.html#MacPortsFeel":[4,1,4,5],
+"Building.html#MacPortsXC5":[4,1,4,7],
+"Building.html#Missing":[4,1,4,6],
 "Building.html#PMS":[4,1,4,1],
 "Building.html#Ubuntu":[4,1,3,1],
 "Building.html#Unis":[4,1,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX0 =
 "Projection.html#ProjectionExpression":[5,5,2],
 "Projection.html#ProjectionProjector":[5,5,1],
 "QuickRef.html":[5],
-"SolidMechanics.html":[6,4],
-"Spaces.html":[5,3],
-"Spaces.html#QRFunctionSpace":[5,3,0],
-"Spaces.html#QRFunctionSpaceFn":[5,3,1],
-"StVenantKirchhoff.html":[6,4,2]
+"SolidMechanics.html":[6,4]
 };

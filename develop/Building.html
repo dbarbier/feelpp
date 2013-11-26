@@ -114,6 +114,10 @@ $(document).ready(function(){initNavTree('Building.html','');});
 <li class="level2"><a href="#PMS">Package management systems</a></li>
 <li class="level2"><a href="#Homebrew">Homebrew</a></li>
 <li class="level2"><a href="#HomebrewFeel">Homebrew and Feel++</a></li>
+<li class="level2"><a href="#MacPorts">MacPorts</a></li>
+<li class="level2"><a href="#MacPortsFeel">MacPorts and Feel++</a></li>
+<li class="level2"><a href="#Missing">Missing ports</a></li>
+<li class="level2"><a href="#MacPortsXC5">MacPorts and XCode 5</a></li>
 </ul>
 </li>
 <li class="level1"><a href="#Compiling">Compiling</a></li>
@@ -192,7 +196,7 @@ Debian</h2>
 </ul>
 <p>At the moment <a href="http://www.feelpp.org">Feel++</a> compiles and is available on the following Debian plateforms: </p>
 <ul>
-<li>Feel++ <a href="https://buildd.debian.org/status/package.php?p=feel%2b%2b">Buildd results</a></li>
+<li>Feel++ <a href="https://buildd.debian.org/status/package.php?p=feel%2b%2b">Build results</a></li>
 </ul>
 <h2><a class="anchor" id="Ubuntu"></a>
 Ubuntu</h2>
@@ -204,14 +208,14 @@ Ubuntu</h2>
 <hr/>
  <h1><a class="anchor" id="Mac"></a>
 Feel++ on Mac OS X</h1>
-<p><a href="http://www.feelpp.org">Feel++</a> is also working on Mac operating systems. The way to make it work is quite different.</p>
+<p><a href="http://www.feelpp.org">Feel++</a> is also supported on Mac operating systems, starting from OS X 10.9 Mavericks. The way to make it work is quite different.</p>
 <h2><a class="anchor" id="Compilers"></a>
 Compilers</h2>
 <p>In order to make <a href="http://www.feelpp.org">Feel++</a> and <code>cmake</code> work properly, you first have to install  Xcode for Gcc/clang. <br/>
  If your computer is recent, you can install it with your DVD that came with your machine (not the OS DVD, but the applications one). You don't have to install the complete Xcode (you can uncheck iOS SDK for example, it's not necessary here and requires a lot of memory). You can also install Xcode through the App Store. Xcode will provide your computer all the basic tools to compile, such as gcc and clang. It's the first step, you'll see later how to easily install the necessary tools to build <a href="http://www.feelpp.org">Feel++</a>.</p>
 <h2><a class="anchor" id="PMS"></a>
 Package management systems</h2>
-<p>Currently, building <a href="http://www.feelpp.org">Feel++</a> is only available through <a href="http://brew.sh">Homebrew</a>. A <a href="http://www.macports.org/install.php">MacPorts</a> version is present in the source tree of <a href="http://www.feelpp.org">Feel++</a>, but support is currently experimental.</p>
+<p>Currently, building <a href="http://www.feelpp.org">Feel++</a> is only available through <a href="http://brew.sh">Homebrew</a>. <a href="http://www.macports.org/install.php">MacPorts</a> versions are also present in the source tree of <a href="http://www.feelpp.org">Feel++</a>. You can find a version using gcc in &lt;path to top feel directory&gt;/ports/macosx/macports, and an experimental version using clang/libc++ in &lt;path to top feel directory&gt;/ports/macosx/macports-xc5.</p>
 <h2><a class="anchor" id="Homebrew"></a>
 Homebrew</h2>
 <p><b>Introduction</b> : Homebrew is a free/open source software introduced to simplify the installation of other free/open source softwares on the MacOS X ecosystem. It is distributed under the <a href="https://github.com/mxcl/homebrew/blob/master/Library/Homebrew/LICENSE">BSD 2 Clause (NetBSD) license</a>. For more information, visit their <a href="http://brew.sh">website</a>.</p>
@@ -251,6 +255,53 @@ brew install ann &amp;&amp; brew install petsc &amp;&amp; brew install gmsh &amp
 # Install Feel++:
 brew install feelpp
 </pre><p>And you should be set to use <a href="http://www.feelpp.org">Feel++</a> on MacOS X.</p>
+<p><a href="#" class="top">top</a> </p>
+<hr/>
+<h2><a class="anchor" id="MacPorts"></a>
+MacPorts</h2>
+<p><b>Introduction</b> : MacPorts is an open-source community projet which aims to design an easy-to-use system for compiling, installing and upgrading open-source softwares on Mac OS X operating system. It is distributed under <a href="http://opensource.org/licenses/bsd-license.php">BSD License</a> and facilitate the access to thousands of ports (softwares) without installing or compiling open-source softwares. MacPorts provides a single software tree which includes the latest stable releases of approximately 17700 ports targeting the current Mac OS X release (10.9). If you want more information, please visit their <a href="http://www.macports.org/">website</a>.</p>
+<p><b>Installation</b> : To install the latest version of MacPorts, please go to <a href="http://www.macports.org/install.php">Installing MacPorts</a> page and follow the instructions. The simplest way is to install it with the Mac OS X Installer using the <code>pkg</code> file provided on their website. It is recommended that you install X11 (X Window <a class="el" href="classFeel_1_1System.html" title="System of PDE associated to a function space. ">System</a>) which is normally used to display X11 applications.<br/>
+ If you have installed with the package installer (<code>MacPorts-2.x.x.pkg</code>) that means MacPorts will be installed in <code>/opt/local</code>. From now on, we will suppose that macports has been installed in <code>/opt/local</code> which is the default MacPorts location. Note that from now on, all tools installed by MacPorts will be installed in <code>/opt/local/bin</code> or <code>/opt/local/sbin</code> for example (that's here you'll find gcc4.7 or later e.g <code>/opt/local/bin/g++-mp-4.7</code> once being installed).</p>
+<p><b>Key commands</b> : In your command-line, the software MacPorts is called by the command <code>port</code>. Here is a list of key commands for using MacPorts, if you want more informations please go to <a href="http://guide.macports.org/#using.port">MacPorts Commands</a>. </p>
+<ul>
+<li><code>sudo port -v selfupdate</code>: This action should be used regularly to update the local tree with the global MacPorts ports. The option <code>-v</code> enables verbose which generates verbose messages. </li>
+<li><code>port info mypackage</code>: This action is used to get information about a port (description, license, maintainer, etc.) </li>
+<li><code>sudo port install mypackage</code>: This action install the port mypackage </li>
+<li><code>sudo port uninstall mypackage</code>: This action uninstall the port mypackage </li>
+<li><code>port installed</code>: This action displays all ports installed and their versions, variants and activation status. You can also use the <code>-v</code> option to also display the platform and CPU architecture(s) for which the ports were built, and any variants which were explicitly negated. </li>
+<li><code>sudo port upgrade mypackage</code>: This action updgrades installed ports and their dependencies when a <code>Portfile</code> in the repository has been updated. To avoid the upgrade of a port's dependencies, use the option <code>-n</code>.</li>
+</ul>
+<p><b>Portfile</b> : A Portfile is a TCL script which usually contains simple keyword values and TCL expressions. Each package/port has a corresponding Portfile but it's only a part of a port description. <a href="http://www.feelpp.org">Feel++</a> provides some mandatory Portfiles for its compilation which are either not available in MacPorts or are buggy but <a href="http://www.feelpp.org">Feel++</a> also provides some Portfiles which are already available in MacPorts such as gmsh or petsc. They usually provide either some fixes to ensure <a href="http://www.feelpp.org">Feel++</a> works properly or new version not yet available in MacPorts. These Portfiles are installed in <code>ports/macosx/macports</code>.</p>
+<h2><a class="anchor" id="MacPortsFeel"></a>
+MacPorts and Feel++</h2>
+<p>To be able to install <a href="http://www.feelpp.org">Feel++</a>, add the following line in <code>/opt/local/etc/macports/source.conf</code> at the top of the file before any other sources : </p>
+<pre class="fragment">file:///&lt;path to feel top directory&gt;/ports/macosx/macports
+</pre><p>Once it's done, type in a command-line : </p>
+<pre class="fragment">  cd &lt;your path to feel top directory&gt;/ports/macosx/macports
+  portindex -f
+</pre><p>You should have an output like this : </p>
+<pre class="fragment">Reading port index in $&lt;$your path to feel top directory$&gt;$/ports/macosx/macports
+Adding port science/feel++
+Adding port science/gmsh
+Adding port science/petsc
+
+Total number of ports parsed:   3
+Ports successfully parsed:      3
+Ports failed:                   0
+Up-to-date ports skipped:       0
+</pre><p>Your are now able to type </p>
+<pre class="fragment">  sudo port install feel++
+</pre><p>It might take some time (possibly an entire day) to compile all the requirements for <a href="http://www.feelpp.org">Feel++</a> to compile properly. If you have several cores on your MacBook Pro, iMac or MacBook we suggest that you configure macports to use all or some of them. To do that uncomment the following line in the file <code>/opt/local/etc/macports/macports.conf</code> </p>
+<pre class="fragment">buildmakejobs   0 $\#$ all the cores
+</pre><p> At the end of the <code>sudo port install feel++</code>, you have all dependencies installed. To build all the Makefile,  is automatically launched but can have some libraries may not be found but they are not mandatory for build Feel++, only the features related to the missing libraries will be missing.</p>
+<h2><a class="anchor" id="Missing"></a>
+Missing ports</h2>
+<p><code>cmake</code> can build Makefiles even if some packages are missing (latex2html, VTK ...). It's not necessary to install them but you can complete the installation with MacPorts, <code>cmake</code> will find them by itself once they have been installed.</p>
+<h2><a class="anchor" id="MacPortsXC5"></a>
+MacPorts and XCode 5</h2>
+<p>There is an experimental version of ports for <a href="http://www.feelpp.org">Feel++</a> in &lt;path to top feel directory&gt;/ports/macosx/macports-xc5. Using these ports will set up the compilation using clang and libc++. The process is similar to the one previously described for MacPorts, except for one point: Before starting to install packages, you must switch to the llvm c++ standard library by adding the following line to your macports.conf file: </p>
+<pre class="fragment">cxx_stdlib  libc++
+</pre><p> This requires MacPorts to be at least on version 2.2.1 for the flag to be recognized and will normally cause all the packages you will install to be recompiled using libc++ instead of libstdc++.</p>
 <p><a href="#" class="top">top</a> </p>
 <hr/>
 <h1><a class="anchor" id="Compiling"></a>
