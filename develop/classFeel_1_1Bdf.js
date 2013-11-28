@@ -36,6 +36,8 @@ var classFeel_1_1Bdf =
     [ "initialize", "classFeel_1_1Bdf.html#a196b29d4ad57ea077dbb95aed4b4e9e4", null ],
     [ "initialize", "classFeel_1_1Bdf.html#adafcbe3a9446c466f2a0031df4224d8f", null ],
     [ "loadCurrent", "classFeel_1_1Bdf.html#abdef91c238eba3ea230e45d509c2e608", null ],
+    [ "next", "classFeel_1_1Bdf.html#aaa40a69ef8d8b1733d2bfd05d47262e4", null ],
+    [ "next", "classFeel_1_1Bdf.html#a51d13da996d0c3a7345662e27dae8e39", null ],
     [ "order", "classFeel_1_1Bdf.html#af24ec78d035f886461dc26db63f6182b", null ],
     [ "poly", "classFeel_1_1Bdf.html#ab89513abeeb84667184482d4e24eb5bc", null ],
     [ "polyDeriv", "classFeel_1_1Bdf.html#aadc8e0ac4c1450ef5c85b7fc851ff4af", null ],

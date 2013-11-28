@@ -1775,7 +1775,7 @@ $(document).ready(function(){initNavTree('functionspace_8hpp_source.html','');})
 <div class="line"><a name="l01701"></a><span class="lineno"> 1701</span>&#160;        }</div>
 <div class="line"><a name="l01702"></a><span class="lineno"> 1702</span>&#160;        <span class="keywordtype">void</span> add( node_type t, mpl::bool_&lt;false&gt; )</div>
 <div class="line"><a name="l01703"></a><span class="lineno"> 1703</span>&#160;        {</div>
-<div class="line"><a name="l01704"></a><span class="lineno"> 1704</span>&#160;            LOG(INFO)&lt;&lt;<span class="stringliteral">&quot;add point\n&quot;</span>;</div>
+<div class="line"><a name="l01704"></a><span class="lineno"> 1704</span>&#160;            <span class="comment">//LOG(INFO)&lt;&lt;&quot;add point\n&quot;;</span></div>
 <div class="line"><a name="l01705"></a><span class="lineno"> 1705</span>&#160;</div>
 <div class="line"><a name="l01706"></a><span class="lineno"> 1706</span>&#160;            <span class="comment">//rank of the current processor</span></div>
 <div class="line"><a name="l01707"></a><span class="lineno"> 1707</span>&#160;            <span class="keywordtype">int</span> proc_number = Environment::worldComm().globalRank();</div>
@@ -1925,7 +1925,7 @@ $(document).ready(function(){initNavTree('functionspace_8hpp_source.html','');})
 <div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;    };</div>
 <div class="line"><a name="l01855"></a><span class="lineno"><a class="code" href="classFeel_1_1FunctionSpace.html#a61f9b4f1b7d27e43889f288a948a30dc"> 1855</a></span>&#160;    <a class="code" href="classFeel_1_1Context.html" title="Context class. ">Context</a> <a class="code" href="classFeel_1_1FunctionSpace.html#a61f9b4f1b7d27e43889f288a948a30dc">context</a>() { <span class="keywordflow">return</span> <a class="code" href="classFeel_1_1Context.html" title="Context class. ">Context</a>( this-&gt;shared_from_this() ); }</div>
 <div class="line"><a name="l01856"></a><span class="lineno"> 1856</span>&#160;</div>
-<div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160;    <span class="comment">/*virtual*/</span> basis_context_ptrtype contextBasis( std::pair&lt;int, basis_context_ptrtype&gt; <span class="keyword">const</span>&amp; p, <a class="code" href="classFeel_1_1Context.html" title="Context class. ">Context</a> <span class="keyword">const</span>&amp; c ) {LOG( INFO ) &lt;&lt; <span class="stringliteral">&quot;constructor FEM==&quot;</span>; <span class="keywordflow">return</span> p.second; }</div>
+<div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160;    <span class="comment">/*virtual*/</span> basis_context_ptrtype contextBasis( std::pair&lt;int, basis_context_ptrtype&gt; <span class="keyword">const</span>&amp; p, <a class="code" href="classFeel_1_1Context.html" title="Context class. ">Context</a> <span class="keyword">const</span>&amp; c ) { <span class="keywordflow">return</span> p.second; }</div>
 <div class="line"><a name="l01858"></a><span class="lineno"> 1858</span>&#160;</div>
 <div class="line"><a name="l01862"></a><span class="lineno"> 1862</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = <span class="keywordtype">double</span>,  <span class="keyword">typename</span> Cont = VectorUblas&lt;T&gt; &gt;</div>
 <div class="line"><a name="l01863"></a><span class="lineno"> 1863</span>&#160;    <span class="keyword">class </span>Element</div>
