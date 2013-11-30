@@ -3,9 +3,6 @@ var classFeel_1_1MatrixValue =
     [ "matrix_type", "classFeel_1_1MatrixValue.html#ac28dab9528c6c9bc66b70eb18cd0df3e", null ],
     [ "pattern_type", "classFeel_1_1MatrixValue.html#a9774c460c6e43cd3e6b4d0458db2be54", null ],
     [ "value_type", "classFeel_1_1MatrixValue.html#a01081039c492458080bf8c34713a72e1", null ],
-    [ "MatrixValue", "classFeel_1_1MatrixValue.html#a2fc2037fa5d0492eb0e3c9de7b6082e9", null ],
-    [ "MatrixValue", "classFeel_1_1MatrixValue.html#a90f56ac608e5fcee0b74502bbebbcc79", null ],
-    [ "~MatrixValue", "classFeel_1_1MatrixValue.html#a683787f0d80c634449a46da938274efe", null ],
     [ "add", "classFeel_1_1MatrixValue.html#abd96330b62979d4bef882369231b7b6f", null ],
     [ "clear", "classFeel_1_1MatrixValue.html#a59cb8908a43ede44a349ee84c58fc366", null ],
     [ "close", "classFeel_1_1MatrixValue.html#adc4e94f87cede00542e9d698ca605b9c", null ],
@@ -23,10 +20,10 @@ var classFeel_1_1MatrixValue =
     [ "rowStart", "classFeel_1_1MatrixValue.html#a445125c59b11f40424a9d34ca27ba26d", null ],
     [ "rowStop", "classFeel_1_1MatrixValue.html#a6560f3473f7f52fec736bec7bbcca7e3", null ],
     [ "set", "classFeel_1_1MatrixValue.html#a3e4d06344d3d04397ce7d144d7f5c549", null ],
-    [ "size1", "classFeel_1_1MatrixValue.html#a3bf4cb7332c7c568db7bba77e1eac919", null ],
     [ "size2", "classFeel_1_1MatrixValue.html#ab4ba46263f33d36b3dd31a4f43e5fcae", null ],
     [ "wmat", "classFeel_1_1MatrixValue.html#a821b6aa5bc3ff02b0795853892339a8a", null ],
     [ "wmat", "classFeel_1_1MatrixValue.html#a66cc004e0279f47d072c607b3543771c", null ],
     [ "zero", "classFeel_1_1MatrixValue.html#a7396215aac6a6d20c8d846dfff1fa696", null ],
-    [ "zero", "classFeel_1_1MatrixValue.html#ac84126653fec129fc17adf77899ca99d", null ]
+    [ "zero", "classFeel_1_1MatrixValue.html#ac84126653fec129fc17adf77899ca99d", null ],
+    [ "__pad0__", "classFeel_1_1MatrixValue.html#a55dfcaf665372caa749dddb23200e300", null ]
 ];

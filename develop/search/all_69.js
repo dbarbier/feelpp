@@ -12,7 +12,6 @@ var searchData=
   ['imexact',['IMExact',['../classFeel_1_1IMExact.html',1,'Feel']]],
   ['imexact_2ehpp',['imexact.hpp',['../imexact_8hpp.html',1,'']]],
   ['imgeneral',['IMGeneral',['../classFeel_1_1IMGeneral.html',1,'Feel']]],
-  ['importer',['Importer',['../classFeel_1_1Importer.html#af7bac00e359f0f7cc1efd1ec8ea1c90f',1,'Feel::Importer::Importer(MeshFormat const &amp;_format=GMSH, WorldComm const &amp;_worldcomm=Environment::worldComm())'],['../classFeel_1_1Importer.html#abcaaac349258a8fda3e0e6173ec53e3e',1,'Feel::Importer::Importer(std::string const &amp;_filename, MeshFormat const &amp;_format=GMSH, WorldComm const &amp;_worldcomm=Environment::worldComm())']]],
   ['importer',['Importer',['../classFeel_1_1Importer.html',1,'Feel']]],
   ['importer_2ehpp',['importer.hpp',['../importer_8hpp.html',1,'']]],
   ['importergmsh',['ImporterGmsh',['../classFeel_1_1ImporterGmsh.html',1,'Feel']]],
@@ -22,8 +21,8 @@ var searchData=
   ['imtetrahedra_3c_201_2c_20t_20_3e',['IMTetrahedra&lt; 1, T &gt;',['../structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html',1,'Feel']]],
   ['index',['index',['../classFeel_1_1Dof.html#ac533c71f21c3fb91f1c4404ab968bbfe',1,'Feel::Dof::index()'],['../classFeel_1_1TimeSet_1_1Step.html#a8a0ce4c61467b8025223c11429e6bd68',1,'Feel::TimeSet::Step::index()'],['../classFeel_1_1TimeSet.html#a35c0cafbbb420fd4dad859de39b3f171',1,'Feel::TimeSet::index()'],['../index.html',1,'(Global Namespace)']]],
   ['indexinsupersampling',['indexInSuperSampling',['../classFeel_1_1ParameterSpace_1_1Sampling.html#a858a704588610e6cbfb38d7a871e3569',1,'Feel::ParameterSpace::Sampling']]],
-  ['inequalities',['inequalities',['../classFeel_1_1inequalities.html',1,'Feel']]],
   ['inequalities',['INEQUALITIES',['../namespaceFeel.html#a47b4e694d7ea6c8735636721e02645c0a74b4d2a807277ec9fae5ea86fc4af15d',1,'Feel']]],
+  ['inequalities',['inequalities',['../classFeel_1_1inequalities.html',1,'Feel']]],
   ['info',['Info',['../classFeel_1_1Info.html',1,'Feel']]],
   ['info_2ecpp',['info.cpp',['../info_8cpp.html',1,'']]],
   ['info_2ehpp',['info.hpp',['../info_8hpp.html',1,'']]],
@@ -124,7 +123,7 @@ var searchData=
   ['isvectorial',['isVectorial',['../classFeel_1_1PolynomialSet.html#a568d75ab82529571d050baeb4a05afb5',1,'Feel::PolynomialSet']]],
   ['isvertex',['isVertex',['../group__GeoXD.html#ga687c5a4ceb94411b600c1c15776b94a2',1,'Feel::Geo0D']]],
   ['iszero',['isZero',['../classFeel_1_1Polynomial.html#ab599e227390129b4edd27a9059c78051',1,'Feel::Polynomial::isZero()'],['../classFeel_1_1PolynomialSet.html#a1367b281b8f8dddbbcc8d32e5c474e69',1,'Feel::PolynomialSet::isZero()']]],
-  ['iteration',['Iteration',['../classFeel_1_1Iteration.html',1,'Feel']]],
   ['iteration',['Iteration',['../classFeel_1_1Iteration.html#a99749bde486ab0272043bb19d9026f89',1,'Feel::Iteration']]],
+  ['iteration',['Iteration',['../classFeel_1_1Iteration.html',1,'Feel']]],
   ['iteration_2ehpp',['iteration.hpp',['../iteration_8hpp.html',1,'']]]
 ];

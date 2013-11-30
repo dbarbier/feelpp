@@ -27,7 +27,6 @@ var classFeel_1_1Mesh2D =
     [ "super_points", "classFeel_1_1Mesh2D.html#a85ec3d4701aca62a7db600a0d29d5d5a", null ],
     [ "super_visitable", "classFeel_1_1Mesh2D.html#a851143dd2573a4cc1d02a2f2248b2ae1", null ],
     [ "update_element_neighbor_type", "classFeel_1_1Mesh2D.html#a063cf11d847a17bdcf61177b6397e0c3", null ],
-    [ "Mesh2D", "classFeel_1_1Mesh2D.html#a809bec541e08caea973ed3faefaab44e", null ],
     [ "Mesh2D", "classFeel_1_1Mesh2D.html#aa4273bde2d122622afa00f114b6398c9", null ],
     [ "~Mesh2D", "classFeel_1_1Mesh2D.html#ae77dd767169654a9fc7997c75beef784", null ],
     [ "beginEdge", "classFeel_1_1Mesh2D.html#af3ae13068e25e2790b8f7d6e8c8581e6", null ],
@@ -46,9 +45,14 @@ var classFeel_1_1Mesh2D =
     [ "operator=", "classFeel_1_1Mesh2D.html#a0b90b901821d1baf9e097baeee829027", null ],
     [ "renumber", "classFeel_1_1Mesh2D.html#a3b24571d5e1ddf276a28b035c374cfbe", null ],
     [ "setWorldComm", "classFeel_1_1Mesh2D.html#ac8a01cddd2189043fe5c446b22f358b7", null ],
+    [ "super", "classFeel_1_1Mesh2D.html#a22047fa43f9b19b1619b37e88af0d01a", null ],
+    [ "super_elements", "classFeel_1_1Mesh2D.html#af2546070fb8c7d45ae0ecbe19e2da355", null ],
+    [ "super_faces", "classFeel_1_1Mesh2D.html#adcfb232686577e300b505665dd95d041", null ],
+    [ "super_points", "classFeel_1_1Mesh2D.html#aa1ca25f1acfa889f81b25103f9f45d7a", null ],
     [ "updateEntitiesCoDimensionOnePermutation", "classFeel_1_1Mesh2D.html#a25780fd3f8809a4391dbf322e732d7c8", null ],
     [ "updateEntitiesCoDimensionOnePermutation", "classFeel_1_1Mesh2D.html#aee01a9ad30cfd468932544bd70060198", null ],
     [ "updateEntitiesCoDimensionOnePermutation", "classFeel_1_1Mesh2D.html#a07eb52c32916cfd88152a492b6d33ca7", null ],
     [ "updateEntitiesCoDimensionTwo", "classFeel_1_1Mesh2D.html#a634eef66fde7f6ef2fc6b9fc037632d4", null ],
-    [ "boost::serialization::access", "classFeel_1_1Mesh2D.html#ac98d07dd8f7b70e16ccb9a01abf56b9c", null ]
+    [ "boost::serialization::access", "classFeel_1_1Mesh2D.html#ac98d07dd8f7b70e16ccb9a01abf56b9c", null ],
+    [ "__pad0__", "classFeel_1_1Mesh2D.html#a3f0e7910b8c87b174019be871f7b6948", null ]
 ];

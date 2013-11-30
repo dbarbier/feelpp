@@ -55,31 +55,33 @@ var NAVTREEINDEX =
 "Spaces.html",
 "classFeel_1_1AdvReact.html#a433cdc1927355d6ff64aa6eecafd132e",
 "classFeel_1_1Backend.html#ad66bbc3dbf94fd9949183f27e8728239",
-"classFeel_1_1CRB.html#a9be36746d6c084d07e2b33fb6347b054",
-"classFeel_1_1CRBModel.html#ae12232710f52943b3b4bd8b95ebbcc46",
-"classFeel_1_1CRBTrilinear.html#ab81682646852308bdc9a25738e5bb640",
-"classFeel_1_1DofTable.html#a3754a13a636e582c3bcd7d94536870d6",
-"classFeel_1_1ErrorBase.html#a9b4178e486db8b64d3e3af0c07ddb325",
-"classFeel_1_1FilterFromVtk.html#a32abb2f99f0e84e13bd123817ab7c495",
-"classFeel_1_1GeoEntity.html#a526c88aa80925dd6b108bb2a0fd2ec4c",
-"classFeel_1_1GeoND.html#a2643e02a215eb18340fa24cf681e752f",
-"classFeel_1_1Ground.html#a3da4f0e4852663b354267cc2f0b57477",
-"classFeel_1_1MaterialLib.html",
-"classFeel_1_1MatrixSparse.html#ad3271920253bd03d7f1b02572a1ba55d",
-"classFeel_1_1Mesh1D.html#a331f6ecf576a3a5141fc2a151536e99f",
-"classFeel_1_1Operator.html#ae84412a2812a889af53609fc8e1a5cea",
-"classFeel_1_1OpusApp.html#ab534d2087997c319bb7fee45a48a1afa",
+"classFeel_1_1CRB.html#a9ce529320a29a47268d6696f9e739b4d",
+"classFeel_1_1CRBModel.html#ae1c64ea134a6ee99d6376d6f8967e534",
+"classFeel_1_1CRBTrilinear.html#aba31e0b5101e550f051d9dcad7b60067",
+"classFeel_1_1DofTable.html#a3ad84c0e7b38647ad9df1ea61b244a1b",
+"classFeel_1_1ErrorBase.html#a9f77b2bf51aa79ace070c1f06d3a8f8b",
+"classFeel_1_1FilterFromVtk.html#a5743c166430c3d3fda9d0763429c7c3d",
+"classFeel_1_1GeoEntity.html#a52c8d94897021f05c1da46924d4c079c",
+"classFeel_1_1GeoND.html#a287928da029990ae66a18705f52adc71",
+"classFeel_1_1Ground.html#a57a98c6123413ecf85ca5537466bf3bb",
+"classFeel_1_1Material.html#a409eed8d16e866c8dbc10477c5e701a5",
+"classFeel_1_1MatrixSparse.html#abae720bae046bbf121a385f7ce529a21",
+"classFeel_1_1Mesh1D.html#a0d3699ecd60bcd6d4ccf7f2977a33320",
+"classFeel_1_1Operator.html#a3eaa25cce65d6315b574453b5ea3af3c",
+"classFeel_1_1OpusApp.html#a0c94f4110bdae1e891ea760edbaecbd3",
 "classFeel_1_1PointSetQuadrature.html#a6d57c06851b2542daebcee910ec5fecf",
 "classFeel_1_1ReducedBasisSpace.html#a06f267726e8adacd5b6289b4b9aa6b27",
 "classFeel_1_1SolverEigen.html#ae607d5a42a4d9d6323409f0ebf8acc61",
 "classFeel_1_1Sphere.html#a4fc4888aad553a8131b740487ab69335",
 "classFeel_1_1TimeSet.html#a7a41dd012ca027173774a22674857cc6",
 "classFeel_1_1VectorEigen.html#a1087ecbe111b2a4ad9c15248d3954e32",
-"classFeel_1_1dyna_1_1Jacobi.html#a447aaa10b18b5e542c06eb75cd2f897e",
-"classIMSimplex.html#a3471898a8adb39c619a19c85d7cab8d2",
-"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6"
+"classFeel_1_1dyna_1_1Jacobi.html#a4da6a0fe9e870cd25d2a1a69b6241604",
+"classIMSimplex.html#a35acf8b829d7820a019619a02e8320b8",
+"structFeel_1_1MeshTraits.html"
 ];
 
+var SYNCONMSG = 'click to disable panel synchronisation';
+var SYNCOFFMSG = 'click to enable panel synchronisation';
 var SYNCONMSG = 'click to disable panel synchronisation';
 var SYNCOFFMSG = 'click to enable panel synchronisation';
 var navTreeSubIndices = new Array();
@@ -162,12 +164,12 @@ function createIndent(o,domNode,node,level)
   var level=-1;
   var n = node;
   while (n.parentNode) { level++; n=n.parentNode; }
-  var imgNode = document.createElement("img");
-  imgNode.style.paddingLeft=(16*level).toString()+'px';
-  imgNode.width  = 16;
-  imgNode.height = 22;
-  imgNode.border = 0;
   if (node.childrenData) {
+    var imgNode = document.createElement("img");
+    imgNode.style.paddingLeft=(16*level).toString()+'px';
+    imgNode.width  = 16;
+    imgNode.height = 22;
+    imgNode.border = 0;
     node.plus_img = imgNode;
     node.expandToggle = document.createElement("a");
     node.expandToggle.href = "javascript:void(0)";
@@ -184,8 +186,12 @@ function createIndent(o,domNode,node,level)
     domNode.appendChild(node.expandToggle);
     imgNode.src = node.relpath+"ftv2pnode.png";
   } else {
-    imgNode.src = node.relpath+"ftv2node.png";
-    domNode.appendChild(imgNode);
+    var span = document.createElement("span");
+    span.style.display = 'inline-block';
+    span.style.width   = 16*(level+1)+'px';
+    span.style.height  = '22px';
+    span.innerHTML = '&nbsp;';
+    domNode.appendChild(span);
   } 
 }
 
@@ -404,7 +410,7 @@ function showNode(o, node, index, hash)
       if (!node.childrenVisited) {
         getNode(o, node);
       }
-      $(node.getChildrenUL()).show();
+      $(node.getChildrenUL()).css({'display':'block'});
       if (node.isLast) {
         node.plus_img.src = node.relpath+"ftv2mlastnode.png";
       } else {
@@ -436,8 +442,22 @@ function showNode(o, node, index, hash)
   }
 }
 
+function removeToInsertLater(element) {
+  var parentNode = element.parentNode;
+  var nextSibling = element.nextSibling;
+  parentNode.removeChild(element);
+  return function() {
+    if (nextSibling) {
+      parentNode.insertBefore(element, nextSibling);
+    } else {
+      parentNode.appendChild(element);
+    }
+  };
+}
+
 function getNode(o, po)
 {
+  var insertFunction = removeToInsertLater(po.li);
   po.childrenVisited = true;
   var l = po.childrenData.length-1;
   for (var i in po.childrenData) {
@@ -445,6 +465,7 @@ function getNode(o, po)
     po.children[i] = newNode(o, po, nodeData[0], nodeData[1], nodeData[2],
       i==l);
   }
+  insertFunction();
 }
 
 function gotoNode(o,subIndex,root,hash,relpath)
@@ -548,7 +569,10 @@ function initNavTree(toroot,relpath)
     navSync.click(function(){ toggleSyncButton(relpath); });
   }
 
-  navTo(o,toroot,window.location.hash,relpath);
+  $(window).load(function(){
+    navTo(o,toroot,window.location.hash,relpath);
+    showRoot();
+  });
 
   $(window).bind('hashchange', function(){
      if (window.location.hash && window.location.hash.length>1){
@@ -571,7 +595,5 @@ function initNavTree(toroot,relpath)
        navTo(o,toroot,window.location.hash,relpath);
      }
   })
-
-  $(window).load(showRoot);
 }
 

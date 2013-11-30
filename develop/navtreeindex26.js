@@ -1,8 +1,5 @@
 var NAVTREEINDEX26 =
 {
-"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,101,1],
-"structFeel_1_1IntegrationDegree.html":[10,0,104],
-"structFeel_1_1JacobiDegree.html":[10,0,107],
 "structFeel_1_1MeshTraits.html":[10,0,134],
 "structFeel_1_1MeshTraits.html#a00ca8efb7b93c88b4af039c078b85837":[10,0,134,35],
 "structFeel_1_1MeshTraits.html#a047851c4b9e6475ea855a328d16ceda3":[10,0,134,25],

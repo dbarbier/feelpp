@@ -16,7 +16,6 @@ var classFeel_1_1Mesh0D =
     [ "super_points", "classFeel_1_1Mesh0D.html#a41e1bb982fc20dbabbada5d0deaa657e", null ],
     [ "super_visitable", "classFeel_1_1Mesh0D.html#a39d5a892c5652c4e6e31b29de01c3531", null ],
     [ "update_element_neighbor_type", "classFeel_1_1Mesh0D.html#ac4c36a4183437e9dac05630d60b6b868", null ],
-    [ "Mesh0D", "classFeel_1_1Mesh0D.html#ad4f8cd1c6ee8cf60cabd2ed54c4e7034", null ],
     [ "Mesh0D", "classFeel_1_1Mesh0D.html#a9135396d9a2a6df16253545cfb1828db", null ],
     [ "~Mesh0D", "classFeel_1_1Mesh0D.html#afc02bbc27ea262f34b9990ca45f16fc8", null ],
     [ "clear", "classFeel_1_1Mesh0D.html#ad26c9581bf3c450f081c66cc62be4339", null ],
@@ -29,7 +28,11 @@ var classFeel_1_1Mesh0D =
     [ "numPoints", "classFeel_1_1Mesh0D.html#a29db1b04336ceff375df80196de1a798", null ],
     [ "operator=", "classFeel_1_1Mesh0D.html#a7bbdd49eabf869993a852778f942043b", null ],
     [ "renumber", "classFeel_1_1Mesh0D.html#a35084da94d7c29956b374fd8ee55c7d3", null ],
+    [ "super", "classFeel_1_1Mesh0D.html#abec3f6bc4f852dc50ad37145bc0b8c14", null ],
+    [ "super_elements", "classFeel_1_1Mesh0D.html#ae1afac69b45f8fe6c56503faa170a0e6", null ],
+    [ "super_points", "classFeel_1_1Mesh0D.html#a18c88fd657c3156004a9c706f952288f", null ],
     [ "updateEntitiesCoDimensionOnePermutation", "classFeel_1_1Mesh0D.html#afb56bec36c44a84f73403c4a95d732ec", null ],
     [ "updateEntitiesCoDimensionTwo", "classFeel_1_1Mesh0D.html#a6965a1f1802c172c91df3ea5fd4b1963", null ],
-    [ "boost::serialization::access", "classFeel_1_1Mesh0D.html#ac98d07dd8f7b70e16ccb9a01abf56b9c", null ]
+    [ "boost::serialization::access", "classFeel_1_1Mesh0D.html#ac98d07dd8f7b70e16ccb9a01abf56b9c", null ],
+    [ "__pad0__", "classFeel_1_1Mesh0D.html#ae14611349ad1d0656ef28e7e0a046c43", null ]
 ];
