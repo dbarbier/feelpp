@@ -170,10 +170,10 @@ $(document).ready(function(){initNavTree('ginac_8hpp_source.html','');});
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">template</span>&lt;&gt; <span class="keyword">inline</span> std::vector&lt;symbol&gt; symbols&lt;2&gt;() { <span class="keywordflow">return</span> {symbol(<span class="stringliteral">&quot;x&quot;</span>),symbol(<span class="stringliteral">&quot;y&quot;</span>) };}</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">template</span>&lt;&gt; <span class="keyword">inline</span> std::vector&lt;symbol&gt; symbols&lt;3&gt;() { <span class="keywordflow">return</span> {symbol(<span class="stringliteral">&quot;x&quot;</span>),symbol(<span class="stringliteral">&quot;y&quot;</span>),symbol(<span class="stringliteral">&quot;z&quot;</span>) };}</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;std::vector&lt;symbol&gt; symbols( std::vector&lt;std::string&gt; <span class="keyword">const</span>&amp; s );</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">class </span>Symbols : <span class="keyword">public</span> std::vector&lt;symbol&gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">class </span>Symbols : <span class="keyword">public</span> std::vector&lt;symbol&gt;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; std::vector&lt;symbol&gt; symbols( std::vector&lt;std::string&gt; <span class="keyword">const</span>&amp; s );</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    Symbols():std::vector&lt;symbol&gt;(symbols({<span class="stringliteral">&quot;x&quot;</span>,<span class="stringliteral">&quot;y&quot;</span>,<span class="stringliteral">&quot;z&quot;</span>, <span class="stringliteral">&quot;t&quot;</span>})) {}</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    Symbols(std::initializer_list&lt;std::string&gt; s ):std::vector&lt;symbol&gt;(symbols(s)) {}</div>

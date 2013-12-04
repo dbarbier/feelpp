@@ -3,6 +3,7 @@ var searchData=
   ['object1',['object1',['../classFeel_1_1Example.html#a5d2f0606860ac97ed702fb6d263aa8b0',1,'Feel::Example']]],
   ['offline',['offline',['../classFeel_1_1CRB.html#a1f57b4d35d346b8fccd5c7fee678cbfe',1,'Feel::CRB::offline()'],['../classFeel_1_1CRBTrilinear.html#a37c92785286113f05cc2921c21ba5689',1,'Feel::CRBTrilinear::offline()'],['../classFeel_1_1CRBSCM.html#a13325907ae9808902c5f6c59b56c8cc1',1,'Feel::CRBSCM::offline()']]],
   ['offlineresidual',['offlineResidual',['../classFeel_1_1CRB.html#a8084a3cd7bc559a3d39dba3b89cf7a17',1,'Feel::CRB']]],
+  ['on_2ehpp',['on.hpp',['../on_8hpp.html',1,'']]],
   ['on_5fcontext_5ftype',['on_context_type',['../namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10a',1,'Feel']]],
   ['on_5felimination',['ON_ELIMINATION',['../namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10aaf2c420d247276b43791a9554713f838c',1,'Feel']]],
   ['on_5felimination_5fkeep_5fdiagonal',['ON_ELIMINATION_KEEP_DIAGONAL',['../namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10aac885f100d1a310c35efd57a5fe100c8e',1,'Feel']]],
@@ -47,8 +48,8 @@ var searchData=
   ['operatorlinear_3c_20spacetype_2c_20detailoplagp1_3a_3aspacetolagrangep1space_3c_20spacetype_20_3e_3a_3aimage_5fspace_5ftype_20_3e',['OperatorLinear&lt; SpaceType, detailOpLagP1::SpaceToLagrangeP1Space&lt; SpaceType &gt;::image_space_type &gt;',['../classFeel_1_1OperatorLinear.html',1,'Feel']]],
   ['operatorlinearfree',['OperatorLinearFree',['../classFeel_1_1OperatorLinearFree.html',1,'Feel']]],
   ['operatorlinearfree_2ehpp',['operatorlinearfree.hpp',['../operatorlinearfree_8hpp.html',1,'']]],
-  ['operatorlinearparametrized',['OperatorLinearParametrized',['../classFeel_1_1OperatorLinearParametrized.html#ad363f6ddff57f8a95d8d53701aed8e5f',1,'Feel::OperatorLinearParametrized::OperatorLinearParametrized()'],['../classFeel_1_1OperatorLinearParametrized.html#af95888b879c9a1a56c601ed59dd77f50',1,'Feel::OperatorLinearParametrized::OperatorLinearParametrized(OperatorLinearParametrized const &amp;olp, bool deep_copy=false)'],['../classFeel_1_1OperatorLinearParametrized.html#a438384db0099d6cc8ef79b07f60cb781',1,'Feel::OperatorLinearParametrized::OperatorLinearParametrized(domain_space_ptrtype domainSpace, dual_image_space_ptrtype dualImageSpace, backend_ptrtype backend)']]],
   ['operatorlinearparametrized',['OperatorLinearParametrized',['../classFeel_1_1OperatorLinearParametrized.html',1,'Feel']]],
+  ['operatorlinearparametrized',['OperatorLinearParametrized',['../classFeel_1_1OperatorLinearParametrized.html#ad363f6ddff57f8a95d8d53701aed8e5f',1,'Feel::OperatorLinearParametrized::OperatorLinearParametrized()'],['../classFeel_1_1OperatorLinearParametrized.html#af95888b879c9a1a56c601ed59dd77f50',1,'Feel::OperatorLinearParametrized::OperatorLinearParametrized(OperatorLinearParametrized const &amp;olp, bool deep_copy=false)'],['../classFeel_1_1OperatorLinearParametrized.html#a438384db0099d6cc8ef79b07f60cb781',1,'Feel::OperatorLinearParametrized::OperatorLinearParametrized(domain_space_ptrtype domainSpace, dual_image_space_ptrtype dualImageSpace, backend_ptrtype backend)']]],
   ['operatorlinearparametrized_2ehpp',['operatorlinearparametrized.hpp',['../operatorlinearparametrized_8hpp.html',1,'']]],
   ['operators_2ehpp',['operators.hpp',['../operators_8hpp.html',1,'']]],
   ['operators2_2ehpp',['operators2.hpp',['../operators2_8hpp.html',1,'']]],
@@ -79,7 +80,7 @@ var searchData=
   ['oseendefaults',['OseenDefaults',['../structFeel_1_1OseenDefaults.html',1,'Feel']]],
   ['othertext',['otherText',['../classFeel_1_1AboutData.html#ae7b5fbe549670955c664eee9be90fcb5',1,'Feel::AboutData']]],
   ['outdateglobalvalues',['outdateGlobalValues',['../classFeel_1_1VectorUblas.html#ab9aabfa9febab4b575cd720fc3121246',1,'Feel::VectorUblas']]],
-  ['output',['Output',['../classFeel_1_1Output.html',1,'Feel']]],
   ['output',['output',['../classFeel_1_1CRBModel.html#ac0f763536d40f99dbcf247f2c86a6047',1,'Feel::CRBModel::output()'],['../classFeel_1_1CRBModelTrilinear.html#a048a2e90ff79372050dcedd14fa42f8a',1,'Feel::CRBModelTrilinear::output()'],['../classConvectionCrb.html#aa471d19cf82ef467ca1b44c0ff330eaa',1,'ConvectionCrb::output()']]],
+  ['output',['Output',['../classFeel_1_1Output.html',1,'Feel']]],
   ['outputindex',['outputIndex',['../classFeel_1_1CRB.html#ad6faa151ef95521c94a277b41be2f3c7',1,'Feel::CRB']]]
 ];

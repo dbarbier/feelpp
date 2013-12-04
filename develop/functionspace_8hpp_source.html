@@ -6389,55 +6389,8 @@ $(document).ready(function(){initNavTree('functionspace_8hpp_source.html','');})
 <div class="line"><a name="l06703"></a><span class="lineno"> 6703</span>&#160;</div>
 <div class="line"><a name="l06704"></a><span class="lineno"> 6704</span>&#160;</div>
 <div class="line"><a name="l06705"></a><span class="lineno"> 6705</span>&#160;</div>
-<div class="line"><a name="l06706"></a><span class="lineno"> 6706</span>&#160;<span class="preprocessor">#if 0</span></div>
-<div class="line"><a name="l06707"></a><span class="lineno"> 6707</span>&#160;<span class="preprocessor"></span><span class="keyword">template</span>&lt;</div>
-<div class="line"><a name="l06708"></a><span class="lineno"> 6708</span>&#160;<span class="keyword">typename</span> A0,</div>
-<div class="line"><a name="l06709"></a><span class="lineno"> 6709</span>&#160;         <span class="keyword">typename</span> A1,</div>
-<div class="line"><a name="l06710"></a><span class="lineno"> 6710</span>&#160;         <span class="keyword">typename</span> A2,</div>
-<div class="line"><a name="l06711"></a><span class="lineno"> 6711</span>&#160;         <span class="keyword">typename</span> A3,</div>
-<div class="line"><a name="l06712"></a><span class="lineno"> 6712</span>&#160;         <span class="keyword">typename</span> A4,</div>
-<div class="line"><a name="l06713"></a><span class="lineno"> 6713</span>&#160;         <span class="keyword">typename</span> T,</div>
-<div class="line"><a name="l06714"></a><span class="lineno"> 6714</span>&#160;         <span class="keyword">typename</span> Cont&gt;</div>
-<div class="line"><a name="l06715"></a><span class="lineno"> 6715</span>&#160;<span class="keyword">struct </span>FSElement: <span class="keyword">public</span> <a class="code" href="classFeel_1_1FunctionSpace.html">Feel::FunctionSpace</a>&lt;A0,A1,A2,A3,A4&gt;::template Element&lt;T, Cont&gt;</div>
-<div class="line"><a name="l06716"></a><span class="lineno"> 6716</span>&#160;{</div>
-<div class="line"><a name="l06717"></a><span class="lineno"> 6717</span>&#160;};</div>
-<div class="line"><a name="l06718"></a><span class="lineno"> 6718</span>&#160;</div>
-<div class="line"><a name="l06719"></a><span class="lineno"> 6719</span>&#160;<span class="keyword">template</span>&lt;</div>
-<div class="line"><a name="l06720"></a><span class="lineno"> 6720</span>&#160;<span class="keyword">typename</span> A0,</div>
-<div class="line"><a name="l06721"></a><span class="lineno"> 6721</span>&#160;         <span class="keyword">typename</span> A1,</div>
-<div class="line"><a name="l06722"></a><span class="lineno"> 6722</span>&#160;         <span class="keyword">typename</span> A2,</div>
-<div class="line"><a name="l06723"></a><span class="lineno"> 6723</span>&#160;         <span class="keyword">typename</span> A3,</div>
-<div class="line"><a name="l06724"></a><span class="lineno"> 6724</span>&#160;         <span class="keyword">typename</span> A4&gt;</div>
-<div class="line"><a name="l06725"></a><span class="lineno"> 6725</span>&#160;<span class="comment">//struct version&lt; typename Feel::FunctionSpace&lt;A0,A1,A2,A3,A4&gt;::template Element&lt;double,Feel::VectorUblas&lt;double&gt; &gt; &gt;</span></div>
-<div class="line"><a name="l06726"></a><span class="lineno"> 6726</span>&#160;<span class="keyword">struct </span>version&lt; typename Feel::FunctionSpace&lt;A0,A1,A2,A3,A4&gt;::element_type &gt;</div>
-<div class="line"><a name="l06727"></a><span class="lineno"> 6727</span>&#160;{</div>
-<div class="line"><a name="l06728"></a><span class="lineno"> 6728</span>&#160;    <span class="comment">//typedef typename version&lt; typename Feel::FunctionSpace&lt;A0,A1,A2,A3,A4&gt;::template Element&lt;double,Feel::VectorUblas&lt;double&gt; &gt; &gt; version_type;</span></div>
-<div class="line"><a name="l06729"></a><span class="lineno"> 6729</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> version&lt; typename Feel::FunctionSpace&lt;A0,A1,A2,A3,A4&gt;::element_type &gt; version_type;</div>
-<div class="line"><a name="l06730"></a><span class="lineno"> 6730</span>&#160;    <span class="keyword">typedef</span> mpl::int_&lt;2&gt; type;</div>
-<div class="line"><a name="l06731"></a><span class="lineno"> 6731</span>&#160;    <span class="keyword">typedef</span> mpl::integral_c_tag tag;</div>
-<div class="line"><a name="l06732"></a><span class="lineno"> 6732</span>&#160;    BOOST_STATIC_CONSTANT( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, value = version_type::type::value );</div>
-<div class="line"><a name="l06733"></a><span class="lineno"> 6733</span>&#160;};</div>
-<div class="line"><a name="l06734"></a><span class="lineno"> 6734</span>&#160;</div>
-<div class="line"><a name="l06735"></a><span class="lineno"> 6735</span>&#160;<span class="preprocessor">#define FEELPP_REGISTER_ELEMENT( element_type )   \</span></div>
-<div class="line"><a name="l06736"></a><span class="lineno"> 6736</span>&#160;<span class="preprocessor">    namespace boost {                                                   \</span></div>
-<div class="line"><a name="l06737"></a><span class="lineno"> 6737</span>&#160;<span class="preprocessor">    namespace serialization {                                           \</span></div>
-<div class="line"><a name="l06738"></a><span class="lineno"> 6738</span>&#160;<span class="preprocessor">    template&lt;&gt;                                                          \</span></div>
-<div class="line"><a name="l06739"></a><span class="lineno"> 6739</span>&#160;<span class="preprocessor">    struct version&lt;element_type&gt;                                        \</span></div>
-<div class="line"><a name="l06740"></a><span class="lineno"> 6740</span>&#160;<span class="preprocessor">    {                                                                   \</span></div>
-<div class="line"><a name="l06741"></a><span class="lineno"> 6741</span>&#160;<span class="preprocessor">        typedef mpl::int_&lt;2&gt; type;                                      \</span></div>
-<div class="line"><a name="l06742"></a><span class="lineno"> 6742</span>&#160;<span class="preprocessor">        typedef mpl::integral_c_tag tag;                                \</span></div>
-<div class="line"><a name="l06743"></a><span class="lineno"> 6743</span>&#160;<span class="preprocessor">        BOOST_STATIC_CONSTANT(unsigned int, value = version::type::value); \</span></div>
-<div class="line"><a name="l06744"></a><span class="lineno"> 6744</span>&#160;<span class="preprocessor">    };                                                                  \</span></div>
-<div class="line"><a name="l06745"></a><span class="lineno"> 6745</span>&#160;<span class="preprocessor">    }                                                                   \</span></div>
-<div class="line"><a name="l06746"></a><span class="lineno"> 6746</span>&#160;<span class="preprocessor">    }</span></div>
-<div class="line"><a name="l06747"></a><span class="lineno"> 6747</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#</span></div>
-<div class="line"><a name="l06748"></a><span class="lineno"> 6748</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l06749"></a><span class="lineno"> 6749</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l06750"></a><span class="lineno"> 6750</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l06751"></a><span class="lineno"> 6751</span>&#160;</div>
-<div class="line"><a name="l06752"></a><span class="lineno"> 6752</span>&#160;</div>
-<div class="line"><a name="l06753"></a><span class="lineno"> 6753</span>&#160;</div>
-<div class="line"><a name="l06754"></a><span class="lineno"> 6754</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __FunctionSpace_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l06706"></a><span class="lineno"> 6706</span>&#160;</div>
+<div class="line"><a name="l06707"></a><span class="lineno"> 6707</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __FunctionSpace_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="dofcomposite_8hpp_html"><div class="ttname"><a href="dofcomposite_8hpp.html">dofcomposite.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1FunctionSpace_html_a536e15615750d176c1875faac3ecd29c"><div class="ttname"><a href="classFeel_1_1FunctionSpace.html#a536e15615750d176c1875faac3ecd29c">Feel::FunctionSpace::mesh</a></div><div class="ttdeci">mesh_ptrtype &amp; mesh()</div><div class="ttdef"><b>Definition:</b> functionspace.hpp:3791</div></div>
 <div class="ttc" id="namespaceFeel_html_ace44a7a9c428a5849b81de59532e4ef8"><div class="ttname"><a href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements</a></div><div class="ttdeci">elements_type const &amp; elements() const </div><div class="ttdef"><b>Definition:</b> elements.hpp:367</div></div>
