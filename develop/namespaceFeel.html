@@ -248,6 +248,18 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofComposite.html">DofComposite</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compositing of degree of freedom table.  <a href="classFeel_1_1DofComposite.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofFromBoundary.html">DofFromBoundary</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local <a class="el" href="classFeel_1_1Dof.html" title="class that represents a degree of freedom ">Dof</a> contribution from boundary dof.  <a href="classFeel_1_1DofFromBoundary.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofFromElement.html">DofFromElement</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">local dof contribution from an element  <a href="classFeel_1_1DofFromElement.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofFromMortar.html">DofFromMortar</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">local dof contribution from a mortar element  <a href="classFeel_1_1DofFromMortar.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofFromPeriodic.html">DofFromPeriodic</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">local contribution from periodic dof  <a href="classFeel_1_1DofFromPeriodic.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofTable.html">DofTable</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local-to-global Degree of Freedom table.  <a href="classFeel_1_1DofTable.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -785,7 +797,7 @@ typedef ReinitializerFMS<br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1FunctionSpace.html">spaceP1LS_3d_type</a>, <br class="typebreak"/>
 itRange_3d_LS, <a class="el" href="classFeel_1_1NoPeriodicity.html">NoPeriodicity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fms_3d_type</b></td></tr>
 <tr class="separator:ab2eaec341655b0e859ad8650484bc299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48b9c5dfd7e140d2380a6493dadc01a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48b9c5dfd7e140d2380a6493dadc01a5"></a>
+<tr class="memitem:a75661fa9dd649697b117c6abf2bdb0b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75661fa9dd649697b117c6abf2bdb0b7"></a>
 typedef parameter::parameters<br class="typebreak"/>
 &lt; parameter::required<br class="typebreak"/>
 &lt; tag::mesh_type, <br class="typebreak"/>
@@ -802,10 +814,15 @@ boost::is_base_and_derived<br class="typebreak"/>
 , boost::is_floating_point&lt; _ &gt;<br class="typebreak"/>
  &gt;, parameter::optional<br class="typebreak"/>
 &lt; parameter::deduced<br class="typebreak"/>
+&lt; tag::mortar_type &gt;<br class="typebreak"/>
+, boost::is_base_and_derived<br class="typebreak"/>
+&lt; detail::mortar_base, _ &gt;<br class="typebreak"/>
+ &gt;, parameter::optional<br class="typebreak"/>
+&lt; parameter::deduced<br class="typebreak"/>
 &lt; tag::periodicity_type &gt;<br class="typebreak"/>
 , boost::is_base_and_derived<br class="typebreak"/>
-&lt; detail::periodicity_base, _ &gt; &gt;&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>functionspace_signature</b></td></tr>
-<tr class="separator:a48b9c5dfd7e140d2380a6493dadc01a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+&lt; detail::periodicity_base, _ &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>functionspace_signature</b></td></tr>
+<tr class="separator:a75661fa9dd649697b117c6abf2bdb0b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74db81de44a0fd14a2cff6dd560c79e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74db81de44a0fd14a2cff6dd560c79e9"></a>
 typedef <a class="el" href="classFeel_1_1GeoEntity.html">GeoEntity</a>&lt; <a class="el" href="classFeel_1_1Simplex.html">Simplex</a>&lt; 0, 1 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GeoPoint</b></td></tr>
 <tr class="separator:a74db81de44a0fd14a2cff6dd560c79e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1885,6 +1902,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>backtrace</b> 
 <tr class="separator:a96c2617b2514cbf6a8aaa6ea98893324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42f2fd19e68d4f42ca91774b81763086"><td class="memItemLeft" align="right" valign="top">po::options_description&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a42f2fd19e68d4f42ca91774b81763086">bdf_options</a> (std::string const &amp;prefix)</td></tr>
 <tr class="separator:a42f2fd19e68d4f42ca91774b81763086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a3def9e8dc7a90d0d4b7fb430eb3db0"><td class="memTemplParams" colspan="2"><a class="anchor" id="a8a3def9e8dc7a90d0d4b7fb430eb3db0"></a>
+template&lt;size_t S, class ITERATOR &gt; </td></tr>
+<tr class="memitem:a8a3def9e8dc7a90d0d4b7fb430eb3db0"><td class="memTemplItemLeft" align="right" valign="top">ITERATOR&#160;</td><td class="memTemplItemRight" valign="bottom"><b>begin</b> (boost::tuple&lt; mpl::size_t&lt; S &gt;, ITERATOR, ITERATOR &gt; &amp;range)</td></tr>
+<tr class="separator:a8a3def9e8dc7a90d0d4b7fb430eb3db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a617abf3db9d34669e12b1601debfd500"><td class="memTemplParams" colspan="2"><a class="anchor" id="a617abf3db9d34669e12b1601debfd500"></a>
+template&lt;class ITERATOR &gt; </td></tr>
+<tr class="memitem:a617abf3db9d34669e12b1601debfd500"><td class="memTemplItemLeft" align="right" valign="top">ITERATOR&#160;</td><td class="memTemplItemRight" valign="bottom"><b>begin</b> (std::pair&lt; ITERATOR, ITERATOR &gt; &amp;range)</td></tr>
+<tr class="separator:a617abf3db9d34669e12b1601debfd500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0269c708b09e8c351ed875ebb158032f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0269c708b09e8c351ed875ebb158032f"></a>
 po::options_description&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a0269c708b09e8c351ed875ebb158032f">benchmark_options</a> (std::string const &amp;prefix=&quot;&quot;)</td></tr>
 <tr class="memdesc:a0269c708b09e8c351ed875ebb158032f"><td class="mdescLeft">&#160;</td><td class="mdescRight">add benchmark options to feel++ applications <br/></td></tr>
@@ -2163,6 +2188,14 @@ std::list&lt; ElementType &gt;<br class="typebreak"/>
 typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a>&lt; MeshType &gt;<br class="typebreak"/>
 ::element_const_iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a39073cc1999197bf9963bd5bdc86454a">elements</a> (MeshType const &amp;mesh)</td></tr>
 <tr class="separator:a39073cc1999197bf9963bd5bdc86454a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbea88a58f2837278fc9d1760a73da5d"><td class="memTemplParams" colspan="2"><a class="anchor" id="acbea88a58f2837278fc9d1760a73da5d"></a>
+template&lt;size_t S, class ITERATOR &gt; </td></tr>
+<tr class="memitem:acbea88a58f2837278fc9d1760a73da5d"><td class="memTemplItemLeft" align="right" valign="top">ITERATOR&#160;</td><td class="memTemplItemRight" valign="bottom"><b>end</b> (boost::tuple&lt; mpl::size_t&lt; S &gt;, ITERATOR, ITERATOR &gt; &amp;range)</td></tr>
+<tr class="separator:acbea88a58f2837278fc9d1760a73da5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf9436b776739909966e92e09369d0ac"><td class="memTemplParams" colspan="2"><a class="anchor" id="abf9436b776739909966e92e09369d0ac"></a>
+template&lt;class ITERATOR &gt; </td></tr>
+<tr class="memitem:abf9436b776739909966e92e09369d0ac"><td class="memTemplItemLeft" align="right" valign="top">ITERATOR&#160;</td><td class="memTemplItemRight" valign="bottom"><b>end</b> (std::pair&lt; ITERATOR, ITERATOR &gt; &amp;range)</td></tr>
+<tr class="separator:abf9436b776739909966e92e09369d0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6955566da6efdd3349d1aabe8ab2f22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6955566da6efdd3349d1aabe8ab2f22"></a>
 NdebugStream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>endl</b> (NdebugStream &amp;s)</td></tr>
 <tr class="separator:ab6955566da6efdd3349d1aabe8ab2f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2740,6 +2773,14 @@ template&lt;class T &gt; </td></tr>
 template&lt;class T &gt; </td></tr>
 <tr class="memitem:ab6f341c9dd7d51e10d8e7b22ebc48f19"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Min</b> (const T &amp;a, const T &amp;b, const T &amp;c)</td></tr>
 <tr class="separator:ab6f341c9dd7d51e10d8e7b22ebc48f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a007548b9c7278d66ac8485695e47d50e"><td class="memTemplParams" colspan="2">template&lt;int Order, typename MeshType &gt; </td></tr>
+<tr class="memitem:a007548b9c7278d66ac8485695e47d50e"><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt; MeshType, <br class="typebreak"/>
+bases&lt; Lagrange&lt; Order, <a class="el" href="structFeel_1_1Scalar.html">Scalar</a>, <br class="typebreak"/>
+<a class="el" href="classFeel_1_1Continuous.html">Continuous</a> &gt; &gt;, Periodicity<br class="typebreak"/>
+&lt; <a class="el" href="classFeel_1_1NoPeriodicity.html">NoPeriodicity</a> &gt;, mortars<br class="typebreak"/>
+&lt; <a class="el" href="classFeel_1_1Mortar.html">Mortar</a> &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a007548b9c7278d66ac8485695e47d50e">Moch</a> (boost::shared_ptr&lt; MeshType &gt; mesh)</td></tr>
+<tr class="separator:a007548b9c7278d66ac8485695e47d50e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05fff75b97c87726fe490fd559b194ff"><td class="memTemplParams" colspan="2"><a class="anchor" id="a05fff75b97c87726fe490fd559b194ff"></a>
 template&lt;typename ElementRange , typename eltType , typename ExprType , typename vectorType &gt; </td></tr>
 <tr class="memitem:a05fff75b97c87726fe490fd559b194ff"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>modifVec</b> (ElementRange const &amp;__r, eltType &amp;u, vectorType &amp;UnVec, ExprType expr)</td></tr>
@@ -3190,9 +3231,6 @@ std::vector&lt; symbol &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <tr class="memitem:a61b9bdc77e8e0b9b4027561371ae8e5c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61b9bdc77e8e0b9b4027561371ae8e5c"></a>
 std::vector&lt; symbol &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>symbols</b> (std::vector&lt; std::string &gt; l)</td></tr>
 <tr class="separator:a61b9bdc77e8e0b9b4027561371ae8e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e81ea2307b963928e185631eedaea7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e81ea2307b963928e185631eedaea7f"></a>
-std::vector&lt; GiNaC::symbol &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>symbols</b> (std::vector&lt; std::string &gt; const &amp;s)</td></tr>
-<tr class="separator:a9e81ea2307b963928e185631eedaea7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01ff455ab0392ec62ad9f1193408e383"><td class="memTemplParams" colspan="2"><a class="anchor" id="a01ff455ab0392ec62ad9f1193408e383"></a>
 template&lt;&gt; </td></tr>
 <tr class="memitem:a01ff455ab0392ec62ad9f1193408e383"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; symbol &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>symbols&lt; 1 &gt;</b> ()</td></tr>
@@ -5745,8 +5783,6 @@ template&lt;typename MeshType &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the range of iterator <code></code>(begin,end) over the internal element on processor <code>p</code> </dd></dl>
 
-<p>References <a class="el" href="namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87">invalid_uint16_type_value</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a6c53147b25bf664bdf6bec2b30b56af7"></a>
@@ -6265,6 +6301,33 @@ template&lt;typename MeshType &gt; </div>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the command lines options of the material library </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a007548b9c7278d66ac8485695e47d50e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int Order, typename MeshType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::shared_ptr&lt;<a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt;MeshType,bases&lt;Lagrange&lt;Order,<a class="el" href="structFeel_1_1Scalar.html">Scalar</a>,<a class="el" href="classFeel_1_1Continuous.html">Continuous</a>&gt; &gt;,Periodicity &lt;<a class="el" href="classFeel_1_1NoPeriodicity.html">NoPeriodicity</a>&gt;, mortars&lt;<a class="el" href="classFeel_1_1Mortar.html">Mortar</a>&gt; &gt; &gt; Feel::Moch </td>
+          <td>(</td>
+          <td class="paramtype">boost::shared_ptr&lt; MeshType &gt;&#160;</td>
+          <td class="paramname"><em>mesh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>build a function space of continuous function which are piecewise polynomial of degree (total or in each variable) less than k. </p>
 
 </div>
 </div>

@@ -105,37 +105,26 @@ $(document).ready(function(){initNavTree('mortar_8cpp.html','');});
 <div class="title">mortar.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="options_8hpp_source.html">feel/options.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="backend_8hpp_source.html">feel/feelalg/backend.hpp</a>&gt;</code><br/>
-<code>#include &lt;feel/feeldiscr/functionspace.hpp&gt;</code><br/>
-<code>#include &lt;<a class="el" href="region_8hpp_source.html">feel/feeldiscr/region.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="gmsh_8hpp_source.html">feel/feelfilters/gmsh.hpp</a>&gt;</code><br/>
-<code>#include &lt;feel/feelfilters/exporter.hpp&gt;</code><br/>
-<code>#include &lt;<a class="el" href="vf_8hpp_source.html">feel/feelvf/vf.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="geotool_8hpp_source.html">feel/feelfilters/geotool.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="matrixblock_8hpp_source.html">feel/feelalg/matrixblock.hpp</a>&gt;</code><br/>
-<code>#include &lt;boost/assign/list_of.hpp&gt;</code><br/>
-<code>#include &lt;boost/assign/std/vector.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &lt;feel/feel.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="tic_8hpp_source.html">feel/feeltiming/tic.hpp</a>&gt;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMortarLaplacian.html">MortarLaplacian&lt; Dim, Order1, Order2 &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMortarProd.html">MortarProd&lt; Dim, Order1, Order2 &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mortar_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95829b0d73b30dbd7bad1dbcea1c35e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFeel_1_1AboutData.html">AboutData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mortar_8cpp.html#a95829b0d73b30dbd7bad1dbcea1c35e7">makeAbout</a> ()</td></tr>
-<tr class="separator:a95829b0d73b30dbd7bad1dbcea1c35e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad26dd8d67d28566352dc110f380997cd"><td class="memItemLeft" align="right" valign="top">po::options_description&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mortar_8cpp.html#ad26dd8d67d28566352dc110f380997cd">makeOptions</a> ()</td></tr>
 <tr class="separator:ad26dd8d67d28566352dc110f380997cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Christophe Prud'homme <a href="#" onclick="location.href='mai'+'lto:'+'chr'+'is'+'top'+'he'+'.pr'+'ud'+'hom'+'me'+'@fe'+'el'+'pp.'+'or'+'g'; return false;">chris<span style="display: none;">.nosp@m.</span>toph<span style="display: none;">.nosp@m.</span>e.pru<span style="display: none;">.nosp@m.</span>dhom<span style="display: none;">.nosp@m.</span>me@fe<span style="display: none;">.nosp@m.</span>elpp<span style="display: none;">.nosp@m.</span>.org</a> </dd>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Christophe Prud'homme <a href="#" onclick="location.href='mai'+'lto:'+'chr'+'is'+'top'+'he'+'.pr'+'ud'+'hom'+'me'+'@uj'+'f-'+'gre'+'no'+'ble'+'.f'+'r'; return false;">chris<span style="display: none;">.nosp@m.</span>toph<span style="display: none;">.nosp@m.</span>e.pru<span style="display: none;">.nosp@m.</span>dhom<span style="display: none;">.nosp@m.</span>me@uj<span style="display: none;">.nosp@m.</span>f-gr<span style="display: none;">.nosp@m.</span>enobl<span style="display: none;">.nosp@m.</span>e.fr</a> </dd>
 <dd>
 Abdoulaye Samake <a href="#" onclick="location.href='mai'+'lto:'+'abd'+'ou'+'lay'+'e.'+'sam'+'ak'+'e@i'+'ma'+'g.f'+'r'; return false;">abdou<span style="display: none;">.nosp@m.</span>laye<span style="display: none;">.nosp@m.</span>.sama<span style="display: none;">.nosp@m.</span>ke@i<span style="display: none;">.nosp@m.</span>mag.f<span style="display: none;">.nosp@m.</span>r</a> </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2011-08-24 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2012-04-25 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
 <div class="memitem">
@@ -162,33 +151,7 @@ Abdoulaye Samake <a href="#" onclick="location.href='mai'+'lto:'+'abd'+'ou'+'lay
 </div><div class="memdoc">
 <p>main function: entry point of the program </p>
 
-<p>References <a class="el" href="classFeel_1_1Application.html#a3a665c340ba4df177090b4d78c1d9ded">Feel::Application::add()</a>, <a class="el" href="namespaceFeel.html#a8a62458bf86cf4e152859096caec59c1">Feel::makeAbout()</a>, and <a class="el" href="namespaceFeel.html#a846e3404cb41fc1eb5bcd4b2db85f687">Feel::makeOptions()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a95829b0d73b30dbd7bad1dbcea1c35e7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classFeel_1_1AboutData.html">AboutData</a> makeAbout </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>some data about the application. </dd></dl>
-
-<p>References <a class="el" href="classFeel_1_1AboutData.html#a0a791e9093004aec3fc6c0beafe52391">Feel::AboutData::addAuthor()</a>.</p>
+<p>References <a class="el" href="classFeel_1_1Application.html#a3a665c340ba4df177090b4d78c1d9ded">Feel::Application::add()</a>, <a class="el" href="namespaceFeel.html#a846e3404cb41fc1eb5bcd4b2db85f687">Feel::makeOptions()</a>, <a class="el" href="classFeel_1_1Application.html#a7ea7f307aaafa0a0bd666c1c5d43410b">Feel::Application::optionsDescription()</a>, <a class="el" href="classFeel_1_1Application.html#a0642acdfe3fdb86f2e6b4558c60af1de">Feel::Application::run()</a>, and <a class="el" href="classFeel_1_1Application.html#a6d636004b73027e9dc226d7ec9e9d89c">Feel::Application::vm()</a>.</p>
 
 </div>
 </div>

@@ -12,6 +12,7 @@ var classFeel_1_1fem_1_1Lagrange =
     [ "polyset_type", "classFeel_1_1fem_1_1Lagrange.html#a39c2a84878f6b91b976603163950ed74", null ],
     [ "primal_space_type", "classFeel_1_1fem_1_1Lagrange.html#a916e6dde9d454bb91c361475b5616c93", null ],
     [ "reference_convex_type", "classFeel_1_1fem_1_1Lagrange.html#ab6c5cf429f02d56efe96f237637d4562", null ],
+    [ "this_type", "classFeel_1_1fem_1_1Lagrange.html#a021fdd223c88d562862dcaa170a2f6d8", null ],
     [ "value_type", "classFeel_1_1fem_1_1Lagrange.html#a698aecdd635e9fddaf3f8762192559b2", null ],
     [ "Lagrange", "classFeel_1_1fem_1_1Lagrange.html#ac9a67cf9d9bf379663980826f3c4f78a", null ],
     [ "~Lagrange", "classFeel_1_1fem_1_1Lagrange.html#af67b4859004c28ede489312482fdffe9", null ],

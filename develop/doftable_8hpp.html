@@ -100,7 +100,8 @@ $(document).ready(function(){initNavTree('doftable_8hpp.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">doftable.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -118,23 +119,27 @@ $(document).ready(function(){initNavTree('doftable_8hpp.html','');});
 <code>#include &lt;boost/fusion/algorithm/iteration/accumulate.hpp&gt;</code><br/>
 <code>#include &lt;boost/bimap.hpp&gt;</code><br/>
 <code>#include &lt;boost/bimap/support/lambda.hpp&gt;</code><br/>
-<code>#include &lt;boost/bimap/unordered_set_of.hpp&gt;</code><br/>
-<code>#include &lt;boost/bimap/multiset_of.hpp&gt;</code><br/>
 <code>#include &lt;boost/bimap/set_of.hpp&gt;</code><br/>
+<code>#include &lt;boost/bimap/multiset_of.hpp&gt;</code><br/>
 <code>#include &lt;Eigen/Core&gt;</code><br/>
 <code>#include &lt;Eigen/StdVector&gt;</code><br/>
 <code>#include &lt;feel/feelcore/feel.hpp&gt;</code><br/>
 <code>#include &lt;<a class="el" href="filters_8hpp_source.html">feel/feelmesh/filters.hpp</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="glas_8hpp_source.html">feel/feelalg/glas.hpp</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="mapped_8hpp_source.html">feel/feelpoly/mapped.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="isp0continuous_8hpp_source.html">feel/feelpoly/isp0continuous.hpp</a>&gt;</code><br/>
 <code>#include &lt;feel/feelalg/datamap.hpp&gt;</code><br/>
 <code>#include &lt;<a class="el" href="dof_8hpp_source.html">feel/feeldiscr/dof.hpp</a>&gt;</code><br/>
+<code>#include &lt;feel/feeldiscr/doffromelement.hpp&gt;</code><br/>
+<code>#include &lt;feel/feeldiscr/doffrommortar.hpp&gt;</code><br/>
+<code>#include &lt;feel/feeldiscr/doffromboundary.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="doffromperiodic_8hpp_source.html">feel/feeldiscr/doffromperiodic.hpp</a>&gt;</code><br/>
 </div>
 <p><a href="doftable_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofTable.html">Feel::DofTable&lt; MeshType, FEType, PeriodicityType &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofTable.html">Feel::DofTable&lt; MeshType, FEType, PeriodicityType, MortarType &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local-to-global Degree of Freedom table.  <a href="classFeel_1_1DofTable.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -143,6 +148,17 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceFeel"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html">Feel</a></td></tr>
 <tr class="memdesc:namespaceFeel"><td class="mdescLeft">&#160;</td><td class="mdescRight">[marker1] <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a617abf3db9d34669e12b1601debfd500"><td class="memTemplParams" colspan="2"><a class="anchor" id="a617abf3db9d34669e12b1601debfd500"></a>
+template&lt;class ITERATOR &gt; </td></tr>
+<tr class="memitem:a617abf3db9d34669e12b1601debfd500"><td class="memTemplItemLeft" align="right" valign="top">ITERATOR&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Feel::begin</b> (std::pair&lt; ITERATOR, ITERATOR &gt; &amp;range)</td></tr>
+<tr class="separator:a617abf3db9d34669e12b1601debfd500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf9436b776739909966e92e09369d0ac"><td class="memTemplParams" colspan="2"><a class="anchor" id="abf9436b776739909966e92e09369d0ac"></a>
+template&lt;class ITERATOR &gt; </td></tr>
+<tr class="memitem:abf9436b776739909966e92e09369d0ac"><td class="memTemplItemLeft" align="right" valign="top">ITERATOR&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Feel::end</b> (std::pair&lt; ITERATOR, ITERATOR &gt; &amp;range)</td></tr>
+<tr class="separator:abf9436b776739909966e92e09369d0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Christophe Prud'homme </dd></dl>

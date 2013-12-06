@@ -2,6 +2,7 @@ var NAVTREE =
 [
   [ "Feel++", "index.html", [
     [ "Introduction", "index.html", null ],
+    [ "Eigenvalue Problems", "Eigen.html", null ],
     [ "Credits", "md_Credits.html", null ],
     [ "Mathematical Concepts and Notations", "Notations.html", [
       [ "Polynomial Library", "Notations.html#PolynomialNotations", [
@@ -15,12 +16,10 @@ var NAVTREE =
       [ "Mesh Notations", "Notations.html#MeshNotations", null ]
     ] ],
     [ "ChangeLog", "ChangeLog.html", [
-      [ "Feel++ Release 0.96.0", "ChangeLog.html#feelpp0960", [
+      [ "Feel++ Release 0.95.0", "ChangeLog.html#feelpp0950", [
         [ "Changes", "ChangeLog.html#changes0960", null ],
         [ "Features", "ChangeLog.html#features0960", null ],
-        [ "Noteworthy Issues", "ChangeLog.html#issues0960", null ]
-      ] ],
-      [ "Feel++ Release 0.95.0", "ChangeLog.html#feelpp0950", [
+        [ "Noteworthy Issues", "ChangeLog.html#issues0960", null ],
         [ "Changes", "ChangeLog.html#changes0950", null ],
         [ "Features", "ChangeLog.html#features0950", null ],
         [ "Noteworthy Issues", "ChangeLog.html#issues0950", null ]
@@ -52,32 +51,33 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"Spaces.html",
-"classFeel_1_1AdvReact.html#a433cdc1927355d6ff64aa6eecafd132e",
-"classFeel_1_1Backend.html#ad66bbc3dbf94fd9949183f27e8728239",
-"classFeel_1_1CRB.html#a9ce529320a29a47268d6696f9e739b4d",
-"classFeel_1_1CRBModel.html#ae1c64ea134a6ee99d6376d6f8967e534",
-"classFeel_1_1CRBTrilinear.html#aba31e0b5101e550f051d9dcad7b60067",
-"classFeel_1_1DofTable.html#a3ad84c0e7b38647ad9df1ea61b244a1b",
-"classFeel_1_1ErrorBase.html#a9f77b2bf51aa79ace070c1f06d3a8f8b",
-"classFeel_1_1FilterFromVtk.html#a5743c166430c3d3fda9d0763429c7c3d",
-"classFeel_1_1GeoEntity.html#a52c8d94897021f05c1da46924d4c079c",
-"classFeel_1_1GeoND.html#a287928da029990ae66a18705f52adc71",
-"classFeel_1_1Ground.html#a57a98c6123413ecf85ca5537466bf3bb",
-"classFeel_1_1Material.html#a409eed8d16e866c8dbc10477c5e701a5",
-"classFeel_1_1MatrixSparse.html#abae720bae046bbf121a385f7ce529a21",
-"classFeel_1_1Mesh1D.html#a0d3699ecd60bcd6d4ccf7f2977a33320",
-"classFeel_1_1Operator.html#a3eaa25cce65d6315b574453b5ea3af3c",
-"classFeel_1_1OpusApp.html#a0c94f4110bdae1e891ea760edbaecbd3",
-"classFeel_1_1PointSetQuadrature.html#a6d57c06851b2542daebcee910ec5fecf",
-"classFeel_1_1ReducedBasisSpace.html#a06f267726e8adacd5b6289b4b9aa6b27",
-"classFeel_1_1SolverEigen.html#ae607d5a42a4d9d6323409f0ebf8acc61",
-"classFeel_1_1Sphere.html#a4fc4888aad553a8131b740487ab69335",
-"classFeel_1_1TimeSet.html#a7a41dd012ca027173774a22674857cc6",
-"classFeel_1_1VectorEigen.html#a1087ecbe111b2a4ad9c15248d3954e32",
-"classFeel_1_1dyna_1_1Jacobi.html#a4da6a0fe9e870cd25d2a1a69b6241604",
-"classIMSimplex.html#a35acf8b829d7820a019619a02e8320b8",
-"structFeel_1_1MeshTraits.html"
+"SolidMechanics.html",
+"classFeel_1_1AdvReact.html#a271840226d0a078160173315cab8fe88",
+"classFeel_1_1Backend.html#ad60108577ae6d3e27ea67a335561cbd4",
+"classFeel_1_1CRB.html#a9be36746d6c084d07e2b33fb6347b054",
+"classFeel_1_1CRBModel.html#ae12232710f52943b3b4bd8b95ebbcc46",
+"classFeel_1_1CRBTrilinear.html#ab81682646852308bdc9a25738e5bb640",
+"classFeel_1_1DofFromMortar.html#ab7f988857c432f58f4b6ac41d042f6dc",
+"classFeel_1_1EIM.html#aefb3880425edf1529bd04ec730729225",
+"classFeel_1_1ExporterGnuplot.html#a5c3132ff5e3f49c42169ac996516b28ba666e2a0e43b4d2049d1675cb801e38cc",
+"classFeel_1_1FunctionSpaceBase.html",
+"classFeel_1_1GeoMap_1_1Context.html#a8fda01381ddca155e84bd0da7a6d0904",
+"classFeel_1_1GraphCSR.html#a00ecd2de51ec84cfbfa6936f10b9b908",
+"classFeel_1_1Laplacian.html#a84d58e346321e4a14742592c4c48fd8b",
+"classFeel_1_1MatrixShellSparse.html#afa522e98c337dcce567aa17435f1ba8b",
+"classFeel_1_1Mesh.html#ad0927c7653a2bde83cd88bf9696a19cf",
+"classFeel_1_1MeshBase.html#a87e08db85fd4469f5d759c88cfb158a0",
+"classFeel_1_1OperatorLinearParametrized.html#a0643dfa95c30184acd6766943e72ddd7",
+"classFeel_1_1PointSet.html#ab13f7c9034cf7f7698e891541ce4b68f",
+"classFeel_1_1PreconditionerPetsc.html#af8eb28cc24617536b7826efd0b76ee6b",
+"classFeel_1_1SolverConstrained.html#aa431c2410a8dbc9381b2c72743ba1d39",
+"classFeel_1_1SolverUnconstrained.html",
+"classFeel_1_1ThermalFin.html#a3760922bee83591c3719945856531ab0",
+"classFeel_1_1Vector.html#a7d24e4af5e723073589f4257ab178db8",
+"classFeel_1_1core__data.html",
+"classFeel_1_1problem.html#a756c2f8039030ba45bbafc7ebaa3b188",
+"structFeel_1_1BFGSInvHessian.html",
+"structFeel_1_1problem_1_1value.html#a7b69de998913e01e1135fd417979bf2a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

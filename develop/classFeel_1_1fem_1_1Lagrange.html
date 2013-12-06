@@ -209,6 +209,11 @@ typedef ContinuityType&#160;</td><td class="memItemRight" valign="bottom"><b>con
 <tr class="separator:a90b9e6426496ab3ff8e0a43f7ba6e979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39c2a84878f6b91b976603163950ed74"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classFeel_1_1FiniteElement.html#a652f9642a297902506ec9a7adee202cc">super::polyset_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1fem_1_1Lagrange.html#a39c2a84878f6b91b976603163950ed74">polyset_type</a></td></tr>
 <tr class="separator:a39c2a84878f6b91b976603163950ed74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a021fdd223c88d562862dcaa170a2f6d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a021fdd223c88d562862dcaa170a2f6d8"></a>
+typedef <a class="el" href="classFeel_1_1fem_1_1Lagrange.html">Lagrange</a>&lt; N, RealDim, <br class="typebreak"/>
+O, PolySetType, ContinuityType, <br class="typebreak"/>
+T, <a class="el" href="classFeel_1_1Convex.html">Convex</a>, Pts, TheTAG &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>this_type</b></td></tr>
+<tr class="separator:a021fdd223c88d562862dcaa170a2f6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa57fdda42228a53400b6a0656bcf392f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa57fdda42228a53400b6a0656bcf392f"></a>
 typedef <a class="el" href="classFeel_1_1fem_1_1Lagrange.html">Lagrange</a>&lt; N, RealDim, <br class="typebreak"/>
 O, <a class="el" href="structFeel_1_1Scalar.html">Scalar</a>, continuity_type, T, <br class="typebreak"/>
@@ -297,7 +302,8 @@ static const uint16_type&#160;</td><td class="memItemRight" valign="bottom"><b>n
 <tr class="memitem:adf9b32720be3f7a146a7550c03660d51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf9b32720be3f7a146a7550c03660d51"></a>
 static const uint16_type&#160;</td><td class="memItemRight" valign="bottom"><b>nbPtsPerVolume</b> = reference_convex_type::nbPtsPerVolume</td></tr>
 <tr class="separator:adf9b32720be3f7a146a7550c03660d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13b4105e5874ae729584630d9e232b3b"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLagrangeP0Continuous</b></td></tr>
+<tr class="memitem:a13b4105e5874ae729584630d9e232b3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13b4105e5874ae729584630d9e232b3b"></a>
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLagrangeP0Continuous</b> = isP0Continuous&lt;<a class="el" href="classFeel_1_1fem_1_1Lagrange.html">this_type</a>&gt;::result</td></tr>
 <tr class="separator:a13b4105e5874ae729584630d9e232b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
@@ -369,31 +375,6 @@ template&lt;uint16_type N, uint16_type RealDim, uint16_type O, template&lt; uint
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the reference convex associated with the lagrange polynomials </dd></dl>
 
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a13b4105e5874ae729584630d9e232b3b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;uint16_type N, uint16_type RealDim, uint16_type O, template&lt; uint16_type Dim &gt; class PolySetType, typename ContinuityType  = Continuous, typename T  = double, template&lt; uint16_type, uint16_type, uint16_type &gt; class Convex = Simplex, template&lt; class, uint16_type, class &gt; class Pts = PointSetEquiSpaced, uint16_type TheTAG = 0&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const bool <a class="el" href="classFeel_1_1fem_1_1Lagrange.html">Feel::fem::Lagrange</a>&lt; N, RealDim, O, PolySetType, ContinuityType, T, <a class="el" href="classFeel_1_1Convex.html">Convex</a>, Pts, TheTAG &gt;::isLagrangeP0Continuous</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= mpl::and_&lt; boost::is_same&lt;mpl::int_&lt;nOrder&gt;,mpl::int_&lt;0&gt; &gt;,</div>
-<div class="line">                                                          boost::is_same&lt;continuity_type, Continuous &gt; &gt;::type::value</div>
-</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

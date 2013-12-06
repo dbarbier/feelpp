@@ -8,7 +8,7 @@ var annotated =
     [ "Laplacian", "classLaplacian.html", "classLaplacian" ],
     [ "Laplacian_parabolic", "classLaplacian__parabolic.html", "classLaplacian__parabolic" ],
     [ "LShape", "classLShape.html", "classLShape" ],
-    [ "MortarLaplacian", "classMortarLaplacian.html", "classMortarLaplacian" ],
+    [ "MortarProd", "classMortarProd.html", "classMortarProd" ],
     [ "ResidualEstimator", "classResidualEstimator.html", "classResidualEstimator" ],
     [ "steady_edp", "structsteady__edp.html", "structsteady__edp" ],
     [ "ThreeFieldsLaplacian", "classThreeFieldsLaplacian.html", "classThreeFieldsLaplacian" ],

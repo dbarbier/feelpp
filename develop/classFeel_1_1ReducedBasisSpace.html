@@ -358,6 +358,11 @@ typedef mpl::transform<br class="typebreak"/>
 typedef parameter::binding<br class="typebreak"/>
 &lt; args, tag::mesh_type &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>meshes_list</b></td></tr>
 <tr class="separator:a278d06825b8aece5bf2127afd46d9004 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d4add8c82e256b75a13fd60da0cab9d inherit pub_types_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d4add8c82e256b75a13fd60da0cab9d"></a>
+typedef parameter::binding<br class="typebreak"/>
+&lt; args, tag::mortar_type, <br class="typebreak"/>
+mortars&lt; NoMortar &gt; &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>mortar_list</b></td></tr>
+<tr class="separator:a9d4add8c82e256b75a13fd60da0cab9d inherit pub_types_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a326bf66e29a535f936d54820f569ccea inherit pub_types_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a326bf66e29a535f936d54820f569ccea"></a>
 typedef parameter::binding<br class="typebreak"/>
 &lt; args, tag::periodicity_type, <br class="typebreak"/>
@@ -388,12 +393,13 @@ typedef boost::shared_ptr<br class="typebreak"/>
 typedef boost::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1FunctionSpace.html">functionspace_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pointer_type</b></td></tr>
 <tr class="separator:ae2d80d2ec15ccf0e1944c8c2d32bec60 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc307b9f0a01c8fd2ef081564ae685f1 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc307b9f0a01c8fd2ef081564ae685f1"></a>
+<tr class="memitem:abcff14ac189b07aac5e5e535f47cf08a inherit pub_types_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcff14ac189b07aac5e5e535f47cf08a"></a>
 typedef <a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a><br class="typebreak"/>
 &lt; meshes_list, <br class="typebreak"/>
 component_basis_vector_type, <br class="typebreak"/>
-value_type, periodicity_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>component_functionspace_type</b></td></tr>
-<tr class="separator:acc307b9f0a01c8fd2ef081564ae685f1 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+value_type, periodicity_type, <br class="typebreak"/>
+mortar_list &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>component_functionspace_type</b></td></tr>
+<tr class="separator:abcff14ac189b07aac5e5e535f47cf08a inherit pub_types_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d9ca48dba197057c1ac5c6d2325f57e inherit pub_types_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d9ca48dba197057c1ac5c6d2325f57e"></a>
 typedef boost::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1FunctionSpace.html">component_functionspace_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>component_functionspace_ptrtype</b></td></tr>
@@ -604,15 +610,16 @@ geoelement_type &gt;<br class="typebreak"/>
 typedef boost::shared_ptr<br class="typebreak"/>
 &lt; basis_context_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>basis_context_ptrtype</b></td></tr>
 <tr class="separator:a8ab663dec633933b7f3040cff47702cd inherit pub_types_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a291e2d73e480f428d1c8e428edfa21e6 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a291e2d73e480f428d1c8e428edfa21e6"></a>
+<tr class="memitem:a0fbfb9d2de7e26c402c9bee81206edf9 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fbfb9d2de7e26c402c9bee81206edf9"></a>
 typedef mpl::if_&lt; mpl::bool_<br class="typebreak"/>
 &lt; is_composite &gt;<br class="typebreak"/>
 , mpl::identity&lt; <a class="el" href="classFeel_1_1DofComposite.html">DofComposite</a> &gt;<br class="typebreak"/>
 , mpl::identity&lt; <a class="el" href="classFeel_1_1DofTable.html">DofTable</a><br class="typebreak"/>
 &lt; mesh_type, basis_type, <br class="typebreak"/>
-periodicity_0_type &gt;<br class="typebreak"/>
+periodicity_0_type, <br class="typebreak"/>
+mortar_0_type &gt;<br class="typebreak"/>
  &gt; &gt;::type::type&#160;</td><td class="memItemRight" valign="bottom"><b>dof_type</b></td></tr>
-<tr class="separator:a291e2d73e480f428d1c8e428edfa21e6 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a0fbfb9d2de7e26c402c9bee81206edf9 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38a522d55362d526d3c5f2687dfad918 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38a522d55362d526d3c5f2687dfad918"></a>
 typedef boost::shared_ptr<br class="typebreak"/>
 &lt; dof_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dof_ptrtype</b></td></tr>
@@ -696,6 +703,10 @@ basis_0_type::continuity_type&#160;</td><td class="memItemRight" valign="bottom"
 typedef GetPeriodicity<br class="typebreak"/>
 &lt; periodicity_type, 0 &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>periodicity_0_type</b></td></tr>
 <tr class="separator:a1c0422c5edc16baf7a2a391ab7c96a0d inherit pub_types_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f190a53d855173b2441165787b4da99 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f190a53d855173b2441165787b4da99"></a>
+typedef GetMortar&lt; mortar_list, 0 &gt;<br class="typebreak"/>
+::type&#160;</td><td class="memItemRight" valign="bottom"><b>mortar_0_type</b></td></tr>
+<tr class="separator:a7f190a53d855173b2441165787b4da99 inherit pub_types_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -904,6 +915,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>b
 <tr class="separator:a11aabf587474dc46c394a66de06b35be inherit pub_methods_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbcd2b4e036c1069cca47e41c0c0bf51 inherit pub_methods_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top">dof_ptrtype const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#adbcd2b4e036c1069cca47e41c0c0bf51">dofOnOff</a> () const</td></tr>
 <tr class="separator:adbcd2b4e036c1069cca47e41c0c0bf51 inherit pub_methods_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb5cf76568ef2c6490760d9c19781070 inherit pub_methods_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#afb5cf76568ef2c6490760d9c19781070">isMortar</a> () const</td></tr>
+<tr class="separator:afb5cf76568ef2c6490760d9c19781070 inherit pub_methods_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e771ed640f39f368b4b033e6e69aa8a inherit pub_methods_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top">functionspace_vector_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#a0e771ed640f39f368b4b033e6e69aa8a">functionSpaces</a> () const</td></tr>
 <tr class="separator:a0e771ed640f39f368b4b033e6e69aa8a inherit pub_methods_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50ec8e35c3f06ec6bfdd43a2a56c28d6 inherit pub_methods_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50ec8e35c3f06ec6bfdd43a2a56c28d6"></a>
@@ -1062,6 +1075,9 @@ static const uint16_type&#160;</td><td class="memItemRight" valign="bottom"><b>n
 <tr class="memitem:a97f608efdbf0a07623a2422238cdee8c inherit pub_static_attribs_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97f608efdbf0a07623a2422238cdee8c"></a>
 static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_periodic</b></td></tr>
 <tr class="separator:a97f608efdbf0a07623a2422238cdee8c inherit pub_static_attribs_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adedb1586e999f26d163124c6de122b77 inherit pub_static_attribs_classFeel_1_1FunctionSpace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adedb1586e999f26d163124c6de122b77"></a>
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_mortar</b></td></tr>
+<tr class="separator:adedb1586e999f26d163124c6de122b77 inherit pub_static_attribs_classFeel_1_1FunctionSpace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>

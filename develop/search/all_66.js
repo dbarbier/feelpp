@@ -7,7 +7,7 @@ var searchData=
   ['f_5ftype',['f_type',['../classFeel_1_1SolverUnconstrained.html#a6b5385a1daf6a2d474b0970a45e3326e',1,'Feel::SolverUnconstrained']]],
   ['face',['face',['../classFeel_1_1GeoElement2D.html#a9e107d852c91daea91266e0282064766',1,'Feel::GeoElement2D']]],
   ['face_5fprocessor_5ftype',['face_processor_type',['../classFeel_1_1MeshBase.html#a3a4f37a7436de677c1e9a8d576975721',1,'Feel::MeshBase']]],
-  ['face_5fsign_5finfo_5ftype',['face_sign_info_type',['../classFeel_1_1DofTable.html#a156715fa8ddedea22f73ff4629f93633',1,'Feel::DofTable']]],
+  ['face_5fsign_5finfo_5ftype',['face_sign_info_type',['../classFeel_1_1DofTable.html#ae91cf4610eff93e238e2412129542fd2',1,'Feel::DofTable']]],
   ['facebarycenter',['faceBarycenter',['../classFeel_1_1GeoND.html#a0e663e8478416b7f3fb5a200ecc8ff2e',1,'Feel::GeoND']]],
   ['facebarycenters',['faceBarycenters',['../classFeel_1_1GeoND.html#a58f873ac20764b8095e3eb5a967c2944',1,'Feel::GeoND']]],
   ['facemeasure',['faceMeasure',['../classFeel_1_1GeoND.html#a9f02371b7cb7e3258c5983877b53d3cc',1,'Feel::GeoND']]],

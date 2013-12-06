@@ -10,6 +10,7 @@ var searchData=
   ['discontinuousinterfaces_2ehpp',['discontinuousinterfaces.hpp',['../discontinuousinterfaces_8hpp.html',1,'']]],
   ['dof_2ehpp',['dof.hpp',['../dof_8hpp.html',1,'']]],
   ['dofcomposite_2ehpp',['dofcomposite.hpp',['../dofcomposite_8hpp.html',1,'']]],
+  ['doffromperiodic_2ehpp',['doffromperiodic.hpp',['../doffromperiodic_8hpp.html',1,'']]],
   ['doftable_2ehpp',['doftable.hpp',['../doftable_8hpp.html',1,'']]],
   ['doftablempi_2ehpp',['doftablempi.hpp',['../doftablempi_8hpp.html',1,'']]],
   ['drivencavity_2ehpp',['drivencavity.hpp',['../drivencavity_8hpp.html',1,'']]],

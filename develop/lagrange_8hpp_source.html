@@ -145,7 +145,7 @@ $(document).ready(function(){initNavTree('lagrange_8hpp_source.html','');});
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="functionalset_8hpp.html">feel/feelpoly/functionalset.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="functionals_8hpp.html">feel/feelpoly/functionals.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="fe_8hpp.html">feel/feelpoly/fe.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="mortar_8hpp.html">feel/feelpoly/mortar.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="isp0continuous_8hpp.html">feel/feelpoly/isp0continuous.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
@@ -382,165 +382,173 @@ $(document).ready(function(){initNavTree('lagrange_8hpp_source.html','');});
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nComponents = polyset_type::nComponents;</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> is_product = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">Lagrange&lt;N, RealDim, O, Scalar, continuity_type, T, Convex,  Pts, TheTAG&gt;</a> <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">component_basis_type</a>;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::if_&lt;mpl::equal_to&lt;mpl::int_&lt;nDim&gt;, mpl::int_&lt;1&gt; &gt;,</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            mpl::identity&lt;boost::none_t&gt;,</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            mpl::identity&lt; <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">Lagrange</a>&lt;N-1, RealDim, O, <a class="code" href="structFeel_1_1Scalar.html">Scalar</a>, continuity_type, T, <a class="code" href="classFeel_1_1Convex.html">Convex</a>,  Pts, TheTAG&gt; &gt; &gt;::type::type face_basis_type;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;face_basis_type&gt; face_basis_ptrtype;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> dual_space_type::convex_type convex_type;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> dual_space_type::pointset_type pointset_type;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> dual_space_type::reference_convex_type reference_convex_type;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> reference_convex_type::node_type node_type;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> reference_convex_type::points_type points_type;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type numPoints = reference_convex_type::numPoints;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nbPtsPerVertex = reference_convex_type::nbPtsPerVertex;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nbPtsPerEdge = reference_convex_type::nbPtsPerEdge;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nbPtsPerFace = reference_convex_type::nbPtsPerFace;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nbPtsPerVolume = reference_convex_type::nbPtsPerVolume;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> subN&gt;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keyword">struct </span>SubSpace</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    {</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">Lagrange</a>&lt;N-1, RealDim, O, PolySetType, continuity_type, T, <a class="code" href="classFeel_1_1Convex.html">Convex</a>,  Pts, TheTAG&gt; type;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    };</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type NewDim&gt;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keyword">struct </span>ChangeDim</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">Lagrange&lt;N, RealDim, O, PolySetType, ContinuityType, T, Convex,  Pts, TheTAG&gt;</a> <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">this_type</a>;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">Lagrange&lt;N, RealDim, O, Scalar, continuity_type, T, Convex,  Pts, TheTAG&gt;</a> <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">component_basis_type</a>;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::if_&lt;mpl::equal_to&lt;mpl::int_&lt;nDim&gt;, mpl::int_&lt;1&gt; &gt;,</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            mpl::identity&lt;boost::none_t&gt;,</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            mpl::identity&lt; <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">Lagrange</a>&lt;N-1, RealDim, O, <a class="code" href="structFeel_1_1Scalar.html">Scalar</a>, continuity_type, T, <a class="code" href="classFeel_1_1Convex.html">Convex</a>,  Pts, TheTAG&gt; &gt; &gt;::type::type face_basis_type;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;face_basis_type&gt; face_basis_ptrtype;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> dual_space_type::convex_type convex_type;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> dual_space_type::pointset_type pointset_type;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> dual_space_type::reference_convex_type reference_convex_type;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> reference_convex_type::node_type node_type;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> reference_convex_type::points_type points_type;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type numPoints = reference_convex_type::numPoints;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nbPtsPerVertex = reference_convex_type::nbPtsPerVertex;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nbPtsPerEdge = reference_convex_type::nbPtsPerEdge;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nbPtsPerFace = reference_convex_type::nbPtsPerFace;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nbPtsPerVolume = reference_convex_type::nbPtsPerVolume;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> subN&gt;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keyword">struct </span>SubSpace</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">Lagrange</a>&lt;N-1, RealDim, O, PolySetType, continuity_type, T, <a class="code" href="classFeel_1_1Convex.html">Convex</a>,  Pts, TheTAG&gt; type;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    };</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keyword">struct </span>SSpace</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    {</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="classFeel_1_1fem_1_1Lagrange.html">Lagrange&lt;NewDim, RealDim, O, PolySetType, continuity_type, T, Convex,  Pts, TheTAG&gt;</a> type;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    };</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> isLagrangeP0Continuous = mpl::and_&lt; boost::is_same&lt;mpl::int_&lt;nOrder&gt;,mpl::int_&lt;0&gt; &gt;,</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                                                          boost::is_same&lt;continuity_type, Continuous &gt; &gt;::type::value;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keyword">static</span> constexpr uint16_type TheOrder = (O &gt; 1)?O-1:0;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::if_&lt;mpl::less_equal&lt;mpl::int_&lt;O&gt;, mpl::int_&lt;1&gt; &gt;,</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                                  mpl::identity&lt;Lagrange&lt;N, RealDim, 0, PolySetType, Discontinuous, T, Convex,  Pts, TheTAG&gt; &gt;,</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                                  mpl::identity&lt;Lagrange&lt;N, RealDim, TheOrder, PolySetType, continuity_type, T, Convex,  Pts, TheTAG&gt; &gt; &gt;::type::type type;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    };</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type NewDim&gt;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keyword">struct </span>ChangeDim</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    {</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keyword">typedef</span> Lagrange&lt;NewDim, RealDim, O, PolySetType, continuity_type, T, Convex,  Pts, TheTAG&gt; type;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    };</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    Lagrange()</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        :</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        super( dual_space_type( primal_space_type() ) ),</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        M_refconvex()</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="comment">// M_bdylag( new face_basis_type )</span></div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    {</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> isLagrangeP0Continuous = isP0Continuous&lt;this_type&gt;::result;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="comment">// std::cout &lt;&lt; &quot;[LagrangeDual] points= &quot; &lt;&lt; M_pts &lt;&lt; &quot;\n&quot;;</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    }</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keyword">virtual</span> ~Lagrange() {}</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    Lagrange()</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        :</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        super( dual_space_type( primal_space_type() ) ),</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        M_refconvex()</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="comment">// M_bdylag( new face_basis_type )</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    {</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <span class="comment">// std::cout &lt;&lt; &quot;[LagrangeDual] points= &quot; &lt;&lt; M_pts &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    }</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;</div>
-<div class="line"><a name="l00392"></a><span class="lineno"><a class="line" href="classFeel_1_1fem_1_1Lagrange.html#ac19e4d687df1ec2902371960767e49fc">  392</a></span>&#160;    reference_convex_type <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1fem_1_1Lagrange.html#ac19e4d687df1ec2902371960767e49fc">referenceConvex</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <span class="keywordflow">return</span> M_refconvex;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    }</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keyword">virtual</span> ~Lagrange() {}</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
-<div class="line"><a name="l00400"></a><span class="lineno"><a class="line" href="classFeel_1_1fem_1_1Lagrange.html#aa56367f3e8c29b18e97fcc420f99e819">  400</a></span>&#160;    std::string <a class="code" href="classFeel_1_1fem_1_1Lagrange.html#aa56367f3e8c29b18e97fcc420f99e819">familyName</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno"><a class="line" href="classFeel_1_1fem_1_1Lagrange.html#ac19e4d687df1ec2902371960767e49fc">  400</a></span>&#160;    reference_convex_type <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1fem_1_1Lagrange.html#ac19e4d687df1ec2902371960767e49fc">referenceConvex</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;lagrange&quot;</span>;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="keywordflow">return</span> M_refconvex;</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    }</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ExprType&gt;</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span></div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    isomorphism( ExprType&amp; expr ) -&gt; decltype( expr )</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    {</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="keywordflow">return</span> expr;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <span class="comment">//return expr;</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    }</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    reference_convex_type M_refconvex;</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    face_basis_ptrtype M_bdylag;</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;};</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="keyword">template</span>&lt;uint16_type N,</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;         uint16_type RealDim,</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;         uint16_type O,</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;         <span class="keyword">typename</span> ContinuityType,</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;         <span class="keyword">typename</span> T,</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type&gt; <span class="keyword">class </span>Convex,</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts,</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;         uint16_type TheTAG &gt;</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="keyword">const</span> uint16_type Lagrange&lt;N,RealDim,O,PolySetType,ContinuityType,T,Convex,Pts,TheTAG&gt;::nDim;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="keyword">template</span>&lt;uint16_type N,</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;         uint16_type RealDim,</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;         uint16_type O,</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;         <span class="keyword">typename</span> ContinuityType,</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;         <span class="keyword">typename</span> T,</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type&gt; <span class="keyword">class </span>Convex,</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts,</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;         uint16_type TheTAG &gt;</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="keyword">const</span> uint16_type Lagrange&lt;N,RealDim,O,PolySetType,ContinuityType,T,Convex,Pts,TheTAG&gt;::nOrder;</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;} <span class="comment">// namespace fem</span></div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="keyword">template</span>&lt;uint16_type Order,</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType = Scalar,</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;         <span class="keyword">typename</span> ContinuityType = Continuous,</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts = PointSetEquiSpaced,</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;         uint16_type TheTAG=0 &gt;</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="keyword">class </span>Lagrange</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;{</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="keyword">template</span>&lt;uint16_type N,</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;             uint16_type RealDim,</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;             <span class="keyword">typename</span> T = double,</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;             <span class="keyword">typename</span> Convex = Simplex&lt;N&gt; &gt;</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    <span class="keyword">struct </span>apply</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    {</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::if_&lt;mpl::bool_&lt;Convex::is_simplex&gt;,</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;                mpl::identity&lt;fem::Lagrange&lt;N,RealDim,Order,PolySetType,ContinuityType,T,Simplex, Pts, TheTAG &gt; &gt;,</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;                mpl::identity&lt;fem::Lagrange&lt;N,RealDim,Order,PolySetType,ContinuityType,T,Hypercube, Pts, TheTAG&gt; &gt; &gt;::type::type result_type;</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        <span class="keyword">typedef</span> result_type type;</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    };</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type TheNewTAG&gt;</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    <span class="keyword">struct </span>ChangeTag</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    {</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        <span class="keyword">typedef</span> Lagrange&lt;Order,PolySetType,ContinuityType,Pts,TheNewTAG&gt; type;</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    };</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="keyword">typedef</span> Lagrange&lt;Order,Scalar,ContinuityType,Pts,TheTAG&gt; component_basis_type;</div>
+<div class="line"><a name="l00408"></a><span class="lineno"><a class="line" href="classFeel_1_1fem_1_1Lagrange.html#aa56367f3e8c29b18e97fcc420f99e819">  408</a></span>&#160;    std::string <a class="code" href="classFeel_1_1fem_1_1Lagrange.html#aa56367f3e8c29b18e97fcc420f99e819">familyName</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;lagrange&quot;</span>;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    }</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ExprType&gt;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    isomorphism( ExprType&amp; expr ) -&gt; decltype( expr )</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    {</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        <span class="keywordflow">return</span> expr;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="comment">//return expr;</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    }</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    reference_convex_type M_refconvex;</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    face_basis_ptrtype M_bdylag;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;};</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="keyword">template</span>&lt;uint16_type N,</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;         uint16_type RealDim,</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;         uint16_type O,</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;         <span class="keyword">typename</span> ContinuityType,</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;         <span class="keyword">typename</span> T,</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type&gt; <span class="keyword">class </span>Convex,</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts,</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;         uint16_type TheTAG &gt;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="keyword">const</span> uint16_type Lagrange&lt;N,RealDim,O,PolySetType,ContinuityType,T,Convex,Pts,TheTAG&gt;::nDim;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="keyword">template</span>&lt;uint16_type N,</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;         uint16_type RealDim,</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;         uint16_type O,</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;         <span class="keyword">typename</span> ContinuityType,</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;         <span class="keyword">typename</span> T,</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type&gt; <span class="keyword">class </span>Convex,</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts,</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;         uint16_type TheTAG &gt;</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="keyword">const</span> uint16_type Lagrange&lt;N,RealDim,O,PolySetType,ContinuityType,T,Convex,Pts,TheTAG&gt;::nOrder;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;} <span class="comment">// namespace fem</span></div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="keyword">template</span>&lt;uint16_type Order,</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType = Scalar,</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;         <span class="keyword">typename</span> ContinuityType = Continuous,</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts = PointSetEquiSpaced,</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;         uint16_type TheTAG=0 &gt;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="keyword">class </span>Lagrange</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;{</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="keyword">template</span>&lt;uint16_type N,</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;             uint16_type RealDim,</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;             <span class="keyword">typename</span> T = double,</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;             <span class="keyword">typename</span> Convex = Simplex&lt;N&gt; &gt;</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keyword">struct </span>apply</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    {</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::if_&lt;mpl::bool_&lt;Convex::is_simplex&gt;,</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;                mpl::identity&lt;fem::Lagrange&lt;N,RealDim,Order,PolySetType,ContinuityType,T,Simplex, Pts, TheTAG &gt; &gt;,</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                mpl::identity&lt;fem::Lagrange&lt;N,RealDim,Order,PolySetType,ContinuityType,T,Hypercube, Pts, TheTAG&gt; &gt; &gt;::type::type result_type;</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        <span class="keyword">typedef</span> result_type type;</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    };</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nOrder =  Order;</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type TAG = TheTAG;</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;};</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="keyword">template</span>&lt;uint16_type Order,</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;         <span class="keyword">typename</span> ContinuityType,</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts,</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;         uint16_type TheTAG&gt;</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="keyword">const</span> uint16_type Lagrange&lt;Order,PolySetType,ContinuityType,Pts,TheTAG&gt;::nOrder;</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type TheNewTAG&gt;</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keyword">struct </span>ChangeTag</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    {</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        <span class="keyword">typedef</span> Lagrange&lt;Order,PolySetType,ContinuityType,Pts,TheNewTAG&gt; type;</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    };</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <span class="keyword">typedef</span> Lagrange&lt;Order,Scalar,ContinuityType,Pts,TheTAG&gt; component_basis_type;</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nOrder =  Order;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type TAG = TheTAG;</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;} <span class="comment">// namespace Feel</span></div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __lagrange_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="mortar_8hpp_html"><div class="ttname"><a href="mortar_8hpp.html">mortar.hpp</a></div></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;};</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="keyword">template</span>&lt;uint16_type Order,</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;         <span class="keyword">typename</span> ContinuityType,</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts,</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;         uint16_type TheTAG&gt;</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="keyword">const</span> uint16_type Lagrange&lt;Order,PolySetType,ContinuityType,Pts,TheTAG&gt;::nOrder;</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;} <span class="comment">// namespace Feel</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __lagrange_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="isp0continuous_8hpp_html"><div class="ttname"><a href="isp0continuous_8hpp.html">isp0continuous.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1fem_1_1Lagrange_html_a39c2a84878f6b91b976603163950ed74"><div class="ttname"><a href="classFeel_1_1fem_1_1Lagrange.html#a39c2a84878f6b91b976603163950ed74">Feel::fem::Lagrange::polyset_type</a></div><div class="ttdeci">super::polyset_type polyset_type</div><div class="ttdef"><b>Definition:</b> lagrange.hpp:313</div></div>
-<div class="ttc" id="classFeel_1_1fem_1_1Lagrange_html_aa56367f3e8c29b18e97fcc420f99e819"><div class="ttname"><a href="classFeel_1_1fem_1_1Lagrange.html#aa56367f3e8c29b18e97fcc420f99e819">Feel::fem::Lagrange::familyName</a></div><div class="ttdeci">std::string familyName() const </div><div class="ttdef"><b>Definition:</b> lagrange.hpp:400</div></div>
+<div class="ttc" id="classFeel_1_1fem_1_1Lagrange_html_aa56367f3e8c29b18e97fcc420f99e819"><div class="ttname"><a href="classFeel_1_1fem_1_1Lagrange.html#aa56367f3e8c29b18e97fcc420f99e819">Feel::fem::Lagrange::familyName</a></div><div class="ttdeci">std::string familyName() const </div><div class="ttdef"><b>Definition:</b> lagrange.hpp:408</div></div>
 <div class="ttc" id="structFeel_1_1Vectorial_html"><div class="ttname"><a href="structFeel_1_1Vectorial.html">Feel::Vectorial</a></div><div class="ttdef"><b>Definition:</b> feelpoly/policy.hpp:98</div></div>
-<div class="ttc" id="namespaceFeel_html_a07ec0494dee4ca9a16b866e8c1f4d495"><div class="ttname"><a href="namespaceFeel.html#a07ec0494dee4ca9a16b866e8c1f4d495">Feel::points</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_POINTS &gt;, typename MeshTraits&lt; MeshType &gt;::point_const_iterator, typename MeshTraits&lt; MeshType &gt;::point_const_iterator &gt; points(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> filters.hpp:1317</div></div>
+<div class="ttc" id="namespaceFeel_html_a07ec0494dee4ca9a16b866e8c1f4d495"><div class="ttname"><a href="namespaceFeel.html#a07ec0494dee4ca9a16b866e8c1f4d495">Feel::points</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_POINTS &gt;, typename MeshTraits&lt; MeshType &gt;::point_const_iterator, typename MeshTraits&lt; MeshType &gt;::point_const_iterator &gt; points(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> filters.hpp:1329</div></div>
 <div class="ttc" id="classFeel_1_1fem_1_1Lagrange_html"><div class="ttname"><a href="classFeel_1_1fem_1_1Lagrange.html">Feel::fem::Lagrange</a></div><div class="ttdoc">Lagrange polynomial set. </div><div class="ttdef"><b>Definition:</b> lagrange.hpp:284</div></div>
 <div class="ttc" id="functionals_8hpp_html"><div class="ttname"><a href="functionals_8hpp.html">functionals.hpp</a></div></div>
 <div class="ttc" id="polynomialset_8hpp_html"><div class="ttname"><a href="polynomialset_8hpp.html">polynomialset.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1Convex_html"><div class="ttname"><a href="classFeel_1_1Convex.html">Feel::Convex</a></div><div class="ttdoc">Convex base class. </div><div class="ttdef"><b>Definition:</b> convex.hpp:43</div></div>
-<div class="ttc" id="classFeel_1_1fem_1_1Lagrange_html_ac19e4d687df1ec2902371960767e49fc"><div class="ttname"><a href="classFeel_1_1fem_1_1Lagrange.html#ac19e4d687df1ec2902371960767e49fc">Feel::fem::Lagrange::referenceConvex</a></div><div class="ttdeci">reference_convex_type const &amp; referenceConvex() const </div><div class="ttdef"><b>Definition:</b> lagrange.hpp:392</div></div>
+<div class="ttc" id="classFeel_1_1fem_1_1Lagrange_html_ac19e4d687df1ec2902371960767e49fc"><div class="ttname"><a href="classFeel_1_1fem_1_1Lagrange.html#ac19e4d687df1ec2902371960767e49fc">Feel::fem::Lagrange::referenceConvex</a></div><div class="ttdeci">reference_convex_type const &amp; referenceConvex() const </div><div class="ttdef"><b>Definition:</b> lagrange.hpp:400</div></div>
 <div class="ttc" id="fe_8hpp_html"><div class="ttname"><a href="fe_8hpp.html">fe.hpp</a></div></div>
 <div class="ttc" id="structFeel_1_1Scalar_html"><div class="ttname"><a href="structFeel_1_1Scalar.html">Feel::Scalar</a></div><div class="ttdef"><b>Definition:</b> feelpoly/policy.hpp:59</div></div>
 <div class="ttc" id="classFeel_1_1FiniteElement_html_a652f9642a297902506ec9a7adee202cc"><div class="ttname"><a href="classFeel_1_1FiniteElement.html#a652f9642a297902506ec9a7adee202cc">Feel::FiniteElement&lt; detail::OrthonormalPolynomialSet&lt; N, O, RealDim, PolySetType, T, TheTAG, Convex &gt;, details::LagrangeDual, Pts &gt;::polyset_type</a></div><div class="ttdeci">primal_space_type::polyset_type polyset_type</div><div class="ttdef"><b>Definition:</b> fe.hpp:84</div></div>
