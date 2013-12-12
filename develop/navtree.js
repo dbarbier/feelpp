@@ -2,7 +2,6 @@ var NAVTREE =
 [
   [ "Feel++", "index.html", [
     [ "Introduction", "index.html", null ],
-    [ "Eigenvalue Problems", "Eigen.html", null ],
     [ "Credits", "md_Credits.html", null ],
     [ "Mathematical Concepts and Notations", "Notations.html", [
       [ "Polynomial Library", "Notations.html#PolynomialNotations", [

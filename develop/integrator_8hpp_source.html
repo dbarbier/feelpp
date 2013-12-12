@@ -3006,7 +3006,7 @@ $(document).ready(function(){initNavTree('integrator_8hpp_source.html','');});
 <div class="line"><a name="l02992"></a><span class="lineno"> 2992</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l02993"></a><span class="lineno"> 2993</span>&#160;<span class="preprocessor">#endif // defined(FEELPP_HAS_TBB)</span></div>
 <div class="line"><a name="l02994"></a><span class="lineno"> 2994</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#if defined(FEELPP_HAS_HARTS)</span></div>
-<div class="line"><a name="l02995"></a><span class="lineno"> 2995</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span> ( M_use_harts )</div>
+<div class="line"><a name="l02995"></a><span class="lineno"> 2995</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span> ( option(_name=<span class="stringliteral">&quot;parallel.cpu.enable&quot;</span>).<span class="keyword">template</span> as&lt;bool&gt;() )</div>
 <div class="line"><a name="l02996"></a><span class="lineno"> 2996</span>&#160;    {</div>
 <div class="line"><a name="l02997"></a><span class="lineno"> 2997</span>&#160;        <span class="keyword">typename</span> eval::matrix_type res( eval::matrix_type::Zero() );</div>
 <div class="line"><a name="l02998"></a><span class="lineno"> 2998</span>&#160;        <span class="keyword">typedef</span> HartsContextEvaluate&lt;expression_type, im_type, typename eval::the_element_type&gt; harts_context_type;</div>
@@ -3032,8 +3032,8 @@ $(document).ready(function(){initNavTree('integrator_8hpp_source.html','');});
 <div class="line"><a name="l03018"></a><span class="lineno"> 3018</span>&#160;        NumaAffinityMngType numaAffMng(RunTimeSystem::NumaAffinityMng::eMode::Block);</div>
 <div class="line"><a name="l03019"></a><span class="lineno"> 3019</span>&#160;</div>
 <div class="line"><a name="l03020"></a><span class="lineno"> 3020</span>&#160;        <span class="comment">// Compute Number of available CPU cores</span></div>
-<div class="line"><a name="l03021"></a><span class="lineno"> 3021</span>&#160;        <span class="keywordtype">int</span> paramNbCores = 0;</div>
-<div class="line"><a name="l03022"></a><span class="lineno"> 3022</span>&#160;        <span class="keywordtype">int</span> nTotalCoresNode = 12;<span class="comment">//numaAffMng.get_num_cores();</span></div>
+<div class="line"><a name="l03021"></a><span class="lineno"> 3021</span>&#160;        <span class="keywordtype">int</span> paramNbCores = option(_name=<span class="stringliteral">&quot;parallel.cpu.restrict&quot;</span>).template as&lt;int&gt;();</div>
+<div class="line"><a name="l03022"></a><span class="lineno"> 3022</span>&#160;        <span class="keywordtype">int</span> nTotalCoresNode = numaAffMng.get_num_cores();</div>
 <div class="line"><a name="l03023"></a><span class="lineno"> 3023</span>&#160;        <span class="keywordtype">int</span> nAvailCores = nTotalCoresNode - nMPIProc;</div>
 <div class="line"><a name="l03024"></a><span class="lineno"> 3024</span>&#160;        <span class="keywordtype">int</span> coresPerProcess = 0;</div>
 <div class="line"><a name="l03025"></a><span class="lineno"> 3025</span>&#160;        <span class="keywordtype">int</span> remainder = 0;</div>

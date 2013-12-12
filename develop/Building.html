@@ -329,7 +329,8 @@ Compiling</h1>
   # Release build type (-O3...)
   cmake -D CMAKE_BUILD_TYPE=Release
   ...
-</pre><p> Once Cmake has done its work, you are now able to compile the library with: </p>
+</pre><p><b>Per-system specific configuration</b>: If you need to set specific CMake variables to fit an exotic system (e.g. supercomputer), you can create a machine file fitting this system. To do so, simply create a file named <code>feelpp.machines.&lt;name&gt;.cmake</code> in the <code>cmake/machines</code> directory, where <code>&lt;name&gt;</code> is the machine name returned by the execution of <code>uname -n</code>. The file will automatically be recognized and loaded, when you will be compiling <a href="http://www.feelpp.org">Feel++</a> on this system. </p>
+<p>Once Cmake has done its work, you are now able to compile the library with: </p>
 <pre class="fragment">  make
 </pre><p> You can speed up the compilation process, if you have a multicore processor. To do so, you have to specify the number of parallel jobs <code>make</code> will be allowed to spawn by using the <code>-j</code> flag: </p>
 <pre class="fragment">  make -j &lt;nbjobs&gt;

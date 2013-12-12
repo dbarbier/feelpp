@@ -6,7 +6,7 @@ var searchData=
   ['edgepermutation',['edgePermutation',['../classFeel_1_1GeoElement2D.html#aa0febae423d58be8d246adca78844c1b',1,'Feel::GeoElement2D']]],
   ['edges',['edges',['../namespaceFeel.html#acc2d630cda517a95be1879ea38fb5069',1,'Feel']]],
   ['edges_2ehpp',['edges.hpp',['../edges_8hpp.html',1,'']]],
-  ['eigenvalue_20problems',['Eigenvalue Problems',['../Eigen.html',1,'']]],
+  ['eigenvalue_20problems',['Eigenvalue Problems',['../Eigen.html',1,'Learning']]],
   ['eigenpair',['eigenPair',['../classFeel_1_1SolverEigen.html#ae607d5a42a4d9d6323409f0ebf8acc61',1,'Feel::SolverEigen']]],
   ['eigenproblemtype',['eigenProblemType',['../classFeel_1_1SolverEigen.html#a21181602fd3b68ffb0656b8bbf072e92',1,'Feel::SolverEigen::eigenProblemType()'],['../namespaceFeel.html#ab9dd0a9c3b4ed8785c07c88ed8efafb3',1,'Feel::EigenProblemType()']]],
   ['eigensolvertype',['eigenSolverType',['../classFeel_1_1SolverEigen.html#abac16f073c7206f605e1dc69b5b79764',1,'Feel::SolverEigen::eigenSolverType()'],['../namespaceFeel.html#aa6ba49d3d8578adfc5ae20cff2b89e65',1,'Feel::EigenSolverType()']]],
