@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['list_20of_20cmake_20options',['List of CMake Options',['../DocCmakeLists.html',1,'GettingStarted']]],
   ['laplacian_20examples',['Laplacian Examples',['../Laplacian.html',1,'Generic']]],
   ['laplacian_20in_20polar_20and_20cartesian_20coordinate_20systems',['Laplacian in polar and cartesian coordinate systems',['../LaplacianCoordinateSystem.html',1,'Laplacian']]],
   ['laplacian_20using_20discontinous_20galerkin',['Laplacian using Discontinous Galerkin',['../LaplacianDG.html',1,'Laplacian']]],

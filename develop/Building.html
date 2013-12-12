@@ -329,10 +329,16 @@ Compiling</h1>
   # Release build type (-O3...)
   cmake -D CMAKE_BUILD_TYPE=Release
   ...
-</pre><p> Once Cmake has done its work, you are now able to compile the library with </p>
+</pre><p> Once Cmake has done its work, you are now able to compile the library with: </p>
 <pre class="fragment">  make
-</pre><p> <b>Important</b> : from now, all commands should be type in <code>feel.opt</code> or its subdirectories. </p>
-</div></div><!-- contents -->
+</pre><p> You can speed up the compilation process, if you have a multicore processor. To do so, you have to specify the number of parallel jobs <code>make</code> will be allowed to spawn by using the <code>-j</code> flag: </p>
+<pre class="fragment">  make -j &lt;nbjobs&gt;
+</pre><p> <b>Important</b>: from now on, all commands should be typed in <code>feel.opt</code> or its subdirectories.</p>
+<p><b>Unit tests</b>: <a href="http://www.feelpp.org">Feel++</a> comes with built-in unit tests to ensure that the library is working correctly. You can launch basic tests based on the quickstart application by typing: </p>
+<pre class="fragment">  make check
+</pre><p> Or you can execute the whole testsuite, by typing the following command: (This might take a while) </p>
+<pre class="fragment">  make check-full
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

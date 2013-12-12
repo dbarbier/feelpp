@@ -29,6 +29,7 @@ var GettingStarted =
       ] ],
       [ "Compiling", "Building.html#Compiling", null ]
     ] ],
+    [ "List of CMake Options", "DocCmakeLists.html", null ],
     [ "First Feel++ Application", "FirstApp.html", [
       [ "Minimal Example", "FirstApp.html#Minimal", null ],
       [ "Compilation, execution, logs", "FirstApp.html#Compilation", null ],

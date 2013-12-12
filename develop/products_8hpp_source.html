@@ -464,13 +464,13 @@ $(document).ready(function(){initNavTree('products_8hpp_source.html','');});
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> r_is_terminal = right_expression_type::is_terminal;</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        BOOST_MPL_ASSERT_MSG( ( left_shape::nDim &gt; 1 ),</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                              INVALID_DIMENSION,</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                              CROSS_INVALID_DIMENSION,</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                              (mpl::int_&lt;left_shape::nDim&gt;,mpl::int_&lt;right_shape::nDim&gt;));</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        BOOST_MPL_ASSERT_MSG( left_shape::nDim == right_shape::nDim,</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                              INVALID_DIMENSION_LEFT_AND_RIGHT_SHOULD_BE_THE_SAME,</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                              CROSS_INVALID_DIMENSION_LEFT_AND_RIGHT_SHOULD_BE_THE_SAME,</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                              (mpl::int_&lt;left_shape::nDim&gt;,mpl::int_&lt;right_shape::nDim&gt;));</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        BOOST_MPL_ASSERT_MSG( (left_shape::M == right_shape::M) &amp;&amp; (left_shape::N == right_shape::N) ,</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;                              INVALID_RANK_LEFT_AND_RIGHT_SHOULD_BE_THE_SAME,</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;                              CROSS_INVALID_RANK_LEFT_AND_RIGHT_SHOULD_BE_THE_SAME,</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;                              (mpl::int_&lt;left_shape::M&gt;,mpl::int_&lt;right_shape::M&gt;,</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                               mpl::int_&lt;left_shape::N&gt;,mpl::int_&lt;right_shape::N&gt;));</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;</div>

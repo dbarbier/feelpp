@@ -34,6 +34,7 @@ var classFeel_1_1MeshBase =
     [ "numPoints", "classFeel_1_1MeshBase.html#a9a35d49f07ea5b775a385c5c923f9f7c", null ],
     [ "numVertices", "classFeel_1_1MeshBase.html#abd15c4123534ef2beff234123d5308b2", null ],
     [ "operator=", "classFeel_1_1MeshBase.html#a35a050e7895055f656432ca85d06e259", null ],
+    [ "parentMesh", "classFeel_1_1MeshBase.html#a129bce16ee50479ce17261dc20c485da", null ],
     [ "partition", "classFeel_1_1MeshBase.html#a87e08db85fd4469f5d759c88cfb158a0", null ],
     [ "renumber", "classFeel_1_1MeshBase.html#adbcbbde4f2a3eacc704cdd94ed21c52b", null ],
     [ "setComponents", "classFeel_1_1MeshBase.html#a6e1a5b28ac7eda38abd8ae60c6af54fb", null ],

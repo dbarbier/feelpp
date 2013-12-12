@@ -249,7 +249,7 @@ $(document).ready(function(){initNavTree('crbelementsdb_8hpp_source.html','');})
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">if</span> ( ofs )</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        boost::archive::text_oarchive oa( ofs );</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        boost::archive::binary_oarchive oa( ofs );</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="comment">// write class instance to archive</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        oa &lt;&lt; *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="comment">// archive and stream closed when destructors are called</span></div>
@@ -279,7 +279,7 @@ $(document).ready(function(){initNavTree('crbelementsdb_8hpp_source.html','');})
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">if</span> ( ifs )</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        boost::archive::text_iarchive ia( ifs );</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        boost::archive::binary_iarchive ia( ifs );</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="comment">// write class instance to archive</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        ia &gt;&gt; *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="comment">//std::cout &lt;&lt; &quot;Loading &quot; &lt;&lt; db &lt;&lt; &quot; done...\n&quot;;</span></div>

@@ -217,6 +217,7 @@ var namespaceFeel =
     [ "SolverUnconstrained", "classFeel_1_1SolverUnconstrained.html", "classFeel_1_1SolverUnconstrained" ],
     [ "Sound", "classFeel_1_1Sound.html", "classFeel_1_1Sound" ],
     [ "Sphere", "classFeel_1_1Sphere.html", "classFeel_1_1Sphere" ],
+    [ "stencilQuadSetBase", "structFeel_1_1stencilQuadSetBase.html", null ],
     [ "Stokes", "classFeel_1_1Stokes.html", "classFeel_1_1Stokes" ],
     [ "StorageUBlas", "structFeel_1_1StorageUBlas.html", "structFeel_1_1StorageUBlas" ],
     [ "StructuredGrid", "classFeel_1_1StructuredGrid.html", "classFeel_1_1StructuredGrid" ],
