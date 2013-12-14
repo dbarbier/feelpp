@@ -92,6 +92,8 @@ var classFeel_1_1Backend =
     [ "showKSPMonitor", "classFeel_1_1Backend.html#ababfdb3501ad49b7f7fb328f4fde5ddb", null ],
     [ "showSNESConvergedReason", "classFeel_1_1Backend.html#a6e5679a33b44ded544edf8ac039dd999", null ],
     [ "showSNESMonitor", "classFeel_1_1Backend.html#ac4f60381e699ca739a49ba5912332c31", null ],
+    [ "snesEnumType", "classFeel_1_1Backend.html#af589998450a1d4f2ecf856e778395222", null ],
+    [ "snesType", "classFeel_1_1Backend.html#a9917b373fe2297f9f323ecdb7ea74f5c", null ],
     [ "solve", "classFeel_1_1Backend.html#a22833dfc4ad0b592a753d48ae2946fd2", null ],
     [ "solve", "classFeel_1_1Backend.html#ad2157eec7ea621c3792797037277d9fa", null ],
     [ "sToleranceSNES", "classFeel_1_1Backend.html#a1e6ad534eddcdc36e1a3ed5e5f4718da", null ],

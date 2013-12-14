@@ -202,6 +202,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a29351a65c633e75a6f0058a221229660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a027f82bf096be59cbd5c48f434367785"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Backend.html#a027f82bf096be59cbd5c48f434367785">kspType</a> () const </td></tr>
 <tr class="separator:a027f82bf096be59cbd5c48f434367785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9917b373fe2297f9f323ecdb7ea74f5c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Backend.html#a9917b373fe2297f9f323ecdb7ea74f5c">snesType</a> () const </td></tr>
+<tr class="separator:a9917b373fe2297f9f323ecdb7ea74f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70e4a85538426252672cd27421fe28f8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Backend.html#a70e4a85538426252672cd27421fe28f8">pcType</a> () const </td></tr>
 <tr class="separator:a70e4a85538426252672cd27421fe28f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ad1f4d37cc5d51dda696d87c620f327"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Backend.html#a9ad1f4d37cc5d51dda696d87c620f327">hasConstantNullSpace</a> () const </td></tr>
@@ -212,6 +214,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a578d05b7b18f4e296df32f094a081f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9dfc81ebf6cde79c7764ceffbf3d546"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceFeel.html#a75d37378df29bc4c9a393504b87fdc51">SolverType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Backend.html#ad9dfc81ebf6cde79c7764ceffbf3d546">kspEnumType</a> () const </td></tr>
 <tr class="separator:ad9dfc81ebf6cde79c7764ceffbf3d546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af589998450a1d4f2ecf856e778395222"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceFeel.html#a63d6d444a7e0d7bd77b307219a00ce2b">SolverNonLinearType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Backend.html#af589998450a1d4f2ecf856e778395222">snesEnumType</a> () const </td></tr>
+<tr class="separator:af589998450a1d4f2ecf856e778395222"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ee4d86f3b56912737fb9927ce872458"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceFeel.html#a10f30e9f7975e23e837e5681c53ae064">FieldSplitType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Backend.html#a6ee4d86f3b56912737fb9927ce872458">fieldSplitEnumType</a> () const </td></tr>
 <tr class="separator:a6ee4d86f3b56912737fb9927ce872458"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace6595a93fa9f80cb564b57cd15659d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Backend.html#ace6595a93fa9f80cb564b57cd15659d0">pcFactorMatSolverPackageType</a> () const </td></tr>
@@ -1942,6 +1946,50 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>set the type of preconditioner associated to the matrix </p>
+
+</div>
+</div>
+<a class="anchor" id="af589998450a1d4f2ecf856e778395222"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceFeel.html#a63d6d444a7e0d7bd77b307219a00ce2b">SolverNonLinearType</a> <a class="el" href="classFeel_1_1Backend.html">Feel::Backend</a>&lt; T &gt;::snesEnumType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>enum snes solver type from string </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9917b373fe2297f9f323ecdb7ea74f5c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classFeel_1_1Backend.html">Feel::Backend</a>&lt; T &gt;::snesType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the type of non linear solver </dd></dl>
 
 </div>
 </div>

@@ -1,5 +1,7 @@
 var NAVTREEINDEX27 =
 {
+"structFeel_1_1problem_1_1value.html#a6b3b2adaec6ebc14ab6dcdff229f8036":[10,0,175,0,7],
+"structFeel_1_1problem_1_1value.html#a72cc69fd103b73b5525a104b9251ced1":[10,0,175,0,6],
 "structFeel_1_1problem_1_1value.html#a733d8a9c6cc9c7806de5e095ad7672fca0fa8d9474f721586b236fa2772b569ba":[10,0,175,0,3],
 "structFeel_1_1problem_1_1value.html#a7b69de998913e01e1135fd417979bf2a":[10,0,175,0,15],
 "structFeel_1_1problem_1_1value.html#a8120db93f6b7eab5bff28e1bec0166a2":[10,0,175,0,11],

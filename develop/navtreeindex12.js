@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"classFeel_1_1GmshSimplexDomain.html#aab4d94327201d29cc996791113494893":[10,0,97,1],
+"classFeel_1_1GraphCSR.html":[10,0,98],
 "classFeel_1_1GraphCSR.html#a00ecd2de51ec84cfbfa6936f10b9b908":[10,0,98,5],
 "classFeel_1_1GraphCSR.html#a0278965cb2c171a7f25a09daa53830e3":[10,0,98,27],
 "classFeel_1_1GraphCSR.html#a04318b55c690fafa0b088800cd31fde1":[10,0,98,26],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "classFeel_1_1Laplacian.html#a2904df7e73c0982463e71ce8c60a5e25":[10,0,113,13],
 "classFeel_1_1Laplacian.html#a31a572cb34e887b81000e29046343628":[10,0,113,14],
 "classFeel_1_1Laplacian.html#a359b92c96adb4405f6f7bf6b080997cb":[10,0,113,5],
-"classFeel_1_1Laplacian.html#a3dbc4e518fd1e3aac1bd0cd38a3c57cd":[10,0,113,9],
-"classFeel_1_1Laplacian.html#a66ae48b25cdd09190373f48c0bbc68eb":[10,0,113,15],
-"classFeel_1_1Laplacian.html#a76f00781d71a07cfc0e77b06ed491250":[10,0,113,10]
+"classFeel_1_1Laplacian.html#a3dbc4e518fd1e3aac1bd0cd38a3c57cd":[10,0,113,9]
 };

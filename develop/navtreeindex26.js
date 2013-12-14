@@ -1,5 +1,7 @@
 var NAVTREEINDEX26 =
 {
+"namespaceFeel_1_1detail.html":[10,0,0],
+"namespaceFeel_1_1math.html":[10,0,4],
 "pages.html":[],
 "structFeel_1_1BFGSInvHessian.html":[10,0,25],
 "structFeel_1_1BFGSInvHessian.html#a0d5d4ce7e15779dd8a6e375f3820cbd0":[10,0,25,13],
@@ -54,11 +56,11 @@ var NAVTREEINDEX26 =
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a24f2edf51794093c9006affe4889ea1c":[10,0,105,4],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a263e8c4c3415b075865bb909aaebf3cf":[10,0,105,7],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a47a159d96c1faef9f6b57e104411690f":[10,0,105,6],
-"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,3],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,2],
+"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,3],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aae08c8b04ff5d504167b6b0ef8710a90":[10,0,105,5],
-"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,105,1],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,105,0],
+"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,105,1],
 "structFeel_1_1IntegrationDegree.html":[10,0,108],
 "structFeel_1_1JacobiDegree.html":[10,0,111],
 "structFeel_1_1MeshTraits.html":[10,0,138],
@@ -247,7 +249,5 @@ var NAVTREEINDEX26 =
 "structFeel_1_1problem_1_1value.html#a3311e949da085b5555b02a8b6f6dd113":[10,0,175,0,1],
 "structFeel_1_1problem_1_1value.html#a3b5382b6b8916aa8f73e3c07cd78b9e0":[10,0,175,0,2],
 "structFeel_1_1problem_1_1value.html#a429311975c268b598b26b0bb78a17410":[10,0,175,0,4],
-"structFeel_1_1problem_1_1value.html#a51a55a94742493c4ffa0d1b4c11125b5":[10,0,175,0,12],
-"structFeel_1_1problem_1_1value.html#a6b3b2adaec6ebc14ab6dcdff229f8036":[10,0,175,0,7],
-"structFeel_1_1problem_1_1value.html#a72cc69fd103b73b5525a104b9251ced1":[10,0,175,0,6]
+"structFeel_1_1problem_1_1value.html#a51a55a94742493c4ffa0d1b4c11125b5":[10,0,175,0,12]
 };
