@@ -226,8 +226,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:aca88d84255d571cbf3b141f7d03cc020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acff1b5cf17685564edc19b262360786a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1MeshBase.html#acff1b5cf17685564edc19b262360786a">isSubMeshFrom</a> (boost::shared_ptr&lt; <a class="el" href="classFeel_1_1MeshBase.html">MeshBase</a> &gt; m) const </td></tr>
 <tr class="separator:acff1b5cf17685564edc19b262360786a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa151a9995f729a1b857cc02a066991b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa151a9995f729a1b857cc02a066991b8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isParentMeshOf</b> (<a class="el" href="classFeel_1_1MeshBase.html">MeshBase</a> const *m) const </td></tr>
+<tr class="separator:aa151a9995f729a1b857cc02a066991b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcf9ea3ccca25b81cf7cb88736c44f33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1MeshBase.html#abcf9ea3ccca25b81cf7cb88736c44f33">isParentMeshOf</a> (boost::shared_ptr&lt; <a class="el" href="classFeel_1_1MeshBase.html">MeshBase</a> &gt; m) const </td></tr>
 <tr class="separator:abcf9ea3ccca25b81cf7cb88736c44f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadb4e521dd7474d10dbb546f7323559c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aadb4e521dd7474d10dbb546f7323559c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSiblingOf</b> (<a class="el" href="classFeel_1_1MeshBase.html">MeshBase</a> const *m) const </td></tr>
+<tr class="separator:aadb4e521dd7474d10dbb546f7323559c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba790d3b54a8332129e12208aaf2087f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1MeshBase.html#aba790d3b54a8332129e12208aaf2087f">isSiblingOf</a> (boost::shared_ptr&lt; <a class="el" href="classFeel_1_1MeshBase.html">MeshBase</a> &gt; m) const </td></tr>
 <tr class="separator:aba790d3b54a8332129e12208aaf2087f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19aa93418c1bbc2cf2c85525caef9aa9"><td class="memTemplParams" colspan="2"><a class="anchor" id="a19aa93418c1bbc2cf2c85525caef9aa9"></a>
@@ -238,6 +244,10 @@ template&lt;typename M &gt; </td></tr>
 template&lt;typename M &gt; </td></tr>
 <tr class="memitem:aedefef669b2f95469b5c02c12fb8bf39"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>isSameMesh</b> (boost::shared_ptr&lt; M &gt; m) const </td></tr>
 <tr class="separator:aedefef669b2f95469b5c02c12fb8bf39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bc48d3e85379ed8931a479fa789d6f2"><td class="memTemplParams" colspan="2"><a class="anchor" id="a4bc48d3e85379ed8931a479fa789d6f2"></a>
+template&lt;typename M &gt; </td></tr>
+<tr class="memitem:a4bc48d3e85379ed8931a479fa789d6f2"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>isRelatedTo</b> (M const *m) const </td></tr>
+<tr class="separator:a4bc48d3e85379ed8931a479fa789d6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8f228433a102a9593d74ccb58a02643"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab8f228433a102a9593d74ccb58a02643"></a>
 template&lt;typename M &gt; </td></tr>
 <tr class="memitem:ab8f228433a102a9593d74ccb58a02643"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>isRelatedTo</b> (boost::shared_ptr&lt; M &gt; m) const </td></tr>
@@ -748,7 +758,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>boost::serialization
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>id in sub mesh given the id in the parent mesh </dd></dl>
 
-<p>References <a class="el" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a>, <a class="el" href="classFeel_1_1MeshBase.html#aba790d3b54a8332129e12208aaf2087f">isSiblingOf()</a>, <a class="el" href="classFeel_1_1MeshBase.html#aca88d84255d571cbf3b141f7d03cc020">isSubMeshFrom()</a>, and <a class="el" href="classFeel_1_1MeshBase.html#a2752e31bffbb3942a2beddd99f6df27c">meshToSubMesh()</a>.</p>
+<p>References <a class="el" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a>, <a class="el" href="classFeel_1_1MeshBase.html#aca88d84255d571cbf3b141f7d03cc020">isSubMeshFrom()</a>, and <a class="el" href="classFeel_1_1MeshBase.html#a2752e31bffbb3942a2beddd99f6df27c">meshToSubMesh()</a>.</p>
 
 </div>
 </div>
@@ -1180,7 +1190,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>boost::serialization
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>id in parent mesh given the id in the sub mesh </dd></dl>
 
-<p>References <a class="el" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a>, <a class="el" href="classFeel_1_1MeshBase.html#aba790d3b54a8332129e12208aaf2087f">isSiblingOf()</a>, and <a class="el" href="classFeel_1_1MeshBase.html#aca88d84255d571cbf3b141f7d03cc020">isSubMeshFrom()</a>.</p>
+<p>References <a class="el" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a>, and <a class="el" href="classFeel_1_1MeshBase.html#aca88d84255d571cbf3b141f7d03cc020">isSubMeshFrom()</a>.</p>
 
 </div>
 </div>

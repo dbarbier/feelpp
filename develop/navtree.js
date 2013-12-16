@@ -65,18 +65,18 @@ var NAVTREEINDEX =
 "classFeel_1_1Laplacian.html#a66ae48b25cdd09190373f48c0bbc68eb",
 "classFeel_1_1MatrixShellSparse.html#ab72ed78c58774d761442e405ffe01168",
 "classFeel_1_1Mesh.html#acf17d246fb45acab9dd71c8101c2cc2a",
-"classFeel_1_1MeshBase.html#a7f04eea0fcd983db31f62da11cc98d5b",
-"classFeel_1_1OperatorLinearFree.html#afc7b0c0c9649b1d45452d8b742910f6d",
-"classFeel_1_1PointSet.html#a9961fb91a86a2650078d43d57d7a26ea",
-"classFeel_1_1PreconditionerPetsc.html#a9ce793ac53cd2080f4e3e1ce7920d5b9",
-"classFeel_1_1SolverConstrained.html#a8a85160830d81b6d8d1d5061646326b2",
-"classFeel_1_1SolverUMFPACK.html#aaaf80ac595d99c341ccdec2b96373cf4",
-"classFeel_1_1ThermalFin.html#a00579c0c8b8669ba48e2eac43fbf0c48",
-"classFeel_1_1Vector.html#a74bc99bddfb6b773d595da8006948b18",
-"classFeel_1_1VisitorCyclic.html#a762259e82251f5d18ef00b0089d0666d",
-"classFeel_1_1problem.html#a6a64282644def13cbb6922a7dfe90bcf",
-"namespaceFeel_1_1detail.html",
-"structFeel_1_1problem_1_1value.html#a6b3b2adaec6ebc14ab6dcdff229f8036"
+"classFeel_1_1MeshBase.html#a76ac6e10835f85ee5ad86a4a0dd4902d",
+"classFeel_1_1OperatorLinearFree.html#add5ef60f490c6e749297bf2d4a7d4720",
+"classFeel_1_1PointSet.html#a7a04cded9c015c67dcdcac4bd47332c1",
+"classFeel_1_1PreconditionerPetsc.html#a56581a8ffdb5bb4b3200c41de4d74a27",
+"classFeel_1_1SolverConstrained.html#a593bfab72012f8d5f098da9a15af1542",
+"classFeel_1_1SolverUMFPACK.html#a9f459125f8f8787bc76175d7b9d67cab",
+"classFeel_1_1TensorisedBoundaryAdapted.html#afe8e7f937443db8f8ff52d0798144dd7",
+"classFeel_1_1Vector.html#a680e5401f8aa711ecd49fe3b6b7c409d",
+"classFeel_1_1VisitorBase.html#a05866c2496ef0ca5dd2773fa0b8b110e",
+"classFeel_1_1problem.html#a645b92620c47207c991d8f33b3a0199a",
+"md_Credits.html",
+"structFeel_1_1problem_1_1value.html#a3b5382b6b8916aa8f73e3c07cd78b9e0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

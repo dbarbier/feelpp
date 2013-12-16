@@ -1,5 +1,8 @@
 var NAVTREEINDEX21 =
 {
+"classFeel_1_1SolverUMFPACK.html#a9f459125f8f8787bc76175d7b9d67cab":[10,0,196,4],
+"classFeel_1_1SolverUMFPACK.html#aa0ac2a171c69ab2233859aa1fed59999":[10,0,196,9],
+"classFeel_1_1SolverUMFPACK.html#aa6cbea013dae08b10a9310defcb3c474":[10,0,196,1],
 "classFeel_1_1SolverUMFPACK.html#aaaf80ac595d99c341ccdec2b96373cf4":[10,0,196,7],
 "classFeel_1_1SolverUMFPACK.html#af415fb655a09b3f7b38d7bef79919a87":[10,0,196,2],
 "classFeel_1_1SolverUMFPACK.html#af48655932331f04d7b43857188065a5d":[10,0,196,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX21 =
 "classFeel_1_1TensorisedBoundaryAdapted.html#af2e8dfadbbae86a23d2fd4337697100f":[10,0,214,20],
 "classFeel_1_1TensorisedBoundaryAdapted.html#af674ced73dae807ac339e594464d3aca":[10,0,214,7],
 "classFeel_1_1TensorisedBoundaryAdapted.html#af8cc06139d72cd5844345fc8ed2a9821":[10,0,214,30],
-"classFeel_1_1TensorisedBoundaryAdapted.html#afdd4bfea25032aaa865ffdd0a17a6cf6":[10,0,214,32],
-"classFeel_1_1TensorisedBoundaryAdapted.html#afe8e7f937443db8f8ff52d0798144dd7":[10,0,214,6],
-"classFeel_1_1TensorisedBoundaryAdapted.html#afef780effcc663758ebe3e0fed314b5b":[10,0,214,9],
-"classFeel_1_1ThermalFin.html":[10,0,215]
+"classFeel_1_1TensorisedBoundaryAdapted.html#afdd4bfea25032aaa865ffdd0a17a6cf6":[10,0,214,32]
 };
