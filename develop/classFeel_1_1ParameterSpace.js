@@ -15,6 +15,7 @@ var classFeel_1_1ParameterSpace =
     [ "check", "classFeel_1_1ParameterSpace.html#a43122c21527923b8463c24b064a95648", null ],
     [ "dimension", "classFeel_1_1ParameterSpace.html#a3b85cc5b32041e0abf587e3a774425dd", null ],
     [ "element", "classFeel_1_1ParameterSpace.html#a419281080ff2ff40865049b0d825c228", null ],
+    [ "element", "classFeel_1_1ParameterSpace.html#a79fc6677fb2f9baafc10dab3b6f93be6", null ],
     [ "elementPtr", "classFeel_1_1ParameterSpace.html#a15178d217722edbef3a15a5664407a2c", null ],
     [ "logMiddle", "classFeel_1_1ParameterSpace.html#adc264707fd47a365269248b4b1d5b291", null ],
     [ "max", "classFeel_1_1ParameterSpace.html#a69d4ffe631affd0c2d407a2818286043", null ],

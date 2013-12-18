@@ -17,7 +17,7 @@ var searchData=
   ['_7edof',['~Dof',['../classFeel_1_1Dof.html#a58a09ff919d7a8ca4f507c6c5b204376',1,'Feel::Dof']]],
   ['_7edoffromboundary',['~DofFromBoundary',['../classFeel_1_1DofFromBoundary.html#a3bc5f3c8d6db664bee6c8aa827a51719',1,'Feel::DofFromBoundary']]],
   ['_7edoffromelement',['~DofFromElement',['../classFeel_1_1DofFromElement.html#a277da114bb2b9552b3b73878db0301c4',1,'Feel::DofFromElement']]],
-  ['_7edoffrommortar',['~DofFromMortar',['../classFeel_1_1DofFromMortar.html#a741a1cc74a7233166988f355407db3d1',1,'Feel::DofFromMortar']]],
+  ['_7edoffrommortar',['~DofFromMortar',['../classFeel_1_1DofFromMortar.html#a81669a47f46b71650ba81887e87c9ebd',1,'Feel::DofFromMortar']]],
   ['_7edoffromperiodic',['~DofFromPeriodic',['../classFeel_1_1DofFromPeriodic.html#aeb1d3e2af2b65459097817204c495f84',1,'Feel::DofFromPeriodic']]],
   ['_7eelement',['~Element',['../classFeel_1_1ParameterSpace_1_1Element.html#ad555b33a54f9e2c65f3f92af89ed2476',1,'Feel::ParameterSpace::Element']]],
   ['_7eenvironment',['~Environment',['../classFeel_1_1detail_1_1Environment.html#ab1b19d2790ac19db7b56ea9bc129777a',1,'Feel::detail::Environment']]],

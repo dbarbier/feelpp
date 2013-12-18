@@ -791,7 +791,7 @@ $(document).ready(function(){initNavTree('expr_8hpp_source.html','');});
 <div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="preprocessor"></span>    <span class="comment">// this is a very rough approximation</span></div>
 <div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> value = ( ExprT::imorder )?( ExprT::imorder*nOrderGeo ):( nOrderGeo );</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> value_1 = ExprT::imorder;</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> value_1 = ExprT::imorder+(the_element_type::is_hypercube?nOrderGeo:0);</div>
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;</div>

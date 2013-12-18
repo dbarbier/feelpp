@@ -135,7 +135,7 @@ var classFeel_1_1DofTable =
     [ "showMe", "classFeel_1_1DofTable.html#a50ea649b638fa0afa205094de9242efa", null ],
     [ "DofFromBoundary", "classFeel_1_1DofTable.html#a500799b8a902106411b918cacc540558", null ],
     [ "DofFromElement", "classFeel_1_1DofTable.html#a4930b993b5183a70c6fe06ecd4bba6f6", null ],
-    [ "DofFromMortar", "classFeel_1_1DofTable.html#aac62233dfdda07ecfc5c867b74cba4a8", null ],
+    [ "DofFromMortar", "classFeel_1_1DofTable.html#af9a85a740a5afc99a87b1b243169a39a", null ],
     [ "DofFromPeriodic", "classFeel_1_1DofTable.html#a50d48edfae16f275b4b261815e3107fe", null ],
     [ "element_access", "classFeel_1_1DofTable.html#a24ffb1862ec6f4725658241531c3f0fd", null ],
     [ "face_access", "classFeel_1_1DofTable.html#a4760ee8839dd1b7f41748429bcfbc31e", null ]
