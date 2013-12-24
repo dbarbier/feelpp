@@ -585,6 +585,11 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>b
 <tr class="separator:ac5faa558acc0ba817ac096f797ae8eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbcd2b4e036c1069cca47e41c0c0bf51"><td class="memItemLeft" align="right" valign="top">dof_ptrtype const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#adbcd2b4e036c1069cca47e41c0c0bf51">dofOnOff</a> () const </td></tr>
 <tr class="separator:adbcd2b4e036c1069cca47e41c0c0bf51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac03ab2fabcf2f0d513606c4e9c463699"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#ac03ab2fabcf2f0d513606c4e9c463699">extendedDofTableComposite</a> () const </td></tr>
+<tr class="separator:ac03ab2fabcf2f0d513606c4e9c463699"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3681f5904e723e7226db2b4d17739c5c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3681f5904e723e7226db2b4d17739c5c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>extendedDofTable</b> () const </td></tr>
+<tr class="separator:a3681f5904e723e7226db2b4d17739c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb5cf76568ef2c6490760d9c19781070"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#afb5cf76568ef2c6490760d9c19781070">isMortar</a> () const </td></tr>
 <tr class="separator:afb5cf76568ef2c6490760d9c19781070"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e771ed640f39f368b4b033e6e69aa8a"><td class="memItemLeft" align="right" valign="top">functionspace_vector_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#a0e771ed640f39f368b4b033e6e69aa8a">functionSpaces</a> () const </td></tr>
@@ -655,6 +660,13 @@ dof_ptrtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 dof_ptrtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#a28227bb46ef1eed43d448d2a89b20645">M_dofOnOff</a></td></tr>
 <tr class="memdesc:a28227bb46ef1eed43d448d2a89b20645"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees of freedom (only init wiht mpi) <br/></td></tr>
 <tr class="separator:a28227bb46ef1eed43d448d2a89b20645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2907ea6a96b50b9a6f7ca6e95988fbd7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2907ea6a96b50b9a6f7ca6e95988fbd7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>M_extendedDofTable</b></td></tr>
+<tr class="separator:a2907ea6a96b50b9a6f7ca6e95988fbd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64fff94ffa04575676b124344544432b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64fff94ffa04575676b124344544432b"></a>
+std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#a64fff94ffa04575676b124344544432b">M_extendedDofTableComposite</a></td></tr>
+<tr class="memdesc:a64fff94ffa04575676b124344544432b"><td class="mdescLeft">&#160;</td><td class="mdescRight">build the extended dof table in // <br/></td></tr>
+<tr class="separator:a64fff94ffa04575676b124344544432b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca77cbfc73e484797f84a20f21b17979"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca77cbfc73e484797f84a20f21b17979"></a>
 mesh_ptrtype&#160;</td><td class="memItemRight" valign="bottom"><b>M_mesh</b></td></tr>
 <tr class="separator:aca77cbfc73e484797f84a20f21b17979"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -788,11 +800,11 @@ static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_morta
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Constructors, destructor</h2></td></tr>
-<tr class="memitem:a1f189ad47665760cd3935e9739c561de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#a1f189ad47665760cd3935e9739c561de">FunctionSpace</a> (mesh_ptrtype const &amp;<a class="el" href="classFeel_1_1FunctionSpace.html#a536e15615750d176c1875faac3ecd29c">mesh</a>, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> mesh_components=MESH_RENUMBER|MESH_CHECK, periodicity_type periodicity=periodicity_type(), std::vector&lt; WorldComm &gt; const &amp;_worldsComm=Environment::worldsComm(nSpaces))</td></tr>
-<tr class="separator:a1f189ad47665760cd3935e9739c561de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54fcedd943e34c4ebb5942ef309d686d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54fcedd943e34c4ebb5942ef309d686d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionSpace</b> (mesh_ptrtype const &amp;<a class="el" href="classFeel_1_1FunctionSpace.html#a536e15615750d176c1875faac3ecd29c">mesh</a>, std::vector&lt; <a class="el" href="classFeel_1_1Dof.html">Dof</a> &gt; const &amp;dofindices, periodicity_type periodicity=periodicity_type(), std::vector&lt; WorldComm &gt; const &amp;_worldsComm=Environment::worldsComm(nSpaces))</td></tr>
-<tr class="separator:a54fcedd943e34c4ebb5942ef309d686d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13e1a846c42227cfd0de3d6fd0ead2c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#a13e1a846c42227cfd0de3d6fd0ead2c3">FunctionSpace</a> (mesh_ptrtype const &amp;<a class="el" href="classFeel_1_1FunctionSpace.html#a536e15615750d176c1875faac3ecd29c">mesh</a>, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> mesh_components=MESH_RENUMBER|MESH_CHECK, periodicity_type periodicity=periodicity_type(), std::vector&lt; WorldComm &gt; const &amp;_worldsComm=Environment::worldsComm(nSpaces), std::vector&lt; bool &gt; extendedDofTable=std::vector&lt; bool &gt;(nSpaces, false))</td></tr>
+<tr class="separator:a13e1a846c42227cfd0de3d6fd0ead2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e9c560acf0c22a5bb3c39babd960627"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e9c560acf0c22a5bb3c39babd960627"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionSpace</b> (mesh_ptrtype const &amp;<a class="el" href="classFeel_1_1FunctionSpace.html#a536e15615750d176c1875faac3ecd29c">mesh</a>, std::vector&lt; <a class="el" href="classFeel_1_1Dof.html">Dof</a> &gt; const &amp;dofindices, periodicity_type periodicity=periodicity_type(), std::vector&lt; WorldComm &gt; const &amp;_worldsComm=Environment::worldsComm(nSpaces), std::vector&lt; bool &gt; extendedDofTable=std::vector&lt; bool &gt;(nSpaces, false))</td></tr>
+<tr class="separator:a4e9c560acf0c22a5bb3c39babd960627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bd50afb8346722d026545717913bba1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1FunctionSpace.html#a0bd50afb8346722d026545717913bba1">init</a> (mesh_ptrtype const &amp;<a class="el" href="classFeel_1_1FunctionSpace.html#a536e15615750d176c1875faac3ecd29c">mesh</a>, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> mesh_components=MESH_RENUMBER|MESH_CHECK, periodicity_type periodicity=periodicity_type())</td></tr>
 <tr class="separator:a0bd50afb8346722d026545717913bba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5e1f6df17ca57c6073ab027c56c7a4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5e1f6df17ca57c6073ab027c56c7a4b"></a>
@@ -824,7 +836,7 @@ static pointer_type&#160;</td><td class="memItemRight" valign="bottom"><b>NewImp
 <tr class="separator:aaa993d9fa9a52656e670e46032907b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1f189ad47665760cd3935e9739c561de"></a>
+<a class="anchor" id="a13e1a846c42227cfd0de3d6fd0ead2c3"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -855,7 +867,13 @@ template&lt;typename A0, typename A1 = parameter::void_, typename A2 = parameter
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; WorldComm &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>_worldsComm</em> = <code>Environment::worldsComm(nSpaces)</code>&#160;</td>
+          <td class="paramname"><em>_worldsComm</em> = <code>Environment::worldsComm(nSpaces)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; bool &gt;&#160;</td>
+          <td class="paramname"><em>extendedDofTable</em> = <code>std::vector&lt;bool&gt;(nSpaces,false)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1219,6 +1237,32 @@ template&lt;typename A0, typename A1 = parameter::void_, typename A2 = parameter
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>an element of the function space </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac03ab2fabcf2f0d513606c4e9c463699"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename A0, typename A1 = parameter::void_, typename A2 = parameter::void_, typename A3 = parameter::void_, typename A4 = parameter::void_&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;bool&gt; <a class="el" href="classFeel_1_1FunctionSpace.html">Feel::FunctionSpace</a>&lt; A0, A1, A2, A3, A4 &gt;::extendedDofTableComposite </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if need to build extended <a class="el" href="classFeel_1_1DofTable.html" title="Local-to-global Degree of Freedom table. ">DofTable</a> </dd></dl>
 
 </div>
 </div>

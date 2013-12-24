@@ -117,8 +117,12 @@ LaplacianDG_Implementation</h1>
 <div class="line">                                  _email=<span class="stringliteral">&quot;feelpp-devel@feelpp.org&quot;</span>));</div>
 <div class="line"></div>
 <div class="line">    <span class="keyword">auto</span> mesh = <a class="code" href="namespaceFeel.html#aaf2805e45809b7e7cd370220b9062da0">unitSquare</a>();</div>
-<div class="line">    <span class="keyword">auto</span> Vh = Odh&lt;1&gt;( mesh );</div>
+<div class="line">    <span class="comment">//auto mesh = unitCube();</span></div>
+<div class="line"></div>
+<div class="line">    <span class="comment">//auto Vh = Odh&lt;1&gt;( mesh );</span></div>
+<div class="line">    <span class="keyword">auto</span> Vh = Pdh&lt;1&gt;( mesh, true );</div>
 <div class="line">    <span class="keyword">auto</span> Xh = Pch&lt;1&gt;( mesh );</div>
+<div class="line"></div>
 <div class="line">    <span class="keyword">auto</span> u = Vh-&gt;element();</div>
 <div class="line">    <span class="keyword">auto</span> v = Vh-&gt;element();</div>
 <div class="line"></div>

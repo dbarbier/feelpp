@@ -5,6 +5,7 @@ var searchData=
   ['random',['random',['../classFeel_1_1ParameterSpace.html#a191867175f999a4cfd4318dc9c9533e9',1,'Feel::ParameterSpace']]],
   ['randomsampling',['randomSampling',['../classFeel_1_1CRB.html#a2403f72998096b470fdadea784cf6e83',1,'Feel::CRB']]],
   ['rank',['rank',['../classFeel_1_1detail_1_1Environment.html#a2ca57bbad85b2d3a1eedb9d1b8224290',1,'Feel::detail::Environment']]],
+  ['rank_5ftype',['rank_type',['../namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6',1,'Feel']]],
   ['rankup',['RankUp',['../structFeel_1_1RankUp.html',1,'Feel']]],
   ['raviartthomas',['RaviartThomas',['../classFeel_1_1fem_1_1RaviartThomas.html',1,'Feel::fem']]],
   ['raviartthomas_2ehpp',['raviartthomas.hpp',['../raviartthomas_8hpp.html',1,'']]],

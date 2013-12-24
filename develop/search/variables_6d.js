@@ -17,6 +17,7 @@ var searchData=
   ['m_5feigen_5fsolver_5ftype',['M_eigen_solver_type',['../classFeel_1_1SolverEigen.html#a84465f10c90303db255da4c88f801a5d',1,'Feel::SolverEigen']]],
   ['m_5fexact',['M_exact',['../classFeel_1_1ErrorBase.html#a72e55f2041ecd53d21376f3d1ce6ec1d',1,'Feel::ErrorBase']]],
   ['m_5fexact_5fparams',['M_exact_params',['../classFeel_1_1ErrorBase.html#ae0ea154f2a540f08bfc6d33fa7b48a14',1,'Feel::ErrorBase']]],
+  ['m_5fextendeddoftablecomposite',['M_extendedDofTableComposite',['../classFeel_1_1FunctionSpace.html#a64fff94ffa04575676b124344544432b',1,'Feel::FunctionSpace']]],
   ['m_5ffirst_5fdf',['M_first_df',['../classFeel_1_1DataMap.html#ae6ce4b4937a7be6c9aecc216438fac85',1,'Feel::DataMap']]],
   ['m_5ffirst_5fdf_5fglobalcluster',['M_first_df_globalcluster',['../classFeel_1_1DataMap.html#ab1c604b285bf96e1098a4b33cdb0185f',1,'Feel::DataMap']]],
   ['m_5ffqm',['M_Fqm',['../classFeel_1_1CRBModel.html#afc7d7aa5dbfb1fa17e03e82cacab3aed',1,'Feel::CRBModel::M_Fqm()'],['../classFeel_1_1CRBModelTrilinear.html#aaaf2beb675a5e1e2557f37a4593eb103',1,'Feel::CRBModelTrilinear::M_Fqm()']]],

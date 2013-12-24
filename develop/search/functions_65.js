@@ -67,6 +67,7 @@ var searchData=
   ['exportresults',['exportResults',['../classConvectionCrb.html#aae368a987ceec6d263808cd8d161419f',1,'ConvectionCrb']]],
   ['exprbase',['ExprBase',['../classFeel_1_1ExprBase.html#ade5077f5338b506fd116dcab12a72948',1,'Feel::ExprBase']]],
   ['expression',['expression',['../classFeel_1_1vf_1_1details_1_1EvaluatorContext.html#a071355df774f3274e4e4e5adb9a1e7b8',1,'Feel::vf::details::EvaluatorContext::expression()'],['../classFeel_1_1vf_1_1details_1_1Projector.html#af6ce91a91972c004249887c5484a5b61',1,'Feel::vf::details::Projector::expression()']]],
+  ['extendeddoftablecomposite',['extendedDofTableComposite',['../classFeel_1_1FunctionSpace.html#ac03ab2fabcf2f0d513606c4e9c463699',1,'Feel::FunctionSpace']]],
   ['extrapolate',['extrapolate',['../classFeel_1_1Bdf.html#ab27129c9ec56f53502df9f4df4f15760',1,'Feel::Bdf']]],
   ['extrapolatecoefficient',['extrapolateCoefficient',['../classFeel_1_1Bdf.html#a1bef56c8f81d9c70e5f2bb8271190d54',1,'Feel::Bdf']]]
 ];

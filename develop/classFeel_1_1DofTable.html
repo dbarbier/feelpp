@@ -376,6 +376,9 @@ periodic_element_list_const_iterator&#160;</td><td class="memItemRight" valign="
 <tr class="memitem:a03400321ff5ef14d9bdc12b516480304"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofTable.html#a03400321ff5ef14d9bdc12b516480304">buildDofMap</a> (<a class="el" href="classFeel_1_1DofTable.html#a7ef534143c67b387d25792d1bfa00be1">mesh_type</a> &amp;mesh, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> start_next_free_dof=0)</td></tr>
 <tr class="memdesc:a03400321ff5ef14d9bdc12b516480304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the localToGlobal table.  <a href="#a03400321ff5ef14d9bdc12b516480304">More...</a><br/></td></tr>
 <tr class="separator:a03400321ff5ef14d9bdc12b516480304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7c8cdd6c2a25a872428834fbfe17bd1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7c8cdd6c2a25a872428834fbfe17bd1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>buildDofTableMPIExtended</b> () const </td></tr>
+<tr class="separator:ae7c8cdd6c2a25a872428834fbfe17bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5dd0024f372b60b8dd1cbf5c79d65d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofTable.html#af5dd0024f372b60b8dd1cbf5c79d65d7">buildLocallyDiscontinuousDofMap</a> (<a class="el" href="classFeel_1_1DofTable.html#a7ef534143c67b387d25792d1bfa00be1">mesh_type</a> &amp;M, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> start_next_free_dof)</td></tr>
 <tr class="separator:af5dd0024f372b60b8dd1cbf5c79d65d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abce02915e52f7dfb8c60552a3fa42857"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofTable.html#abce02915e52f7dfb8c60552a3fa42857">buildPeriodicDofMap</a> (<a class="el" href="classFeel_1_1DofTable.html#a7ef534143c67b387d25792d1bfa00be1">mesh_type</a> &amp;M)</td></tr>
@@ -547,6 +550,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>printDofMarker</b> (s
 <tr class="separator:a96672a4ad0a6838b4ecbae3e7dfbf269"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6403572157a04f0313d3f825199accf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofTable.html#ad6403572157a04f0313d3f825199accf">rebuildDofPoints</a> (<a class="el" href="classFeel_1_1DofTable.html#a7ef534143c67b387d25792d1bfa00be1">mesh_type</a> &amp;M)</td></tr>
 <tr class="separator:ad6403572157a04f0313d3f825199accf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f38c7a2495eca3a241f1595ac415fe3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f38c7a2495eca3a241f1595ac415fe3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setBuildDofTableMPIExtended</b> (bool b)</td></tr>
+<tr class="separator:a0f38c7a2495eca3a241f1595ac415fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a015900dbdf45009faef3fe6e9a1cb4e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofTable.html#a015900dbdf45009faef3fe6e9a1cb4e0">setDofIndices</a> (std::vector&lt; <a class="el" href="classFeel_1_1Dof.html">Dof</a> &gt; const &amp;dof)</td></tr>
 <tr class="separator:a015900dbdf45009faef3fe6e9a1cb4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab08fbe04b17dd583eb36ab8d05980380"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1DofTable.html#ab08fbe04b17dd583eb36ab8d05980380">setElementDone</a> (<a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> elt)</td></tr>
@@ -2102,6 +2108,8 @@ template&lt;typename MeshType , typename FEType , typename PeriodicityType , typ
 </div><div class="memdoc">
 <p>rebuild dof points </p>
 
+<p>References <a class="el" href="classFeel_1_1DataMap.html#aa07d4e34f54b37326adb0389c30687b1">Feel::DataMap::worldComm()</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a015900dbdf45009faef3fe6e9a1cb4e0"></a>
@@ -2206,8 +2214,9 @@ template&lt;typename MeshType , typename FEType , typename PeriodicityType , typ
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="doftable_8hpp_source.html">doftable.hpp</a></li>
+<li><a class="el" href="doftablempi_8hpp_source.html">doftablempi.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

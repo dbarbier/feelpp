@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('projector_8hpp_source.html','');});
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    Projector( domain_space_ptrtype     domainSpace,</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;               dual_image_space_ptrtype dualImageSpace,</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;               backend_ptrtype backend = Backend&lt;double&gt;::build( BACKEND_PETSC ),</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;               backend_ptrtype backend = backend(_rebuild=<span class="keyword">true</span>),</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;               ProjectorType proj_type=L2,</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;               <span class="keywordtype">double</span> epsilon = 0.01,</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;               <span class="keywordtype">double</span> gamma = 20,</div>
@@ -200,7 +200,7 @@ $(document).ready(function(){initNavTree('projector_8hpp_source.html','');});
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        M_dir( dirichlet_type )</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        M_matrix = M_backend-&gt;newMatrix( _trial=domainSpace, _test=dualImageSpace, _pattern=Pattern::EXTENDED ) ;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        M_matrix = M_backend-&gt;newMatrix( _trial=domainSpace, _test=dualImageSpace ) ;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        initMatrix();</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
@@ -272,7 +272,7 @@ $(document).ready(function(){initNavTree('projector_8hpp_source.html','');});
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        ie-&gt;close();</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        M_matrixFull = M_backend-&gt;newMatrix( _trial=this-&gt;domainSpace(), _test=this-&gt;dualImageSpace(), _pattern=Pattern::EXTENDED );</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        M_matrixFull = M_backend-&gt;newMatrix( _trial=this-&gt;domainSpace(), _test=this-&gt;dualImageSpace() );</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">auto</span> bilinearForm = form2( _trial=this-&gt;domainSpace(), _test=this-&gt;dualImageSpace(), _matrix=M_matrixFull );</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">if</span> ( ( M_proj_type == LIFT ) &amp;&amp; ( M_dir == WEAK ) )</div>
@@ -512,9 +512,9 @@ $(document).ready(function(){initNavTree('projector_8hpp_source.html','');});
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TDomainSpace, <span class="keyword">typename</span> TDualImageSpace&gt;</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;boost::shared_ptr&lt; Projector&lt;TDomainSpace, TDualImageSpace&gt; &gt;</div>
-<div class="line"><a name="l00441"></a><span class="lineno"><a class="line" href="namespaceFeel.html#aa91126beaf7894e8c7f5198230253625">  441</a></span>&#160;<a class="code" href="namespaceFeel.html#aa91126beaf7894e8c7f5198230253625">projector</a>( boost::shared_ptr&lt;TDomainSpace&gt; <span class="keyword">const</span>&amp; domainspace,</div>
+<div class="line"><a name="l00441"></a><span class="lineno"><a class="line" href="namespaceFeel.html#acb5add62bcf102a70d978ca777412a80">  441</a></span>&#160;<a class="code" href="namespaceFeel.html#acb5add62bcf102a70d978ca777412a80">projector</a>( boost::shared_ptr&lt;TDomainSpace&gt; <span class="keyword">const</span>&amp; domainspace,</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;           boost::shared_ptr&lt;TDualImageSpace&gt; <span class="keyword">const</span>&amp; imagespace,</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;           <span class="keyword">typename</span> Projector&lt;TDomainSpace, TDualImageSpace&gt;::backend_ptrtype <span class="keyword">const</span>&amp; backend = <a class="code" href="classFeel_1_1Backend.html">Backend&lt;double&gt;::build</a>( BACKEND_PETSC ),</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;           <span class="keyword">typename</span> Projector&lt;TDomainSpace, TDualImageSpace&gt;::backend_ptrtype <span class="keyword">const</span>&amp; backend = backend(_rebuild=<span class="keyword">true</span>),</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;           ProjectorType proj_type=L2, <span class="keywordtype">double</span> epsilon=0.01, <span class="keywordtype">double</span> gamma = 20, DirichletType dirichlet_type = WEAK)</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;{</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classFeel_1_1Projector.html">Projector&lt;TDomainSpace, TDualImageSpace &gt;</a> Proj_type;</div>
@@ -532,10 +532,10 @@ $(document).ready(function(){initNavTree('projector_8hpp_source.html','');});
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;                          ( optional</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;                            ( type, (ProjectorType), L2 )</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;                            ( penaldir, *( boost::is_arithmetic&lt;mpl::_&gt; ), 20. )</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                            ( backend, *, Backend&lt;double&gt;::build( BACKEND_PETSC ) )</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                            ( backend, *, backend(_rebuild=<span class="keyword">true</span>) )</div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                          ) )</div>
 <div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;{</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#aa91126beaf7894e8c7f5198230253625">projector</a>( domainSpace,imageSpace, backend, type, 0.01, penaldir );</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#acb5add62bcf102a70d978ca777412a80">projector</a>( domainSpace,imageSpace, backend, type, 0.01, penaldir );</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;}</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;BOOST_PARAMETER_FUNCTION( ( <span class="keyword">typename</span> Feel::detail::lift_args&lt;Args&gt;::lift_return_type ),</div>
@@ -547,10 +547,10 @@ $(document).ready(function(){initNavTree('projector_8hpp_source.html','');});
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;                          ( optional</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                            ( type, (DirichletType), WEAK )</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;                            ( penaldir, *( boost::is_arithmetic&lt;mpl::_&gt; ), 20. )</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;                            ( backend, *, Backend&lt;double&gt;::build( BACKEND_PETSC ) )</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;                            ( backend, *, backend(_rebuild=<span class="keyword">true</span>) )</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;                            ) )</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;{</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#aa91126beaf7894e8c7f5198230253625">projector</a>( domainSpace, domainSpace, backend, ProjectorType::LIFT, 0.01 , penaldir, type );</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#acb5add62bcf102a70d978ca777412a80">projector</a>( domainSpace, domainSpace, backend, ProjectorType::LIFT, 0.01 , penaldir, type );</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;}</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;</div>
@@ -567,9 +567,8 @@ $(document).ready(function(){initNavTree('projector_8hpp_source.html','');});
 <div class="ttc" id="namespaceFeel_html_ae89776231eca6bd68ba734da512759b3"><div class="ttname"><a href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project</a></div><div class="ttdeci">Polynomial&lt; Pset, Scalar &gt; project(Pset const &amp;pset, Func const &amp;f, IM const &amp;im)</div><div class="ttdef"><b>Definition:</b> operations.hpp:436</div></div>
 <div class="ttc" id="operatorlinear_8hpp_html"><div class="ttname"><a href="operatorlinear_8hpp.html">operatorlinear.hpp</a></div></div>
 <div class="ttc" id="vf_8hpp_html"><div class="ttname"><a href="vf_8hpp.html">vf.hpp</a></div></div>
-<div class="ttc" id="classFeel_1_1Backend_html"><div class="ttname"><a href="classFeel_1_1Backend.html">Feel::Backend</a></div><div class="ttdoc">base class for all linear algebra backends </div><div class="ttdef"><b>Definition:</b> backend.hpp:134</div></div>
+<div class="ttc" id="namespaceFeel_html_acb5add62bcf102a70d978ca777412a80"><div class="ttname"><a href="namespaceFeel.html#acb5add62bcf102a70d978ca777412a80">Feel::projector</a></div><div class="ttdeci">boost::shared_ptr&lt; Projector&lt; TDomainSpace, TDualImageSpace &gt; &gt; projector(boost::shared_ptr&lt; TDomainSpace &gt; const &amp;domainspace, boost::shared_ptr&lt; TDualImageSpace &gt; const &amp;imagespace, typename Projector&lt; TDomainSpace, TDualImageSpace &gt;::backend_ptrtype const &amp;backend=backend(_rebuild=true), ProjectorType proj_type=L2, double epsilon=0.01, double gamma=20, DirichletType dirichlet_type=WEAK)</div><div class="ttdef"><b>Definition:</b> projector.hpp:441</div></div>
 <div class="ttc" id="classFeel_1_1Projector_html"><div class="ttname"><a href="classFeel_1_1Projector.html">Feel::Projector</a></div><div class="ttdoc">Projection made easy. </div><div class="ttdef"><b>Definition:</b> projector.hpp:38</div></div>
-<div class="ttc" id="namespaceFeel_html_aa91126beaf7894e8c7f5198230253625"><div class="ttname"><a href="namespaceFeel.html#aa91126beaf7894e8c7f5198230253625">Feel::projector</a></div><div class="ttdeci">boost::shared_ptr&lt; Projector&lt; TDomainSpace, TDualImageSpace &gt; &gt; projector(boost::shared_ptr&lt; TDomainSpace &gt; const &amp;domainspace, boost::shared_ptr&lt; TDualImageSpace &gt; const &amp;imagespace, typename Projector&lt; TDomainSpace, TDualImageSpace &gt;::backend_ptrtype const &amp;backend=Backend&lt; double &gt;::build(BACKEND_PETSC), ProjectorType proj_type=L2, double epsilon=0.01, double gamma=20, DirichletType dirichlet_type=WEAK)</div><div class="ttdef"><b>Definition:</b> projector.hpp:441</div></div>
 <div class="ttc" id="namespaceFeel_html_a6d4deea03257c3f53b0e9df514a7bf00"><div class="ttname"><a href="namespaceFeel.html#a6d4deea03257c3f53b0e9df514a7bf00">Feel::boundaryfaces</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_FACES &gt;, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator &gt; boundaryfaces(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> filters.hpp:1174</div></div>
 <div class="ttc" id="namespaceFeel_html_a6c53147b25bf664bdf6bec2b30b56af7"><div class="ttname"><a href="namespaceFeel.html#a6c53147b25bf664bdf6bec2b30b56af7">Feel::internalfaces</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_FACES &gt;, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator &gt; internalfaces(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> filters.hpp:1191</div></div>
 </div><!-- fragment --></div><!-- contents -->
