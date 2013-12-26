@@ -4171,7 +4171,7 @@ $(document).ready(function(){initNavTree('functionspace_8hpp_source.html','');})
 <div class="line"><a name="l04448"></a><span class="lineno"> 4448</span>&#160;</div>
 <div class="line"><a name="l04449"></a><span class="lineno"> 4449</span>&#160;    <span class="comment">// todo : check worldsComm size and M_functionspaces are the same!</span></div>
 <div class="line"><a name="l04450"></a><span class="lineno"> 4450</span>&#160;    fusion::for_each( M_functionspaces, detail::InitializeSpace&lt;mesh_ptrtype,periodicity_type&gt;( __m, periodicity,</div>
-<div class="line"><a name="l04451"></a><span class="lineno"> 4451</span>&#160;                                                                                                 dofindices, this-&gt;worldsComm() ) );</div>
+<div class="line"><a name="l04451"></a><span class="lineno"> 4451</span>&#160;                                                                                                dofindices, this-&gt;worldsComm(),this-&gt;extendedDofTableComposite() ) );</div>
 <div class="line"><a name="l04452"></a><span class="lineno"> 4452</span>&#160;</div>
 <div class="line"><a name="l04453"></a><span class="lineno"> 4453</span>&#160;<span class="preprocessor">#if !defined(FEELPP_ENABLE_MPI_MODE) // NOT MPI</span></div>
 <div class="line"><a name="l04454"></a><span class="lineno"> 4454</span>&#160;<span class="preprocessor"></span>    M_dof = dof_ptrtype( <span class="keyword">new</span> dof_type( this-&gt;nDof(), this-&gt;nLocalDof() ) );</div>
