@@ -1971,6 +1971,9 @@ RegionTree::element_base *&#160;</td><td class="memItemRight" valign="bottom"><b
 <tr class="memitem:a46c8cc9a5279bd59846a3467a7eacb82"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46c8cc9a5279bd59846a3467a7eacb82"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>configurePC</b> (PC &amp;pc, WorldComm const &amp;worldComm, std::string sub=&quot;&quot;, std::string prefix=&quot;&quot;)</td></tr>
 <tr class="separator:a46c8cc9a5279bd59846a3467a7eacb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fca71afa90384348b025148bd191a19"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fca71afa90384348b025148bd191a19"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>configurePCWithPetscCommandLineOption</b> (std::string prefixFeelBase, std::string prefixPetscBase)</td></tr>
+<tr class="separator:a2fca71afa90384348b025148bd191a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a216f9ad20230cd9590fe23495a0871c7"><td class="memTemplParams" colspan="2"><a class="anchor" id="a216f9ad20230cd9590fe23495a0871c7"></a>
 template&lt;class Expr &gt; </td></tr>
 <tr class="memitem:a216f9ad20230cd9590fe23495a0871c7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classFeel_1_1ADExpr.html">ADExpr</a>&lt; ADFuncCos&lt; <a class="el" href="classFeel_1_1ADExpr.html">ADExpr</a><br class="typebreak"/>
@@ -3303,9 +3306,18 @@ template&lt;int Dim, typename Convex  = Simplex&lt;Dim&gt;&gt; </td></tr>
 <tr class="memitem:aaf2805e45809b7e7cd370220b9062da0"><td class="memItemLeft" align="right" valign="top">boost::shared_ptr&lt; <a class="el" href="classFeel_1_1Mesh.html">Mesh</a><br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1Simplex.html">Simplex</a>&lt; 2 &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#aaf2805e45809b7e7cd370220b9062da0">unitSquare</a> (double h, PeriodicEntities pe)</td></tr>
 <tr class="separator:aaf2805e45809b7e7cd370220b9062da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f678c57a06308cc0c7d9d1a9e71040f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f678c57a06308cc0c7d9d1a9e71040f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateBackendPreconditionerOptions</b> (po::options_description &amp;_options, std::string const &amp;prefix)</td></tr>
-<tr class="separator:a1f678c57a06308cc0c7d9d1a9e71040f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1a33aa7fbdba5a755976abcf13224d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1a33aa7fbdba5a755976abcf13224d5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateBackendFieldSplitPreconditionerOptions</b> (po::options_description &amp;_options, std::string const &amp;prefix)</td></tr>
+<tr class="separator:ae1a33aa7fbdba5a755976abcf13224d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34c249b1a3d3b2e16b8e3aa8f544fba9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34c249b1a3d3b2e16b8e3aa8f544fba9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateBackendKSPOptions</b> (po::options_description &amp;_options, std::string const &amp;prefix)</td></tr>
+<tr class="separator:a34c249b1a3d3b2e16b8e3aa8f544fba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41fe420dbf909960541599a4f546ff24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41fe420dbf909960541599a4f546ff24"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateBackendMGPreconditionerOptions</b> (po::options_description &amp;_options, std::string const &amp;prefix)</td></tr>
+<tr class="separator:a41fe420dbf909960541599a4f546ff24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7804346661c76453f2360725ec285ec5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7804346661c76453f2360725ec285ec5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateBackendPreconditionerOptions</b> (po::options_description &amp;_options, std::string const &amp;prefix, std::string defaultpc=&quot;lu&quot;)</td></tr>
+<tr class="separator:a7804346661c76453f2360725ec285ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab542cab1a9ad35f64b004a16f233cc42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab542cab1a9ad35f64b004a16f233cc42"></a>
 std::vector&lt; ptree::ptree &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>updateStats</b> (std::vector&lt; ptree::ptree &gt; &amp;stats)</td></tr>
 <tr class="separator:ab542cab1a9ad35f64b004a16f233cc42"><td class="memSeparator" colspan="2">&#160;</td></tr>

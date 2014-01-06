@@ -1,13 +1,12 @@
 var NAVTREEINDEX26 =
 {
-"classThreeFieldsLaplacian.html#acad841da2460f2615bcbe1d526c3a845":[10,11,4],
 "classThreeFieldsLaplacian.html#acd7d24d75576303e5f8a09a8ed47f944":[10,11,19],
 "classThreeFieldsLaplacian.html#ace853f265e8e0646de69d702f59d2139":[10,11,28],
 "classThreeFieldsLaplacian.html#ad1aada0099d45c1c61e7fb1149f36dc2":[10,11,14],
 "classThreeFieldsLaplacian.html#ad2ba185089e485cdd2d3a50326476b72":[10,11,3],
 "classThreeFieldsLaplacian.html#aef0b85cec754ffad5684a4c3c244c644":[10,11,22],
-"index.html":[],
 "index.html":[0],
+"index.html":[],
 "md_Credits.html":[1],
 "md__home_vhuber_feelpp_8git_COPYING.html":[8],
 "namespaceFeel.html":[10,0],
@@ -67,8 +66,8 @@ var NAVTREEINDEX26 =
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a24f2edf51794093c9006affe4889ea1c":[10,0,105,4],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a263e8c4c3415b075865bb909aaebf3cf":[10,0,105,7],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a47a159d96c1faef9f6b57e104411690f":[10,0,105,6],
-"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,2],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,3],
+"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,2],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aae08c8b04ff5d504167b6b0ef8710a90":[10,0,105,5],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,105,0],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,105,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX26 =
 "structFeel_1_1functional_1_1PointsGradient.html#aebae387291ca61dad0bd86a3eb8007dc":[10,0,79,13,3],
 "structFeel_1_1math_1_1Constant.html":[10,0,4,0],
 "structFeel_1_1math_1_1Constant.html#a1733ac3f1be3fc43530ef151077c7578":[10,0,4,0,1],
-"structFeel_1_1math_1_1Constant.html#a5fc976a0ea37da2ed3ac486b29ce9ed2":[10,0,4,0,0]
+"structFeel_1_1math_1_1Constant.html#a5fc976a0ea37da2ed3ac486b29ce9ed2":[10,0,4,0,0],
+"structFeel_1_1math_1_1Constant.html#addc15598bd97c5823b2c49b4f42d137c":[10,0,4,0,2]
 };
