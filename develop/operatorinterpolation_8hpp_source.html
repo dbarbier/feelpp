@@ -2282,8 +2282,8 @@ $(document).ready(function(){initNavTree('operatorinterpolation_8hpp_source.html
 <div class="line"><a name="l02227"></a><span class="lineno"> 2227</span>&#160;    <span class="keywordflow">if</span> ( this-&gt;interpolationType().searchWithCommunication() &amp;&amp; !locTool-&gt;hasComputedBarycentersWorld() )</div>
 <div class="line"><a name="l02228"></a><span class="lineno"> 2228</span>&#160;        locTool-&gt;computeBarycentersWorld();</div>
 <div class="line"><a name="l02229"></a><span class="lineno"> 2229</span>&#160;</div>
-<div class="line"><a name="l02230"></a><span class="lineno"> 2230</span>&#160;    <span class="comment">// build the vector of barycenter only if search with comm</span></div>
-<div class="line"><a name="l02231"></a><span class="lineno"> 2231</span>&#160;    std::vector&lt;typename image_mesh_type::node_type&gt; vecBarycenter(nProc_domain);</div>
+<div class="line"><a name="l02230"></a><span class="lineno"> 2230</span>&#160;    <span class="comment">// build the vector of barycenter (computed from kdtree point) only if search with comm</span></div>
+<div class="line"><a name="l02231"></a><span class="lineno"> 2231</span>&#160;    std::vector&lt;boost::tuple&lt;bool,typename image_mesh_type::node_type&gt; &gt; vecBarycenter(nProc_domain);</div>
 <div class="line"><a name="l02232"></a><span class="lineno"> 2232</span>&#160;    <span class="keywordflow">if</span> (this-&gt;interpolationType().searchWithCommunication())</div>
 <div class="line"><a name="l02233"></a><span class="lineno"> 2233</span>&#160;        vecBarycenter = locTool-&gt;barycentersWorld();</div>
 <div class="line"><a name="l02234"></a><span class="lineno"> 2234</span>&#160;</div>
@@ -2322,164 +2322,167 @@ $(document).ready(function(){initNavTree('operatorinterpolation_8hpp_source.html
 <div class="line"><a name="l02267"></a><span class="lineno"> 2267</span>&#160;                                distanceMin=INT_MAX;</div>
 <div class="line"><a name="l02268"></a><span class="lineno"> 2268</span>&#160;                                <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> proc=0 ; proc&lt;nProc_domain; ++proc)</div>
 <div class="line"><a name="l02269"></a><span class="lineno"> 2269</span>&#160;                                {</div>
-<div class="line"><a name="l02270"></a><span class="lineno"> 2270</span>&#160;                                    <span class="keyword">auto</span> <span class="keyword">const</span>&amp; bary = vecBarycenter[proc];</div>
-<div class="line"><a name="l02271"></a><span class="lineno"> 2271</span>&#160;                                                   distanceSquare  = std::pow(imagePoint(0)-bary(0),2);</div>
-<div class="line"><a name="l02272"></a><span class="lineno"> 2272</span>&#160;                                    <span class="keywordflow">if</span> (bary.size()&gt;1) distanceSquare += std::pow(imagePoint(1)-bary(1),2);</div>
-<div class="line"><a name="l02273"></a><span class="lineno"> 2273</span>&#160;                                    <span class="keywordflow">if</span> (bary.size()&gt;2) distanceSquare += std::pow(imagePoint(2)-bary(2),2);</div>
-<div class="line"><a name="l02274"></a><span class="lineno"> 2274</span>&#160;                                    distance = std::sqrt( distanceSquare );</div>
-<div class="line"><a name="l02275"></a><span class="lineno"> 2275</span>&#160;                                    <span class="keywordflow">if</span> (distance&lt;distanceMin &amp;&amp; dof_searchWithProc[gdof].find(proc)==dof_searchWithProc[gdof].end() )</div>
-<div class="line"><a name="l02276"></a><span class="lineno"> 2276</span>&#160;                                    {</div>
-<div class="line"><a name="l02277"></a><span class="lineno"> 2277</span>&#160;                                        procForPt = proc;</div>
-<div class="line"><a name="l02278"></a><span class="lineno"> 2278</span>&#160;                                        distanceMin=distance;</div>
-<div class="line"><a name="l02279"></a><span class="lineno"> 2279</span>&#160;                                    }</div>
-<div class="line"><a name="l02280"></a><span class="lineno"> 2280</span>&#160;                                }</div>
-<div class="line"><a name="l02281"></a><span class="lineno"> 2281</span>&#160;                                memSetGdofAndComp[procForPt].push_back(boost::make_tuple(gdof,comp));</div>
-<div class="line"><a name="l02282"></a><span class="lineno"> 2282</span>&#160;                                <span class="keywordflow">if</span> (InterpType::value==1)  <span class="comment">// conformal case</span></div>
-<div class="line"><a name="l02283"></a><span class="lineno"> 2283</span>&#160;                                    memSetVertices_conformeInterp[procForPt].push_back(it-&gt;vertices());</div>
-<div class="line"><a name="l02284"></a><span class="lineno"> 2284</span>&#160;                            }</div>
-<div class="line"><a name="l02285"></a><span class="lineno"> 2285</span>&#160;                            <span class="keywordflow">else</span> <span class="comment">// only with myself</span></div>
-<div class="line"><a name="l02286"></a><span class="lineno"> 2286</span>&#160;                            {</div>
-<div class="line"><a name="l02287"></a><span class="lineno"> 2287</span>&#160;                                memSetGdofAndComp[this-&gt;domainSpace()-&gt;worldComm().globalRank()].push_back(boost::make_tuple(gdof,comp));</div>
-<div class="line"><a name="l02288"></a><span class="lineno"> 2288</span>&#160;                                <span class="keywordflow">if</span> (InterpType::value==1) <span class="comment">// conformal case</span></div>
-<div class="line"><a name="l02289"></a><span class="lineno"> 2289</span>&#160;                                    memSetVertices_conformeInterp[this-&gt;domainSpace()-&gt;worldComm().globalRank()].push_back(it-&gt;vertices());</div>
-<div class="line"><a name="l02290"></a><span class="lineno"> 2290</span>&#160;                            }</div>
-<div class="line"><a name="l02291"></a><span class="lineno"> 2291</span>&#160;</div>
-<div class="line"><a name="l02292"></a><span class="lineno"> 2292</span>&#160;                            dof_done[gdof]=<span class="keyword">true</span>;</div>
-<div class="line"><a name="l02293"></a><span class="lineno"> 2293</span>&#160;                        }</div>
-<div class="line"><a name="l02294"></a><span class="lineno"> 2294</span>&#160;                    } <span class="comment">// for ( uint16_type comp ... )</span></div>
-<div class="line"><a name="l02295"></a><span class="lineno"> 2295</span>&#160;                } <span class="comment">// for ( uint16_type iloc ... )</span></div>
-<div class="line"><a name="l02296"></a><span class="lineno"> 2296</span>&#160;            } <span class="comment">// for ( ; it!=en;++it )</span></div>
-<div class="line"><a name="l02297"></a><span class="lineno"> 2297</span>&#160;        } <span class="comment">//for ( ; itListRange!=enListRange ; ++itListRange)</span></div>
-<div class="line"><a name="l02298"></a><span class="lineno"> 2298</span>&#160;    } <span class="comment">// isActive</span></div>
-<div class="line"><a name="l02299"></a><span class="lineno"> 2299</span>&#160;</div>
-<div class="line"><a name="l02300"></a><span class="lineno"> 2300</span>&#160;    <span class="comment">// memory map (loc index pt) -&gt; global dofs</span></div>
-<div class="line"><a name="l02301"></a><span class="lineno"> 2301</span>&#160;    std::vector&lt; std::vector&lt;size_type&gt; &gt; memmapGdof( nProc_domain );</div>
-<div class="line"><a name="l02302"></a><span class="lineno"> 2302</span>&#160;    <span class="comment">// memory map (loc index pt) -&gt; comp</span></div>
-<div class="line"><a name="l02303"></a><span class="lineno"> 2303</span>&#160;    std::vector&lt; std::vector&lt;uint16_type&gt; &gt; memmapComp( nProc_domain );</div>
-<div class="line"><a name="l02304"></a><span class="lineno"> 2304</span>&#160;    <span class="comment">// points to lacalize</span></div>
-<div class="line"><a name="l02305"></a><span class="lineno"> 2305</span>&#160;    std::vector&lt;std::vector&lt;typename image_mesh_type::node_type&gt; &gt; pointsSearched( nProc_domain );</div>
-<div class="line"><a name="l02306"></a><span class="lineno"> 2306</span>&#160;</div>
-<div class="line"><a name="l02307"></a><span class="lineno"> 2307</span>&#160;    std::vector&lt;std::vector&lt; std::vector&lt;typename image_mesh_type::node_type &gt; &gt; &gt; memmap_vertices( nProc_domain );</div>
-<div class="line"><a name="l02308"></a><span class="lineno"> 2308</span>&#160;</div>
-<div class="line"><a name="l02309"></a><span class="lineno"> 2309</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> proc=0; proc&lt;nProc_domain;++proc)</div>
-<div class="line"><a name="l02310"></a><span class="lineno"> 2310</span>&#160;        {</div>
-<div class="line"><a name="l02311"></a><span class="lineno"> 2311</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> nData = memSetGdofAndComp[proc].size();</div>
-<div class="line"><a name="l02312"></a><span class="lineno"> 2312</span>&#160;            memmapGdof[proc].resize(nData);</div>
-<div class="line"><a name="l02313"></a><span class="lineno"> 2313</span>&#160;            memmapComp[proc].resize(nData);</div>
-<div class="line"><a name="l02314"></a><span class="lineno"> 2314</span>&#160;            pointsSearched[proc].resize(nData);</div>
-<div class="line"><a name="l02315"></a><span class="lineno"> 2315</span>&#160;            <span class="comment">// conforme case</span></div>
-<div class="line"><a name="l02316"></a><span class="lineno"> 2316</span>&#160;            <span class="keywordflow">if</span>(InterpType::value==1) memmap_vertices[proc].resize(nData);</div>
-<div class="line"><a name="l02317"></a><span class="lineno"> 2317</span>&#160;</div>
-<div class="line"><a name="l02318"></a><span class="lineno"> 2318</span>&#160;            <span class="keyword">auto</span> it_GdofAndComp = memSetGdofAndComp[proc].begin();</div>
-<div class="line"><a name="l02319"></a><span class="lineno"> 2319</span>&#160;            <span class="keyword">auto</span> it_vertices = memSetVertices_conformeInterp[proc].begin();</div>
-<div class="line"><a name="l02320"></a><span class="lineno"> 2320</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k=0 ; k&lt;nData ; ++k, ++it_GdofAndComp)</div>
-<div class="line"><a name="l02321"></a><span class="lineno"> 2321</span>&#160;                {</div>
-<div class="line"><a name="l02322"></a><span class="lineno"> 2322</span>&#160;                    memmapGdof[proc][k]=it_GdofAndComp-&gt;template get&lt;0&gt;();<span class="comment">//gdof;</span></div>
-<div class="line"><a name="l02323"></a><span class="lineno"> 2323</span>&#160;                    memmapComp[proc][k]=it_GdofAndComp-&gt;template get&lt;1&gt;();<span class="comment">//comp</span></div>
-<div class="line"><a name="l02324"></a><span class="lineno"> 2324</span>&#160;                    pointsSearched[proc][k]=imagedof-&gt;dofPoint(it_GdofAndComp-&gt;template get&lt;0&gt;()).template get&lt;0&gt;();<span class="comment">//node</span></div>
-<div class="line"><a name="l02325"></a><span class="lineno"> 2325</span>&#160;                    <span class="keywordflow">if</span>(InterpType::value==1) <span class="comment">// conforme case</span></div>
-<div class="line"><a name="l02326"></a><span class="lineno"> 2326</span>&#160;                        {</div>
-<div class="line"><a name="l02327"></a><span class="lineno"> 2327</span>&#160;                            memmap_vertices[proc][k].resize(it_vertices-&gt;size2());</div>
-<div class="line"><a name="l02328"></a><span class="lineno"> 2328</span>&#160;                            <span class="keywordflow">for</span> (uint16_type v=0;v&lt;it_vertices-&gt;size2();++v)</div>
-<div class="line"><a name="l02329"></a><span class="lineno"> 2329</span>&#160;                                memmap_vertices[proc][k][v]=ublas::column(*it_vertices,v);</div>
-<div class="line"><a name="l02330"></a><span class="lineno"> 2330</span>&#160;                            ++it_vertices;</div>
-<div class="line"><a name="l02331"></a><span class="lineno"> 2331</span>&#160;                        }</div>
-<div class="line"><a name="l02332"></a><span class="lineno"> 2332</span>&#160;                }</div>
-<div class="line"><a name="l02333"></a><span class="lineno"> 2333</span>&#160;        }</div>
-<div class="line"><a name="l02334"></a><span class="lineno"> 2334</span>&#160;</div>
-<div class="line"><a name="l02335"></a><span class="lineno"> 2335</span>&#160;    <span class="keywordflow">return</span> boost::make_tuple(memmapGdof,memmapComp,pointsSearched,memmap_vertices);</div>
-<div class="line"><a name="l02336"></a><span class="lineno"> 2336</span>&#160;}</div>
+<div class="line"><a name="l02270"></a><span class="lineno"> 2270</span>&#160;                                    <span class="comment">// if no point in kdtree, ignore this process</span></div>
+<div class="line"><a name="l02271"></a><span class="lineno"> 2271</span>&#160;                                    <span class="keywordflow">if</span> ( !vecBarycenter[proc].<span class="keyword">template</span> get&lt;0&gt;() ) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l02272"></a><span class="lineno"> 2272</span>&#160;</div>
+<div class="line"><a name="l02273"></a><span class="lineno"> 2273</span>&#160;                                    <span class="keyword">auto</span> <span class="keyword">const</span>&amp; bary = vecBarycenter[proc].template get&lt;1&gt;();</div>
+<div class="line"><a name="l02274"></a><span class="lineno"> 2274</span>&#160;                                                   distanceSquare  = std::pow(imagePoint(0)-bary(0),2);</div>
+<div class="line"><a name="l02275"></a><span class="lineno"> 2275</span>&#160;                                    <span class="keywordflow">if</span> (bary.size()&gt;1) distanceSquare += std::pow(imagePoint(1)-bary(1),2);</div>
+<div class="line"><a name="l02276"></a><span class="lineno"> 2276</span>&#160;                                    <span class="keywordflow">if</span> (bary.size()&gt;2) distanceSquare += std::pow(imagePoint(2)-bary(2),2);</div>
+<div class="line"><a name="l02277"></a><span class="lineno"> 2277</span>&#160;                                    distance = std::sqrt( distanceSquare );</div>
+<div class="line"><a name="l02278"></a><span class="lineno"> 2278</span>&#160;                                    <span class="keywordflow">if</span> (distance&lt;distanceMin &amp;&amp; dof_searchWithProc[gdof].find(proc)==dof_searchWithProc[gdof].end() )</div>
+<div class="line"><a name="l02279"></a><span class="lineno"> 2279</span>&#160;                                    {</div>
+<div class="line"><a name="l02280"></a><span class="lineno"> 2280</span>&#160;                                        procForPt = proc;</div>
+<div class="line"><a name="l02281"></a><span class="lineno"> 2281</span>&#160;                                        distanceMin=distance;</div>
+<div class="line"><a name="l02282"></a><span class="lineno"> 2282</span>&#160;                                    }</div>
+<div class="line"><a name="l02283"></a><span class="lineno"> 2283</span>&#160;                                }</div>
+<div class="line"><a name="l02284"></a><span class="lineno"> 2284</span>&#160;                                memSetGdofAndComp[procForPt].push_back(boost::make_tuple(gdof,comp));</div>
+<div class="line"><a name="l02285"></a><span class="lineno"> 2285</span>&#160;                                <span class="keywordflow">if</span> (InterpType::value==1)  <span class="comment">// conformal case</span></div>
+<div class="line"><a name="l02286"></a><span class="lineno"> 2286</span>&#160;                                    memSetVertices_conformeInterp[procForPt].push_back(it-&gt;vertices());</div>
+<div class="line"><a name="l02287"></a><span class="lineno"> 2287</span>&#160;                            }</div>
+<div class="line"><a name="l02288"></a><span class="lineno"> 2288</span>&#160;                            <span class="keywordflow">else</span> <span class="comment">// only with myself</span></div>
+<div class="line"><a name="l02289"></a><span class="lineno"> 2289</span>&#160;                            {</div>
+<div class="line"><a name="l02290"></a><span class="lineno"> 2290</span>&#160;                                memSetGdofAndComp[this-&gt;domainSpace()-&gt;worldComm().globalRank()].push_back(boost::make_tuple(gdof,comp));</div>
+<div class="line"><a name="l02291"></a><span class="lineno"> 2291</span>&#160;                                <span class="keywordflow">if</span> (InterpType::value==1) <span class="comment">// conformal case</span></div>
+<div class="line"><a name="l02292"></a><span class="lineno"> 2292</span>&#160;                                    memSetVertices_conformeInterp[this-&gt;domainSpace()-&gt;worldComm().globalRank()].push_back(it-&gt;vertices());</div>
+<div class="line"><a name="l02293"></a><span class="lineno"> 2293</span>&#160;                            }</div>
+<div class="line"><a name="l02294"></a><span class="lineno"> 2294</span>&#160;</div>
+<div class="line"><a name="l02295"></a><span class="lineno"> 2295</span>&#160;                            dof_done[gdof]=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l02296"></a><span class="lineno"> 2296</span>&#160;                        }</div>
+<div class="line"><a name="l02297"></a><span class="lineno"> 2297</span>&#160;                    } <span class="comment">// for ( uint16_type comp ... )</span></div>
+<div class="line"><a name="l02298"></a><span class="lineno"> 2298</span>&#160;                } <span class="comment">// for ( uint16_type iloc ... )</span></div>
+<div class="line"><a name="l02299"></a><span class="lineno"> 2299</span>&#160;            } <span class="comment">// for ( ; it!=en;++it )</span></div>
+<div class="line"><a name="l02300"></a><span class="lineno"> 2300</span>&#160;        } <span class="comment">//for ( ; itListRange!=enListRange ; ++itListRange)</span></div>
+<div class="line"><a name="l02301"></a><span class="lineno"> 2301</span>&#160;    } <span class="comment">// isActive</span></div>
+<div class="line"><a name="l02302"></a><span class="lineno"> 2302</span>&#160;</div>
+<div class="line"><a name="l02303"></a><span class="lineno"> 2303</span>&#160;    <span class="comment">// memory map (loc index pt) -&gt; global dofs</span></div>
+<div class="line"><a name="l02304"></a><span class="lineno"> 2304</span>&#160;    std::vector&lt; std::vector&lt;size_type&gt; &gt; memmapGdof( nProc_domain );</div>
+<div class="line"><a name="l02305"></a><span class="lineno"> 2305</span>&#160;    <span class="comment">// memory map (loc index pt) -&gt; comp</span></div>
+<div class="line"><a name="l02306"></a><span class="lineno"> 2306</span>&#160;    std::vector&lt; std::vector&lt;uint16_type&gt; &gt; memmapComp( nProc_domain );</div>
+<div class="line"><a name="l02307"></a><span class="lineno"> 2307</span>&#160;    <span class="comment">// points to lacalize</span></div>
+<div class="line"><a name="l02308"></a><span class="lineno"> 2308</span>&#160;    std::vector&lt;std::vector&lt;typename image_mesh_type::node_type&gt; &gt; pointsSearched( nProc_domain );</div>
+<div class="line"><a name="l02309"></a><span class="lineno"> 2309</span>&#160;</div>
+<div class="line"><a name="l02310"></a><span class="lineno"> 2310</span>&#160;    std::vector&lt;std::vector&lt; std::vector&lt;typename image_mesh_type::node_type &gt; &gt; &gt; memmap_vertices( nProc_domain );</div>
+<div class="line"><a name="l02311"></a><span class="lineno"> 2311</span>&#160;</div>
+<div class="line"><a name="l02312"></a><span class="lineno"> 2312</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> proc=0; proc&lt;nProc_domain;++proc)</div>
+<div class="line"><a name="l02313"></a><span class="lineno"> 2313</span>&#160;        {</div>
+<div class="line"><a name="l02314"></a><span class="lineno"> 2314</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> nData = memSetGdofAndComp[proc].size();</div>
+<div class="line"><a name="l02315"></a><span class="lineno"> 2315</span>&#160;            memmapGdof[proc].resize(nData);</div>
+<div class="line"><a name="l02316"></a><span class="lineno"> 2316</span>&#160;            memmapComp[proc].resize(nData);</div>
+<div class="line"><a name="l02317"></a><span class="lineno"> 2317</span>&#160;            pointsSearched[proc].resize(nData);</div>
+<div class="line"><a name="l02318"></a><span class="lineno"> 2318</span>&#160;            <span class="comment">// conforme case</span></div>
+<div class="line"><a name="l02319"></a><span class="lineno"> 2319</span>&#160;            <span class="keywordflow">if</span>(InterpType::value==1) memmap_vertices[proc].resize(nData);</div>
+<div class="line"><a name="l02320"></a><span class="lineno"> 2320</span>&#160;</div>
+<div class="line"><a name="l02321"></a><span class="lineno"> 2321</span>&#160;            <span class="keyword">auto</span> it_GdofAndComp = memSetGdofAndComp[proc].begin();</div>
+<div class="line"><a name="l02322"></a><span class="lineno"> 2322</span>&#160;            <span class="keyword">auto</span> it_vertices = memSetVertices_conformeInterp[proc].begin();</div>
+<div class="line"><a name="l02323"></a><span class="lineno"> 2323</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k=0 ; k&lt;nData ; ++k, ++it_GdofAndComp)</div>
+<div class="line"><a name="l02324"></a><span class="lineno"> 2324</span>&#160;                {</div>
+<div class="line"><a name="l02325"></a><span class="lineno"> 2325</span>&#160;                    memmapGdof[proc][k]=it_GdofAndComp-&gt;template get&lt;0&gt;();<span class="comment">//gdof;</span></div>
+<div class="line"><a name="l02326"></a><span class="lineno"> 2326</span>&#160;                    memmapComp[proc][k]=it_GdofAndComp-&gt;template get&lt;1&gt;();<span class="comment">//comp</span></div>
+<div class="line"><a name="l02327"></a><span class="lineno"> 2327</span>&#160;                    pointsSearched[proc][k]=imagedof-&gt;dofPoint(it_GdofAndComp-&gt;template get&lt;0&gt;()).template get&lt;0&gt;();<span class="comment">//node</span></div>
+<div class="line"><a name="l02328"></a><span class="lineno"> 2328</span>&#160;                    <span class="keywordflow">if</span>(InterpType::value==1) <span class="comment">// conforme case</span></div>
+<div class="line"><a name="l02329"></a><span class="lineno"> 2329</span>&#160;                        {</div>
+<div class="line"><a name="l02330"></a><span class="lineno"> 2330</span>&#160;                            memmap_vertices[proc][k].resize(it_vertices-&gt;size2());</div>
+<div class="line"><a name="l02331"></a><span class="lineno"> 2331</span>&#160;                            <span class="keywordflow">for</span> (uint16_type v=0;v&lt;it_vertices-&gt;size2();++v)</div>
+<div class="line"><a name="l02332"></a><span class="lineno"> 2332</span>&#160;                                memmap_vertices[proc][k][v]=ublas::column(*it_vertices,v);</div>
+<div class="line"><a name="l02333"></a><span class="lineno"> 2333</span>&#160;                            ++it_vertices;</div>
+<div class="line"><a name="l02334"></a><span class="lineno"> 2334</span>&#160;                        }</div>
+<div class="line"><a name="l02335"></a><span class="lineno"> 2335</span>&#160;                }</div>
+<div class="line"><a name="l02336"></a><span class="lineno"> 2336</span>&#160;        }</div>
 <div class="line"><a name="l02337"></a><span class="lineno"> 2337</span>&#160;</div>
-<div class="line"><a name="l02338"></a><span class="lineno"> 2338</span>&#160;<span class="preprocessor">#endif // WITH MPI</span></div>
-<div class="line"><a name="l02339"></a><span class="lineno"> 2339</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l02338"></a><span class="lineno"> 2338</span>&#160;    <span class="keywordflow">return</span> boost::make_tuple(memmapGdof,memmapComp,pointsSearched,memmap_vertices);</div>
+<div class="line"><a name="l02339"></a><span class="lineno"> 2339</span>&#160;}</div>
 <div class="line"><a name="l02340"></a><span class="lineno"> 2340</span>&#160;</div>
-<div class="line"><a name="l02341"></a><span class="lineno"> 2341</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><a name="l02342"></a><span class="lineno"> 2342</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><a name="l02343"></a><span class="lineno"> 2343</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><a name="l02344"></a><span class="lineno"> 2344</span>&#160;</div>
-<div class="line"><a name="l02345"></a><span class="lineno"> 2345</span>&#160;<span class="keyword">namespace </span>detail</div>
-<div class="line"><a name="l02346"></a><span class="lineno"> 2346</span>&#160;{</div>
-<div class="line"><a name="l02347"></a><span class="lineno"> 2347</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> RangeType&gt;</div>
-<div class="line"><a name="l02348"></a><span class="lineno"> 2348</span>&#160;<span class="keyword">struct </span>opinterprangetype</div>
+<div class="line"><a name="l02341"></a><span class="lineno"> 2341</span>&#160;<span class="preprocessor">#endif // WITH MPI</span></div>
+<div class="line"><a name="l02342"></a><span class="lineno"> 2342</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l02343"></a><span class="lineno"> 2343</span>&#160;</div>
+<div class="line"><a name="l02344"></a><span class="lineno"> 2344</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------//</span></div>
+<div class="line"><a name="l02345"></a><span class="lineno"> 2345</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------//</span></div>
+<div class="line"><a name="l02346"></a><span class="lineno"> 2346</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------//</span></div>
+<div class="line"><a name="l02347"></a><span class="lineno"> 2347</span>&#160;</div>
+<div class="line"><a name="l02348"></a><span class="lineno"> 2348</span>&#160;<span class="keyword">namespace </span>detail</div>
 <div class="line"><a name="l02349"></a><span class="lineno"> 2349</span>&#160;{</div>
-<div class="line"><a name="l02350"></a><span class="lineno"> 2350</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::if_&lt; boost::is_std_list&lt;RangeType&gt;,</div>
-<div class="line"><a name="l02351"></a><span class="lineno"> 2351</span>&#160;                               mpl::identity&lt;RangeType&gt;,</div>
-<div class="line"><a name="l02352"></a><span class="lineno"> 2352</span>&#160;                               mpl::identity&lt;std::list&lt;RangeType&gt; &gt; &gt;::type::type::value_type type;</div>
-<div class="line"><a name="l02353"></a><span class="lineno"> 2353</span>&#160;};</div>
-<div class="line"><a name="l02354"></a><span class="lineno"> 2354</span>&#160;}</div>
-<div class="line"><a name="l02355"></a><span class="lineno"> 2355</span>&#160;</div>
-<div class="line"><a name="l02356"></a><span class="lineno"> 2356</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DomainSpaceType, <span class="keyword">typename</span> ImageSpaceType, <span class="keyword">typename</span> IteratorRange, <span class="keyword">typename</span> InterpType &gt;</div>
-<div class="line"><a name="l02357"></a><span class="lineno"> 2357</span>&#160;boost::shared_ptr&lt;OperatorInterpolation&lt;DomainSpaceType, ImageSpaceType,typename Feel::detail::opinterprangetype&lt;IteratorRange&gt;::type,InterpType&gt; &gt;</div>
-<div class="line"><a name="l02358"></a><span class="lineno"> 2358</span>&#160;opInterp( boost::shared_ptr&lt;DomainSpaceType&gt; <span class="keyword">const</span>&amp; domainspace,</div>
-<div class="line"><a name="l02359"></a><span class="lineno"> 2359</span>&#160;          boost::shared_ptr&lt;ImageSpaceType&gt; <span class="keyword">const</span>&amp; imagespace,</div>
-<div class="line"><a name="l02360"></a><span class="lineno"> 2360</span>&#160;          IteratorRange <span class="keyword">const</span>&amp; r,</div>
-<div class="line"><a name="l02361"></a><span class="lineno"> 2361</span>&#160;          <span class="keyword">typename</span> OperatorInterpolation&lt;DomainSpaceType, ImageSpaceType,<span class="keyword">typename</span> Feel::detail::opinterprangetype&lt;IteratorRange&gt;::type,InterpType&gt;::backend_ptrtype <span class="keyword">const</span>&amp; backend,</div>
-<div class="line"><a name="l02362"></a><span class="lineno"> 2362</span>&#160;          InterpType <span class="keyword">const</span>&amp; interptype,</div>
-<div class="line"><a name="l02363"></a><span class="lineno"> 2363</span>&#160;          <span class="keywordtype">bool</span> ddmethod</div>
-<div class="line"><a name="l02364"></a><span class="lineno"> 2364</span>&#160;        )</div>
-<div class="line"><a name="l02365"></a><span class="lineno"> 2365</span>&#160;{</div>
-<div class="line"><a name="l02366"></a><span class="lineno"> 2366</span>&#160;    <span class="keyword">typedef</span> OperatorInterpolation&lt;DomainSpaceType, ImageSpaceType,typename Feel::detail::opinterprangetype&lt;IteratorRange&gt;::type,InterpType&gt; operatorinterpolation_type;</div>
-<div class="line"><a name="l02367"></a><span class="lineno"> 2367</span>&#160;</div>
-<div class="line"><a name="l02368"></a><span class="lineno"> 2368</span>&#160;    boost::shared_ptr&lt;operatorinterpolation_type&gt; opI( <span class="keyword">new</span> operatorinterpolation_type( domainspace,imagespace,r,backend,interptype,ddmethod ) );</div>
-<div class="line"><a name="l02369"></a><span class="lineno"> 2369</span>&#160;</div>
-<div class="line"><a name="l02370"></a><span class="lineno"> 2370</span>&#160;    <span class="keywordflow">return</span> opI;</div>
-<div class="line"><a name="l02371"></a><span class="lineno"> 2371</span>&#160;}</div>
+<div class="line"><a name="l02350"></a><span class="lineno"> 2350</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> RangeType&gt;</div>
+<div class="line"><a name="l02351"></a><span class="lineno"> 2351</span>&#160;<span class="keyword">struct </span>opinterprangetype</div>
+<div class="line"><a name="l02352"></a><span class="lineno"> 2352</span>&#160;{</div>
+<div class="line"><a name="l02353"></a><span class="lineno"> 2353</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::if_&lt; boost::is_std_list&lt;RangeType&gt;,</div>
+<div class="line"><a name="l02354"></a><span class="lineno"> 2354</span>&#160;                               mpl::identity&lt;RangeType&gt;,</div>
+<div class="line"><a name="l02355"></a><span class="lineno"> 2355</span>&#160;                               mpl::identity&lt;std::list&lt;RangeType&gt; &gt; &gt;::type::type::value_type type;</div>
+<div class="line"><a name="l02356"></a><span class="lineno"> 2356</span>&#160;};</div>
+<div class="line"><a name="l02357"></a><span class="lineno"> 2357</span>&#160;}</div>
+<div class="line"><a name="l02358"></a><span class="lineno"> 2358</span>&#160;</div>
+<div class="line"><a name="l02359"></a><span class="lineno"> 2359</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DomainSpaceType, <span class="keyword">typename</span> ImageSpaceType, <span class="keyword">typename</span> IteratorRange, <span class="keyword">typename</span> InterpType &gt;</div>
+<div class="line"><a name="l02360"></a><span class="lineno"> 2360</span>&#160;boost::shared_ptr&lt;OperatorInterpolation&lt;DomainSpaceType, ImageSpaceType,typename Feel::detail::opinterprangetype&lt;IteratorRange&gt;::type,InterpType&gt; &gt;</div>
+<div class="line"><a name="l02361"></a><span class="lineno"> 2361</span>&#160;opInterp( boost::shared_ptr&lt;DomainSpaceType&gt; <span class="keyword">const</span>&amp; domainspace,</div>
+<div class="line"><a name="l02362"></a><span class="lineno"> 2362</span>&#160;          boost::shared_ptr&lt;ImageSpaceType&gt; <span class="keyword">const</span>&amp; imagespace,</div>
+<div class="line"><a name="l02363"></a><span class="lineno"> 2363</span>&#160;          IteratorRange <span class="keyword">const</span>&amp; r,</div>
+<div class="line"><a name="l02364"></a><span class="lineno"> 2364</span>&#160;          <span class="keyword">typename</span> OperatorInterpolation&lt;DomainSpaceType, ImageSpaceType,<span class="keyword">typename</span> Feel::detail::opinterprangetype&lt;IteratorRange&gt;::type,InterpType&gt;::backend_ptrtype <span class="keyword">const</span>&amp; backend,</div>
+<div class="line"><a name="l02365"></a><span class="lineno"> 2365</span>&#160;          InterpType <span class="keyword">const</span>&amp; interptype,</div>
+<div class="line"><a name="l02366"></a><span class="lineno"> 2366</span>&#160;          <span class="keywordtype">bool</span> ddmethod</div>
+<div class="line"><a name="l02367"></a><span class="lineno"> 2367</span>&#160;        )</div>
+<div class="line"><a name="l02368"></a><span class="lineno"> 2368</span>&#160;{</div>
+<div class="line"><a name="l02369"></a><span class="lineno"> 2369</span>&#160;    <span class="keyword">typedef</span> OperatorInterpolation&lt;DomainSpaceType, ImageSpaceType,typename Feel::detail::opinterprangetype&lt;IteratorRange&gt;::type,InterpType&gt; operatorinterpolation_type;</div>
+<div class="line"><a name="l02370"></a><span class="lineno"> 2370</span>&#160;</div>
+<div class="line"><a name="l02371"></a><span class="lineno"> 2371</span>&#160;    boost::shared_ptr&lt;operatorinterpolation_type&gt; opI( <span class="keyword">new</span> operatorinterpolation_type( domainspace,imagespace,r,backend,interptype,ddmethod ) );</div>
 <div class="line"><a name="l02372"></a><span class="lineno"> 2372</span>&#160;</div>
-<div class="line"><a name="l02373"></a><span class="lineno"> 2373</span>&#160;</div>
-<div class="line"><a name="l02374"></a><span class="lineno"> 2374</span>&#160;</div>
-<div class="line"><a name="l02375"></a><span class="lineno"> 2375</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Args&gt;</div>
-<div class="line"><a name="l02376"></a><span class="lineno"> 2376</span>&#160;<span class="keyword">struct </span>compute_opInterpolation_return</div>
-<div class="line"><a name="l02377"></a><span class="lineno"> 2377</span>&#160;{</div>
-<div class="line"><a name="l02378"></a><span class="lineno"> 2378</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_reference&lt;typename parameter::binding&lt;Args, tag::domainSpace&gt;::type&gt;::type::element_type domain_space_type;</div>
-<div class="line"><a name="l02379"></a><span class="lineno"> 2379</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_reference&lt;typename parameter::binding&lt;Args, tag::imageSpace&gt;::type&gt;::type::element_type image_space_type;</div>
-<div class="line"><a name="l02380"></a><span class="lineno"> 2380</span>&#160;</div>
-<div class="line"><a name="l02381"></a><span class="lineno"> 2381</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_const&lt;</div>
-<div class="line"><a name="l02382"></a><span class="lineno"> 2382</span>&#160;    <span class="keyword">typename</span> boost::remove_reference&lt;</div>
-<div class="line"><a name="l02383"></a><span class="lineno"> 2383</span>&#160;    <span class="keyword">typename</span> parameter::binding&lt;Args,</div>
-<div class="line"><a name="l02384"></a><span class="lineno"> 2384</span>&#160;             tag::range,</div>
-<div class="line"><a name="l02385"></a><span class="lineno"> 2385</span>&#160;             <span class="keyword">typename</span> OperatorInterpolation&lt;domain_space_type, image_space_type&gt;::range_iterator</div>
-<div class="line"><a name="l02386"></a><span class="lineno"> 2386</span>&#160;             &gt;::type &gt;::type &gt;::type iterator_base_range_type;</div>
-<div class="line"><a name="l02387"></a><span class="lineno"> 2387</span>&#160;</div>
-<div class="line"><a name="l02388"></a><span class="lineno"> 2388</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Feel::detail::opinterprangetype&lt;iterator_base_range_type&gt;::type iterator_range_type;</div>
-<div class="line"><a name="l02389"></a><span class="lineno"> 2389</span>&#160;</div>
-<div class="line"><a name="l02390"></a><span class="lineno"> 2390</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_const&lt;</div>
-<div class="line"><a name="l02391"></a><span class="lineno"> 2391</span>&#160;    <span class="keyword">typename</span> boost::remove_reference&lt;</div>
-<div class="line"><a name="l02392"></a><span class="lineno"> 2392</span>&#160;    <span class="keyword">typename</span> parameter::binding&lt;Args,</div>
-<div class="line"><a name="l02393"></a><span class="lineno"> 2393</span>&#160;             tag::type,</div>
-<div class="line"><a name="l02394"></a><span class="lineno"> 2394</span>&#160;             InterpolationNonConforme</div>
-<div class="line"><a name="l02395"></a><span class="lineno"> 2395</span>&#160;             &gt;::type &gt;::type &gt;::type interpolation_type;</div>
-<div class="line"><a name="l02396"></a><span class="lineno"> 2396</span>&#160;</div>
-<div class="line"><a name="l02397"></a><span class="lineno"> 2397</span>&#160;</div>
-<div class="line"><a name="l02398"></a><span class="lineno"> 2398</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;OperatorInterpolation&lt;domain_space_type, image_space_type,iterator_range_type,interpolation_type&gt; &gt; type;</div>
-<div class="line"><a name="l02399"></a><span class="lineno"> 2399</span>&#160;};</div>
+<div class="line"><a name="l02373"></a><span class="lineno"> 2373</span>&#160;    <span class="keywordflow">return</span> opI;</div>
+<div class="line"><a name="l02374"></a><span class="lineno"> 2374</span>&#160;}</div>
+<div class="line"><a name="l02375"></a><span class="lineno"> 2375</span>&#160;</div>
+<div class="line"><a name="l02376"></a><span class="lineno"> 2376</span>&#160;</div>
+<div class="line"><a name="l02377"></a><span class="lineno"> 2377</span>&#160;</div>
+<div class="line"><a name="l02378"></a><span class="lineno"> 2378</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Args&gt;</div>
+<div class="line"><a name="l02379"></a><span class="lineno"> 2379</span>&#160;<span class="keyword">struct </span>compute_opInterpolation_return</div>
+<div class="line"><a name="l02380"></a><span class="lineno"> 2380</span>&#160;{</div>
+<div class="line"><a name="l02381"></a><span class="lineno"> 2381</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_reference&lt;typename parameter::binding&lt;Args, tag::domainSpace&gt;::type&gt;::type::element_type domain_space_type;</div>
+<div class="line"><a name="l02382"></a><span class="lineno"> 2382</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_reference&lt;typename parameter::binding&lt;Args, tag::imageSpace&gt;::type&gt;::type::element_type image_space_type;</div>
+<div class="line"><a name="l02383"></a><span class="lineno"> 2383</span>&#160;</div>
+<div class="line"><a name="l02384"></a><span class="lineno"> 2384</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_const&lt;</div>
+<div class="line"><a name="l02385"></a><span class="lineno"> 2385</span>&#160;    <span class="keyword">typename</span> boost::remove_reference&lt;</div>
+<div class="line"><a name="l02386"></a><span class="lineno"> 2386</span>&#160;    <span class="keyword">typename</span> parameter::binding&lt;Args,</div>
+<div class="line"><a name="l02387"></a><span class="lineno"> 2387</span>&#160;             tag::range,</div>
+<div class="line"><a name="l02388"></a><span class="lineno"> 2388</span>&#160;             <span class="keyword">typename</span> OperatorInterpolation&lt;domain_space_type, image_space_type&gt;::range_iterator</div>
+<div class="line"><a name="l02389"></a><span class="lineno"> 2389</span>&#160;             &gt;::type &gt;::type &gt;::type iterator_base_range_type;</div>
+<div class="line"><a name="l02390"></a><span class="lineno"> 2390</span>&#160;</div>
+<div class="line"><a name="l02391"></a><span class="lineno"> 2391</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Feel::detail::opinterprangetype&lt;iterator_base_range_type&gt;::type iterator_range_type;</div>
+<div class="line"><a name="l02392"></a><span class="lineno"> 2392</span>&#160;</div>
+<div class="line"><a name="l02393"></a><span class="lineno"> 2393</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_const&lt;</div>
+<div class="line"><a name="l02394"></a><span class="lineno"> 2394</span>&#160;    <span class="keyword">typename</span> boost::remove_reference&lt;</div>
+<div class="line"><a name="l02395"></a><span class="lineno"> 2395</span>&#160;    <span class="keyword">typename</span> parameter::binding&lt;Args,</div>
+<div class="line"><a name="l02396"></a><span class="lineno"> 2396</span>&#160;             tag::type,</div>
+<div class="line"><a name="l02397"></a><span class="lineno"> 2397</span>&#160;             InterpolationNonConforme</div>
+<div class="line"><a name="l02398"></a><span class="lineno"> 2398</span>&#160;             &gt;::type &gt;::type &gt;::type interpolation_type;</div>
+<div class="line"><a name="l02399"></a><span class="lineno"> 2399</span>&#160;</div>
 <div class="line"><a name="l02400"></a><span class="lineno"> 2400</span>&#160;</div>
-<div class="line"><a name="l02401"></a><span class="lineno"> 2401</span>&#160;BOOST_PARAMETER_FUNCTION(</div>
-<div class="line"><a name="l02402"></a><span class="lineno"> 2402</span>&#160;    ( <span class="keyword">typename</span> compute_opInterpolation_return&lt;Args&gt;::type ), <span class="comment">// 1. return type</span></div>
-<div class="line"><a name="l02403"></a><span class="lineno"> 2403</span>&#160;    opInterpolation,                        <span class="comment">// 2. name of the function template</span></div>
-<div class="line"><a name="l02404"></a><span class="lineno"> 2404</span>&#160;    tag,                                        <span class="comment">// 3. namespace of tag types</span></div>
-<div class="line"><a name="l02405"></a><span class="lineno"> 2405</span>&#160;    ( required</div>
-<div class="line"><a name="l02406"></a><span class="lineno"> 2406</span>&#160;      ( domainSpace,    *( boost::is_convertible&lt;mpl::_,boost::shared_ptr&lt;FunctionSpaceBase&gt; &gt; ) )</div>
-<div class="line"><a name="l02407"></a><span class="lineno"> 2407</span>&#160;      ( imageSpace,     *( boost::is_convertible&lt;mpl::_,boost::shared_ptr&lt;FunctionSpaceBase&gt; &gt; ) )</div>
-<div class="line"><a name="l02408"></a><span class="lineno"> 2408</span>&#160;    ) <span class="comment">// required</span></div>
-<div class="line"><a name="l02409"></a><span class="lineno"> 2409</span>&#160;    ( optional</div>
-<div class="line"><a name="l02410"></a><span class="lineno"> 2410</span>&#160;      ( range,          *, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( imageSpace-&gt;mesh() )  )</div>
-<div class="line"><a name="l02411"></a><span class="lineno"> 2411</span>&#160;      ( backend,        *, Backend&lt;typename compute_opInterpolation_return&lt;Args&gt;::domain_space_type::value_type&gt;::build() )</div>
-<div class="line"><a name="l02412"></a><span class="lineno"> 2412</span>&#160;      ( type,           *, InterpolationNonConforme()  )</div>
-<div class="line"><a name="l02413"></a><span class="lineno"> 2413</span>&#160;      ( ddmethod,  (<span class="keywordtype">bool</span>),  false )</div>
-<div class="line"><a name="l02414"></a><span class="lineno"> 2414</span>&#160;    ) <span class="comment">// optionnal</span></div>
-<div class="line"><a name="l02415"></a><span class="lineno"> 2415</span>&#160;)</div>
-<div class="line"><a name="l02416"></a><span class="lineno"> 2416</span>&#160;{</div>
-<div class="line"><a name="l02417"></a><span class="lineno"> 2417</span>&#160;    Feel::detail::ignore_unused_variable_warning( args );</div>
-<div class="line"><a name="l02418"></a><span class="lineno"> 2418</span>&#160;</div>
-<div class="line"><a name="l02419"></a><span class="lineno"> 2419</span>&#160;    <span class="keywordflow">return</span> opInterp( domainSpace,imageSpace,range,backend,type,ddmethod );</div>
-<div class="line"><a name="l02420"></a><span class="lineno"> 2420</span>&#160;</div>
-<div class="line"><a name="l02421"></a><span class="lineno"> 2421</span>&#160;} <span class="comment">// opInterpolation</span></div>
-<div class="line"><a name="l02422"></a><span class="lineno"> 2422</span>&#160;</div>
+<div class="line"><a name="l02401"></a><span class="lineno"> 2401</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;OperatorInterpolation&lt;domain_space_type, image_space_type,iterator_range_type,interpolation_type&gt; &gt; type;</div>
+<div class="line"><a name="l02402"></a><span class="lineno"> 2402</span>&#160;};</div>
+<div class="line"><a name="l02403"></a><span class="lineno"> 2403</span>&#160;</div>
+<div class="line"><a name="l02404"></a><span class="lineno"> 2404</span>&#160;BOOST_PARAMETER_FUNCTION(</div>
+<div class="line"><a name="l02405"></a><span class="lineno"> 2405</span>&#160;    ( <span class="keyword">typename</span> compute_opInterpolation_return&lt;Args&gt;::type ), <span class="comment">// 1. return type</span></div>
+<div class="line"><a name="l02406"></a><span class="lineno"> 2406</span>&#160;    opInterpolation,                        <span class="comment">// 2. name of the function template</span></div>
+<div class="line"><a name="l02407"></a><span class="lineno"> 2407</span>&#160;    tag,                                        <span class="comment">// 3. namespace of tag types</span></div>
+<div class="line"><a name="l02408"></a><span class="lineno"> 2408</span>&#160;    ( required</div>
+<div class="line"><a name="l02409"></a><span class="lineno"> 2409</span>&#160;      ( domainSpace,    *( boost::is_convertible&lt;mpl::_,boost::shared_ptr&lt;FunctionSpaceBase&gt; &gt; ) )</div>
+<div class="line"><a name="l02410"></a><span class="lineno"> 2410</span>&#160;      ( imageSpace,     *( boost::is_convertible&lt;mpl::_,boost::shared_ptr&lt;FunctionSpaceBase&gt; &gt; ) )</div>
+<div class="line"><a name="l02411"></a><span class="lineno"> 2411</span>&#160;    ) <span class="comment">// required</span></div>
+<div class="line"><a name="l02412"></a><span class="lineno"> 2412</span>&#160;    ( optional</div>
+<div class="line"><a name="l02413"></a><span class="lineno"> 2413</span>&#160;      ( range,          *, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( imageSpace-&gt;mesh() )  )</div>
+<div class="line"><a name="l02414"></a><span class="lineno"> 2414</span>&#160;      ( backend,        *, Backend&lt;typename compute_opInterpolation_return&lt;Args&gt;::domain_space_type::value_type&gt;::build() )</div>
+<div class="line"><a name="l02415"></a><span class="lineno"> 2415</span>&#160;      ( type,           *, InterpolationNonConforme()  )</div>
+<div class="line"><a name="l02416"></a><span class="lineno"> 2416</span>&#160;      ( ddmethod,  (<span class="keywordtype">bool</span>),  false )</div>
+<div class="line"><a name="l02417"></a><span class="lineno"> 2417</span>&#160;    ) <span class="comment">// optionnal</span></div>
+<div class="line"><a name="l02418"></a><span class="lineno"> 2418</span>&#160;)</div>
+<div class="line"><a name="l02419"></a><span class="lineno"> 2419</span>&#160;{</div>
+<div class="line"><a name="l02420"></a><span class="lineno"> 2420</span>&#160;    Feel::detail::ignore_unused_variable_warning( args );</div>
+<div class="line"><a name="l02421"></a><span class="lineno"> 2421</span>&#160;</div>
+<div class="line"><a name="l02422"></a><span class="lineno"> 2422</span>&#160;    <span class="keywordflow">return</span> opInterp( domainSpace,imageSpace,range,backend,type,ddmethod );</div>
 <div class="line"><a name="l02423"></a><span class="lineno"> 2423</span>&#160;</div>
-<div class="line"><a name="l02424"></a><span class="lineno"> 2424</span>&#160;</div>
+<div class="line"><a name="l02424"></a><span class="lineno"> 2424</span>&#160;} <span class="comment">// opInterpolation</span></div>
 <div class="line"><a name="l02425"></a><span class="lineno"> 2425</span>&#160;</div>
-<div class="line"><a name="l02426"></a><span class="lineno"> 2426</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l02427"></a><span class="lineno"> 2427</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OperatorInterpolation_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l02426"></a><span class="lineno"> 2426</span>&#160;</div>
+<div class="line"><a name="l02427"></a><span class="lineno"> 2427</span>&#160;</div>
+<div class="line"><a name="l02428"></a><span class="lineno"> 2428</span>&#160;</div>
+<div class="line"><a name="l02429"></a><span class="lineno"> 2429</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l02430"></a><span class="lineno"> 2430</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OperatorInterpolation_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classFeel_1_1OperatorLinear_html"><div class="ttname"><a href="classFeel_1_1OperatorLinear.html">Feel::OperatorLinear</a></div><div class="ttdoc">Linear Operator between function spaces, represented by a matrix. </div><div class="ttdef"><b>Definition:</b> operatorlinear.hpp:43</div></div>
 <div class="ttc" id="namespaceFeel_html_ace44a7a9c428a5849b81de59532e4ef8"><div class="ttname"><a href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements</a></div><div class="ttdeci">elements_type const &amp; elements() const </div><div class="ttdef"><b>Definition:</b> elements.hpp:367</div></div>
 <div class="ttc" id="operatorlinear_8hpp_html"><div class="ttname"><a href="operatorlinear_8hpp.html">operatorlinear.hpp</a></div></div>

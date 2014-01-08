@@ -3360,9 +3360,9 @@ $(document).ready(function(){initNavTree('meshimpl_8hpp_source.html','');});
 <div class="line"><a name="l03262"></a><span class="lineno"> 3262</span>&#160;{</div>
 <div class="line"><a name="l03263"></a><span class="lineno"> 3263</span>&#160;    LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;computeBarycentersWorld : run mpi::all_gather\n&quot;</span>;</div>
 <div class="line"><a name="l03264"></a><span class="lineno"> 3264</span>&#160;    <span class="keyword">auto</span> mesh = M_mesh.lock();</div>
-<div class="line"><a name="l03265"></a><span class="lineno"> 3265</span>&#160;    M_barycentersWorld = std::vector&lt;node_type&gt;( mesh-&gt;worldComm().localSize() );</div>
+<div class="line"><a name="l03265"></a><span class="lineno"> 3265</span>&#160;    M_barycentersWorld = std::vector&lt;boost::tuple&lt;bool,node_type&gt; &gt;( mesh-&gt;worldComm().localSize() );</div>
 <div class="line"><a name="l03266"></a><span class="lineno"> 3266</span>&#160;    mpi::all_gather( mesh-&gt;worldComm().localComm(),</div>
-<div class="line"><a name="l03267"></a><span class="lineno"> 3267</span>&#160;                     this-&gt;barycenter(),</div>
+<div class="line"><a name="l03267"></a><span class="lineno"> 3267</span>&#160;                     boost::make_tuple( this-&gt;kdtree()-&gt;nPoints() &gt; 0 , this-&gt;barycenter() ),</div>
 <div class="line"><a name="l03268"></a><span class="lineno"> 3268</span>&#160;                     *M_barycentersWorld );</div>
 <div class="line"><a name="l03269"></a><span class="lineno"> 3269</span>&#160;}</div>
 <div class="line"><a name="l03270"></a><span class="lineno"> 3270</span>&#160;</div>

@@ -28,6 +28,7 @@ var classFeel_1_1CRBSCM =
     [ "~CRBSCM", "classFeel_1_1CRBSCM.html#a6ede8f804e0651d0242b0af19fdc109e", null ],
     [ "c", "classFeel_1_1CRBSCM.html#ac70c8d4db0d2878f8ff51df83bd91971", null ],
     [ "checkC", "classFeel_1_1CRBSCM.html#ab987e1869e6ae78533ef734e2af752ee", null ],
+    [ "checkEigenVectorEigenValue", "classFeel_1_1CRBSCM.html#a81cf49d4c92e18f964bc9f671a2817e2", null ],
     [ "computeYBounds", "classFeel_1_1CRBSCM.html#a9c1d5b8b7b12f8926d8da3eb80f652a1", null ],
     [ "Dmu", "classFeel_1_1CRBSCM.html#a048f514ca558c85faa4c381567aa3c9c", null ],
     [ "doScmForMassMatrix", "classFeel_1_1CRBSCM.html#a530cf24d64c14dea1033c3e1c5c6cbfd", null ],

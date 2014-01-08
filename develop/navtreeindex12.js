@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"classFeel_1_1GmshHypercubeDomain.html":[10,0,96],
 "classFeel_1_1GmshHypercubeDomain.html#a0f5143162bf79ef6f4de7f1b79f8fe65":[10,0,96,0],
 "classFeel_1_1GmshHypercubeDomain.html#a2a584d5b26da50605511a1e4fcd2f10f":[10,0,96,2],
 "classFeel_1_1GmshHypercubeDomain.html#a35763ce5ba186169ce505ab9131dd606":[10,0,96,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX12 =
 "classFeel_1_1LU.html#ab418b23a835609e39ba690c58e28760a":[10,0,116,3],
 "classFeel_1_1LU.html#ad57726585342fbd9c23657adf6e50869":[10,0,116,11],
 "classFeel_1_1Laplacian.html":[10,0,113],
-"classFeel_1_1Laplacian.html#a0237e94038823de926f41970ba1eac3e":[10,0,113,11],
-"classFeel_1_1Laplacian.html#a0521d1734496acbac3853e7918f528dd":[10,0,113,1]
+"classFeel_1_1Laplacian.html#a0237e94038823de926f41970ba1eac3e":[10,0,113,11]
 };

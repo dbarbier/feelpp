@@ -313,6 +313,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>nb_decomposition_terms
 <tr class="separator:a3980ecad7acdbe71e6f30a69a0af16e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab987e1869e6ae78533ef734e2af752ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1CRBSCM.html#ab987e1869e6ae78533ef734e2af752ee">checkC</a> (<a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> K) const </td></tr>
 <tr class="separator:ab987e1869e6ae78533ef734e2af752ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81cf49d4c92e18f964bc9f671a2817e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1CRBSCM.html#a81cf49d4c92e18f964bc9f671a2817e2">checkEigenVectorEigenValue</a> (sparse_matrix_ptrtype const &amp;A, sparse_matrix_ptrtype const &amp;B, vector_ptrtype const &amp;eigenvector, double eigenvalue) const </td></tr>
+<tr class="separator:a81cf49d4c92e18f964bc9f671a2817e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6f0f84b01250ac736334415663cd6d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6f0f84b01250ac736334415663cd6d5"></a>
 boost::tuple&lt; value_type, <br class="typebreak"/>
 value_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ex</b> (<a class="el" href="classFeel_1_1ParameterSpace_1_1Element.html">parameter_type</a> const &amp;mu) const </td></tr>
@@ -461,6 +463,58 @@ template&lt;typename TruthModelType &gt; </div>
 </dl>
 
 <p>References <a class="el" href="classFeel_1_1CRBSCM.html#a653dc291e0737c4b2710fad4ea91d9d9">Feel::CRBSCM&lt; TruthModelType &gt;::lb()</a>, and <a class="el" href="classFeel_1_1CRBSCM.html#a9f4e5e040647df091f5bf25af26376af">Feel::CRBSCM&lt; TruthModelType &gt;::ub()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a81cf49d4c92e18f964bc9f671a2817e2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TruthModelType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classFeel_1_1CRBSCM.html">Feel::CRBSCM</a>&lt; TruthModelType &gt;::checkEigenVectorEigenValue </td>
+          <td>(</td>
+          <td class="paramtype">sparse_matrix_ptrtype const &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sparse_matrix_ptrtype const &amp;&#160;</td>
+          <td class="paramname"><em>B</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector_ptrtype const &amp;&#160;</td>
+          <td class="paramname"><em>eigenvector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eigenvalue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>check if eigen value and eigen vector given are solution of the generalized eigenvalue problem A w =  B w where w is an eigenvector and  is an eigenvalue </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>: matrix </td></tr>
+    <tr><td class="paramname">B</td><td>: matrix </td></tr>
+    <tr><td class="paramname">eigenvector</td><td>: eigenvector (like w) </td></tr>
+    <tr><td class="paramname">eigenvalue</td><td>: eigenvalue (like ) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>References <a class="el" href="classFeel_1_1Backend.html#ab5bc3b49e46db5039d07ac87ec3fdd42">Feel::Backend&lt; T &gt;::build()</a>.</p>
 
 </div>
 </div>
