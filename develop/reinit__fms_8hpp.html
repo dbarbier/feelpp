@@ -101,16 +101,16 @@ $(document).ready(function(){initNavTree('reinit__fms_8hpp.html','');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">reinit_fms.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;feel/feeldiscr/functionspace.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &lt;feel/feelcore/feel.hpp&gt;</code><br/>
 <code>#include &lt;<a class="el" href="vf_8hpp_source.html">feel/feelvf/vf.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="fmsheap_8hpp_source.html">feel/feelpde/fmsheap.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="fmspoint_8hpp_source.html">feel/feelpde/fmspoint.hpp</a>&gt;</code><br/>
+<code>#include &quot;<a class="el" href="fmsheap_8hpp_source.html">fmsheap.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="fmspoint_8hpp_source.html">fmspoint.hpp</a>&quot;</code><br/>
+<code>#include &lt;boost/serialization/set.hpp&gt;</code><br/>
 </div>
 <p><a href="reinit__fms_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -122,83 +122,38 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a85e5e78b3b6e98db9e55838e14b56804"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85e5e78b3b6e98db9e55838e14b56804"></a>
-typedef bases&lt; Lagrange<br class="typebreak"/>
-&lt; 1, Scalar &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::basisP1LS_type</b></td></tr>
-<tr class="separator:a85e5e78b3b6e98db9e55838e14b56804"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a286071f797204a2a1fcd65e0e34413fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a286071f797204a2a1fcd65e0e34413fb"></a>
-typedef ReinitializerFMS<br class="typebreak"/>
-&lt; spaceP1LS_type, itRangeLS, <br class="typebreak"/>
-NoPeriodicity &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::fms_2d_periodic_type</b></td></tr>
-<tr class="separator:a286071f797204a2a1fcd65e0e34413fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f13fd727ed060d9fd5581d161044d4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f13fd727ed060d9fd5581d161044d4c"></a>
-typedef ReinitializerFMS<br class="typebreak"/>
-&lt; spaceP1LS_type, itRangeLS, <br class="typebreak"/>
-Periodic&lt;&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::fms_2d_type</b></td></tr>
-<tr class="separator:a8f13fd727ed060d9fd5581d161044d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afff9fac74434e8baf2d4aa080c5b8c9e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afff9fac74434e8baf2d4aa080c5b8c9e"></a>
-typedef ReinitializerFMS<br class="typebreak"/>
-&lt; spaceP1LS_3d_type, <br class="typebreak"/>
-itRange_3d_LS, Periodic&lt;&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::fms_3d_periodic_type</b></td></tr>
-<tr class="separator:afff9fac74434e8baf2d4aa080c5b8c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2eaec341655b0e859ad8650484bc299"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2eaec341655b0e859ad8650484bc299"></a>
-typedef ReinitializerFMS<br class="typebreak"/>
-&lt; spaceP1LS_3d_type, <br class="typebreak"/>
-itRange_3d_LS, NoPeriodicity &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::fms_3d_type</b></td></tr>
-<tr class="separator:ab2eaec341655b0e859ad8650484bc299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf8bf49ab14964bbfb3a0e68399aa097"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf8bf49ab14964bbfb3a0e68399aa097"></a>
-typedef boost::shared_ptr<br class="typebreak"/>
-&lt; mesh_3d_typeLS &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::mesh_3d_ptrtypeLS</b></td></tr>
-<tr class="separator:adf8bf49ab14964bbfb3a0e68399aa097"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b61d1b1c92da0a0159886203f838661"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b61d1b1c92da0a0159886203f838661"></a>
-typedef Mesh&lt; Simplex&lt; 3 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::mesh_3d_typeLS</b></td></tr>
-<tr class="separator:a1b61d1b1c92da0a0159886203f838661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adeb5bae715bfb5007065245a0a297aae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adeb5bae715bfb5007065245a0a297aae"></a>
-typedef boost::shared_ptr<br class="typebreak"/>
-&lt; mesh_typeLS &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::mesh_ptrtypeLS</b></td></tr>
-<tr class="separator:adeb5bae715bfb5007065245a0a297aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93b5d21582cda038a6a0eca10eea40af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93b5d21582cda038a6a0eca10eea40af"></a>
-typedef Mesh&lt; Simplex&lt; 2 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::mesh_typeLS</b></td></tr>
-<tr class="separator:a93b5d21582cda038a6a0eca10eea40af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89e6fbc3e055fa78bd3866688c6610c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89e6fbc3e055fa78bd3866688c6610c3"></a>
-typedef FunctionSpace<br class="typebreak"/>
+<tr class="memitem:acf8501c6a8a0559e7a2f976d2200505d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf8501c6a8a0559e7a2f976d2200505d"></a>
+typedef Feel::bases<br class="typebreak"/>
+&lt; Feel::Lagrange<br class="typebreak"/>
+&lt; 1, <a class="el" href="structFeel_1_1Scalar.html">Feel::Scalar</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::basisP1LS_type</b></td></tr>
+<tr class="separator:acf8501c6a8a0559e7a2f976d2200505d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14b12e42ff787284c1cb21c716e941b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14b12e42ff787284c1cb21c716e941b4"></a>
+typedef <a class="el" href="classFeel_1_1Mesh.html">Feel::Mesh</a><br class="typebreak"/>
+&lt; <a class="el" href="classFeel_1_1Simplex.html">Feel::Simplex</a>&lt; 3 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::mesh_3d_typeLS</b></td></tr>
+<tr class="separator:a14b12e42ff787284c1cb21c716e941b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90bf5efc952e03a65c5b03662cb6598c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90bf5efc952e03a65c5b03662cb6598c"></a>
+typedef <a class="el" href="classFeel_1_1Mesh.html">Feel::Mesh</a><br class="typebreak"/>
+&lt; <a class="el" href="classFeel_1_1Simplex.html">Feel::Simplex</a>&lt; 2 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::mesh_typeLS</b></td></tr>
+<tr class="separator:a90bf5efc952e03a65c5b03662cb6598c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f80c3e670139eef710b7e28fd1b1327"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f80c3e670139eef710b7e28fd1b1327"></a>
+typedef <a class="el" href="classFeel_1_1FunctionSpace.html">Feel::FunctionSpace</a><br class="typebreak"/>
 &lt; mesh_3d_typeLS, <br class="typebreak"/>
-basisP1LS_type, Periodicity<br class="typebreak"/>
-&lt; NoPeriodicity &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::spaceP1LS_3d_type</b></td></tr>
-<tr class="separator:a89e6fbc3e055fa78bd3866688c6610c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0875b3041461bba5fbd7c5e58443b1c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0875b3041461bba5fbd7c5e58443b1c8"></a>
-typedef FunctionSpace<br class="typebreak"/>
+basisP1LS_type, <br class="typebreak"/>
+Feel::Periodicity<br class="typebreak"/>
+&lt; <a class="el" href="classFeel_1_1NoPeriodicity.html">Feel::NoPeriodicity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::spaceP1LS_3d_type</b></td></tr>
+<tr class="separator:a0f80c3e670139eef710b7e28fd1b1327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa356d8762b5efaff1c76868b58c4ecdf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa356d8762b5efaff1c76868b58c4ecdf"></a>
+typedef <a class="el" href="classFeel_1_1FunctionSpace.html">Feel::FunctionSpace</a><br class="typebreak"/>
 &lt; mesh_typeLS, basisP1LS_type, <br class="typebreak"/>
-Periodicity&lt; NoPeriodicity &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::spaceP1LS_type</b></td></tr>
-<tr class="separator:a0875b3041461bba5fbd7c5e58443b1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a5694a45dd02c1dfe82c3a6ef38704db4"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5694a45dd02c1dfe82c3a6ef38704db4"></a>
-template&lt;typename FunctionSpaceType , typename IteratorRange , typename periodicity_type  = NoPeriodicity&gt; </td></tr>
-<tr class="memitem:a5694a45dd02c1dfe82c3a6ef38704db4"><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr<br class="typebreak"/>
-&lt; ReinitializerFMS<br class="typebreak"/>
-&lt; FunctionSpaceType, <br class="typebreak"/>
-IteratorRange, <br class="typebreak"/>
-periodicity_type &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Feel::fms</b> (boost::shared_ptr&lt; FunctionSpaceType &gt; const &amp;Xh, IteratorRange r, periodicity_type p=NoPeriodicity())</td></tr>
-<tr class="separator:a5694a45dd02c1dfe82c3a6ef38704db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+Feel::Periodicity<br class="typebreak"/>
+&lt; <a class="el" href="classFeel_1_1NoPeriodicity.html">Feel::NoPeriodicity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::spaceP1LS_type</b></td></tr>
+<tr class="separator:aa356d8762b5efaff1c76868b58c4ecdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a71802732f10764714594654723a1bf9e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71802732f10764714594654723a1bf9e"></a>
-mesh_3d_ptrtypeLS&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::___mesh_3d_LS</b></td></tr>
-<tr class="separator:a71802732f10764714594654723a1bf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad90582868b4aa9c9d0969d64acb8880c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad90582868b4aa9c9d0969d64acb8880c"></a>
-mesh_ptrtypeLS&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::___mesh_LS</b></td></tr>
-<tr class="separator:ad90582868b4aa9c9d0969d64acb8880c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ef86bcaaa1b089496d98bbc4e7b7fa5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ef86bcaaa1b089496d98bbc4e7b7fa5"></a>
-decltype(elements(___mesh_3d_LS)) <br class="typebreak"/>
-typedef&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::itRange_3d_LS</b></td></tr>
-<tr class="separator:a2ef86bcaaa1b089496d98bbc4e7b7fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa041f3f149e4351ce1c6ecda07192a2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa041f3f149e4351ce1c6ecda07192a2d"></a>
-decltype(elements(___mesh_LS)) <br class="typebreak"/>
-typedef&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::itRangeLS</b></td></tr>
-<tr class="separator:aa041f3f149e4351ce1c6ecda07192a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c23e46118b4ed8de68ed186e1d0fc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90c23e46118b4ed8de68ed186e1d0fc9"></a>
+return&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::fm</b></td></tr>
+<tr class="separator:a90c23e46118b4ed8de68ed186e1d0fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Christoph Winkelmann <a href="#" onclick="location.href='mai'+'lto:'+'chr'+'is'+'top'+'h.'+'win'+'ke'+'lma'+'nn'+'@ep'+'fl'+'.ch'; return false;">chris<span style="display: none;">.nosp@m.</span>toph<span style="display: none;">.nosp@m.</span>.wink<span style="display: none;">.nosp@m.</span>elma<span style="display: none;">.nosp@m.</span>nn@ep<span style="display: none;">.nosp@m.</span>fl.c<span style="display: none;">.nosp@m.</span>h</a> </dd></dl>
