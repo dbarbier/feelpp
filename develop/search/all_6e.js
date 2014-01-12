@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['n',['N',['../classFeel_1_1GeoMap_1_1Context.html#a36a807cc25eca5d065303e524d637f8b',1,'Feel::GeoMap::Context::N()'],['../classFeel_1_1GeoMap_1_1Inverse.html#a81db0318b64f232b3ba1c14d2056740d',1,'Feel::GeoMap::Inverse::N()'],['../classFeel_1_1problem.html#af758f0e18a0195723848d4babfa2d284',1,'Feel::problem::n()']]],
+  ['n',['n',['../classFeel_1_1problem.html#af758f0e18a0195723848d4babfa2d284',1,'Feel::problem::n()'],['../classFeel_1_1GeoMap_1_1Context.html#a36a807cc25eca5d065303e524d637f8b',1,'Feel::GeoMap::Context::N()'],['../classFeel_1_1GeoMap_1_1Inverse.html#a81db0318b64f232b3ba1c14d2056740d',1,'Feel::GeoMap::Inverse::N()']]],
   ['na',['nA',['../classFeel_1_1problem.html#aa3aa482741a91009453665a52061239b',1,'Feel::problem']]],
   ['name',['NAME',['../classFeel_1_1detail_1_1NAME.html',1,'Feel::detail']]],
   ['name',['name',['../classFeel_1_1AboutPerson.html#a3e63b78b9c4ac13abc05dedb9c254b3f',1,'Feel::AboutPerson::name()'],['../classFeel_1_1Simget.html#af253c82f9e803fd38ee16d18a6ca6337',1,'Feel::Simget::name()'],['../classFeel_1_1TypeInfo.html#ad4fa83dca0bb3ba3cb72bedcefcbdf77',1,'Feel::TypeInfo::name()'],['../classFeel_1_1CRBDB.html#aafbd9eddb9faeb89f4f0fa29d01744e9',1,'Feel::CRBDB::name()'],['../classFeel_1_1TimeSet.html#a089f134efa92dbfa7576b73e48f2e442',1,'Feel::TimeSet::name()'],['../classFeel_1_1Material.html#abcf0af6f4d995c3949494904f95ebf0b',1,'Feel::Material::name()'],['../classFeel_1_1Simplex.html#a55a19a07ddc54c41e5c620723c8d7942',1,'Feel::Simplex::name()'],['../classFeel_1_1PolynomialSet.html#a1595086fc3e00e3cef43003f98c14153',1,'Feel::PolynomialSet::name()'],['../classFeel_1_1Sound.html#a6b7ed5ae55c1b8e2a5721e95a54e2a09',1,'Feel::Sound::name()']]],
@@ -52,8 +52,8 @@ var searchData=
   ['nodalscalar',['nodalScalar',['../classFeel_1_1TimeSet_1_1Step.html#a66d696f2b620b519228e640a054e1bcb',1,'Feel::TimeSet::Step']]],
   ['nodaltensor2',['nodalTensor2',['../classFeel_1_1TimeSet_1_1Step.html#a5faf46211ee725889e0191f707d4772e',1,'Feel::TimeSet::Step']]],
   ['nodalvector',['nodalVector',['../classFeel_1_1TimeSet_1_1Step.html#a80c38f22c5dad5daa83cb6088f4430b7',1,'Feel::TimeSet::Step']]],
-  ['node',['node',['../structFeel_1_1node.html',1,'Feel']]],
   ['node',['node',['../group__GeoXD.html#gaf929e439be53c18fb5efebbcfcf530a7',1,'Feel::Geo0D']]],
+  ['node',['node',['../structFeel_1_1node.html',1,'Feel']]],
   ['node_3c_20double_20_3e',['node&lt; double &gt;',['../structFeel_1_1node.html',1,'Feel']]],
   ['node_3c_20double_2c_202_20_3e',['node&lt; double, 2 &gt;',['../structFeel_1_1node.html',1,'Feel']]],
   ['node_3c_20t_20_3e',['node&lt; T &gt;',['../structFeel_1_1node.html',1,'Feel']]],
@@ -69,6 +69,9 @@ var searchData=
   ['normalized',['Normalized',['../structFeel_1_1Normalized.html',1,'Feel']]],
   ['normalnorm',['normalNorm',['../classFeel_1_1GeoMap_1_1Context.html#ada453752860e5a1a507e30e219585c5c',1,'Feel::GeoMap::Context']]],
   ['normals',['normals',['../classFeel_1_1GeoND.html#add263e5445dd14679df180fb1d7641fb',1,'Feel::GeoND']]],
+  ['normh1_2ehpp',['normh1.hpp',['../normh1_8hpp.html',1,'']]],
+  ['norml2_2ehpp',['norml2.hpp',['../norml2_8hpp.html',1,'']]],
+  ['norml2squared_2ehpp',['norml2squared.hpp',['../norml2squared_8hpp.html',1,'']]],
   ['now_2ehpp',['now.hpp',['../now_8hpp.html',1,'']]],
   ['npoints',['nPoints',['../classFeel_1_1GeoEntity.html#a47495351cf6ff0cb6bd321aeee7b467a',1,'Feel::GeoEntity::nPoints()'],['../classFeel_1_1GeoND.html#af37884bccae05e252fa045c941e80eff',1,'Feel::GeoND::nPoints()'],['../classFeel_1_1KDTree.html#a73da9b8f7ccf5dc2d4023e798539716e',1,'Feel::KDTree::nPoints()'],['../classFeel_1_1GeoMapInverse.html#a47efe57f14f2fbb00c68a6998196f47e',1,'Feel::GeoMapInverse::nPoints()'],['../classFeel_1_1IMExact.html#a41205c84c3d0c885b62d5745b0621591',1,'Feel::IMExact::nPoints()']]],
   ['npointsonedge',['nPointsOnEdge',['../classFeel_1_1Simplex.html#a0ebd191925e8917cdf7efa43abcebed5',1,'Feel::Simplex']]],

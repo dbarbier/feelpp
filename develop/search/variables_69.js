@@ -1,6 +1,7 @@
 var searchData=
 [
   ['invalid_5fdim_5ftype_5fvalue',['invalid_dim_type_value',['../namespaceFeel.html#a06fcd499069e30f5e897e6e1187c65d0',1,'Feel']]],
+  ['invalid_5frank_5ftype_5fvalue',['invalid_rank_type_value',['../namespaceFeel.html#ab3a0f136b2980f14f6111a9daf2fa483',1,'Feel']]],
   ['invalid_5fsize_5ftype_5fvalue',['invalid_size_type_value',['../namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55',1,'Feel']]],
   ['invalid_5fuint16_5ftype_5fvalue',['invalid_uint16_type_value',['../namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87',1,'Feel']]],
   ['invalid_5fuint32_5ftype_5fvalue',['invalid_uint32_type_value',['../namespaceFeel.html#a0b3f2923da6adec210a20cfc4d3cb72b',1,'Feel']]],

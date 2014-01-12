@@ -109,8 +109,9 @@ $(document).ready(function(){initNavTree('vf_8hpp.html','');});
 <code>#include &lt;boost/fusion/sequence.hpp&gt;</code><br/>
 <code>#include &lt;boost/fusion/algorithm.hpp&gt;</code><br/>
 <code>#include &lt;feel/feelcore/feel.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="gmc_8hpp_source.html">feel/feelvf/detail/gmc.hpp</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="expr_8hpp_source.html">feel/feelvf/expr.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="ppoperators_8hpp_source.html">feel/feelvf/ppoperators.hpp</a>&gt;</code><br/>
+<code>#include &lt;feel/feelvf/operations.hpp&gt;</code><br/>
 <code>#include &lt;<a class="el" href="operators_8hpp_source.html">feel/feelvf/operators.hpp</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="geometricdata_8hpp_source.html">feel/feelvf/geometricdata.hpp</a>&gt;</code><br/>
 <code>#include &lt;feel/feelvf/stdmathfunctors.hpp&gt;</code><br/>
@@ -126,7 +127,14 @@ $(document).ready(function(){initNavTree('vf_8hpp.html','');});
 <code>#include &lt;<a class="el" href="function_8hpp_source.html">feel/feelvf/function.hpp</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="matvec_8hpp_source.html">feel/feelvf/matvec.hpp</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="form_8hpp_source.html">feel/feelvf/form.hpp</a>&gt;</code><br/>
-<code>#include &lt;feel/feelvf/integrator.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="integrate_8hpp_source.html">feel/feelvf/integrate.hpp</a>&gt;</code><br/>
+<code>#include &lt;feel/feelvf/mean.hpp&gt;</code><br/>
+<code>#include &lt;feel/feelvf/measure.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="norml2_8hpp_source.html">feel/feelvf/norml2.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="norml2squared_8hpp_source.html">feel/feelvf/norml2squared.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="normh1_8hpp_source.html">feel/feelvf/normh1.hpp</a>&gt;</code><br/>
+<code>#include &lt;feel/feelvf/normsemih1.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="on_8hpp_source.html">feel/feelvf/on.hpp</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="projectors_8hpp_source.html">feel/feelvf/projectors.hpp</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="evaluator_8hpp_source.html">feel/feelvf/evaluator.hpp</a>&gt;</code><br/>
 <code>#include &lt;feel/feelvf/evaluatorcontext.hpp&gt;</code><br/>
@@ -144,7 +152,7 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ac402cae9a14df11a4fb8ebaf44c9e49a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac402cae9a14df11a4fb8ebaf44c9e49a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vf_8hpp.html#ac402cae9a14df11a4fb8ebaf44c9e49a">AUTO</a>(a, b)&#160;&#160;&#160;__typeof__( b ) a = (b);</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vf_8hpp.html#ac402cae9a14df11a4fb8ebaf44c9e49a">AUTO</a>(a, b)&#160;&#160;&#160;auto a = (b);</td></tr>
 <tr class="memdesc:ac402cae9a14df11a4fb8ebaf44c9e49a"><td class="mdescLeft">&#160;</td><td class="mdescRight">allow automatic type naming of complex expression <br/></td></tr>
 <tr class="separator:ac402cae9a14df11a4fb8ebaf44c9e49a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

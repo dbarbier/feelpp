@@ -108,7 +108,8 @@ Types</h1>
 Real Numbers</h2>
 <p><a class="el" href="namespaceFeel.html" title="[marker1] ">Feel</a> defines a number of types that are used in the library.</p>
 <ol type="1">
-<li><code>Real</code> 64 bits real number type</li>
+<li><code>real32_type</code> 32 bits real number type</li>
+<li><code>real64_type</code> 64 bits real number type</li>
 </ol>
 <h1><a class="anchor" id="ints"></a>
 Integers</h1>
@@ -132,7 +133,18 @@ Integers</h1>
 <p><a class="el" href="namespaceFeel.html" title="[marker1] ">Feel</a> defines a number of useful aliases for integers</p>
 <ol type="1">
 <li><code>dim_type</code> an alias to uint16_type used to identify dimensions</li>
-<li><code>size_type</code> an alias to size_t used as indices for arrays, vectors or matrices </li>
+<li><code>rank_type</code> an alias to uint16_type used for mpi process ranks</li>
+<li><code>size_type</code> an alias to size_t used as indices for arrays, vectors or matrices</li>
+</ol>
+<p>Feel++ defines also some invalid number associated to each unsigned integer types. it usually serves to identify a situation where something went wrong. The invalid value corresponds to the maximum value of the unsigned type.</p>
+<ol type="1">
+<li>invalid_uint8_type_value</li>
+<li>invalid_uint16_type_value</li>
+<li>invalid_uint32_type_value</li>
+<li>invalid_uint64_type_value</li>
+<li>invalid_dim_type_value</li>
+<li>invalid_rank_type_value</li>
+<li>invalid_size_type_value </li>
 </ol>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

@@ -136,20 +136,20 @@ typedef <br class="typebreak"/>
 functionspace_signature::bind<br class="typebreak"/>
 &lt; A0, A1, A2, A3, A4 &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>args</b></td></tr>
 <tr class="separator:a59c9133c635219a7b12c443d91928ea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1ba2df5fb0ed8fdb6800fb196dff2df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1ba2df5fb0ed8fdb6800fb196dff2df"></a>
+<tr class="memitem:ad0d93b3cdc949819cd78ddf3784c4e4d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0d93b3cdc949819cd78ddf3784c4e4d"></a>
 typedef parameter::binding<br class="typebreak"/>
 &lt; args, tag::bases_list, <br class="typebreak"/>
-detail::bases&lt; Lagrange<br class="typebreak"/>
+Feel::detail::bases&lt; Lagrange<br class="typebreak"/>
 &lt; 1, <a class="el" href="structFeel_1_1Scalar.html">Scalar</a> &gt; &gt; &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>bases_list</b></td></tr>
-<tr class="separator:af1ba2df5fb0ed8fdb6800fb196dff2df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4097b73c699e72449e3533279349e532"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4097b73c699e72449e3533279349e532"></a>
-typedef detail::bases2<br class="typebreak"/>
+<tr class="separator:ad0d93b3cdc949819cd78ddf3784c4e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55a3b4f813678f4957f06f55e174a382"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55a3b4f813678f4957f06f55e174a382"></a>
+typedef Feel::detail::bases2<br class="typebreak"/>
 &lt; typename mpl::transform<br class="typebreak"/>
 &lt; bases_list, <br class="typebreak"/>
 GetComponentBasis&lt; mpl::_1 &gt;<br class="typebreak"/>
 , mpl::back_inserter<br class="typebreak"/>
 &lt; fusion::vector&lt;&gt; &gt; &gt;::type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>component_basis_vector_type</b></td></tr>
-<tr class="separator:a4097b73c699e72449e3533279349e532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a55a3b4f813678f4957f06f55e174a382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82de882685ec0c60309a381543b416ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82de882685ec0c60309a381543b416ad"></a>
 typedef mpl::transform<br class="typebreak"/>
 &lt; bases_list, <br class="typebreak"/>

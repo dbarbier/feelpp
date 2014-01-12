@@ -410,7 +410,7 @@ template&lt;int Dim, int Order&gt; </div>
 <div class="line">    <span class="keywordflow">else</span></div>
 <div class="line">      Rhs = cvg-&gt;rhs_project(Xh);</div>
 <div class="line">  <span class="keywordflow">else</span></div>
-<div class="line">    Rhs = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( Xh, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), cst(0.0) );</div>
+<div class="line">    Rhs = vf::project( Xh, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), cst(0.0) );</div>
 <div class="line"></div>
 <div class="line">  <span class="keywordflow">if</span> ( !steady &amp;&amp; parameters.size() &amp;&amp; !cvg-&gt;getExactSolution().empty() )</div>
 <div class="line">    gproj = cvg-&gt;exact_project(Xh, M_bdf-&gt;time() );</div>

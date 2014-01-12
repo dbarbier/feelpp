@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('meshadaptation_8hpp_source.html','');}
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="vf_8hpp.html">feel/feelvf/vf.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;feel/feelcore/feel.hpp&gt;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="mesh_8hpp.html">feel/feeldiscr/mesh.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &lt;feel/feeldiscr/mesh.hpp&gt;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &lt;feel/feeldiscr/projector.hpp&gt;</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;boost/assert.hpp&gt;</span></div>
@@ -941,15 +941,15 @@ $(document).ready(function(){initNavTree('meshadaptation_8hpp_source.html','');}
 <div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;        <span class="comment">// ******* From U in P1 space -&gt; approximate components of hessian matrix on P1 space ******** //</span></div>
 <div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;        <span class="comment">// Project u on P1 space</span></div>
 <div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;        <span class="keyword">auto</span> varP1 = P1h-&gt;element();</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;        varP1 = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( P1h, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), idv(var) );</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;        varP1 = vf::project( P1h, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), idv(var) );</div>
 <div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;</div>
 <div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;        <span class="comment">// First derivatives of U (P1) are P0</span></div>
 <div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;        std::vector&lt;p0_element_type&gt; dvard1P0(Dim, P0h-&gt;element());</div>
 <div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;        std::vector&lt;p1_element_type&gt; dvard1P1(Dim, P1h-&gt;element());</div>
 <div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;Dim; i++)</div>
 <div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;            {</div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;                dvard1P0[i] = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>(P0h, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), gradv(varP1)(0,i) );</div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;                dvard1P1[i] = <a class="code" href="namespaceFeel.html#a81bfa16d11dfe6ede737b6bb01c63738">element_div</a>( sum(P1h, idv(dvard1P0[i])*meas()), sum(P1h, meas() ) ); <span class="comment">//L2 proj -&gt; P1</span></div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;                dvard1P0[i] = vf::project(P0h, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), gradv(varP1)(0,i) );</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;                dvard1P1[i] = element_div( sum(P1h, idv(dvard1P0[i])*meas()), sum(P1h, meas() ) ); <span class="comment">//L2 proj -&gt; P1</span></div>
 <div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;            }</div>
 <div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;</div>
 <div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;        <span class="comment">// Second derivatives of proj_P1(U) are P0</span></div>
@@ -960,8 +960,8 @@ $(document).ready(function(){initNavTree('meshadaptation_8hpp_source.html','');}
 <div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;Dim; j++)</div>
 <div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;                    {</div>
 <div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;                        <span class="comment">// Hessian components are entered column by column</span></div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;                        hessP0[i+j*Dim] = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>(P0h, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), gradv( dvard1P1[j] )(0,i) );</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;                        hessP1[i+j*Dim] = <a class="code" href="namespaceFeel.html#a81bfa16d11dfe6ede737b6bb01c63738">element_div</a>( sum(P1h, idv(hessP0[i+j*Dim])*meas()), sum(P1h, meas() ) ); <span class="comment">//L2 proj -&gt; P1</span></div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;                        hessP0[i+j*Dim] = vf::project(P0h, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), gradv( dvard1P1[j] )(0,i) );</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;                        hessP1[i+j*Dim] = element_div( sum(P1h, idv(hessP0[i+j*Dim])*meas()), sum(P1h, meas() ) ); <span class="comment">//L2 proj -&gt; P1</span></div>
 <div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;                    }</div>
 <div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;            }</div>
 <div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;        <span class="comment">// ******************************************************************************************* //</span></div>
@@ -1095,7 +1095,7 @@ $(document).ready(function(){initNavTree('meshadaptation_8hpp_source.html','');}
 <div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;            {</div>
 <div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;Dim; j++)</div>
 <div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;                    {</div>
-<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;                        dvard2Pkm2[i+j*Dim] = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( Pkm2H, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh),hessv(var)(i,j));</div>
+<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;                        dvard2Pkm2[i+j*Dim] = vf::project( Pkm2H, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh),hessv(var)(i,j));</div>
 <div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;                    }</div>
 <div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;            }</div>
 <div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;</div>
@@ -1109,7 +1109,7 @@ $(document).ready(function(){initNavTree('meshadaptation_8hpp_source.html','');}
 <div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;Dim; j++)</div>
 <div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;                    {</div>
 <div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;                        <span class="comment">//dvard2P1[i+j*Dim] = l2proj-&gt;project( _expr=idv( dvard2Pkm2[i+j*Dim]) );</span></div>
-<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;                        dvard2P1[i+j*Dim] = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( P1h, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), idv( dvard2Pkm2[i+j*Dim]) );</div>
+<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;                        dvard2P1[i+j*Dim] = vf::project( P1h, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), idv( dvard2Pkm2[i+j*Dim]) );</div>
 <div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;                    }</div>
 <div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;            }</div>
 <div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;        <span class="comment">// ******************************************************************************************* //</span></div>
@@ -1175,12 +1175,9 @@ $(document).ready(function(){initNavTree('meshadaptation_8hpp_source.html','');}
 <div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;}</div>
 <div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;<span class="preprocessor">#endif // __MESHADAPTATION_HPP</span></div>
 <div class="ttc" id="namespaceFeel_html_ace44a7a9c428a5849b81de59532e4ef8"><div class="ttname"><a href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements</a></div><div class="ttdeci">elements_type const &amp; elements() const </div><div class="ttdef"><b>Definition:</b> elements.hpp:367</div></div>
-<div class="ttc" id="namespaceFeel_html_ae89776231eca6bd68ba734da512759b3"><div class="ttname"><a href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project</a></div><div class="ttdeci">Polynomial&lt; Pset, Scalar &gt; project(Pset const &amp;pset, Func const &amp;f, IM const &amp;im)</div><div class="ttdef"><b>Definition:</b> operations.hpp:436</div></div>
 <div class="ttc" id="vf_8hpp_html"><div class="ttname"><a href="vf_8hpp.html">vf.hpp</a></div></div>
 <div class="ttc" id="gmsh_8hpp_html"><div class="ttname"><a href="gmsh_8hpp.html">gmsh.hpp</a></div></div>
 <div class="ttc" id="backend_8hpp_html"><div class="ttname"><a href="backend_8hpp.html">backend.hpp</a></div></div>
-<div class="ttc" id="mesh_8hpp_html"><div class="ttname"><a href="mesh_8hpp.html">mesh.hpp</a></div></div>
-<div class="ttc" id="namespaceFeel_html_a81bfa16d11dfe6ede737b6bb01c63738"><div class="ttname"><a href="namespaceFeel.html#a81bfa16d11dfe6ede737b6bb01c63738">Feel::element_div</a></div><div class="ttdeci">ElementType element_div(ElementType const &amp;v1, ElementType const &amp;v2)</div><div class="ttdef"><b>Definition:</b> functionspace.hpp:6593</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <script>

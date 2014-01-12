@@ -277,7 +277,7 @@ $(document).ready(function(){initNavTree('gmshenums_8hpp_source.html','');});
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    {</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">if</span> ( ConvexType::nDim == 1 )</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        {</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            M_type = detail::line_type[ConvexType::nOrder];</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            M_type = Feel::detail::line_type[ConvexType::nOrder];</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i &lt; ConvexType::numPoints; ++i )</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                M_id.insert( id_type::value_type( i, i ) );</div>
@@ -285,7 +285,7 @@ $(document).ready(function(){initNavTree('gmshenums_8hpp_source.html','');});
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">if</span> ( ConvexType::nDim == 2 )</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            M_type = detail::triangle_type[ConvexType::nOrder];</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            M_type = Feel::detail::triangle_type[ConvexType::nOrder];</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordflow">if</span> ( ConvexType::nOrder == 1 )</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                M_id = list_of&lt;relation&gt;( 0,0 )( 1,1 )( 2,2 );</div>
@@ -311,7 +311,7 @@ $(document).ready(function(){initNavTree('gmshenums_8hpp_source.html','');});
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordflow">if</span> ( ConvexType::nDim == 3 )</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        {</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            M_type = detail::tetrahedron_type[ConvexType::nOrder];</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            M_type = Feel::detail::tetrahedron_type[ConvexType::nOrder];</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            <span class="keywordflow">if</span> ( ConvexType::nOrder == 1 )</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                M_id = list_of&lt;relation&gt;</div>
@@ -374,7 +374,7 @@ $(document).ready(function(){initNavTree('gmshenums_8hpp_source.html','');});
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keywordflow">if</span> ( ConvexType::nDim == 1 )</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        {</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            M_type = detail::line_type[ConvexType::nOrder];</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            M_type = Feel::detail::line_type[ConvexType::nOrder];</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> i = 0; i &lt; ConvexType::numPoints; ++i )</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                M_id.insert( id_type::value_type( i, i ) );</div>
@@ -382,7 +382,7 @@ $(document).ready(function(){initNavTree('gmshenums_8hpp_source.html','');});
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordflow">if</span> ( ConvexType::nDim == 2 )</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        {</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            M_type = detail::quad_type[ConvexType::nOrder];</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            M_type = Feel::detail::quad_type[ConvexType::nOrder];</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            <span class="keywordflow">if</span> ( ConvexType::nOrder == 1 )</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                M_id = list_of&lt;relation&gt;( 0,0 )( 1,1 )( 2,2 )( 3,3 );</div>
@@ -400,7 +400,7 @@ $(document).ready(function(){initNavTree('gmshenums_8hpp_source.html','');});
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keywordflow">if</span> ( ConvexType::nDim == 3 )</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        {</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            M_type = detail::hexa_type[ConvexType::nOrder];</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            M_type = Feel::detail::hexa_type[ConvexType::nOrder];</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            <span class="keywordflow">if</span> ( ConvexType::nOrder == 1 )</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                M_id = list_of&lt;relation&gt;( 0,0 )( 1,1 )( 2,2 )( 3,3 )( 4,4 )( 5,5 )( 6,6 )( 7,7 );</div>

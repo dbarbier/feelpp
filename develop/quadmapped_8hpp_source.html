@@ -302,7 +302,7 @@ $(document).ready(function(){initNavTree('quadmapped_8hpp_source.html','');});
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        nodes_type res( Gt );</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keywordflow">if</span> ( face_perm != face_permutation_type( face_permutation_type::IDENTITY ) )</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            res = prod( Gt, getMatrixPermutation( face_perm ) );</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            res = <a class="code" href="namespaceFeel.html#a5af595f9efc2286043472b9bf6f1c2cc">prod</a>( Gt, getMatrixPermutation( face_perm ) );</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        FEELPP_ASSERT( res.size1() == Gt.size1() &amp;&amp;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                       res.size2() == Gt.size2() ) ( res )( Gt ).error ( <span class="stringliteral">&quot;invalid permutation operation&quot;</span> );</div>
@@ -470,6 +470,7 @@ $(document).ready(function(){initNavTree('quadmapped_8hpp_source.html','');});
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;} <span class="comment">// Feel</span></div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __QuadMapped_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="namespaceFeel_html_a5af595f9efc2286043472b9bf6f1c2cc"><div class="ttname"><a href="namespaceFeel.html#a5af595f9efc2286043472b9bf6f1c2cc">Feel::prod</a></div><div class="ttdeci">ElementType prod(ElementType const &amp;v1, ElementType const &amp;v2, typename boost::enable_if&lt; boost::is_base_of&lt; FunctionSpaceBase::ElementBase, ElementType &gt; &gt;::type *dummy=0)</div><div class="ttdef"><b>Definition:</b> elementproduct.hpp:45</div></div>
 <div class="ttc" id="im_8hpp_html"><div class="ttname"><a href="im_8hpp.html">im.hpp</a></div></div>
 <div class="ttc" id="refentity_8hpp_html"><div class="ttname"><a href="refentity_8hpp.html">refentity.hpp</a></div></div>
 <div class="ttc" id="glas_8hpp_html"><div class="ttname"><a href="glas_8hpp.html">glas.hpp</a></div></div>

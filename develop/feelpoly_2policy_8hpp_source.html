@@ -212,9 +212,9 @@ $(document).ready(function(){initNavTree('feelpoly_2policy_8hpp_source.html','')
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c = 0; c &lt; nComponents; ++c )</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( __c_reshaped,</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            ublas::project( __c_reshaped,</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                            ublas::range( 0, nRows ),</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                            ublas::range( c*nCols, ( c+1 )*nCols ) ) = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( __c,</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                            ublas::range( c*nCols, ( c+1 )*nCols ) ) = ublas::project( __c,</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                                    ublas::slice( c, nComponents, nRows ),</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                                    ublas::slice( 0, 1, nCols ) );</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div>
@@ -236,9 +236,9 @@ $(document).ready(function(){initNavTree('feelpoly_2policy_8hpp_source.html','')
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c = 0; c &lt; nComponents; ++c )</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( __c_reshaped,</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            ublas::project( __c_reshaped,</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                            ublas::slice( c, nComponents, nRows/nComponents ),</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                            ublas::slice( 0, 1, nCols ) ) = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( __c(),</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                            ublas::slice( 0, 1, nCols ) ) = ublas::project( __c(),</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                                    ublas::range( 0, nRows/nComponents ),</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                                    ublas::range( c*nCols, ( c+1 )*nCols ) );</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        }</div>
@@ -260,9 +260,9 @@ $(document).ready(function(){initNavTree('feelpoly_2policy_8hpp_source.html','')
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c = 0; c &lt; nComponents; ++c )</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( __c_reshaped,</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            ublas::project( __c_reshaped,</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                            ublas::slice( c, nComponents, nRows/nComponents ),</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                            ublas::slice( 0, 1, nCols ) ) = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( __c,</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                            ublas::slice( 0, 1, nCols ) ) = ublas::project( __c,</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                                    ublas::range( 0, nRows/nComponents ),</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                                    ublas::range( c*nCols, ( c+1 )*nCols ) );</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        }</div>
@@ -354,9 +354,9 @@ $(document).ready(function(){initNavTree('feelpoly_2policy_8hpp_source.html','')
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c2 = 0; c2 &lt; nComponents; ++c2 )</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            {</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( __c_reshaped,</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                ublas::project( __c_reshaped,</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                                ublas::range( i1/nComponents, ( i1+nRows1 )/nComponents ),</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                                ublas::range( c2*nCols, ( c2+1 )*nCols ) ) = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( __c,</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                                ublas::range( c2*nCols, ( c2+1 )*nCols ) ) = ublas::project( __c,</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                                        ublas::slice( i1+c2, nComponents, nRows1/nComponents ),</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                                        ublas::slice( 0, 1, nCols ) );</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            }</div>
@@ -392,9 +392,9 @@ $(document).ready(function(){initNavTree('feelpoly_2policy_8hpp_source.html','')
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;            <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c2 = 0; c2 &lt; nComponents; ++c2 )</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;            {</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( __c_reshaped,</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                ublas::project( __c_reshaped,</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                                ublas::slice( i1+c2, nComponents, nRows1/nComponents ),</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                                ublas::slice( 0, 1, nCols ) ) = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( __c,</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                                ublas::slice( 0, 1, nCols ) ) = ublas::project( __c,</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                                        ublas::range( i1/nComponents, ( i1+nRows1 )/nComponents ),</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                                        ublas::range( c2*nCols, ( c2+1 )*nCols ) );</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            }</div>
@@ -534,7 +534,6 @@ $(document).ready(function(){initNavTree('feelpoly_2policy_8hpp_source.html','')
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;</div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __policy_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="structFeel_1_1Normalized_html"><div class="ttname"><a href="structFeel_1_1Normalized.html">Feel::Normalized</a></div><div class="ttdef"><b>Definition:</b> feelpoly/policy.hpp:458</div></div>
-<div class="ttc" id="namespaceFeel_html_ae89776231eca6bd68ba734da512759b3"><div class="ttname"><a href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project</a></div><div class="ttdeci">Polynomial&lt; Pset, Scalar &gt; project(Pset const &amp;pset, Func const &amp;f, IM const &amp;im)</div><div class="ttdef"><b>Definition:</b> operations.hpp:436</div></div>
 <div class="ttc" id="structFeel_1_1Vectorial_html"><div class="ttname"><a href="structFeel_1_1Vectorial.html">Feel::Vectorial</a></div><div class="ttdef"><b>Definition:</b> feelpoly/policy.hpp:98</div></div>
 <div class="ttc" id="structFeel_1_1Component_html"><div class="ttname"><a href="structFeel_1_1Component.html">Feel::Component</a></div><div class="ttdef"><b>Definition:</b> feelpoly/policy.hpp:390</div></div>
 <div class="ttc" id="structFeel_1_1matrix__node_html"><div class="ttname"><a href="structFeel_1_1matrix__node.html">Feel::matrix_node</a></div><div class="ttdef"><b>Definition:</b> glas.hpp:157</div></div>
@@ -543,7 +542,7 @@ $(document).ready(function(){initNavTree('feelpoly_2policy_8hpp_source.html','')
 <div class="ttc" id="structFeel_1_1StorageUBlas_html"><div class="ttname"><a href="structFeel_1_1StorageUBlas.html">Feel::StorageUBlas</a></div><div class="ttdef"><b>Definition:</b> feelpoly/policy.hpp:469</div></div>
 <div class="ttc" id="structFeel_1_1Scalar_html"><div class="ttname"><a href="structFeel_1_1Scalar.html">Feel::Scalar</a></div><div class="ttdef"><b>Definition:</b> feelpoly/policy.hpp:59</div></div>
 <div class="ttc" id="structFeel_1_1Tensor3_html"><div class="ttname"><a href="structFeel_1_1Tensor3.html">Feel::Tensor3</a></div><div class="ttdef"><b>Definition:</b> feelpoly/policy.hpp:333</div></div>
-<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:319</div></div>
+<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
 <div class="ttc" id="glas_8hpp_html"><div class="ttname"><a href="glas_8hpp.html">glas.hpp</a></div></div>
 <div class="ttc" id="structFeel_1_1Tensor2_html"><div class="ttname"><a href="structFeel_1_1Tensor2.html">Feel::Tensor2</a></div><div class="ttdef"><b>Definition:</b> feelpoly/policy.hpp:242</div></div>
 </div><!-- fragment --></div><!-- contents -->

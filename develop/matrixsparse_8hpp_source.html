@@ -680,9 +680,21 @@ $(document).ready(function(){initNavTree('matrixsparse_8hpp_source.html','');});
 <div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;    <span class="keywordflow">return</span> os;</div>
 <div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;}</div>
 <div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;</div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;<span class="preprocessor">#endif // #ifndef __sparse_matrix_h__</span></div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;<span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;{</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> MatrixType&gt;</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;<span class="keyword">struct </span>is_matrix_ptr : mpl::false_ {};</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> MatrixType&gt;</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;<span class="keyword">struct </span>is_matrix_ptr&lt;boost::shared_ptr&lt;MatrixType&gt; &gt;</div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;        :</div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;        boost::is_base_of&lt;MatrixSparse&lt;typename MatrixType::value_type&gt;,</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;        MatrixType&gt;</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;{};</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;}</div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;</div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;<span class="preprocessor">#endif // #ifndef __sparse_matrix_h__</span></div>
 <div class="ttc" id="classFeel_1_1MatrixSparse_html_ae60d99b6fc482a4230d9665cf8d10528"><div class="ttname"><a href="classFeel_1_1MatrixSparse.html#ae60d99b6fc482a4230d9665cf8d10528">Feel::MatrixSparse::zeroRows</a></div><div class="ttdeci">virtual void zeroRows(std::vector&lt; int &gt; const &amp;rows, Vector&lt; value_type &gt; const &amp;values, Vector&lt; value_type &gt; &amp;rhs, Context const &amp;on_context)=0</div></div>
 <div class="ttc" id="classFeel_1_1MatrixSparse_html_a8569b5ca72c200d49d809621deacb5b3"><div class="ttname"><a href="classFeel_1_1MatrixSparse.html#a8569b5ca72c200d49d809621deacb5b3">Feel::MatrixSparse::isHermitianPositiveDefinite</a></div><div class="ttdeci">bool isHermitianPositiveDefinite() const </div><div class="ttdef"><b>Definition:</b> matrixsparse.hpp:304</div></div>
 <div class="ttc" id="classFeel_1_1MatrixSparse_html_ae05699de2637646583a3df40e5157609"><div class="ttname"><a href="classFeel_1_1MatrixSparse.html#ae05699de2637646583a3df40e5157609">Feel::MatrixSparse::clear</a></div><div class="ttdeci">virtual void clear()=0</div></div>
@@ -737,7 +749,7 @@ $(document).ready(function(){initNavTree('matrixsparse_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1Vector_html_a1d48400772fdd642d38d13de166c6a96"><div class="ttname"><a href="classFeel_1_1Vector.html#a1d48400772fdd642d38d13de166c6a96">Feel::Vector::zero</a></div><div class="ttdeci">virtual void zero()=0</div></div>
 <div class="ttc" id="classFeel_1_1MatrixSparse_html_a992715a69e0743b3361235a04ef94414"><div class="ttname"><a href="classFeel_1_1MatrixSparse.html#a992715a69e0743b3361235a04ef94414">Feel::MatrixSparse::addMatrix</a></div><div class="ttdeci">void addMatrix(const T &amp;s, boost::shared_ptr&lt; MatrixSparse&lt; T &gt; &gt; &amp;m)</div><div class="ttdef"><b>Definition:</b> matrixsparse.hpp:469</div></div>
 <div class="ttc" id="graphcsr_8hpp_html"><div class="ttname"><a href="graphcsr_8hpp.html">graphcsr.hpp</a></div></div>
-<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:319</div></div>
+<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
 <div class="ttc" id="classFeel_1_1MatrixSparse_html_a2e7a8e596eb717cd113c9c7362b346d8"><div class="ttname"><a href="classFeel_1_1MatrixSparse.html#a2e7a8e596eb717cd113c9c7362b346d8">Feel::MatrixSparse::symmetricPart</a></div><div class="ttdeci">virtual void symmetricPart(MatrixSparse&lt; value_type &gt; &amp;Ms) const </div><div class="ttdef"><b>Definition:</b> matrixsparse.hpp:564</div></div>
 <div class="ttc" id="classFeel_1_1MatrixSparse_html"><div class="ttname"><a href="classFeel_1_1MatrixSparse.html">Feel::MatrixSparse</a></div><div class="ttdef"><b>Definition:</b> matrixsparse.hpp:76</div></div>
 <div class="ttc" id="classFeel_1_1MatrixSparse_html_a461579bfbd52021b74079be657677162"><div class="ttname"><a href="classFeel_1_1MatrixSparse.html#a461579bfbd52021b74079be657677162">Feel::MatrixSparse::isInitialized</a></div><div class="ttdeci">virtual bool isInitialized() const </div><div class="ttdef"><b>Definition:</b> matrixsparse.hpp:173</div></div>

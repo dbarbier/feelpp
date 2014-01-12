@@ -11,6 +11,7 @@ var searchData=
   ['equispaced_2ehpp',['equispaced.hpp',['../equispaced_8hpp.html',1,'']]],
   ['error_2ehpp',['error.hpp',['../error_8hpp.html',1,'']]],
   ['evaluator_2ehpp',['evaluator.hpp',['../evaluator_8hpp.html',1,'']]],
+  ['expansion_2ehpp',['expansion.hpp',['../expansion_8hpp.html',1,'']]],
   ['expansions_2ehpp',['expansions.hpp',['../expansions_8hpp.html',1,'']]],
   ['expansiontypes_2ehpp',['expansiontypes.hpp',['../expansiontypes_8hpp.html',1,'']]],
   ['exporter_2ecpp',['exporter.cpp',['../exporter_8cpp.html',1,'']]],

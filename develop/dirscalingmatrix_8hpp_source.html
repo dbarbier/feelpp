@@ -232,13 +232,13 @@ $(document).ready(function(){initNavTree('dirscalingmatrix_8hpp_source.html','')
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    vector_type distanceToLB( vector_type <span class="keyword">const</span>&amp; __x )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        GST_SMART_ASSERT( __x.size() == M_lb.size() )( __x )( M_lb )( <span class="stringliteral">&quot;inconsistent bounds definition&quot;</span> );</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#a81bfa16d11dfe6ede737b6bb01c63738">element_div</a>( __x - M_lb, M_lb_ub );</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">return</span> element_div( __x - M_lb, M_lb_ub );</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    }</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    vector_type distanceToUB( vector_type <span class="keyword">const</span>&amp; __x )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        GST_SMART_ASSERT( __x.size() == M_ub.size() )( __x )( M_ub )( <span class="stringliteral">&quot;inconsistent bounds definition&quot;</span> );</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#a81bfa16d11dfe6ede737b6bb01c63738">element_div</a>( __x - M_ub, M_lb_ub );</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">return</span> element_div( __x - M_ub, M_lb_ub );</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">private</span>:</div>
@@ -331,7 +331,6 @@ $(document).ready(function(){initNavTree('dirscalingmatrix_8hpp_source.html','')
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor"></span></div>
 <div class="ttc" id="classFeel_1_1Vector_html"><div class="ttname"><a href="classFeel_1_1Vector.html">Feel::Vector</a></div><div class="ttdef"><b>Definition:</b> solverlinear.hpp:33</div></div>
 <div class="ttc" id="classFeel_1_1DirScalingMatrix_html"><div class="ttname"><a href="classFeel_1_1DirScalingMatrix.html">Feel::DirScalingMatrix</a></div><div class="ttdoc">implements the directional Scaling Matrix for directionally-scaled trust region </div><div class="ttdef"><b>Definition:</b> dirscalingmatrix.hpp:51</div></div>
-<div class="ttc" id="namespaceFeel_html_a81bfa16d11dfe6ede737b6bb01c63738"><div class="ttname"><a href="namespaceFeel.html#a81bfa16d11dfe6ede737b6bb01c63738">Feel::element_div</a></div><div class="ttdeci">ElementType element_div(ElementType const &amp;v1, ElementType const &amp;v2)</div><div class="ttdef"><b>Definition:</b> functionspace.hpp:6593</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <script>

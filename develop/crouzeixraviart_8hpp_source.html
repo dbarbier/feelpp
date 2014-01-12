@@ -405,120 +405,130 @@ $(document).ready(function(){initNavTree('crouzeixraviart_8hpp_source.html','');
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nbPtsPerVolume = 0;</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type numPoints = ( reference_convex_type::numGeometricFaces*nbPtsPerFace+</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                                           reference_convex_type::numEdges*nbPtsPerEdge );</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <a class="code" href="classFeel_1_1fem_1_1CrouzeixRaviart.html">CrouzeixRaviart</a>()</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        :</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <a class="code" href="classFeel_1_1FiniteElement.html">super</a>( dual_space_type( primal_space_type() ) ),</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        M_refconvex()</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    {}</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <a class="code" href="classFeel_1_1fem_1_1CrouzeixRaviart.html">CrouzeixRaviart</a>( <a class="code" href="classFeel_1_1fem_1_1CrouzeixRaviart.html">CrouzeixRaviart</a> <span class="keyword">const</span> &amp; cr )</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        :</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        super( cr ),</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        M_refconvex()</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    {}</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    ~CrouzeixRaviart()</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    {}</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
-<div class="line"><a name="l00361"></a><span class="lineno"><a class="line" href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a8eb9bef8c4011e886247f4c70cec8a40">  361</a></span>&#160;    reference_convex_type <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a8eb9bef8c4011e886247f4c70cec8a40">referenceConvex</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordflow">return</span> M_refconvex;</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    }</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keyword">struct </span>SSpace</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    {</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keyword">static</span> constexpr uint16_type TheOrder = (nOrder &gt; 1)?nOrder-1:0;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::if_&lt;mpl::less_equal&lt;mpl::int_&lt;nOrder&gt;, mpl::int_&lt;1&gt; &gt;,</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                                  mpl::identity&lt;CrouzeixRaviart&lt;nDim, RealDim, PolySetType, T, Convex, TheTAG&gt; &gt;,</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                                  mpl::identity&lt;CrouzeixRaviart&lt;nDim, RealDim, PolySetType, T, Convex, TheTAG&gt; &gt; &gt;::type::type type;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    };</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <a class="code" href="classFeel_1_1fem_1_1CrouzeixRaviart.html">CrouzeixRaviart</a>()</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        :</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        super( dual_space_type( primal_space_type() ) ),</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        M_refconvex()</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    {}</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    CrouzeixRaviart( CrouzeixRaviart <span class="keyword">const</span> &amp; cr )</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        :</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        super( cr ),</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        M_refconvex()</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    {}</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    ~CrouzeixRaviart()</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    {}</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
-<div class="line"><a name="l00382"></a><span class="lineno"><a class="line" href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a7192d728aa636aab547f4ebf536a4e95">  382</a></span>&#160;    std::string <a class="code" href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a7192d728aa636aab547f4ebf536a4e95">familyName</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;CrouzeixRaviart&quot;</span>;</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    }</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ExprType&gt;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span></div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    isomorphism( ExprType&amp; expr ) -&gt; decltype( expr )</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    {</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keywordflow">return</span> expr;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="comment">//return expr;</span></div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    }</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;</div>
+<div class="line"><a name="l00371"></a><span class="lineno"><a class="line" href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a8eb9bef8c4011e886247f4c70cec8a40">  371</a></span>&#160;    reference_convex_type <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a8eb9bef8c4011e886247f4c70cec8a40">referenceConvex</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keywordflow">return</span> M_refconvex;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    }</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;</div>
+<div class="line"><a name="l00392"></a><span class="lineno"><a class="line" href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a7192d728aa636aab547f4ebf536a4e95">  392</a></span>&#160;    std::string <a class="code" href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a7192d728aa636aab547f4ebf536a4e95">familyName</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;CrouzeixRaviart&quot;</span>;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    }</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    reference_convex_type M_refconvex;</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;};</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="keyword">template</span>&lt;uint16_type N,</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;         uint16_type RealDim,</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;         <span class="keyword">typename</span> T,</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type&gt; <span class="keyword">class </span>Convex,</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;         uint16_type TheTAG &gt;</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="keyword">const</span> uint16_type CrouzeixRaviart&lt;N,RealDim,PolySetType,T,Convex,TheTAG&gt;::nDim;</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="keyword">template</span>&lt;uint16_type N,</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;         uint16_type RealDim,</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;         <span class="keyword">typename</span> T,</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type&gt; <span class="keyword">class </span>Convex,</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;         uint16_type TheTAG &gt;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="keyword">const</span> uint16_type CrouzeixRaviart&lt;N,RealDim,PolySetType,T,Convex,TheTAG&gt;::nOrder;</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;} <span class="comment">// fem</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="keyword">template</span>&lt;uint16_type Order,</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType = Scalar,</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts = PointSetEquiSpaced,</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;         uint16_type TheTAG=0 &gt;</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="keyword">class </span>CrouzeixRaviart</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;{</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    <span class="keyword">template</span>&lt;uint16_type N,</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;             uint16_type RealDim,</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;             <span class="keyword">typename</span> T = double,</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;             <span class="keyword">typename</span> Convex = Simplex&lt;N&gt; &gt;</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keyword">struct </span>apply</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    {</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::if_&lt;mpl::bool_&lt;Convex::is_simplex&gt;,</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                mpl::identity&lt;fem::CrouzeixRaviart&lt;N,RealDim,PolySetType,T,Simplex,TheTAG&gt; &gt;,</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                mpl::identity&lt;fem::CrouzeixRaviart&lt;N,RealDim,PolySetType,T,Hypercube,TheTAG&gt; &gt; &gt;::type::type result_type;</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <span class="keyword">typedef</span> result_type type;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    };</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type TheNewTAG&gt;</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keyword">struct </span>ChangeTag</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    {</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        <span class="keyword">typedef</span> CrouzeixRaviart&lt;Order,PolySetType,Pts,TheNewTAG&gt; type;</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    };</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keyword">typedef</span> CrouzeixRaviart&lt;Order,Scalar,Pts&gt; component_basis_type;</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nOrder =  Order;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type TAG = TheTAG;</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;};</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="keyword">template</span>&lt;uint16_type Order,</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts,</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;         uint16_type TheTAG &gt;</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="keyword">const</span> uint16_type CrouzeixRaviart&lt;Order,PolySetType,Pts,TheTAG&gt;::nOrder;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __CrouzeixRaviart_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ExprType&gt;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    isomorphism( ExprType&amp; expr ) -&gt; decltype( expr )</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    {</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="keywordflow">return</span> expr;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="comment">//return expr;</span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    }</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    reference_convex_type M_refconvex;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;};</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="keyword">template</span>&lt;uint16_type N,</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;         uint16_type RealDim,</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;         <span class="keyword">typename</span> T,</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type&gt; <span class="keyword">class </span>Convex,</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;         uint16_type TheTAG &gt;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="keyword">const</span> uint16_type CrouzeixRaviart&lt;N,RealDim,PolySetType,T,Convex,TheTAG&gt;::nDim;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="keyword">template</span>&lt;uint16_type N,</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;         uint16_type RealDim,</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;         <span class="keyword">typename</span> T,</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type, u<span class="keywordtype">int</span>16_type&gt; <span class="keyword">class </span>Convex,</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;         uint16_type TheTAG &gt;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="keyword">const</span> uint16_type CrouzeixRaviart&lt;N,RealDim,PolySetType,T,Convex,TheTAG&gt;::nOrder;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;} <span class="comment">// fem</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="keyword">template</span>&lt;uint16_type Order,</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType = Scalar,</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts = PointSetEquiSpaced,</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;         uint16_type TheTAG=0 &gt;</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="keyword">class </span>CrouzeixRaviart</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;{</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="keyword">template</span>&lt;uint16_type N,</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;             uint16_type RealDim,</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;             <span class="keyword">typename</span> T = double,</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;             <span class="keyword">typename</span> Convex = Simplex&lt;N&gt; &gt;</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="keyword">struct </span>apply</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    {</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> mpl::if_&lt;mpl::bool_&lt;Convex::is_simplex&gt;,</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                mpl::identity&lt;fem::CrouzeixRaviart&lt;N,RealDim,PolySetType,T,Simplex,TheTAG&gt; &gt;,</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                mpl::identity&lt;fem::CrouzeixRaviart&lt;N,RealDim,PolySetType,T,Hypercube,TheTAG&gt; &gt; &gt;::type::type result_type;</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        <span class="keyword">typedef</span> result_type type;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    };</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type TheNewTAG&gt;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="keyword">struct </span>ChangeTag</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    {</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <span class="keyword">typedef</span> CrouzeixRaviart&lt;Order,PolySetType,Pts,TheNewTAG&gt; type;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    };</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    <span class="keyword">typedef</span> CrouzeixRaviart&lt;Order,Scalar,Pts&gt; component_basis_type;</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type nOrder =  Order;</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> uint16_type TAG = TheTAG;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;};</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="keyword">template</span>&lt;uint16_type Order,</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>16_type Dim&gt; <span class="keyword">class </span>PolySetType,</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;         <span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts,</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;         uint16_type TheTAG &gt;</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="keyword">const</span> uint16_type CrouzeixRaviart&lt;Order,PolySetType,Pts,TheTAG&gt;::nOrder;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __CrouzeixRaviart_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="moment_8hpp_html"><div class="ttname"><a href="moment_8hpp.html">moment.hpp</a></div></div>
-<div class="ttc" id="namespaceFeel_html_a07ec0494dee4ca9a16b866e8c1f4d495"><div class="ttname"><a href="namespaceFeel.html#a07ec0494dee4ca9a16b866e8c1f4d495">Feel::points</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_POINTS &gt;, typename MeshTraits&lt; MeshType &gt;::point_const_iterator, typename MeshTraits&lt; MeshType &gt;::point_const_iterator &gt; points(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> filters.hpp:1329</div></div>
-<div class="ttc" id="classFeel_1_1fem_1_1CrouzeixRaviart_html_a7192d728aa636aab547f4ebf536a4e95"><div class="ttname"><a href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a7192d728aa636aab547f4ebf536a4e95">Feel::fem::CrouzeixRaviart::familyName</a></div><div class="ttdeci">std::string familyName() const </div><div class="ttdef"><b>Definition:</b> crouzeixraviart.hpp:382</div></div>
-<div class="ttc" id="classFeel_1_1Continuous_html"><div class="ttname"><a href="classFeel_1_1Continuous.html">Feel::Continuous</a></div><div class="ttdoc">describe continuous functions </div><div class="ttdef"><b>Definition:</b> continuity.hpp:51</div></div>
+<div class="ttc" id="namespaceFeel_html_a07ec0494dee4ca9a16b866e8c1f4d495"><div class="ttname"><a href="namespaceFeel.html#a07ec0494dee4ca9a16b866e8c1f4d495">Feel::points</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_POINTS &gt;, typename MeshTraits&lt; MeshType &gt;::point_const_iterator, typename MeshTraits&lt; MeshType &gt;::point_const_iterator &gt; points(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> feelmesh/filters.hpp:1329</div></div>
+<div class="ttc" id="classFeel_1_1fem_1_1CrouzeixRaviart_html_a7192d728aa636aab547f4ebf536a4e95"><div class="ttname"><a href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a7192d728aa636aab547f4ebf536a4e95">Feel::fem::CrouzeixRaviart::familyName</a></div><div class="ttdeci">std::string familyName() const </div><div class="ttdef"><b>Definition:</b> crouzeixraviart.hpp:392</div></div>
+<div class="ttc" id="classFeel_1_1Continuous_html"><div class="ttname"><a href="classFeel_1_1Continuous.html">Feel::Continuous</a></div><div class="ttdoc">describe continuous functions </div><div class="ttdef"><b>Definition:</b> continuity.hpp:52</div></div>
 <div class="ttc" id="polynomialset_8hpp_html"><div class="ttname"><a href="polynomialset_8hpp.html">polynomialset.hpp</a></div></div>
-<div class="ttc" id="classFeel_1_1fem_1_1CrouzeixRaviart_html_a8eb9bef8c4011e886247f4c70cec8a40"><div class="ttname"><a href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a8eb9bef8c4011e886247f4c70cec8a40">Feel::fem::CrouzeixRaviart::referenceConvex</a></div><div class="ttdeci">reference_convex_type const &amp; referenceConvex() const </div><div class="ttdef"><b>Definition:</b> crouzeixraviart.hpp:361</div></div>
+<div class="ttc" id="classFeel_1_1fem_1_1CrouzeixRaviart_html_a8eb9bef8c4011e886247f4c70cec8a40"><div class="ttname"><a href="classFeel_1_1fem_1_1CrouzeixRaviart.html#a8eb9bef8c4011e886247f4c70cec8a40">Feel::fem::CrouzeixRaviart::referenceConvex</a></div><div class="ttdeci">reference_convex_type const &amp; referenceConvex() const </div><div class="ttdef"><b>Definition:</b> crouzeixraviart.hpp:371</div></div>
 <div class="ttc" id="classFeel_1_1fem_1_1CrouzeixRaviart_html"><div class="ttname"><a href="classFeel_1_1fem_1_1CrouzeixRaviart.html">Feel::fem::CrouzeixRaviart</a></div><div class="ttdoc">CrouzeixRaviart Finite Element. </div><div class="ttdef"><b>Definition:</b> crouzeixraviart.hpp:266</div></div>
 <div class="ttc" id="fe_8hpp_html"><div class="ttname"><a href="fe_8hpp.html">fe.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1FiniteElement_html_a652f9642a297902506ec9a7adee202cc"><div class="ttname"><a href="classFeel_1_1FiniteElement.html#a652f9642a297902506ec9a7adee202cc">Feel::FiniteElement::polyset_type</a></div><div class="ttdeci">primal_space_type::polyset_type polyset_type</div><div class="ttdef"><b>Definition:</b> fe.hpp:84</div></div>

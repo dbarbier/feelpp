@@ -202,7 +202,7 @@ $(document).ready(function(){initNavTree('adfunctions_8tmpl_8hpp_source.html',''
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">inline</span> value_type <a class="code" href="namespaceFeel.html#a8073bad0e88192d69a7b74083ffa640d">hessian</a>( <span class="keywordtype">int</span> __i, <span class="keywordtype">int</span> __j )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span>  Value&lt;<span class="keyword">true</span><span class="comment">/*boost::type_traits::is_fundamental&lt;value_type&gt;::value*/</span>,Expr&gt;<a class="code" href="namespaceFeel.html#a8073bad0e88192d69a7b74083ffa640d">::hessian</a>( expr_, __i, __j );</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span>  Value&lt;<span class="keyword">true</span><span class="comment">/*boost::type_traits::is_fundamental&lt;value_type&gt;::value*/</span>,Expr&gt;::hessian( expr_, __i, __j );</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> deps( <span class="keywordtype">int</span> __i )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">    </span>{</div>
@@ -223,7 +223,7 @@ $(document).ready(function(){initNavTree('adfunctions_8tmpl_8hpp_source.html',''
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">typedef</span> @NAME@&lt; ADType&lt;T, Nvar, Order, Var&gt; &gt; expr_t;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> ADExpr&lt; expr_t &gt;(  expr_t( x ) );</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
-<div class="ttc" id="namespaceFeel_html_a8073bad0e88192d69a7b74083ffa640d"><div class="ttname"><a href="namespaceFeel.html#a8073bad0e88192d69a7b74083ffa640d">Feel::hessian</a></div><div class="ttdeci">PolynomialSet&lt; Poly, Tensor2 &gt; hessian(PolynomialSet&lt; Poly, Scalar &gt; const &amp;p)</div><div class="ttdoc">compute the gradient of a vectorial polynomial set </div><div class="ttdef"><b>Definition:</b> operations.hpp:231</div></div>
+<div class="ttc" id="namespaceFeel_html_a8073bad0e88192d69a7b74083ffa640d"><div class="ttname"><a href="namespaceFeel.html#a8073bad0e88192d69a7b74083ffa640d">Feel::hessian</a></div><div class="ttdeci">PolynomialSet&lt; Poly, Tensor2 &gt; hessian(PolynomialSet&lt; Poly, Scalar &gt; const &amp;p)</div><div class="ttdoc">compute the gradient of a vectorial polynomial set </div><div class="ttdef"><b>Definition:</b> feelpoly/operations.hpp:231</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <script>

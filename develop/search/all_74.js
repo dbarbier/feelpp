@@ -8,8 +8,9 @@ var searchData=
   ['test_5fad_2ecpp',['test_ad.cpp',['../test__ad_8cpp.html',1,'']]],
   ['test_5fequispaced_2ecpp',['test_equispaced.cpp',['../test__equispaced_8cpp.html',1,'']]],
   ['test_5ffusion_2ecpp',['test_fusion.cpp',['../test__fusion_8cpp.html',1,'']]],
+  ['thch',['THch',['../namespaceFeel.html#a2bef36f2edb3832159b8e055a7778805',1,'Feel']]],
+  ['thch_2ehpp',['thch.hpp',['../thch_8hpp.html',1,'']]],
   ['thermalfin',['ThermalFin',['../classFeel_1_1ThermalFin.html',1,'Feel']]],
-  ['thermalfin_2ecpp',['thermalfin.cpp',['../thermalfin_8cpp.html',1,'']]],
   ['theta',['theta',['../classFeel_1_1Aitken.html#a4b1e6c400b0fdb84aa298f3282632cff',1,'Feel::Aitken']]],
   ['thetaq',['thetaq',['../classFeel_1_1OperatorLinearParametrized.html#a95421ed40bd459b2b2fac596d2919d04',1,'Feel::OperatorLinearParametrized::thetaq() const '],['../classFeel_1_1OperatorLinearParametrized.html#a2d3e700122a607e1de404e1f3f10fe4b',1,'Feel::OperatorLinearParametrized::thetaq(int q) const ']]],
   ['third',['third',['../structFeel_1_1BareFace.html#a7159508f7b9d122a921593d8cd2959b3',1,'Feel::BareFace']]],
@@ -40,11 +41,10 @@ var searchData=
   ['translate',['translate',['../group__GeoXD.html#ga6fba0376b90af6b3e72b9e000c606b33',1,'Feel::Geo0D']]],
   ['translation',['translation',['../classFeel_1_1Periodic.html#a491d8553ab1ba34cda504ab939ad69cb',1,'Feel::Periodic::translation()'],['../classFeel_1_1NoPeriodicity.html#a1ccc0988094538fecd8ffd136f8fa8c1',1,'Feel::NoPeriodicity::translation()']]],
   ['transpose',['transpose',['../classFeel_1_1GraphCSR.html#abe5cb2f64a3c2845678cc66e48bae376',1,'Feel::GraphCSR::transpose()'],['../classFeel_1_1MatrixBlockBase.html#ae7580474c2b29c103fa5008a92e4355d',1,'Feel::MatrixBlockBase::transpose()'],['../classFeel_1_1MatrixEigenDense.html#a9aa76b9d1721e8094198f974e811de91',1,'Feel::MatrixEigenDense::transpose()'],['../classFeel_1_1MatrixEigenSparse.html#a9c053d2a505941fcb12759728dbaf8b6',1,'Feel::MatrixEigenSparse::transpose()'],['../classFeel_1_1MatrixSparse.html#aaeeddee7317e64c79c562a8703480aec',1,'Feel::MatrixSparse::transpose(MatrixSparse&lt; value_type &gt; &amp;Mt) const =0'],['../classFeel_1_1MatrixSparse.html#a6f9427fc081c1099b3e8d3b4e7729bad',1,'Feel::MatrixSparse::transpose() const '],['../classFeel_1_1MatrixSparse.html#aa221b9a6afc9a2dedf12759cb5418aca',1,'Feel::MatrixSparse::transpose(boost::shared_ptr&lt; MatrixSparse&lt; value_type &gt; &gt; &amp;Mt) const ']]],
-  ['tsbase_2ehpp',['tsbase.hpp',['../tsbase_8hpp.html',1,'']]],
   ['twovalued_2ehpp',['twovalued.hpp',['../twovalued_8hpp.html',1,'']]],
   ['type',['type',['../classFeel_1_1Aitken.html#a84ad6ae1e2e70e9919921e516c9f6d18',1,'Feel::Aitken::type()'],['../classFeel_1_1Preconditioner.html#a15a913582c0e115780a87839ea56a10f',1,'Feel::Preconditioner::type()'],['../classFeel_1_1Exporter.html#a05214764672a228e2b93f4199833283c',1,'Feel::Exporter::type()']]],
-  ['typeinfo',['TypeInfo',['../classFeel_1_1TypeInfo.html',1,'Feel']]],
   ['typeinfo',['typeInfo',['../classFeel_1_1TypeInfo.html#aa97e4aeb3d0ea311834d598e63cc93c9',1,'Feel::TypeInfo']]],
+  ['typeinfo',['TypeInfo',['../classFeel_1_1TypeInfo.html',1,'Feel']]],
   ['typename',['typeName',['../classFeel_1_1ExprBase.html#a2e3783d9345882448a567002d311ad53',1,'Feel::ExprBase']]],
   ['typetraits_2ehpp',['typetraits.hpp',['../typetraits_8hpp.html',1,'']]]
 ];

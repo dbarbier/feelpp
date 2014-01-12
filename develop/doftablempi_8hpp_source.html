@@ -470,7 +470,7 @@ $(document).ready(function(){initNavTree('doftablempi_8hpp_source.html','');});
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                                                       mpl::int_&lt;fe_type::nDofPerVertex&gt; &gt;::type::value;</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                <span class="keywordtype">int</span> pointGetLocDof = locDof / nDofPerVertexTemp;</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                boost::tie( IdProcessOfGhost, idFaceInPartition ) = detail::updateDofOnVertices&lt;mesh_type&gt;(mesh,*face_it, myRank, IdProcessOfGhost, idFaceInPartition, eltOnProc, pointGetLocDof,</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                boost::tie( IdProcessOfGhost, idFaceInPartition ) = Feel::detail::updateDofOnVertices&lt;mesh_type&gt;(mesh,*face_it, myRank, IdProcessOfGhost, idFaceInPartition, eltOnProc, pointGetLocDof,</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                                                                                                           procRecvData );</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            }</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( nDim == 3 &amp;&amp; locDof &lt; (face_type::numVertices*fe_type::nDofPerVertex + face_type::numEdges*fe_type::nDofPerEdge) )</div>
@@ -481,7 +481,7 @@ $(document).ready(function(){initNavTree('doftablempi_8hpp_source.html','');});
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                                                     mpl::int_&lt;fe_type::nDofPerEdge&gt; &gt;::type::value;</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                <span class="keywordtype">int</span> edgeGetLocDof = locDofInEgde / nDofPerEdgeTemp;</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                boost::tie( IdProcessOfGhost, idFaceInPartition ) = detail::updateDofOnEdges&lt;mesh_type&gt;(mesh,*face_it, myRank, IdProcessOfGhost, idFaceInPartition, eltOnProc, edgeGetLocDof,</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                boost::tie( IdProcessOfGhost, idFaceInPartition ) = Feel::detail::updateDofOnEdges&lt;mesh_type&gt;(mesh,*face_it, myRank, IdProcessOfGhost, idFaceInPartition, eltOnProc, edgeGetLocDof,</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;                                                                                                        procRecvData);</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            }</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            <span class="keywordflow">else</span></div>
@@ -2088,7 +2088,7 @@ $(document).ready(function(){initNavTree('doftablempi_8hpp_source.html','');});
 <div class="line"><a name="l01988"></a><span class="lineno"> 1988</span>&#160;                std::set&lt;boost::tuple&lt;int,size_type&gt; &gt; multiProcessRes;</div>
 <div class="line"><a name="l01989"></a><span class="lineno"> 1989</span>&#160;                <span class="keywordflow">if</span> ( locDof &lt; face_type::numVertices*fe_type::nDofPerVertex)</div>
 <div class="line"><a name="l01990"></a><span class="lineno"> 1990</span>&#160;                {</div>
-<div class="line"><a name="l01991"></a><span class="lineno"> 1991</span>&#160;                    detail::searchPartitionAroundNode( myRank, nodeDofRecv, eltOnProc, memoryIdsFaces, multiProcessRes );</div>
+<div class="line"><a name="l01991"></a><span class="lineno"> 1991</span>&#160;                        Feel::detail::searchPartitionAroundNode( myRank, nodeDofRecv, eltOnProc, memoryIdsFaces, multiProcessRes );</div>
 <div class="line"><a name="l01992"></a><span class="lineno"> 1992</span>&#160;                }</div>
 <div class="line"><a name="l01993"></a><span class="lineno"> 1993</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( nDim == 3 &amp;&amp; locDof &lt; (face_type::numVertices*fe_type::nDofPerVertex + face_type::numEdges*fe_type::nDofPerEdge) )</div>
 <div class="line"><a name="l01994"></a><span class="lineno"> 1994</span>&#160;                {</div>
@@ -2100,7 +2100,7 @@ $(document).ready(function(){initNavTree('doftablempi_8hpp_source.html','');});
 <div class="line"><a name="l02000"></a><span class="lineno"> 2000</span>&#160;</div>
 <div class="line"><a name="l02001"></a><span class="lineno"> 2001</span>&#160;                    <span class="keywordtype">int</span> edgeGetLocDof = locDofInEgde / nDofPerEdgeTemp;</div>
 <div class="line"><a name="l02002"></a><span class="lineno"> 2002</span>&#160;</div>
-<div class="line"><a name="l02003"></a><span class="lineno"> 2003</span>&#160;                    detail::searchPartitionAroundEdge&lt;mesh_type&gt;( myRank, theface, edgeGetLocDof, eltOnProc, memoryIdsFaces, multiProcessRes );</div>
+<div class="line"><a name="l02003"></a><span class="lineno"> 2003</span>&#160;                    Feel::detail::searchPartitionAroundEdge&lt;mesh_type&gt;( myRank, theface, edgeGetLocDof, eltOnProc, memoryIdsFaces, multiProcessRes );</div>
 <div class="line"><a name="l02004"></a><span class="lineno"> 2004</span>&#160;                }</div>
 <div class="line"><a name="l02005"></a><span class="lineno"> 2005</span>&#160;                <span class="comment">//if (proc==0 ) std::cout &lt;&lt; &quot;myRank &quot; &lt;&lt; myRank &lt;&lt; &quot; multiProcessRes.size() &quot; &lt;&lt; multiProcessRes.size() &lt;&lt; &quot; &quot; &lt;&lt; nodeDofRecv &lt;&lt; std::endl;</span></div>
 <div class="line"><a name="l02006"></a><span class="lineno"> 2006</span>&#160;                <span class="comment">//------------------------------------------------------------------------------//</span></div>
@@ -2341,9 +2341,9 @@ $(document).ready(function(){initNavTree('doftablempi_8hpp_source.html','');});
 <div class="line"><a name="l02241"></a><span class="lineno"> 2241</span>&#160;} <span class="comment">// namespace Feel</span></div>
 <div class="line"><a name="l02242"></a><span class="lineno"> 2242</span>&#160;</div>
 <div class="line"><a name="l02243"></a><span class="lineno"> 2243</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FEELPP_DOFTABLE_MPI_HPP */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="namespaceFeel_html_a74681da1036cc5b236aabef05d8a8f87"><div class="ttname"><a href="namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87">Feel::invalid_uint16_type_value</a></div><div class="ttdeci">const uint16_type invalid_uint16_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:341</div></div>
-<div class="ttc" id="namespaceFeel_html_a0d4d77cd361adda45d27d72ff0357e55"><div class="ttname"><a href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a></div><div class="ttdeci">const size_type invalid_size_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:363</div></div>
-<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:319</div></div>
+<div class="ttc" id="namespaceFeel_html_a74681da1036cc5b236aabef05d8a8f87"><div class="ttname"><a href="namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87">Feel::invalid_uint16_type_value</a></div><div class="ttdeci">const uint16_type invalid_uint16_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:354</div></div>
+<div class="ttc" id="namespaceFeel_html_a0d4d77cd361adda45d27d72ff0357e55"><div class="ttname"><a href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a></div><div class="ttdeci">const size_type invalid_size_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:382</div></div>
+<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <script>

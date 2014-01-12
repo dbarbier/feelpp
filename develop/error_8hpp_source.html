@@ -444,7 +444,7 @@ $(document).ready(function(){initNavTree('error_8hpp_source.html','');});
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;            ex solution = getRhs();</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            <span class="keyword">auto</span> mesh = Xh-&gt;mesh();</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            <span class="keyword">auto</span> gproj = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(solution,vars) );</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            <span class="keyword">auto</span> gproj = vf::project( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(solution,vars) );</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;            <span class="keywordflow">return</span> gproj;</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        }</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;</div>
@@ -453,7 +453,7 @@ $(document).ready(function(){initNavTree('error_8hpp_source.html','');});
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            ex solution = getSolution();</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            <span class="keyword">auto</span> mesh = Xh-&gt;mesh();</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            <span class="keyword">auto</span> gproj = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(solution,vars) );</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            <span class="keyword">auto</span> gproj = vf::project( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(solution,vars) );</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            <span class="keywordflow">return</span> gproj;</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        }</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;</div>
@@ -463,7 +463,7 @@ $(document).ready(function(){initNavTree('error_8hpp_source.html','');});
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            <span class="keyword">auto</span> gradg = expr&lt;1,Dim,2&gt;(grad(solution,vars), vars );</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;            <span class="keyword">auto</span> mesh = Xh-&gt;mesh();</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            <span class="keyword">auto</span> gproj = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(gradg,vars) );</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            <span class="keyword">auto</span> gproj = vf::project( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(gradg,vars) );</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;            <span class="keywordflow">return</span> gproj;</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        }</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
@@ -484,7 +484,7 @@ $(document).ready(function(){initNavTree('error_8hpp_source.html','');});
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;            ex solution = getRhs(val);</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;            <span class="keyword">auto</span> mesh = Xh-&gt;mesh();</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;            <span class="keyword">auto</span> gproj = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(solution,vars) );</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;            <span class="keyword">auto</span> gproj = vf::project( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(solution,vars) );</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;            <span class="keywordflow">return</span> gproj;</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        }</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;</div>
@@ -493,7 +493,7 @@ $(document).ready(function(){initNavTree('error_8hpp_source.html','');});
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;            ex solution = getSolution(val);</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;            <span class="keyword">auto</span> mesh = Xh-&gt;mesh();</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;            <span class="keyword">auto</span> gproj = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(solution,vars) );</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;            <span class="keyword">auto</span> gproj = vf::project( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(solution,vars) );</div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;            <span class="keywordflow">return</span> gproj;</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        }</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;</div>
@@ -503,7 +503,7 @@ $(document).ready(function(){initNavTree('error_8hpp_source.html','');});
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;            <span class="keyword">auto</span> gradg = expr&lt;1,Dim,2&gt;(grad(solution,vars), vars );</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;            <span class="keyword">auto</span> mesh = Xh-&gt;mesh();</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;            <span class="keyword">auto</span> gproj = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(gradg,vars) );</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;            <span class="keyword">auto</span> gproj = vf::project( _space=Xh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=expr(gradg,vars) );</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;            <span class="keywordflow">return</span> gproj;</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        }</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;</div>
@@ -594,12 +594,11 @@ $(document).ready(function(){initNavTree('error_8hpp_source.html','');});
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __ERRROR_HPP */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classFeel_1_1ErrorBase_html_a7fa8ce83173f335ec83d97155d7d48cf"><div class="ttname"><a href="classFeel_1_1ErrorBase.html#a7fa8ce83173f335ec83d97155d7d48cf">Feel::ErrorBase::element_type</a></div><div class="ttdeci">space_type::element_type element_type</div><div class="ttdoc">an element type of the approximation function space </div><div class="ttdef"><b>Definition:</b> error.hpp:100</div></div>
 <div class="ttc" id="classFeel_1_1ErrorBase_html_a32982f43b6764feba4702c348f33f78d"><div class="ttname"><a href="classFeel_1_1ErrorBase.html#a32982f43b6764feba4702c348f33f78d">Feel::ErrorBase::mesh_type</a></div><div class="ttdeci">Mesh&lt; convex_type &gt; mesh_type</div><div class="ttdoc">mesh type </div><div class="ttdef"><b>Definition:</b> error.hpp:89</div></div>
-<div class="ttc" id="namespaceFeel_html_a4c300b4c137594540a9428af36363049"><div class="ttname"><a href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">Feel::integrate</a></div><div class="ttdeci">Poly::value_type integrate(Polynomial&lt; Poly, PsetType &gt; const &amp;p)</div><div class="ttdoc">integrate a polynomial over a convex </div><div class="ttdef"><b>Definition:</b> operations.hpp:51</div></div>
+<div class="ttc" id="namespaceFeel_html_a4c300b4c137594540a9428af36363049"><div class="ttname"><a href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">Feel::integrate</a></div><div class="ttdeci">Poly::value_type integrate(Polynomial&lt; Poly, PsetType &gt; const &amp;p)</div><div class="ttdoc">integrate a polynomial over a convex </div><div class="ttdef"><b>Definition:</b> feelpoly/operations.hpp:51</div></div>
 <div class="ttc" id="classFeel_1_1ErrorBase_html"><div class="ttname"><a href="classFeel_1_1ErrorBase.html">Feel::ErrorBase</a></div><div class="ttdef"><b>Definition:</b> error.hpp:82</div></div>
 <div class="ttc" id="namespaceFeel_html_ace44a7a9c428a5849b81de59532e4ef8"><div class="ttname"><a href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements</a></div><div class="ttdeci">elements_type const &amp; elements() const </div><div class="ttdef"><b>Definition:</b> elements.hpp:367</div></div>
 <div class="ttc" id="classFeel_1_1ErrorBase_html_af3e1734873131f3d7a2f683fd4cc212e"><div class="ttname"><a href="classFeel_1_1ErrorBase.html#af3e1734873131f3d7a2f683fd4cc212e">Feel::ErrorBase::getVars</a></div><div class="ttdeci">std::vector&lt; symbol &gt; getVars() const </div><div class="ttdef"><b>Definition:</b> error.hpp:275</div></div>
 <div class="ttc" id="classFeel_1_1Simplex_html"><div class="ttname"><a href="classFeel_1_1Simplex.html">Feel::Simplex</a></div><div class="ttdoc">simplex of dimension Dim </div><div class="ttdef"><b>Definition:</b> simplex.hpp:73</div></div>
-<div class="ttc" id="namespaceFeel_html_ae89776231eca6bd68ba734da512759b3"><div class="ttname"><a href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project</a></div><div class="ttdeci">Polynomial&lt; Pset, Scalar &gt; project(Pset const &amp;pset, Func const &amp;f, IM const &amp;im)</div><div class="ttdef"><b>Definition:</b> operations.hpp:436</div></div>
 <div class="ttc" id="classFeel_1_1ErrorBase_html_a4c0687830a0996c8309ed69f149c5c80"><div class="ttname"><a href="classFeel_1_1ErrorBase.html#a4c0687830a0996c8309ed69f149c5c80">Feel::ErrorBase::getRhs</a></div><div class="ttdeci">ex getRhs(const std::vector&lt; double &gt; &amp;values) const </div><div class="ttdef"><b>Definition:</b> error.hpp:335</div></div>
 <div class="ttc" id="classFeel_1_1ErrorBase_html_a112cb574a28e58bb262eb2bec350250b"><div class="ttname"><a href="classFeel_1_1ErrorBase.html#a112cb574a28e58bb262eb2bec350250b">Feel::ErrorBase::convergence</a></div><div class="ttdeci">bool convergence() const </div><div class="ttdef"><b>Definition:</b> error.hpp:259</div></div>
 <div class="ttc" id="classFeel_1_1ErrorBase_html_a585fb35f19c38b4af5a177022e77a57b"><div class="ttname"><a href="classFeel_1_1ErrorBase.html#a585fb35f19c38b4af5a177022e77a57b">Feel::ErrorBase::getSolution</a></div><div class="ttdeci">ex getSolution() const </div><div class="ttdef"><b>Definition:</b> error.hpp:353</div></div>

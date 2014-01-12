@@ -204,16 +204,16 @@ ublas::column_major &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m
 <tr class="memitem:a5a10e06077732934bd2f52d9c20a209d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a10e06077732934bd2f52d9c20a209d"></a>
 typedef ublas::vector&lt; value_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>vector_type</b></td></tr>
 <tr class="separator:a5a10e06077732934bd2f52d9c20a209d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21fc45e59402bb8adb58133756ae39cc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21fc45e59402bb8adb58133756ae39cc"></a>
+<tr class="memitem:a26a430abf9a48470103208d0ab2c5c9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26a430abf9a48470103208d0ab2c5c9a"></a>
 typedef mpl::if_<br class="typebreak"/>
 &lt; mpl::equal_to&lt; mpl::int_<br class="typebreak"/>
 &lt; Dim &gt;, mpl::int_<br class="typebreak"/>
 &lt; 2 &gt; &gt;, mpl::identity<br class="typebreak"/>
-&lt; detail::IMTriangle&lt; Order, T &gt;<br class="typebreak"/>
- &gt;, mpl::identity<br class="typebreak"/>
-&lt; detail::IMTetrahedra&lt; Order, <br class="typebreak"/>
-T &gt; &gt; &gt;::type::type&#160;</td><td class="memItemRight" valign="bottom"><b>quad_type</b></td></tr>
-<tr class="separator:a21fc45e59402bb8adb58133756ae39cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+&lt; Feel::detail::IMTriangle<br class="typebreak"/>
+&lt; Order, T &gt; &gt;, mpl::identity<br class="typebreak"/>
+&lt; Feel::detail::IMTetrahedra<br class="typebreak"/>
+&lt; Order, T &gt; &gt; &gt;::type::type&#160;</td><td class="memItemRight" valign="bottom"><b>quad_type</b></td></tr>
+<tr class="separator:a26a430abf9a48470103208d0ab2c5c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac400cb9f58dd821ddf9ec37a5fe5fd61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac400cb9f58dd821ddf9ec37a5fe5fd61"></a>
 typedef Gauss&lt; Simplex&lt; Dim-1, 1 &gt;<br class="typebreak"/>
 , Order, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>face_quad_type</b></td></tr>

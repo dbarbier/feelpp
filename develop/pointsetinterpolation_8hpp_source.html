@@ -209,7 +209,7 @@ $(document).ready(function(){initNavTree('pointsetinterpolation_8hpp_source.html
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        FEELPP_ASSERT( M_eid[e].size() )( e ).error( <span class="stringliteral">&quot;no points defined on this entity&quot;</span> );</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( this-&gt;points(),</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">return</span> ublas::project( this-&gt;points(),</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                               ublas::range( 0,Dim ),</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                               ublas::range( *M_eid[e].begin(), *M_eid[e].rbegin() + 1 ) );</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
@@ -236,7 +236,7 @@ $(document).ready(function(){initNavTree('pointsetinterpolation_8hpp_source.html
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        range_type position = interiorRangeById( e, <span class="keywordtype">id</span> );</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        ublas::matrix_range&lt;nodes_type const&gt; G = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( this-&gt;points(),</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        ublas::matrix_range&lt;nodes_type const&gt; G = ublas::project( this-&gt;points(),</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                ublas::range( 0, Dim ),</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                ublas::range( position.first, position.second ) );</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
@@ -410,12 +410,11 @@ $(document).ready(function(){initNavTree('pointsetinterpolation_8hpp_source.html
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;}</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __PointSetInterpolation_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classFeel_1_1Simplex_html"><div class="ttname"><a href="classFeel_1_1Simplex.html">Feel::Simplex</a></div><div class="ttdoc">simplex of dimension Dim </div><div class="ttdef"><b>Definition:</b> simplex.hpp:73</div></div>
-<div class="ttc" id="namespaceFeel_html_ae89776231eca6bd68ba734da512759b3"><div class="ttname"><a href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project</a></div><div class="ttdeci">Polynomial&lt; Pset, Scalar &gt; project(Pset const &amp;pset, Func const &amp;f, IM const &amp;im)</div><div class="ttdef"><b>Definition:</b> operations.hpp:436</div></div>
 <div class="ttc" id="classFeel_1_1PointSetInterpolation_html"><div class="ttname"><a href="classFeel_1_1PointSetInterpolation.html">Feel::PointSetInterpolation</a></div><div class="ttdoc">Good interpolation point sets on a convex. </div><div class="ttdef"><b>Definition:</b> pointsetinterpolation.hpp:52</div></div>
 <div class="ttc" id="structFeel_1_1matrix__node_html"><div class="ttname"><a href="structFeel_1_1matrix__node.html">Feel::matrix_node</a></div><div class="ttdef"><b>Definition:</b> glas.hpp:157</div></div>
 <div class="ttc" id="classFeel_1_1Convex_html"><div class="ttname"><a href="classFeel_1_1Convex.html">Feel::Convex&lt; Dim, Order, Dim &gt;</a></div></div>
 <div class="ttc" id="classFeel_1_1Reference_html"><div class="ttname"><a href="classFeel_1_1Reference.html">Feel::Reference&lt; convex_type, Dim, convexOrder, Dim, value_type &gt;</a></div></div>
-<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:319</div></div>
+<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
 <div class="ttc" id="classFeel_1_1PointSet_html"><div class="ttname"><a href="classFeel_1_1PointSet.html">Feel::PointSet</a></div><div class="ttdoc">Class of all PointSet on a Convex. </div><div class="ttdef"><b>Definition:</b> pointset.hpp:54</div></div>
 <div class="ttc" id="pointset_8hpp_html"><div class="ttname"><a href="pointset_8hpp.html">pointset.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

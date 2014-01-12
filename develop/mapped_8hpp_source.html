@@ -330,7 +330,7 @@ $(document).ready(function(){initNavTree('mapped_8hpp_source.html','');});
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        nodes_type res( Gt );</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <span class="keywordflow">if</span> ( permutation != face_permutation_type( face_permutation_type::IDENTITY ) )</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            res = prod( Gt, getMatrixPermutation( permutation ) );</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            res = <a class="code" href="namespaceFeel.html#a5af595f9efc2286043472b9bf6f1c2cc">prod</a>( Gt, getMatrixPermutation( permutation ) );</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordflow">return</span> res;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
@@ -492,8 +492,9 @@ $(document).ready(function(){initNavTree('mapped_8hpp_source.html','');});
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;} <span class="comment">// Feel</span></div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __PointSetMapped_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="namespaceFeel_html_a5af595f9efc2286043472b9bf6f1c2cc"><div class="ttname"><a href="namespaceFeel.html#a5af595f9efc2286043472b9bf6f1c2cc">Feel::prod</a></div><div class="ttdeci">ElementType prod(ElementType const &amp;v1, ElementType const &amp;v2, typename boost::enable_if&lt; boost::is_base_of&lt; FunctionSpaceBase::ElementBase, ElementType &gt; &gt;::type *dummy=0)</div><div class="ttdef"><b>Definition:</b> elementproduct.hpp:45</div></div>
 <div class="ttc" id="refentity_8hpp_html"><div class="ttname"><a href="refentity_8hpp.html">refentity.hpp</a></div></div>
-<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:319</div></div>
+<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
 <div class="ttc" id="glas_8hpp_html"><div class="ttname"><a href="glas_8hpp.html">glas.hpp</a></div></div>
 <div class="ttc" id="equispaced_8hpp_html"><div class="ttname"><a href="equispaced_8hpp.html">equispaced.hpp</a></div></div>
 <div class="ttc" id="visitor_8hpp_html"><div class="ttname"><a href="visitor_8hpp.html">visitor.hpp</a></div></div>

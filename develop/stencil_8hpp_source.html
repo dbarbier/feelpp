@@ -755,7 +755,7 @@ $(document).ready(function(){initNavTree('stencil_8hpp_source.html','');});
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="keyword">extern</span> BlocksStencilPattern default_block_pattern;</div>
 <div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;</div>
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;BOOST_PARAMETER_FUNCTION(</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    ( <span class="keyword">typename</span> detail::compute_stencil_type&lt;Args&gt;::ptrtype ), <span class="comment">// 1. return type</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    ( <span class="keyword">typename</span> Feel::detail::compute_stencil_type&lt;Args&gt;::ptrtype ), <span class="comment">// 1. return type</span></div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    stencil,                                       <span class="comment">// 2. name of the function template</span></div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    tag,                                        <span class="comment">// 3. namespace of tag types</span></div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    ( required                                  <span class="comment">// 4. one required parameter, and</span></div>
@@ -781,8 +781,8 @@ $(document).ready(function(){initNavTree('stencil_8hpp_source.html','');});
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    }</div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;</div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    Feel::detail::ignore_unused_variable_warning( args );</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> detail::compute_stencil_type&lt;Args&gt;::ptrtype stencil_ptrtype;</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> detail::compute_stencil_type&lt;Args&gt;::type stencil_type;</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Feel::detail::compute_stencil_type&lt;Args&gt;::ptrtype stencil_ptrtype;</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Feel::detail::compute_stencil_type&lt;Args&gt;::type stencil_type;</div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;</div>
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="comment">// we look into the spaces dictionary for existing graph</span></div>
 <div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keyword">auto</span> git = <a class="code" href="classFeel_1_1Singleton.html#a1d3a68a11d8143582273ca02114a140b">StencilManager::instance</a>().find( boost::make_tuple( test, trial, pattern, pattern_block.getSetOfBlocks(), diag_is_nonzero ) );</div>
@@ -1077,7 +1077,7 @@ $(document).ready(function(){initNavTree('stencil_8hpp_source.html','');});
 <div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160; Stencil&lt;X1,X2,RangeItTestType,RangeExtendedItType,QuadSetType&gt;::computeGraph( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> hints, mpl::bool_&lt;true&gt;, mpl::bool_&lt;true&gt; )</div>
 <div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;{</div>
 <div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;    fusion::for_each( _M_X1-&gt;functionSpaces(),</div>
-<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;                      detail::compute_graph1&lt;self_type&gt;( <span class="keyword">this</span>, hints ) );</div>
+<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;                      Feel::detail::compute_graph1&lt;self_type&gt;( <span class="keyword">this</span>, hints ) );</div>
 <div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;    <span class="keywordflow">return</span> M_graph;</div>
 <div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;}</div>
 <div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;</div>
@@ -1086,7 +1086,7 @@ $(document).ready(function(){initNavTree('stencil_8hpp_source.html','');});
 <div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;Stencil&lt;X1,X2,RangeItTestType,RangeExtendedItType,QuadSetType&gt;::computeGraph( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> hints, mpl::bool_&lt;true&gt;, mpl::bool_&lt;false&gt; )</div>
 <div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;{</div>
 <div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;    fusion::for_each( _M_X1-&gt;functionSpaces(),</div>
-<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;                      detail::compute_graph3&lt;self_type,trial_space_type&gt;( <span class="keyword">this</span>, _M_X2, 0, hints ) );</div>
+<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;                      Feel::detail::compute_graph3&lt;self_type,trial_space_type&gt;( <span class="keyword">this</span>, _M_X2, 0, hints ) );</div>
 <div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;    <span class="keywordflow">return</span> M_graph;</div>
 <div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;}</div>
 <div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;</div>
@@ -1095,7 +1095,7 @@ $(document).ready(function(){initNavTree('stencil_8hpp_source.html','');});
 <div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;Stencil&lt;X1,X2,RangeItTestType,RangeExtendedItType,QuadSetType&gt;::computeGraph( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> hints, mpl::bool_&lt;false&gt;, mpl::bool_&lt;true&gt; )</div>
 <div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;{</div>
 <div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;    fusion::for_each( _M_X2-&gt;functionSpaces(),</div>
-<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;                      detail::compute_graph2&lt;self_type,test_space_type&gt;( <span class="keyword">this</span>, _M_X1, 0, hints ) );</div>
+<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;                      Feel::detail::compute_graph2&lt;self_type,test_space_type&gt;( <span class="keyword">this</span>, _M_X1, 0, hints ) );</div>
 <div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;    <span class="keywordflow">return</span> M_graph;</div>
 <div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;}</div>
 <div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;</div>
@@ -1118,7 +1118,7 @@ $(document).ready(function(){initNavTree('stencil_8hpp_source.html','');});
 <div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;Stencil&lt;X1,X2,RangeItTestType,RangeExtendedItType,QuadSetType&gt;::computeGraphInCaseOfInterpolate( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> hints, mpl::bool_&lt;true&gt;, mpl::bool_&lt;true&gt; )</div>
 <div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;{</div>
 <div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;    fusion::for_each( _M_X1-&gt;functionSpaces(),</div>
-<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;                      detail::compute_graph1&lt;self_type&gt;( <span class="keyword">this</span>, hints ) );</div>
+<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;                      Feel::detail::compute_graph1&lt;self_type&gt;( <span class="keyword">this</span>, hints ) );</div>
 <div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;    <span class="keywordflow">return</span> M_graph;</div>
 <div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;}</div>
 <div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;</div>
@@ -1127,7 +1127,7 @@ $(document).ready(function(){initNavTree('stencil_8hpp_source.html','');});
 <div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;Stencil&lt;X1,X2,RangeItTestType,RangeExtendedItType,QuadSetType&gt;::computeGraphInCaseOfInterpolate( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> hints, mpl::bool_&lt;true&gt;, mpl::bool_&lt;false&gt; )</div>
 <div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;{</div>
 <div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;    fusion::for_each( _M_X1-&gt;functionSpaces(),</div>
-<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;                      detail::compute_graph3&lt;self_type,trial_space_type&gt;( <span class="keyword">this</span>, _M_X2, 0, hints ) );</div>
+<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;                      Feel::detail::compute_graph3&lt;self_type,trial_space_type&gt;( <span class="keyword">this</span>, _M_X2, 0, hints ) );</div>
 <div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;    <span class="keywordflow">return</span> M_graph;</div>
 <div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;}</div>
 <div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;</div>
@@ -1136,7 +1136,7 @@ $(document).ready(function(){initNavTree('stencil_8hpp_source.html','');});
 <div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;Stencil&lt;X1,X2,RangeItTestType,RangeExtendedItType,QuadSetType&gt;::computeGraphInCaseOfInterpolate( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> hints, mpl::bool_&lt;false&gt;, mpl::bool_&lt;true&gt; )</div>
 <div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;{</div>
 <div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;    fusion::for_each( _M_X2-&gt;functionSpaces(),</div>
-<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;                      detail::compute_graph2&lt;self_type,test_space_type&gt;( <span class="keyword">this</span>, _M_X1, 0, hints ) );</div>
+<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;                      Feel::detail::compute_graph2&lt;self_type,test_space_type&gt;( <span class="keyword">this</span>, _M_X1, 0, hints ) );</div>
 <div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;    <span class="keywordflow">return</span> M_graph;</div>
 <div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;}</div>
 <div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;</div>
@@ -1602,11 +1602,11 @@ $(document).ready(function(){initNavTree('stencil_8hpp_source.html','');});
 <div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160;    {</div>
 <div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;        <span class="keyword">auto</span> rangeExtended = this-&gt;rangeExtendedIterator&lt;0,0&gt;( mpl::bool_&lt;hasNotFindRangeExtended&gt;() );</div>
 <div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;        <span class="keyword">auto</span> iDimRangeExtended = rangeExtended.template get&lt;0&gt;();</div>
-<div class="line"><a name="l01514"></a><span class="lineno"> 1514</span>&#160;        <span class="keywordflow">if</span> ( iDimRangeExtended == <a class="code" href="namespaceFeel.html#a9e8a34e55922ab08cf593c8f9addd590aba9f37f6ea35ac09cf969b638eac11d6">ElementsType::MESH_ELEMENTS</a> )</div>
+<div class="line"><a name="l01514"></a><span class="lineno"> 1514</span>&#160;        <span class="keywordflow">if</span> ( iDimRangeExtended == ElementsType::MESH_ELEMENTS )</div>
 <div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;        {</div>
 <div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;            CHECK( <span class="keyword">false</span> ) &lt;&lt; <span class="stringliteral">&quot;a range with MESH_ELEMENTS is not implement&quot;</span>;</div>
 <div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;        }</div>
-<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( iDimRangeExtended == <a class="code" href="namespaceFeel.html#a9e8a34e55922ab08cf593c8f9addd590a45f482eab6ccb2dd97a838fbbf7b287a">ElementsType::MESH_FACES</a> )</div>
+<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( iDimRangeExtended == ElementsType::MESH_FACES )</div>
 <div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;        {</div>
 <div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;            <span class="keyword">auto</span> faceExtended_it = rangeExtended.template get&lt;1&gt;();</div>
 <div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;            <span class="keyword">auto</span> faceExtended_en = rangeExtended.template get&lt;2&gt;();</div>
@@ -2254,20 +2254,18 @@ $(document).ready(function(){initNavTree('stencil_8hpp_source.html','');});
 <div class="line"><a name="l02163"></a><span class="lineno"> 2163</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif </span><span class="comment">/* __galerkingraph_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="namespaceFeel_html_a32c8bd74f20e8fac4a639e7c31cc504e"><div class="ttname"><a href="namespaceFeel.html#a32c8bd74f20e8fac4a639e7c31cc504e">Feel::stencilManagerAdd</a></div><div class="ttdeci">void stencilManagerAdd(StencilManagerImpl::key_type const &amp;key, StencilManagerImpl::graph_ptrtype graph)</div><div class="ttdoc">function that add an entry in the StencilManager </div><div class="ttdef"><b>Definition:</b> stencil.cpp:89</div></div>
 <div class="ttc" id="namespaceFeel_html_ace44a7a9c428a5849b81de59532e4ef8"><div class="ttname"><a href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements</a></div><div class="ttdeci">elements_type const &amp; elements() const </div><div class="ttdef"><b>Definition:</b> elements.hpp:367</div></div>
-<div class="ttc" id="namespaceFeel_html_a9e8a34e55922ab08cf593c8f9addd590a45f482eab6ccb2dd97a838fbbf7b287a"><div class="ttname"><a href="namespaceFeel.html#a9e8a34e55922ab08cf593c8f9addd590a45f482eab6ccb2dd97a838fbbf7b287a">Feel::MESH_FACES</a></div><div class="ttdef"><b>Definition:</b> filters.hpp:56</div></div>
 <div class="ttc" id="structFeel_1_1stencilQuadSetBase_html"><div class="ttname"><a href="structFeel_1_1stencilQuadSetBase.html">Feel::stencilQuadSetBase</a></div><div class="ttdef"><b>Definition:</b> stencil.hpp:284</div></div>
-<div class="ttc" id="namespaceFeel_html_a9e8a34e55922ab08cf593c8f9addd590aba9f37f6ea35ac09cf969b638eac11d6"><div class="ttname"><a href="namespaceFeel.html#a9e8a34e55922ab08cf593c8f9addd590aba9f37f6ea35ac09cf969b638eac11d6">Feel::MESH_ELEMENTS</a></div><div class="ttdef"><b>Definition:</b> filters.hpp:55</div></div>
 <div class="ttc" id="classFeel_1_1Singleton_html_a1d3a68a11d8143582273ca02114a140b"><div class="ttname"><a href="classFeel_1_1Singleton.html#a1d3a68a11d8143582273ca02114a140b">Feel::Singleton::instance</a></div><div class="ttdeci">static singleton_type &amp; instance()</div><div class="ttdef"><b>Definition:</b> singleton.hpp:103</div></div>
-<div class="ttc" id="namespaceFeel_html_a0d4d77cd361adda45d27d72ff0357e55"><div class="ttname"><a href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a></div><div class="ttdeci">const size_type invalid_size_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:363</div></div>
+<div class="ttc" id="namespaceFeel_html_a0d4d77cd361adda45d27d72ff0357e55"><div class="ttname"><a href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a></div><div class="ttdeci">const size_type invalid_size_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:382</div></div>
 <div class="ttc" id="namespaceFeel_html_a3da2e5dfdaca420bad58951be37d1dde"><div class="ttname"><a href="namespaceFeel.html#a3da2e5dfdaca420bad58951be37d1dde">Feel::stencilManagerGarbage</a></div><div class="ttdeci">void stencilManagerGarbage(StencilManagerImpl::key_type const &amp;key)</div><div class="ttdoc">function that cleans up one entry the StencilManager </div><div class="ttdef"><b>Definition:</b> stencil.cpp:76</div></div>
 <div class="ttc" id="namespaceFeel_html_a322d3071faef79f2bc0520c2c1bff794"><div class="ttname"><a href="namespaceFeel.html#a322d3071faef79f2bc0520c2c1bff794">Feel::stencilManagerGarbageCollect</a></div><div class="ttdeci">void stencilManagerGarbageCollect()</div><div class="ttdoc">function that cleans up the StencilManager any time stencil() is called </div><div class="ttdef"><b>Definition:</b> stencil.cpp:38</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_ab5184fd78b9c90b74127ab2027808996"><div class="ttname"><a href="classFeel_1_1Exporter.html#ab5184fd78b9c90b74127ab2027808996">Feel::Exporter::New</a></div><div class="ttdeci">static boost::shared_ptr&lt; Exporter&lt; MeshType, N &gt; &gt; New(std::string const &amp;exportername, std::string prefix=Environment::about().appName(), WorldComm const &amp;worldComm=Environment::worldComm())</div><div class="ttdef"><b>Definition:</b> exporterimpl.hpp:127</div></div>
 <div class="ttc" id="graphcsr_8hpp_html"><div class="ttname"><a href="graphcsr_8hpp.html">graphcsr.hpp</a></div></div>
-<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:319</div></div>
+<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
 <div class="ttc" id="namespaceFeel_html_adbea64c2d28b1b77b27c14cf2991cac8"><div class="ttname"><a href="namespaceFeel.html#adbea64c2d28b1b77b27c14cf2991cac8">Feel::stencilManagerPrint</a></div><div class="ttdeci">void stencilManagerPrint()</div><div class="ttdoc">print entries stored in stencil manager </div><div class="ttdef"><b>Definition:</b> stencil.cpp:99</div></div>
 <div class="ttc" id="block_8hpp_html"><div class="ttname"><a href="block_8hpp.html">block.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1Singleton_html"><div class="ttname"><a href="classFeel_1_1Singleton.html">Feel::Singleton</a></div><div class="ttdoc">implement the Singleton pattern </div><div class="ttdef"><b>Definition:</b> singleton.hpp:57</div></div>
-<div class="ttc" id="namespaceFeel_html_a6c53147b25bf664bdf6bec2b30b56af7"><div class="ttname"><a href="namespaceFeel.html#a6c53147b25bf664bdf6bec2b30b56af7">Feel::internalfaces</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_FACES &gt;, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator &gt; internalfaces(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> filters.hpp:1191</div></div>
+<div class="ttc" id="namespaceFeel_html_a6c53147b25bf664bdf6bec2b30b56af7"><div class="ttname"><a href="namespaceFeel.html#a6c53147b25bf664bdf6bec2b30b56af7">Feel::internalfaces</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_FACES &gt;, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator &gt; internalfaces(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> feelmesh/filters.hpp:1191</div></div>
 <div class="ttc" id="classFeel_1_1Context_html"><div class="ttname"><a href="classFeel_1_1Context.html">Feel::Context</a></div><div class="ttdoc">Context class. </div><div class="ttdef"><b>Definition:</b> feelcore/context.hpp:63</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

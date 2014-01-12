@@ -534,7 +534,7 @@ template&lt;int Dim&gt; </div>
 <div class="line"><span class="comment">//# marker1 #</span></div>
 <div class="line"><a class="code" href="classLaplacian.html#ac8d1d48cc3535fdb071f2a64f08a0d59">value_type</a> pi = M_PI;</div>
 <div class="line"><span class="keyword">auto</span> g = cst( 0. );</div>
-<div class="line">gproj = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( Xh, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), g );</div>
+<div class="line">gproj = vf::project( Xh, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), g );</div>
 <div class="line"></div>
 <div class="line"><span class="keyword">auto</span> f = cst( 0. );</div>
 <div class="line"><span class="comment">//# endmarker1 #</span></div>
@@ -595,7 +595,7 @@ template&lt;int Dim&gt; </div>
 </div><!-- fragment --><p>save the results</p>
 <div class="fragment"><div class="line"> */</div>
 <div class="line"><a class="code" href="classLaplacian.html#adcf3be361d0ca335c1127c62cbfd348e">element_type</a> e( Xh, <span class="stringliteral">&quot;e&quot;</span> );</div>
-<div class="line">e = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( Xh, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), g );</div>
+<div class="line">e = vf::project( Xh, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), g );</div>
 <div class="line"></div>
 <div class="line"><a class="code" href="classLaplacian.html#a732fbf71e800e121e53bd59af81e62ed">export_ptrtype</a> exporter( <a class="code" href="classFeel_1_1Exporter.html#ab5184fd78b9c90b74127ab2027808996">export_type::New</a>( this-&gt;<a class="code" href="classFeel_1_1Simget.html#a2778e828ee4c102e72a33e03b1ede4b1">vm</a>(),</div>
 <div class="line">                         ( boost::format( <span class="stringliteral">&quot;%1%-%2%-%3%&quot;</span> )</div>
@@ -619,7 +619,7 @@ template&lt;int Dim&gt; </div>
 </div><!-- fragment --> 
 <p>Reimplemented from <a class="el" href="classFeel_1_1Simget.html#a4a4507e4e99a9634adaf704dce940247">Feel::Simget</a>.</p>
 
-<p>References <a class="el" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements()</a>, <a class="el" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">Feel::integrate()</a>, <a class="el" href="namespaceFeel.html#ac0d40e0852d5f0d447623caff773b1a5">Feel::markedfaces()</a>, and <a class="el" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project()</a>.</p>
+<p>References <a class="el" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements()</a>, <a class="el" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">Feel::integrate()</a>, and <a class="el" href="namespaceFeel.html#ac0d40e0852d5f0d447623caff773b1a5">Feel::markedfaces()</a>.</p>
 
 </div>
 </div>

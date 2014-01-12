@@ -152,8 +152,8 @@ $(document).ready(function(){initNavTree('cholesky_8hpp_source.html','');});
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">for</span> ( <span class="keywordtype">size_t</span> k=0 ; k &lt; n; k++ )</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">double</span> qL_kk = A( k,k ) - inner_prod( <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">project</a>( row( L, k ), range( 0, k ) ),</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                              <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">project</a>( row( L, k ), range( 0, k ) ) );</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">double</span> qL_kk = A( k,k ) - inner_prod( project( row( L, k ), range( 0, k ) ),</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                              project( row( L, k ), range( 0, k ) ) );</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span> ( qL_kk &lt;= 0 )</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
@@ -166,16 +166,15 @@ $(document).ready(function(){initNavTree('cholesky_8hpp_source.html','');});
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            L( k,k ) = L_kk;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            matrix_column&lt;TRIA&gt; cLk( L, k );</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">project</a>( cLk, range( k+1, n ) )</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                = ( <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">project</a>( column( A, k ), range( k+1, n ) )</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    - prod( <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">project</a>( L, range( k+1, n ), range( 0, k ) ),</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                            <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">project</a>( row( L, k ), range( 0, k ) ) ) ) / L_kk;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            project( cLk, range( k+1, n ) )</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                = ( project( column( A, k ), range( k+1, n ) )</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    - prod( project( L, range( k+1, n ), range( 0, k ) ),</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                            project( row( L, k ), range( 0, k ) ) ) ) / L_kk;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="ttc" id="namespaceFeel_html_ae89776231eca6bd68ba734da512759b3"><div class="ttname"><a href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project</a></div><div class="ttdeci">Polynomial&lt; Pset, Scalar &gt; project(Pset const &amp;pset, Func const &amp;f, IM const &amp;im)</div><div class="ttdef"><b>Definition:</b> operations.hpp:436</div></div>
 <div class="ttc" id="cholesky_8hpp_html_ae66ea4c67986682ce4230c63b84b6b4b"><div class="ttname"><a href="cholesky_8hpp.html#ae66ea4c67986682ce4230c63b84b6b4b">cholesky_decompose</a></div><div class="ttdeci">size_t cholesky_decompose(const MATRIX &amp;A, TRIA &amp;L)</div><div class="ttdoc">decompose the symmetric positive definit matrix A into product L L^T. </div><div class="ttdef"><b>Definition:</b> cholesky.hpp:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

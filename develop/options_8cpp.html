@@ -105,8 +105,10 @@ $(document).ready(function(){initNavTree('options_8cpp.html','');});
 <div class="title">options.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="options_8hpp_source.html">feel/options.hpp</a>&gt;</code><br/>
+<div class="textblock"><code>#include &lt;boost/algorithm/string.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="options_8hpp_source.html">feel/options.hpp</a>&gt;</code><br/>
 <code>#include &lt;feel/feelalg/enums.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="crbenums_8hpp_source.html">feel/feelcrb/crbenums.hpp</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="gmshenums_8hpp_source.html">feel/feelfilters/gmshenums.hpp</a>&gt;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -117,6 +119,17 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a42f2fd19e68d4f42ca91774b81763086"><td class="memItemLeft" align="right" valign="top">po::options_description&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a42f2fd19e68d4f42ca91774b81763086">Feel::bdf_options</a> (std::string const &amp;prefix)</td></tr>
+<tr class="separator:a42f2fd19e68d4f42ca91774b81763086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8038059a0113ed293a00735d79fd720"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8038059a0113ed293a00735d79fd720"></a>
+Feel::po::options_description&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::crbOptions</b> (std::string const &amp;prefix)</td></tr>
+<tr class="separator:aa8038059a0113ed293a00735d79fd720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ca6db62d5ba6fbd34e398abdf246f67"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ca6db62d5ba6fbd34e398abdf246f67"></a>
+Feel::po::options_description&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::crbSCMOptions</b> (std::string const &amp;prefix)</td></tr>
+<tr class="separator:a0ca6db62d5ba6fbd34e398abdf246f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4a03bd68600b78264e03f1207d56bb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4a03bd68600b78264e03f1207d56bb3"></a>
+Feel::po::options_description&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::eimOptions</b> (std::string const &amp;prefix)</td></tr>
+<tr class="separator:aa4a03bd68600b78264e03f1207d56bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f7033a885570a1f97a8a36ba1eb1c20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f7033a885570a1f97a8a36ba1eb1c20"></a>
 po::options_description&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::error_options</b> (std::string const &amp;prefix)</td></tr>
 <tr class="separator:a9f7033a885570a1f97a8a36ba1eb1c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +165,8 @@ po::options_description&#160;</td><td class="memItemRight" valign="bottom"><b>Fe
 <tr class="memitem:afdf3582bcb29eaf28321e1f5c48bfa36"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdf3582bcb29eaf28321e1f5c48bfa36"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::prefixvm</b> (std::string const &amp;prefix, std::string const &amp;opt, std::string const &amp;sep)</td></tr>
 <tr class="separator:afdf3582bcb29eaf28321e1f5c48bfa36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1352fb3297fdd0c417e899b59afa2f7"><td class="memItemLeft" align="right" valign="top">po::options_description&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#ab1352fb3297fdd0c417e899b59afa2f7">Feel::solvereigen_options</a> (std::string const &amp;prefix)</td></tr>
+<tr class="separator:ab1352fb3297fdd0c417e899b59afa2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Christophe Prud'homme <a href="#" onclick="location.href='mai'+'lto:'+'chr'+'is'+'top'+'he'+'.pr'+'ud'+'hom'+'me'+'@fe'+'el'+'pp.'+'or'+'g'; return false;">chris<span style="display: none;">.nosp@m.</span>toph<span style="display: none;">.nosp@m.</span>e.pru<span style="display: none;">.nosp@m.</span>dhom<span style="display: none;">.nosp@m.</span>me@fe<span style="display: none;">.nosp@m.</span>elpp<span style="display: none;">.nosp@m.</span>.org</a> </dd></dl>

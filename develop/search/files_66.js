@@ -11,8 +11,6 @@ var searchData=
   ['feelslepc_2ehpp',['feelslepc.hpp',['../feelslepc_8hpp.html',1,'']]],
   ['fekete_2ehpp',['fekete.hpp',['../fekete_8hpp.html',1,'']]],
   ['filterfromvtk_2ehpp',['filterfromvtk.hpp',['../filterfromvtk_8hpp.html',1,'']]],
-  ['filters_2ehpp',['filters.hpp',['../filters_8hpp.html',1,'']]],
-  ['fin_2ecpp',['fin.cpp',['../fin_8cpp.html',1,'']]],
   ['flags_2ehpp',['flags.hpp',['../flags_8hpp.html',1,'']]],
   ['fmsheap_2ehpp',['fmsheap.hpp',['../fmsheap_8hpp.html',1,'']]],
   ['fmspoint_2ehpp',['fmspoint.hpp',['../fmspoint_8hpp.html',1,'']]],

@@ -466,11 +466,23 @@ $(document).ready(function(){initNavTree('vector_8hpp_source.html','');});
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;}</div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="preprocessor">#endif  // #ifdef __numeric_vector_h__</span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;{</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> VectorType&gt;</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="keyword">struct </span>is_vector_ptr : mpl::false_ {};</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> VectorType&gt;</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;<span class="keyword">struct </span>is_vector_ptr&lt;boost::shared_ptr&lt;VectorType&gt; &gt;</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;        :</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;        boost::is_base_of&lt;Vector&lt;typename VectorType::value_type&gt;,</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;        VectorType&gt;</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;{};</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;}</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="preprocessor">#endif  // #ifdef __numeric_vector_h__</span></div>
 <div class="ttc" id="classFeel_1_1Vector_html_a83d41ddedb49b1b0d66990ad6176305e"><div class="ttname"><a href="classFeel_1_1Vector.html#a83d41ddedb49b1b0d66990ad6176305e">Feel::Vector::l1Norm</a></div><div class="ttdeci">virtual real_type l1Norm() const =0</div></div>
 <div class="ttc" id="classFeel_1_1Vector_html_a64b0a6a0ffe1520e31ef41e7596fc045"><div class="ttname"><a href="classFeel_1_1Vector.html#a64b0a6a0ffe1520e31ef41e7596fc045">Feel::Vector::init</a></div><div class="ttdeci">virtual void init(const size_type, const size_type, const bool=false)</div><div class="ttdef"><b>Definition:</b> vector.cpp:107</div></div>
 <div class="ttc" id="classFeel_1_1Vector_html_a757f412ef87b76396f1846843673a5f5"><div class="ttname"><a href="classFeel_1_1Vector.html#a757f412ef87b76396f1846843673a5f5">Feel::Vector::operator+=</a></div><div class="ttdeci">virtual Vector&lt; T &gt; &amp; operator+=(const Vector&lt; value_type &gt; &amp;V)=0</div></div>
@@ -504,7 +516,7 @@ $(document).ready(function(){initNavTree('vector_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1Vector_html_a680e5401f8aa711ecd49fe3b6b7c409d"><div class="ttname"><a href="classFeel_1_1Vector.html#a680e5401f8aa711ecd49fe3b6b7c409d">Feel::Vector::M_is_initialized</a></div><div class="ttdeci">bool M_is_initialized</div><div class="ttdef"><b>Definition:</b> vector.hpp:557</div></div>
 <div class="ttc" id="classFeel_1_1Vector_html_a1d48400772fdd642d38d13de166c6a96"><div class="ttname"><a href="classFeel_1_1Vector.html#a1d48400772fdd642d38d13de166c6a96">Feel::Vector::zero</a></div><div class="ttdeci">virtual void zero()=0</div></div>
 <div class="ttc" id="classFeel_1_1Vector_html_a250ab7ae797133a4a5991ceacd84a808"><div class="ttname"><a href="classFeel_1_1Vector.html#a250ab7ae797133a4a5991ceacd84a808">Feel::Vector::clone</a></div><div class="ttdeci">virtual clone_ptrtype clone() const =0</div></div>
-<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:319</div></div>
+<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
 <div class="ttc" id="classFeel_1_1Vector_html_a31d079a0cdfe1d2ae885346ccdbfefb2"><div class="ttname"><a href="classFeel_1_1Vector.html#a31d079a0cdfe1d2ae885346ccdbfefb2">Feel::Vector::operator()</a></div><div class="ttdeci">virtual T operator()(const size_type i) const =0</div></div>
 <div class="ttc" id="classFeel_1_1MatrixSparse_html"><div class="ttname"><a href="classFeel_1_1MatrixSparse.html">Feel::MatrixSparse</a></div><div class="ttdef"><b>Definition:</b> matrixsparse.hpp:76</div></div>
 <div class="ttc" id="classFeel_1_1MatrixShell_html"><div class="ttname"><a href="classFeel_1_1MatrixShell.html">Feel::MatrixShell</a></div><div class="ttdoc">matrices that define its action against a vector </div><div class="ttdef"><b>Definition:</b> matrixshell.hpp:49</div></div>

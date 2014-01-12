@@ -281,8 +281,8 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    parameter_residual_type computeBestFit( sampling_ptrtype trainset, <span class="keywordtype">int</span> __M );</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    element_type operator()( parameter_type <span class="keyword">const</span>&amp; mu , <span class="keywordtype">int</span> N)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> expansion( M_model-&gt;q(), M_model-&gt;beta( mu ) , N); }</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    element_type operator()( parameter_type <span class="keyword">const</span>&amp; mu, solution_type <span class="keyword">const</span>&amp; T , <span class="keywordtype">int</span> N )<span class="keyword"> const </span>{ <span class="keywordflow">return</span> expansion( M_model-&gt;q(), M_model-&gt;beta( mu, T ) , N ); }</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    element_type operator()( parameter_type <span class="keyword">const</span>&amp; mu , <span class="keywordtype">int</span> N)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#ae7c4de2faf3a41202e28abbde3dd01fe">expansion</a>( M_model-&gt;q(), M_model-&gt;beta( mu ) , N); }</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    element_type operator()( parameter_type <span class="keyword">const</span>&amp; mu, solution_type <span class="keyword">const</span>&amp; T , <span class="keywordtype">int</span> N )<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#ae7c4de2faf3a41202e28abbde3dd01fe">expansion</a>( M_model-&gt;q(), M_model-&gt;beta( mu, T ) , N ); }</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFeel_1_1EIM.html#a6e8e7612ed98a4b6c2f1019ae28d3b67">orthonormalize</a>( std::vector&lt;element_type&gt;&amp; );</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
@@ -356,7 +356,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        <span class="comment">//auto proj_g = M_model-&gt;operator()( mu );</span></div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keyword">auto</span> solution = M_model-&gt;solve( mu );</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        rhs = M_model-&gt;computeExpansionCoefficients( mu , solution, __M );</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keyword">auto</span> z = expansion( M_model-&gt;q(), rhs, __M );</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keyword">auto</span> z = <a class="code" href="namespaceFeel.html#ae7c4de2faf3a41202e28abbde3dd01fe">expansion</a>( M_model-&gt;q(), rhs, __M );</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="keyword">auto</span> resmax = M_model-&gt;computeMaximumOfResidual( mu , solution, z );</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        <span class="comment">//DCHECK( rhs.size() == __M ) &lt;&lt; &quot;Invalid size rhs: &quot; &lt;&lt; rhs.size() &lt;&lt; &quot; M=&quot; &lt;&lt; __M  &lt;&lt; &quot; rhs = &quot; &lt;&lt; rhs &lt;&lt; &quot;\n&quot;;</span></div>
@@ -476,7 +476,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        <span class="comment">//M_q.push_back( q_projected );</span></div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    }</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="keyword">auto</span> zero = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=M_model-&gt;functionSpace() , _expr=cst(0) );</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="keyword">auto</span> zero = vf::project( _space=M_model-&gt;functionSpace() , _expr=cst(0) );</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="keywordflow">if</span>( expression_expansion )</div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    {</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        M_model-&gt;addZ( zero );</div>
@@ -540,7 +540,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;[offline] compute arg sup |residual|...&quot;</span> &lt;&lt;<span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        <span class="comment">//auto resmax = normLinf( _range=elements(M_model-&gt;mesh()), _pset=_Q&lt;5&gt;(), _expr=idv(res) );</span></div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        <span class="keyword">auto</span> coeff = M_model-&gt;computeExpansionCoefficients( mu ,  solution , M_M-1 );</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        <span class="keyword">auto</span> z = expansion( M_model-&gt;q(), coeff , M_M-1 );</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        <span class="keyword">auto</span> z = <a class="code" href="namespaceFeel.html#ae7c4de2faf3a41202e28abbde3dd01fe">expansion</a>( M_model-&gt;q(), coeff , M_M-1 );</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <span class="keywordflow">if</span>( expression_expansion )</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        {</div>
@@ -1010,9 +1010,9 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;        <span class="comment">// res(:,i)=M_g(:,i)-q(:,0:i)*sigma</span></div>
 <div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;compute residual...&quot;</span> &lt;&lt;<span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;        <span class="keyword">using namespace </span>vf;</div>
-<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;        <span class="keyword">auto</span> z = expansion( M_q_vector, rhs, __M );</div>
+<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;        <span class="keyword">auto</span> z = <a class="code" href="namespaceFeel.html#ae7c4de2faf3a41202e28abbde3dd01fe">expansion</a>( M_q_vector, rhs, __M );</div>
 <div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;return residual...&quot;</span> &lt;&lt;<span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(),</div>
+<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;        <span class="keywordflow">return</span> vf::project( _space=this-&gt;functionSpace(),</div>
 <div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;                            _expr=idv(M_g_vector[__M])-idv( z ) );</div>
 <div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;    }</div>
 <div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;</div>
@@ -1068,7 +1068,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;<span class="preprocessor"></span>            M_u = M_model-&gt;solve( mu );</div>
 <div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;            <span class="comment">//LOG(INFO) &lt;&lt; &quot;operator() mu=&quot; &lt;&lt; mu &lt;&lt; &quot;\n&quot; &lt;&lt; &quot;sol=&quot; &lt;&lt; M_u &lt;&lt; &quot;\n&quot;;</span></div>
-<div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
+<div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;            <span class="keywordflow">return</span> vf::project( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
 <div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;        }</div>
 <div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;    element_type operator()( solution_type <span class="keyword">const</span>&amp; T, parameter_type <span class="keyword">const</span>&amp;  mu )</div>
 <div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;        {</div>
@@ -1079,7 +1079,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;<span class="preprocessor"></span>            <span class="comment">// no need to solve we have already an approximation (typically from</span></div>
 <div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;            <span class="comment">// an nonlinear iteration procedure)</span></div>
 <div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160;            M_u = T;</div>
-<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
+<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;            <span class="keywordflow">return</span> vf::project( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
 <div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;        }</div>
 <div class="line"><a name="l01146"></a><span class="lineno"> 1146</span>&#160;</div>
 <div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;    vector_type operator()( context_type <span class="keyword">const</span>&amp; ctx, parameter_type <span class="keyword">const</span>&amp; mu )</div>
@@ -1108,7 +1108,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;        }</div>
 <div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;        {</div>
-<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;            <span class="keyword">auto</span> proj_g = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
+<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;            <span class="keyword">auto</span> proj_g = vf::project( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
 <div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160;            rhs = proj_g.evaluate( M_ctx );</div>
 <div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160;        }</div>
 <div class="line"><a name="l01176"></a><span class="lineno"> 1176</span>&#160;</div>
@@ -1133,7 +1133,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;        M_u = solution;</div>
 <div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;</div>
 <div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160;        <span class="keyword">auto</span> residual_expr = M_expr - idv(z);</div>
-<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;        <span class="keyword">auto</span> proj_g = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
+<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;        <span class="keyword">auto</span> proj_g = vf::project( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
 <div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;        <span class="keyword">auto</span> residual_projected_expr = idv(proj_g)-idv(z);</div>
 <div class="line"><a name="l01200"></a><span class="lineno"> 1200</span>&#160;</div>
 <div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160;        std::string norm_used = option(_name=<span class="stringliteral">&quot;eim.norm-used-for-residual&quot;</span>).template as&lt;std::string&gt;();</div>
@@ -1175,13 +1175,13 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01237"></a><span class="lineno"> 1237</span>&#160;            check_name_norm=<span class="keyword">true</span>;</div>
 <div class="line"><a name="l01238"></a><span class="lineno"> 1238</span>&#160;            <span class="keywordflow">if</span>( option(_name=<span class="stringliteral">&quot;eim.compute-expansion-of-expression&quot;</span>).<span class="keyword">template</span> as&lt;bool&gt;() )</div>
 <div class="line"><a name="l01239"></a><span class="lineno"> 1239</span>&#160;            {</div>
-<div class="line"><a name="l01240"></a><span class="lineno"> 1240</span>&#160;                <span class="keyword">auto</span> projection = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(),_expr=residual_expr );</div>
+<div class="line"><a name="l01240"></a><span class="lineno"> 1240</span>&#160;                <span class="keyword">auto</span> projection = vf::project( _space=this-&gt;functionSpace(),_expr=residual_expr );</div>
 <div class="line"><a name="l01241"></a><span class="lineno"> 1241</span>&#160;                <span class="keywordtype">double</span> norm = projection.linftyNorm();</div>
 <div class="line"><a name="l01242"></a><span class="lineno"> 1242</span>&#160;                max = norm ;</div>
 <div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160;            }</div>
 <div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;            {</div>
-<div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;                <span class="keyword">auto</span> projection = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(),_expr=residual_projected_expr );</div>
+<div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;                <span class="keyword">auto</span> projection = vf::project( _space=this-&gt;functionSpace(),_expr=residual_projected_expr );</div>
 <div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;                <span class="keywordtype">double</span> norm = projection.linftyNorm();</div>
 <div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;                max = norm ;</div>
 <div class="line"><a name="l01249"></a><span class="lineno"> 1249</span>&#160;            }</div>
@@ -1201,7 +1201,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01263"></a><span class="lineno"> 1263</span>&#160;        M_u = solution;</div>
 <div class="line"><a name="l01264"></a><span class="lineno"> 1264</span>&#160;</div>
 <div class="line"><a name="l01265"></a><span class="lineno"> 1265</span>&#160;        <span class="keyword">auto</span> expr = M_expr;</div>
-<div class="line"><a name="l01266"></a><span class="lineno"> 1266</span>&#160;        <span class="keyword">auto</span> proj_g = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(),_expr=M_expr );</div>
+<div class="line"><a name="l01266"></a><span class="lineno"> 1266</span>&#160;        <span class="keyword">auto</span> proj_g = vf::project( _space=this-&gt;functionSpace(),_expr=M_expr );</div>
 <div class="line"><a name="l01267"></a><span class="lineno"> 1267</span>&#160;        <span class="keyword">auto</span> projected_expr = idv( proj_g );</div>
 <div class="line"><a name="l01268"></a><span class="lineno"> 1268</span>&#160;</div>
 <div class="line"><a name="l01269"></a><span class="lineno"> 1269</span>&#160;        std::string norm_used = option(_name=<span class="stringliteral">&quot;eim.norm-used-for-residual&quot;</span>).template as&lt;std::string&gt;();</div>
@@ -1242,13 +1242,13 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;            check_name_norm=<span class="keyword">true</span>;</div>
 <div class="line"><a name="l01305"></a><span class="lineno"> 1305</span>&#160;            <span class="keywordflow">if</span>( option(_name=<span class="stringliteral">&quot;eim.compute-expansion-of-expression&quot;</span>).<span class="keyword">template</span> as&lt;bool&gt;() )</div>
 <div class="line"><a name="l01306"></a><span class="lineno"> 1306</span>&#160;            {</div>
-<div class="line"><a name="l01307"></a><span class="lineno"> 1307</span>&#160;                <span class="keyword">auto</span> projection = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(),_expr=expr );</div>
+<div class="line"><a name="l01307"></a><span class="lineno"> 1307</span>&#160;                <span class="keyword">auto</span> projection = vf::project( _space=this-&gt;functionSpace(),_expr=expr );</div>
 <div class="line"><a name="l01308"></a><span class="lineno"> 1308</span>&#160;                <span class="keywordtype">double</span> norm = projection.linftyNorm();</div>
 <div class="line"><a name="l01309"></a><span class="lineno"> 1309</span>&#160;                max = norm ;</div>
 <div class="line"><a name="l01310"></a><span class="lineno"> 1310</span>&#160;            }</div>
 <div class="line"><a name="l01311"></a><span class="lineno"> 1311</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01312"></a><span class="lineno"> 1312</span>&#160;            {</div>
-<div class="line"><a name="l01313"></a><span class="lineno"> 1313</span>&#160;                <span class="keyword">auto</span> projection = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(),_expr=projected_expr );</div>
+<div class="line"><a name="l01313"></a><span class="lineno"> 1313</span>&#160;                <span class="keyword">auto</span> projection = vf::project( _space=this-&gt;functionSpace(),_expr=projected_expr );</div>
 <div class="line"><a name="l01314"></a><span class="lineno"> 1314</span>&#160;                <span class="keywordtype">double</span> norm = projection.linftyNorm();</div>
 <div class="line"><a name="l01315"></a><span class="lineno"> 1315</span>&#160;                max = norm ;</div>
 <div class="line"><a name="l01316"></a><span class="lineno"> 1316</span>&#160;            }</div>
@@ -1264,7 +1264,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;</div>
 <div class="line"><a name="l01327"></a><span class="lineno"> 1327</span>&#160;        element_type projection;</div>
 <div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160;</div>
-<div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;        projection = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(),_expr=residual_projected_expr );</div>
+<div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;        projection = vf::project( _space=this-&gt;functionSpace(),_expr=residual_projected_expr );</div>
 <div class="line"><a name="l01330"></a><span class="lineno"> 1330</span>&#160;</div>
 <div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;        <span class="keywordflow">return</span> projection;</div>
 <div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;    }</div>
@@ -1296,7 +1296,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01358"></a><span class="lineno"> 1358</span>&#160;        }</div>
 <div class="line"><a name="l01359"></a><span class="lineno"> 1359</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01360"></a><span class="lineno"> 1360</span>&#160;        {</div>
-<div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;            <span class="keyword">auto</span> projected_g = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(),_expr=M_expr );</div>
+<div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;            <span class="keyword">auto</span> projected_g = vf::project( _space=this-&gt;functionSpace(),_expr=M_expr );</div>
 <div class="line"><a name="l01362"></a><span class="lineno"> 1362</span>&#160;            <span class="keyword">auto</span> projected_g_evaluated = evaluateFromContext( _context=M_ctx, _expr=idv( projected_g ) );</div>
 <div class="line"><a name="l01363"></a><span class="lineno"> 1363</span>&#160;            <span class="keywordtype">double</span> eval = projected_g_evaluated(0);</div>
 <div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;            projected_g.scale( 1./eval );</div>
@@ -1463,7 +1463,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;<span class="preprocessor"></span>        M_u = T;</div>
 <div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;        <span class="keyword">auto</span> mesh = this-&gt;functionSpace()-&gt;mesh();</div>
-<div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;        <span class="keyword">auto</span> pi_g = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
+<div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;        <span class="keyword">auto</span> pi_g = vf::project( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
 <div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;        <span class="keywordflow">return</span> math::sqrt( <a class="code" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">integrate</a>( _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=idv(pi_g)*idv(pi_g) ).evaluate()( 0,0 ) );</div>
 <div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;    }</div>
 <div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;</div>
@@ -1476,7 +1476,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01539"></a><span class="lineno"> 1539</span>&#160;<span class="preprocessor"></span>        M_u = T;</div>
 <div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;        <span class="keyword">auto</span> mesh = this-&gt;functionSpace()-&gt;mesh();</div>
-<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;        <span class="keyword">auto</span> pi_g = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
+<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;        <span class="keyword">auto</span> pi_g = vf::project( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
 <div class="line"><a name="l01542"></a><span class="lineno"> 1542</span>&#160;        <span class="keyword">auto</span> diff = pi_g - eim_expansion;</div>
 <div class="line"><a name="l01543"></a><span class="lineno"> 1543</span>&#160;        <span class="keywordflow">return</span> math::sqrt( <a class="code" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">integrate</a>( _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=idv(diff)*idv(diff) ).evaluate()( 0,0 ) );</div>
 <div class="line"><a name="l01544"></a><span class="lineno"> 1544</span>&#160;    }</div>
@@ -1489,7 +1489,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;<span class="preprocessor"></span>        M_u = T;</div>
 <div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160;        <span class="keyword">auto</span> mesh = this-&gt;functionSpace()-&gt;mesh();</div>
-<div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160;        <span class="keyword">auto</span> pi_g = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
+<div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160;        <span class="keyword">auto</span> pi_g = vf::project( _space=this-&gt;functionSpace(), _expr=M_expr );</div>
 <div class="line"><a name="l01555"></a><span class="lineno"> 1555</span>&#160;        <span class="keyword">auto</span> difference = M_expr - idv(pi_g);</div>
 <div class="line"><a name="l01556"></a><span class="lineno"> 1556</span>&#160;        <span class="keywordflow">return</span> math::sqrt( <a class="code" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">integrate</a>( _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=difference*difference ).evaluate()( 0,0 ) );</div>
 <div class="line"><a name="l01557"></a><span class="lineno"> 1557</span>&#160;    }</div>
@@ -1557,7 +1557,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01619"></a><span class="lineno"> 1619</span>&#160;    element_type interpolant( parameter_type <span class="keyword">const</span>&amp; mu )</div>
 <div class="line"><a name="l01620"></a><span class="lineno"> 1620</span>&#160;    {</div>
 <div class="line"><a name="l01621"></a><span class="lineno"> 1621</span>&#160;        <span class="keyword">auto</span> beta = this-&gt;beta( mu );</div>
-<div class="line"><a name="l01622"></a><span class="lineno"> 1622</span>&#160;        <span class="keywordflow">return</span> expansion( M_q_vector, this-&gt;beta( mu ) , M_M_max);</div>
+<div class="line"><a name="l01622"></a><span class="lineno"> 1622</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceFeel.html#ae7c4de2faf3a41202e28abbde3dd01fe">expansion</a>( M_q_vector, this-&gt;beta( mu ) , M_M_max);</div>
 <div class="line"><a name="l01623"></a><span class="lineno"> 1623</span>&#160;    }</div>
 <div class="line"><a name="l01624"></a><span class="lineno"> 1624</span>&#160;    <span class="comment">//return M_eim-&gt;operator()( mu , M_eim-&gt;mMax() ); }</span></div>
 <div class="line"><a name="l01625"></a><span class="lineno"> 1625</span>&#160;</div>
@@ -1784,7 +1784,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160;    element_type solve( parameter_type <span class="keyword">const</span>&amp; mu , mpl::bool_&lt;false&gt; )</div>
 <div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160;    {</div>
 <div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160;        value_type x = boost::lexical_cast&lt;value_type&gt;(<span class="stringliteral">&quot;inf&quot;</span>);</div>
-<div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;        M_elt = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=M_model-&gt;functionSpace(), _expr=cst(x) );</div>
+<div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;        M_elt = vf::project( _space=M_model-&gt;functionSpace(), _expr=cst(x) );</div>
 <div class="line"><a name="l01850"></a><span class="lineno"> 1850</span>&#160;        <span class="keywordflow">return</span> M_elt;</div>
 <div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;    }</div>
 <div class="line"><a name="l01852"></a><span class="lineno"> 1852</span>&#160;    element_type solve( parameter_type <span class="keyword">const</span>&amp; mu , mpl::bool_&lt;true&gt; )</div>
@@ -1812,7 +1812,7 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01874"></a><span class="lineno"> 1874</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l01875"></a><span class="lineno"> 1875</span>&#160;            <span class="keyword">auto</span> view = M_element.template element&lt; T::value &gt;();</div>
 <div class="line"><a name="l01876"></a><span class="lineno"> 1876</span>&#160;            <span class="keyword">auto</span> space = view.functionSpace();</div>
-<div class="line"><a name="l01877"></a><span class="lineno"> 1877</span>&#160;            view = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=space, _expr=cst( boost::lexical_cast&lt;value_type&gt;(<span class="stringliteral">&quot;inf&quot;</span>) ) );</div>
+<div class="line"><a name="l01877"></a><span class="lineno"> 1877</span>&#160;            view = vf::project( _space=space, _expr=cst( boost::lexical_cast&lt;value_type&gt;(<span class="stringliteral">&quot;inf&quot;</span>) ) );</div>
 <div class="line"><a name="l01878"></a><span class="lineno"> 1878</span>&#160;        }</div>
 <div class="line"><a name="l01879"></a><span class="lineno"> 1879</span>&#160;</div>
 <div class="line"><a name="l01880"></a><span class="lineno"> 1880</span>&#160;        element_type element()</div>
@@ -1858,12 +1858,12 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="line"><a name="l01920"></a><span class="lineno"> 1920</span>&#160;po::options_description eimOptions( std::string <span class="keyword">const</span>&amp; prefix =<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l01921"></a><span class="lineno"> 1921</span>&#160;}</div>
 <div class="line"><a name="l01922"></a><span class="lineno"> 1922</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _FEELPP_EIM_HPP */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="namespaceFeel_html_a4c300b4c137594540a9428af36363049"><div class="ttname"><a href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">Feel::integrate</a></div><div class="ttdeci">Poly::value_type integrate(Polynomial&lt; Poly, PsetType &gt; const &amp;p)</div><div class="ttdoc">integrate a polynomial over a convex </div><div class="ttdef"><b>Definition:</b> operations.hpp:51</div></div>
+<div class="ttc" id="namespaceFeel_html_a4c300b4c137594540a9428af36363049"><div class="ttname"><a href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">Feel::integrate</a></div><div class="ttdeci">Poly::value_type integrate(Polynomial&lt; Poly, PsetType &gt; const &amp;p)</div><div class="ttdoc">integrate a polynomial over a convex </div><div class="ttdef"><b>Definition:</b> feelpoly/operations.hpp:51</div></div>
 <div class="ttc" id="crbdb_8hpp_html"><div class="ttname"><a href="crbdb_8hpp.html">crbdb.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1CRBDB_html_a63ce83e6c566106d8f133bfa4f222706"><div class="ttname"><a href="classFeel_1_1CRBDB.html#a63ce83e6c566106d8f133bfa4f222706">Feel::CRBDB::CRBDB</a></div><div class="ttdeci">CRBDB()</div><div class="ttdoc">default constructor </div><div class="ttdef"><b>Definition:</b> crbdb.cpp:39</div></div>
 <div class="ttc" id="namespaceFeel_html_ace44a7a9c428a5849b81de59532e4ef8"><div class="ttname"><a href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements</a></div><div class="ttdeci">elements_type const &amp; elements() const </div><div class="ttdef"><b>Definition:</b> elements.hpp:367</div></div>
 <div class="ttc" id="classFeel_1_1Vector_html"><div class="ttname"><a href="classFeel_1_1Vector.html">Feel::Vector</a></div><div class="ttdef"><b>Definition:</b> solverlinear.hpp:33</div></div>
-<div class="ttc" id="namespaceFeel_html_ae89776231eca6bd68ba734da512759b3"><div class="ttname"><a href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project</a></div><div class="ttdeci">Polynomial&lt; Pset, Scalar &gt; project(Pset const &amp;pset, Func const &amp;f, IM const &amp;im)</div><div class="ttdef"><b>Definition:</b> operations.hpp:436</div></div>
+<div class="ttc" id="namespaceFeel_html_ae89776231eca6bd68ba734da512759b3"><div class="ttname"><a href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project</a></div><div class="ttdeci">Polynomial&lt; Pset, Scalar &gt; project(Pset const &amp;pset, Func const &amp;f, IM const &amp;im)</div><div class="ttdef"><b>Definition:</b> feelpoly/operations.hpp:436</div></div>
 <div class="ttc" id="classFeel_1_1CRBDB_html"><div class="ttname"><a href="classFeel_1_1CRBDB.html">Feel::CRBDB</a></div><div class="ttdoc">brief description </div><div class="ttdef"><b>Definition:</b> crbdb.hpp:50</div></div>
 <div class="ttc" id="classFeel_1_1EIM_html"><div class="ttname"><a href="classFeel_1_1EIM.html">Feel::EIM</a></div><div class="ttdoc">Empirical interpolation of a function to obtain an affine decomposition. </div><div class="ttdef"><b>Definition:</b> eim.hpp:126</div></div>
 <div class="ttc" id="crbmodel_8hpp_html"><div class="ttname"><a href="crbmodel_8hpp.html">crbmodel.hpp</a></div></div>
@@ -1875,7 +1875,8 @@ $(document).ready(function(){initNavTree('eim_8hpp_source.html','');});
 <div class="ttc" id="namespaceFeel_html_a73707c3e6d405359ea9b4e1f21c9e530"><div class="ttname"><a href="namespaceFeel.html#a73707c3e6d405359ea9b4e1f21c9e530">Feel::inner_product</a></div><div class="ttdeci">type_traits&lt; T &gt;::real_type inner_product(Vector&lt; T &gt; const &amp;v1, Vector&lt; T &gt; const &amp;v2)</div><div class="ttdef"><b>Definition:</b> vector.hpp:579</div></div>
 <div class="ttc" id="classFeel_1_1EIM_html_aac530aa3f7019c8572b02c071cbe1dbe"><div class="ttname"><a href="classFeel_1_1EIM.html#aac530aa3f7019c8572b02c071cbe1dbe">Feel::EIM::q</a></div><div class="ttdeci">std::vector&lt; element_type &gt; const &amp; q() const </div><div class="ttdef"><b>Definition:</b> eim.hpp:238</div></div>
 <div class="ttc" id="classFeel_1_1EIM_html_a760ab4c7b0db6d80c89ee225c4b1e8cc"><div class="ttname"><a href="classFeel_1_1EIM.html#a760ab4c7b0db6d80c89ee225c4b1e8cc">Feel::EIM::nDOF</a></div><div class="ttdeci">size_type nDOF() const </div><div class="ttdef"><b>Definition:</b> eim.hpp:233</div></div>
-<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:319</div></div>
+<div class="ttc" id="namespaceFeel_html_ae7c4de2faf3a41202e28abbde3dd01fe"><div class="ttname"><a href="namespaceFeel.html#ae7c4de2faf3a41202e28abbde3dd01fe">Feel::expansion</a></div><div class="ttdeci">ElementType expansion(std::vector&lt; ElementType &gt; const &amp;b, CoeffType const &amp;c, int M=-1)</div><div class="ttdef"><b>Definition:</b> expansion.hpp:43</div></div>
+<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
 <div class="ttc" id="crb_8hpp_html"><div class="ttname"><a href="crb_8hpp.html">crb.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1EIM_html_a6e8e7612ed98a4b6c2f1019ae28d3b67"><div class="ttname"><a href="classFeel_1_1EIM.html#a6e8e7612ed98a4b6c2f1019ae28d3b67">Feel::EIM::orthonormalize</a></div><div class="ttdeci">void orthonormalize(std::vector&lt; element_type &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> eim.hpp:376</div></div>
 <div class="ttc" id="classFeel_1_1CRBDB_html_a8826a0c808f54acc619447f6cdc35cab"><div class="ttname"><a href="classFeel_1_1CRBDB.html#a8826a0c808f54acc619447f6cdc35cab">Feel::CRBDB::vm</a></div><div class="ttdeci">po::variables_map vm()</div><div class="ttdef"><b>Definition:</b> crbdb.hpp:133</div></div>

@@ -155,7 +155,7 @@ Implementation</h1>
  You have to provide to the command line (or via the cfg file) the gmsh.filename option.<br/>
  You can provide a <code></code>.geo or a <code></code>.msh file (created via gmsh).</p>
 <p>As for the laplacian problem, the code is very closed to the mathematical formulation.<br/>
- We define the product of function spaces for the flow speed and the flow pressur using <code>THch&lt;order&gt;()</code>(TH stands for Taylor-Hoods) function which is <code>Pch&lt;N+1&gt;</code> <img class="formulaInl" alt="$\times$" src="form_860.png"/> <code>Pch&lt;N&gt;</code> for respectively flow speed and pressure spaces.<br/>
+ We define the product of function spaces for the flow speed and the flow pressur using <code><a class="el" href="namespaceFeel.html#a2bef36f2edb3832159b8e055a7778805">THch&lt;order&gt;()</a></code>(TH stands for Taylor-Hoods) function which is <code>Pch&lt;N+1&gt;</code> <img class="formulaInl" alt="$\times$" src="form_860.png"/> <code>Pch&lt;N&gt;</code> for respectively flow speed and pressure spaces.<br/>
  We take an element <img class="formulaInl" alt="$U=\left( \begin{array}{c} u \\ p \\ \end{array} \right) $" src="form_861.png"/> in this space. Then we define the integrals of the variationnal formulation for the left and the right hand side. Finally, we apply the Poiseuille profile on the boundary.<br/>
  We call the solver to resolve the problem (<a class="el" href="Forms.html#Solver">Solver</a>). </p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>**argv )</div>
@@ -184,7 +184,7 @@ Implementation</h1>
 <div class="line">                  _expr=trace(gradt(u)*trans(grad(u))) );</div>
 <div class="line"></div>
 <div class="line">    a+= <a class="code" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">integrate</a>(_range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh),</div>
-<div class="line">                  _expr=-div(u)*idt(p)-divt(u)*<span class="keywordtype">id</span>(p));</div>
+<div class="line">                  _expr=-<a class="code" href="namespaceFeel.html#a5cd00556a1c26cfc9ee56213c8121868">div</a>(u)*idt(p)-divt(u)*<span class="keywordtype">id</span>(p));</div>
 <div class="line"></div>
 <div class="line">    <span class="keyword">auto</span> syms = symbols&lt;2&gt;();</div>
 <div class="line">    <span class="keyword">auto</span> u1 = parse( option(_name=<span class="stringliteral">&quot;functions.alpha&quot;</span>).as&lt;std::string&gt;(), syms );</div>

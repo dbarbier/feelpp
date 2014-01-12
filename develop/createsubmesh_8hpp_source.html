@@ -467,8 +467,8 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                {</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                    idEltInNewMesh = itFindId-&gt;second;</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                    <span class="keyword">auto</span> eltToUpdate = newMesh-&gt;elementIterator( idEltInNewMesh );</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                    newMesh-&gt;elements().modify( eltToUpdate, detail::UpdateNeighborPartition( proc ) );</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                    <span class="comment">//newMesh-&gt;elements().modify( eltToUpdate, detail::updateIdInOthersPartitions( proc, idEltAsked ) );</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                    newMesh-&gt;elements().modify( eltToUpdate, Feel::detail::UpdateNeighborPartition( proc ) );</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                    <span class="comment">//newMesh-&gt;elements().modify( eltToUpdate, Feel::detail::updateIdInOthersPartitions( proc, idEltAsked ) );</span></div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                }</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                <span class="comment">// send response</span></div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                newMesh-&gt;worldComm().localComm().send( proc, cpt, idEltInNewMesh );</div>
@@ -541,7 +541,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                        {</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                            <span class="comment">// update NeighborPartition for this points</span></div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                            <span class="keyword">auto</span> ptToUpdate = newMesh-&gt;pointIterator( new_node_numbers[oldPoint.id()] );</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                            newMesh-&gt;points().modify( ptToUpdate, detail::UpdateNeighborPartition( proc ) );</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                            newMesh-&gt;points().modify( ptToUpdate, Feel::detail::UpdateNeighborPartition( proc ) );</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                        }</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                        <span class="comment">// Define this element&#39;s connectivity on the new mesh</span></div>
@@ -569,7 +569,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                    <span class="comment">// update id elt in other partition</span></div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;                    <span class="keyword">auto</span> eltToUpdate = newMesh-&gt;elementIterator( e.id(),  proc );</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                    newMesh-&gt;elements().modify( eltToUpdate, detail::updateIdInOthersPartitions( proc, idEltAsked ) );</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                    newMesh-&gt;elements().modify( eltToUpdate, Feel::detail::updateIdInOthersPartitions( proc, idEltAsked ) );</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;                    <span class="comment">//} // if (new_element_id.find(oldElem.id())==new_element_id.end() )</span></div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;                } <span class="comment">//  if (idEltAsked != invalid_size_type_value)</span></div>
@@ -799,7 +799,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                    idEltInNewMesh = itFindId-&gt;second;</div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;                    <span class="comment">// update NeighborPartition for this elt</span></div>
 <div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;                    <span class="keyword">auto</span> eltToUpdate = newMesh-&gt;elementIterator( idEltInNewMesh );</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                    newMesh-&gt;elements().modify( eltToUpdate, detail::UpdateNeighborPartition( proc ) );</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                    newMesh-&gt;elements().modify( eltToUpdate, Feel::detail::UpdateNeighborPartition( proc ) );</div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;                }</div>
 <div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                <span class="comment">// send response</span></div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                newMesh-&gt;worldComm().localComm().send( proc, cpt, idEltInNewMesh );</div>
@@ -868,7 +868,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;                        {</div>
 <div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;                            <span class="comment">// update NeighborPartition for this points</span></div>
 <div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;                            <span class="keyword">auto</span> ptToUpdate = newMesh-&gt;pointIterator( new_node_numbers[oldPoint.id()] );</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;                            newMesh-&gt;points().modify( ptToUpdate, detail::UpdateNeighborPartition( proc ) );</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;                            newMesh-&gt;points().modify( ptToUpdate, Feel::detail::UpdateNeighborPartition( proc ) );</div>
 <div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;                        }</div>
 <div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;</div>
 <div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                        <span class="comment">// Define this element&#39;s connectivity on the new mesh</span></div>
@@ -895,7 +895,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;</div>
 <div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;                    <span class="comment">// save idEltAsked;</span></div>
 <div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;                    <span class="keyword">auto</span> eltToUpdate = newMesh-&gt;elementIterator( e.id(),  proc );</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;                    newMesh-&gt;elements().modify( eltToUpdate, detail::updateIdInOthersPartitions( proc, idEltAsked ) );</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;                    newMesh-&gt;elements().modify( eltToUpdate, Feel::detail::updateIdInOthersPartitions( proc, idEltAsked ) );</div>
 <div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;                } <span class="comment">//  if (idEltAsked != invalid_size_type_value)</span></div>
 <div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;</div>
 <div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;            }</div>
@@ -1063,7 +1063,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;};</div>
 <div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;}</div>
 <div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> MeshType,<span class="keyword">typename</span> IteratorRange, <span class="keywordtype">int</span> TheTag = MeshType::tag&gt;</div>
-<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;<span class="keyword">typename</span> createSubmeshTool&lt;MeshType,typename detail::submeshrangetype&lt;IteratorRange&gt;::type,TheTag&gt;::mesh_build_ptrtype</div>
+<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;<span class="keyword">typename</span> createSubmeshTool&lt;MeshType,typename Feel::detail::submeshrangetype&lt;IteratorRange&gt;::type,TheTag&gt;::mesh_build_ptrtype</div>
 <div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;createSubmesh( boost::shared_ptr&lt;MeshType&gt; inputMesh,</div>
 <div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;               IteratorRange <span class="keyword">const</span>&amp; range,</div>
 <div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;               <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> ctx = EXTRACTION_KEEP_MESH_RELATION,</div>
@@ -1073,7 +1073,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;    <span class="comment">//DVLOG(2) &lt;&lt; &quot;[createSubmesh] extracting &quot; &lt;&lt; range.template get&lt;0&gt;() &lt;&lt; &quot; nb elements :&quot;</span></div>
 <div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;    <span class="comment">//&lt;&lt; std::distance(range.template get&lt;1&gt;(),range.template get&lt;2&gt;()) &lt;&lt; &quot;\n&quot;;</span></div>
 <div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;</div>
-<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;    createSubmeshTool&lt;MeshType,typename detail::submeshrangetype&lt;IteratorRange&gt;::type,TheTag&gt; cSmT( inputMesh,range,inputMesh-&gt;worldComm(),updateComponentsMesh );</div>
+<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;    createSubmeshTool&lt;MeshType,typename Feel::detail::submeshrangetype&lt;IteratorRange&gt;::type,TheTag&gt; cSmT( inputMesh,range,inputMesh-&gt;worldComm(),updateComponentsMesh );</div>
 <div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;    cSmT.subMeshIsOnBoundaryFaces( subMeshIsOnBoundaryFaces );</div>
 <div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;    <span class="keyword">auto</span> m = cSmT.build();</div>
 <div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;    Context c( ctx );</div>
@@ -1083,7 +1083,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;}</div>
 <div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;</div>
 <div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> MeshType,<span class="keyword">typename</span> IteratorRange, <span class="keywordtype">int</span> TheTag = MeshType::tag&gt;</div>
-<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;<span class="keyword">typename</span> createSubmeshTool&lt;MeshType,typename detail::submeshrangetype&lt;IteratorRange&gt;::type,TheTag&gt;::mesh_build_ptrtype</div>
+<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;<span class="keyword">typename</span> createSubmeshTool&lt;MeshType,typename Feel::detail::submeshrangetype&lt;IteratorRange&gt;::type,TheTag&gt;::mesh_build_ptrtype</div>
 <div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;createSubmesh( boost::shared_ptr&lt;MeshType&gt; inputMesh,</div>
 <div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;               IteratorRange <span class="keyword">const</span>&amp; range,</div>
 <div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;               WorldComm wc,</div>
@@ -1095,7 +1095,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;    <span class="comment">//DVLOG(2) &lt;&lt; &quot;[createSubmesh] extracting &quot; &lt;&lt; range.template get&lt;0&gt;() &lt;&lt; &quot; nb elements :&quot;</span></div>
 <div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;    <span class="comment">//&lt;&lt; std::distance(range.template get&lt;1&gt;(),range.template get&lt;2&gt;()) &lt;&lt; &quot;\n&quot;;</span></div>
 <div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;</div>
-<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;    createSubmeshTool&lt;MeshType,typename detail::submeshrangetype&lt;IteratorRange&gt;::type,TheTag&gt; cSmT( inputMesh,range, wc,updateComponentsMesh );</div>
+<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;    createSubmeshTool&lt;MeshType,typename Feel::detail::submeshrangetype&lt;IteratorRange&gt;::type,TheTag&gt; cSmT( inputMesh,range, wc,updateComponentsMesh );</div>
 <div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;    cSmT.subMeshIsOnBoundaryFaces( subMeshIsOnBoundaryFaces );</div>
 <div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;    <span class="keyword">auto</span> m = cSmT.build();</div>
 <div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;    Context c( ctx );</div>
@@ -1109,11 +1109,11 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;</div>
 <div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;<span class="preprocessor">#endif // createsubmesh</span></div>
 <div class="ttc" id="classFeel_1_1Simplex_html"><div class="ttname"><a href="classFeel_1_1Simplex.html">Feel::Simplex</a></div><div class="ttdoc">simplex of dimension Dim </div><div class="ttdef"><b>Definition:</b> simplex.hpp:73</div></div>
-<div class="ttc" id="namespaceFeel_html_a74681da1036cc5b236aabef05d8a8f87"><div class="ttname"><a href="namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87">Feel::invalid_uint16_type_value</a></div><div class="ttdeci">const uint16_type invalid_uint16_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:341</div></div>
-<div class="ttc" id="namespaceFeel_html_a0d4d77cd361adda45d27d72ff0357e55"><div class="ttname"><a href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a></div><div class="ttdeci">const size_type invalid_size_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:363</div></div>
+<div class="ttc" id="namespaceFeel_html_a74681da1036cc5b236aabef05d8a8f87"><div class="ttname"><a href="namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87">Feel::invalid_uint16_type_value</a></div><div class="ttdeci">const uint16_type invalid_uint16_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:354</div></div>
+<div class="ttc" id="namespaceFeel_html_a0d4d77cd361adda45d27d72ff0357e55"><div class="ttname"><a href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a></div><div class="ttdeci">const size_type invalid_size_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:382</div></div>
 <div class="ttc" id="classFeel_1_1Mesh_html"><div class="ttname"><a href="classFeel_1_1Mesh.html">Feel::Mesh</a></div><div class="ttdoc">unifying mesh class </div><div class="ttdef"><b>Definition:</b> createsubmesh.hpp:41</div></div>
 <div class="ttc" id="submeshdata_8hpp_html"><div class="ttname"><a href="submeshdata_8hpp.html">submeshdata.hpp</a></div></div>
-<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:319</div></div>
+<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
 <div class="ttc" id="classFeel_1_1SubMeshData_html"><div class="ttname"><a href="classFeel_1_1SubMeshData.html">Feel::SubMeshData</a></div><div class="ttdoc">data structure storing sub mesh data </div><div class="ttdef"><b>Definition:</b> submeshdata.hpp:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

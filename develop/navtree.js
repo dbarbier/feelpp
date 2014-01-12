@@ -15,10 +15,17 @@ var NAVTREE =
       [ "Mesh Notations", "Notations.html#MeshNotations", null ]
     ] ],
     [ "ChangeLog", "ChangeLog.html", [
-      [ "Feel++ Release 0.95.0", "ChangeLog.html#feelpp0950", [
+      [ "Feel++ Release 0.97.0", "ChangeLog.html#feelpp0970", [
+        [ "Changes", "ChangeLog.html#changes0970", null ],
+        [ "Features", "ChangeLog.html#features0970", null ],
+        [ "Noteworthy Issues", "ChangeLog.html#issues0970", null ]
+      ] ],
+      [ "Feel++ Release 0.96.0", "ChangeLog.html#feelpp0960", [
         [ "Changes", "ChangeLog.html#changes0960", null ],
         [ "Features", "ChangeLog.html#features0960", null ],
-        [ "Noteworthy Issues", "ChangeLog.html#issues0960", null ],
+        [ "Noteworthy Issues", "ChangeLog.html#issues0960", null ]
+      ] ],
+      [ "Feel++ Release 0.95.0", "ChangeLog.html#feelpp0950", [
         [ "Changes", "ChangeLog.html#changes0950", null ],
         [ "Features", "ChangeLog.html#features0950", null ],
         [ "Noteworthy Issues", "ChangeLog.html#issues0950", null ]
@@ -50,33 +57,32 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"SolidMechanics.html",
-"classFeel_1_1AdvReact.html#a271840226d0a078160173315cab8fe88",
-"classFeel_1_1Backend.html#ad2157eec7ea621c3792797037277d9fa",
-"classFeel_1_1CRB.html#a98de2e9c699fdbfa1136c3ded1fc2488",
-"classFeel_1_1CRBModel.html#adacd9a4045e9fe853f10fd035267bc17",
-"classFeel_1_1CRBTrilinear.html#aa3193982b83434a5a0d3487cd208f52c",
-"classFeel_1_1DofFromMortar.html#a72898be5afca7da8240486de358a4081",
-"classFeel_1_1EIM.html#ad1ff1b1a7b3927384e2eecb58e426dfa",
-"classFeel_1_1ExporterGnuplot.html#a19b01e0081bbe066db1045e017c2ae79",
-"classFeel_1_1FunctionSpace.html#af1fa19dd3a94f5c5fa7f12025be6bfa1",
-"classFeel_1_1GeoMap_1_1Context.html#a6963220dcbb2f6f2a39b1860e080991c",
-"classFeel_1_1GmshHypercubeDomain.html",
-"classFeel_1_1Laplacian.html#a0521d1734496acbac3853e7918f528dd",
-"classFeel_1_1MatrixShellSparse.html#a05494777fd20123bf16e46b8c2db6f0a",
-"classFeel_1_1Mesh.html#ab9103d61397d8db410980c536a4901bb",
-"classFeel_1_1MeshBase.html#a57854f52ac870eecf2460bc08b14fc48",
-"classFeel_1_1OperatorLinearFree.html#ac2565d8878c4e50b5e4651d45602b82a",
-"classFeel_1_1PointSet.html#a51df24d35fb5ec23504caf9c12a89f0d",
-"classFeel_1_1Preconditioner.html#aef7545e5d254a486d6305af30357c6cf",
-"classFeel_1_1SolverBase.html#a6f075ecfa1eea8e773779d55af26ae0d",
-"classFeel_1_1SolverNonLinear.html#afc9eaeb33db17db36f9b928b711f7bbf",
-"classFeel_1_1TensorisedBoundaryAdapted.html#ad6a1a4be10825706d6596575a419f2a9",
-"classFeel_1_1Vector.html#a55e357c2883ae22a1ab3d5160234a271",
-"classFeel_1_1VectorValue.html#ab6d8efd6c9141e63746cbea5795656b8",
-"classFeel_1_1problem.html#a1d91ffde763769f74289c50bd1008b44",
-"classThreeFieldsLaplacian.html#acad841da2460f2615bcbe1d526c3a845",
-"structFeel_1_1math_1_1Constant.html#addc15598bd97c5823b2c49b4f42d137c"
+"Projection.html",
+"classFeel_1_1AdvReact.html",
+"classFeel_1_1Backend.html#aca3c98937f8272ba02f70215952db8fe",
+"classFeel_1_1CRB.html#aabd0bba59196f4c748d6c26ae2b7e1d7",
+"classFeel_1_1CRBModel.html#af815b9e17a24fa533b6de75eb9c85d83",
+"classFeel_1_1CRBTrilinear.html#ad4792864bc92c21cc0afb58df92c1ccf",
+"classFeel_1_1DofFromPeriodic.html#a4227c60214570ca271039130187dba1b",
+"classFeel_1_1Elaxi.html#a62e1ccb69f20419284f51701e3cae920",
+"classFeel_1_1ExporterGnuplot.html#ad2cf4680c76eb24adacc9d8539a1b79d",
+"classFeel_1_1Functional.html#a1ea8da8b3865fa8e25ff7b180d6d44fe",
+"classFeel_1_1GeoMap_1_1Context.html#ab3b67ceddfd8aa991e1364307d46120a",
+"classFeel_1_1GraphCSR.html#a136134457c11ed0003b242e2ff120b5e",
+"classFeel_1_1Laplacian.html#af8db8de0df309711d1c293ffbd7153d0",
+"classFeel_1_1MatrixSparse.html#a13fdf6a7cb5cc6bcc12ca6cbbae79409",
+"classFeel_1_1Mesh.html#ad574d5bd9ad8302c9ceb1146b2c167d4",
+"classFeel_1_1MeshBase.html#aa151a9995f729a1b857cc02a066991b8",
+"classFeel_1_1OperatorLinearParametrized.html#a06a51caebab5ed3e0e0fb9c78ba17b57",
+"classFeel_1_1PointSet.html#ac7b337faff939b7ef0d2eccfd3c2bf16",
+"classFeel_1_1PreconditionerPetsc.html#afe933b4d3b5ee4c59cd606cb53c948c4",
+"classFeel_1_1SolverConstrained.html#ac4e58bf5778a6be5c3e3d90aa46b3781",
+"classFeel_1_1SolverUnconstrained.html#a016068e465e1f95764bb26dbfa9b646e",
+"classFeel_1_1TimeSet.html#a06ee1ecb8680d68bad214ea0392710ef",
+"classFeel_1_1Vector.html#ab02f4bb16b05492b3999d00d4732d31a",
+"classFeel_1_1core__data.html#aa91d43cf4fe6d23fe84ba41c0b59594a",
+"classFeel_1_1problem.html#adb29af0debcd42594061677dea6d3991",
+"structFeel_1_1BareFace.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

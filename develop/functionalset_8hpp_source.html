@@ -271,10 +271,10 @@ $(document).ready(function(){initNavTree('functionalset_8hpp_source.html','');})
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="keywordflow">for</span> ( uint16_type i = 0; i &lt; fset.size(); ++i )</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            {</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( M_mat,</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                ublas::project( M_mat,</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                                ublas::range( i*space_type::nComponents, ( i+1 )*space_type::nComponents ),</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                                ublas::range( 0, M_mat.size2() ) ) = ublas::scalar_matrix&lt;value_type&gt;( space_type::nComponents, M_mat.size2(), -1 );</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">ublas::project</a>( M_mat,</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                ublas::project( M_mat,</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                                ublas::range( i*space_type::nComponents, ( i+1 )*space_type::nComponents ),</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                                ublas::range( 0, M_mat.size2() ) ) = fset[i].coeff();</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            }</div>
@@ -296,7 +296,6 @@ $(document).ready(function(){initNavTree('functionalset_8hpp_source.html','');})
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;};</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;} <span class="comment">// Feel</span></div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __FunctionalSet_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="namespaceFeel_html_ae89776231eca6bd68ba734da512759b3"><div class="ttname"><a href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project</a></div><div class="ttdeci">Polynomial&lt; Pset, Scalar &gt; project(Pset const &amp;pset, Func const &amp;f, IM const &amp;im)</div><div class="ttdef"><b>Definition:</b> operations.hpp:436</div></div>
 <div class="ttc" id="classFeel_1_1FunctionalSet_html_a5c9e74fc1e5c4fc7ad14df5bb6cb1c87"><div class="ttname"><a href="classFeel_1_1FunctionalSet.html#a5c9e74fc1e5c4fc7ad14df5bb6cb1c87">Feel::FunctionalSet::setFunctionSpace</a></div><div class="ttdeci">void setFunctionSpace(space_type const &amp;__space)</div><div class="ttdef"><b>Definition:</b> functionalset.hpp:186</div></div>
 <div class="ttc" id="classFeel_1_1FunctionalSet_html_a5a52498e1794cd1190978572a924911c"><div class="ttname"><a href="classFeel_1_1FunctionalSet.html#a5a52498e1794cd1190978572a924911c">Feel::FunctionalSet::setFunctionalSet</a></div><div class="ttdeci">void setFunctionalSet(std::vector&lt; functional_type &gt; const &amp;fset)</div><div class="ttdef"><b>Definition:</b> functionalset.hpp:194</div></div>
 <div class="ttc" id="classFeel_1_1FunctionalSet_html_a118b5e08778595473081e06277d663d6"><div class="ttname"><a href="classFeel_1_1FunctionalSet.html#a118b5e08778595473081e06277d663d6">Feel::FunctionalSet::operator()</a></div><div class="ttdeci">functional_type const &amp; operator()(uint16_type i) const </div><div class="ttdef"><b>Definition:</b> functionalset.hpp:135</div></div>

@@ -169,7 +169,7 @@ Project Specific Expressions</h1>
 <div class="line"></div>
 <div class="line">  <span class="comment">//Create the expression from the string</span></div>
 <div class="line">  GiNaC::ex expr_u = parse(_u,vars);</div>
-<div class="line">  u =  <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=Vh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), _expr=expr(expr_u,vars) );</div>
+<div class="line">  u =  vf::project( _space=Vh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), _expr=expr(expr_u,vars) );</div>
 </div><!-- fragment --><p> To use the Functor, you have to define in the <a class="el" href="namespaceFeel.html" title="[marker1] ">Feel</a> namespace a struct with some variable. That struct will provide an <code>operator()</code> interface with specific signature.</p>
 <div class="fragment"><div class="line"><span class="keyword">namespace </span>Feel</div>
 <div class="line">{</div>
@@ -194,7 +194,7 @@ Project Specific Expressions</h1>
 </div><!-- fragment --><p> and then, you are allowed to define a functor based expression on that way:</p>
 <div class="fragment"><div class="line">  Feel::myFunctor _f;</div>
 <div class="line"> _f.setEps(0.1); </div>
-<div class="line">  v = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( _space=Vh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), _expr=idf(_f));</div>
+<div class="line">  v = vf::project( _space=Vh, _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>(mesh), _expr=idf(_f));</div>
 </div><!-- fragment --><p> <a href="#" class="top">top</a> </p>
 <hr/>
  </div></div><!-- contents -->

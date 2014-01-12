@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('feel_8hpp_source.html','');});
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  Author(s): Christophe Prud&#39;homme &lt;christophe.prudhomme@feelpp.org&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">       Date: 2012-09-18</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  Copyright (C) 2012 Feel++ Consortium</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  Copyright (C) 2012-2014 Feel++ Consortium</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  modify it under the terms of the GNU Lesser General Public</span></div>
@@ -139,41 +139,28 @@ $(document).ready(function(){initNavTree('feel_8hpp_source.html','');});
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="backend_8hpp.html">feel/feelalg/backend.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;feel/feeldiscr/functionspace.hpp&gt;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="lagrange_8hpp.html">feel/feelpoly/lagrange.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="crouzeixraviart_8hpp.html">feel/feelpoly/crouzeixraviart.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="vf_8hpp.html">feel/feelvf/vf.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="lagrange_8hpp.html">feel/feelpoly/lagrange.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="crouzeixraviart_8hpp.html">feel/feelpoly/crouzeixraviart.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="vf_8hpp.html">feel/feelvf/vf.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="operatorlinear_8hpp.html">feel/feeldiscr/operatorlinear.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &lt;feel/feeldiscr/bdf2.hpp&gt;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &lt;feel/feeldiscr/projector.hpp&gt;</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="operatorinterpolation_8hpp.html">feel/feeldiscr/operatorinterpolation.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &lt;feel/feeldiscr/operatorlagrangep1.hpp&gt;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &lt;ginac/ginac.h&gt;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="namespaceFeel.html">   59</a></span>&#160;<span class="keyword">namespace </span>Feel</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">using</span> GiNaC::symbol;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">using</span> GiNaC::ex;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gmsh_8hpp.html">feel/feelfilters/gmsh.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &lt;feel/feelfilters/exporter.hpp&gt;</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="geotool_8hpp.html">feel/feelfilters/geotool.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FEELPP_FEEL_HPP */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="geotool_8hpp_html"><div class="ttname"><a href="geotool_8hpp.html">geotool.hpp</a></div></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;feel/feelts/ts.hpp&gt;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &lt;feel/feeldiscr/discr.hpp&gt;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &lt;ginac/ginac.h&gt;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespaceFeel.html">   53</a></span>&#160;<span class="keyword">namespace </span>Feel</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">using</span> GiNaC::symbol;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">using</span> GiNaC::ex;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#include &lt;feel/feelfilters/filters.hpp&gt;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FEELPP_FEEL_HPP */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="crouzeixraviart_8hpp_html"><div class="ttname"><a href="crouzeixraviart_8hpp.html">crouzeixraviart.hpp</a></div></div>
 <div class="ttc" id="environment_8hpp_html"><div class="ttname"><a href="environment_8hpp.html">environment.hpp</a></div></div>
-<div class="ttc" id="operatorinterpolation_8hpp_html"><div class="ttname"><a href="operatorinterpolation_8hpp.html">operatorinterpolation.hpp</a></div></div>
-<div class="ttc" id="operatorlinear_8hpp_html"><div class="ttname"><a href="operatorlinear_8hpp.html">operatorlinear.hpp</a></div></div>
 <div class="ttc" id="vf_8hpp_html"><div class="ttname"><a href="vf_8hpp.html">vf.hpp</a></div></div>
-<div class="ttc" id="gmsh_8hpp_html"><div class="ttname"><a href="gmsh_8hpp.html">gmsh.hpp</a></div></div>
 <div class="ttc" id="lagrange_8hpp_html"><div class="ttname"><a href="lagrange_8hpp.html">lagrange.hpp</a></div></div>
 <div class="ttc" id="backend_8hpp_html"><div class="ttname"><a href="backend_8hpp.html">backend.hpp</a></div></div>
 <div class="ttc" id="options_8hpp_html"><div class="ttname"><a href="options_8hpp.html">options.hpp</a></div></div>

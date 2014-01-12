@@ -329,7 +329,7 @@ template&lt;int Dim&gt; </div>
 <div class="fragment"><div class="line"> */</div>
 <div class="line"><span class="comment">//# marker1 #</span></div>
 <div class="line"><span class="comment"></span><span class="keyword">auto</span> g = sin( pi*Px() )*cos( pi*Py() )*cos( pi*Pz() );</div>
-<div class="line">gproj = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( Xh, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), g );</div>
+<div class="line">gproj = vf::project( Xh, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), g );</div>
 <div class="line"><span class="keyword">auto</span> grad_g = vec( +pi*cos( pi*Px() )*cos( pi*Py() )*cos( pi*Pz() ),</div>
 <div class="line">                   -pi*sin( pi*Px() )*sin( pi*Py() )*cos( pi*Pz() ) );</div>
 <div class="line"><span class="keyword">auto</span> beta = vec( cst( bx ),cst( by ) );</div>
@@ -416,7 +416,7 @@ template&lt;int Dim&gt; </div>
 </div><!-- fragment --><p>save the results</p>
 <div class="fragment"><div class="line"> */</div>
 <div class="line"><a class="code" href="classFeel_1_1DAR.html#a22bd88fe7db6ef2452600e86bce86c10">element_type</a> e( Xh, <span class="stringliteral">&quot;e&quot;</span> );</div>
-<div class="line">e = <a class="code" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">vf::project</a>( Xh, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), g );</div>
+<div class="line">e = vf::project( Xh, <a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), g );</div>
 <div class="line"></div>
 <div class="line"><a class="code" href="classFeel_1_1DAR.html#aafd4ed0637f02b13fc850da762a219af">export_ptrtype</a> exporter( <a class="code" href="classFeel_1_1Exporter.html#ab5184fd78b9c90b74127ab2027808996">export_type::New</a>( this-&gt;<a class="code" href="classFeel_1_1Simget.html#a2778e828ee4c102e72a33e03b1ede4b1">vm</a>(),</div>
 <div class="line">                         ( boost::format( <span class="stringliteral">&quot;%1%-%2%-%3%&quot;</span> )</div>
@@ -440,7 +440,7 @@ template&lt;int Dim&gt; </div>
 </div><!-- fragment --> 
 <p>Implements <a class="el" href="classFeel_1_1Simget.html#ae4cebdea070b7aadc9cb5ada1969e5a9">Feel::Simget</a>.</p>
 
-<p>References <a class="el" href="namespaceFeel.html#a6d4deea03257c3f53b0e9df514a7bf00">Feel::boundaryfaces()</a>, <a class="el" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements()</a>, <a class="el" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">Feel::integrate()</a>, <a class="el" href="namespaceFeel.html#a6c53147b25bf664bdf6bec2b30b56af7">Feel::internalfaces()</a>, and <a class="el" href="namespaceFeel.html#ae89776231eca6bd68ba734da512759b3">Feel::project()</a>.</p>
+<p>References <a class="el" href="namespaceFeel.html#a6d4deea03257c3f53b0e9df514a7bf00">Feel::boundaryfaces()</a>, <a class="el" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements()</a>, <a class="el" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">Feel::integrate()</a>, and <a class="el" href="namespaceFeel.html#a6c53147b25bf664bdf6bec2b30b56af7">Feel::internalfaces()</a>.</p>
 
 </div>
 </div>

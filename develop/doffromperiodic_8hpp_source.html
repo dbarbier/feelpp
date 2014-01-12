@@ -283,7 +283,7 @@ $(document).ready(function(){initNavTree('doffromperiodic_8hpp_source.html','');
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> iElAd = __face.ad_first();</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    FEELPP_ASSERT( iElAd != <a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a> )( __face.id() ).error( <span class="stringliteral">&quot;[periodic]invalid face/element in face&quot;</span> );</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    detail::ignore_unused_variable_warning( iElAd );</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    Feel::detail::ignore_unused_variable_warning( iElAd );</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="comment">// local id of the face in its adjacent element</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    uint16_type iFaEl = __face.pos_first();</div>
@@ -294,7 +294,7 @@ $(document).ready(function(){initNavTree('doffromperiodic_8hpp_source.html','');
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    {</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="comment">// local vertex number (in element)</span></div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        uint16_type iVeEl = element_type::fToP( iFaEl, iVeFa );</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        detail::ignore_unused_variable_warning( iVeEl );</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        Feel::detail::ignore_unused_variable_warning( iVeEl );</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        FEELPP_ASSERT( iVeEl != <a class="code" href="namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87">invalid_uint16_type_value</a> ).error( <span class="stringliteral">&quot;invalid local dof&quot;</span> );</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
@@ -395,7 +395,7 @@ $(document).ready(function(){initNavTree('doffromperiodic_8hpp_source.html','');
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="comment">// id of the element adjacent to the face</span></div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="comment">// \warning NEED TO INVESTIGATE THIS</span></div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> iElAd = __face.ad_first();</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    detail::ignore_unused_variable_warning( iElAd );</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    Feel::detail::ignore_unused_variable_warning( iElAd );</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    FEELPP_ASSERT( iElAd != <a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a> )( __face.id() ).error( <span class="stringliteral">&quot;[Dof::buildBoundaryDof] invalid face/element in face&quot;</span> );</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">// local id of the face in its adjacent element</span></div>
@@ -410,7 +410,7 @@ $(document).ready(function(){initNavTree('doffromperiodic_8hpp_source.html','');
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    {</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="comment">// local edge number (in element)</span></div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        uint16_type iEdEl = element_type::fToE( iFaEl, iEdFa );</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        detail::ignore_unused_variable_warning( iEdEl );</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        Feel::detail::ignore_unused_variable_warning( iEdEl );</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        FEELPP_ASSERT( iEdEl != <a class="code" href="namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87">invalid_uint16_type_value</a> ).error( <span class="stringliteral">&quot;invalid local dof&quot;</span> );</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="comment">// Loop number of Dof per edge</span></div>
@@ -493,11 +493,11 @@ $(document).ready(function(){initNavTree('doffromperiodic_8hpp_source.html','');
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;}</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FEELPP_DofFromPeriodic_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="namespaceFeel_html_a74681da1036cc5b236aabef05d8a8f87"><div class="ttname"><a href="namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87">Feel::invalid_uint16_type_value</a></div><div class="ttdeci">const uint16_type invalid_uint16_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:341</div></div>
+<div class="ttc" id="namespaceFeel_html_a74681da1036cc5b236aabef05d8a8f87"><div class="ttname"><a href="namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87">Feel::invalid_uint16_type_value</a></div><div class="ttdeci">const uint16_type invalid_uint16_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:354</div></div>
 <div class="ttc" id="classFeel_1_1DofFromPeriodic_html"><div class="ttname"><a href="classFeel_1_1DofFromPeriodic.html">Feel::DofFromPeriodic</a></div><div class="ttdoc">local contribution from periodic dof </div><div class="ttdef"><b>Definition:</b> doffromperiodic.hpp:41</div></div>
-<div class="ttc" id="namespaceFeel_html_a0d4d77cd361adda45d27d72ff0357e55"><div class="ttname"><a href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a></div><div class="ttdeci">const size_type invalid_size_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:363</div></div>
+<div class="ttc" id="namespaceFeel_html_a0d4d77cd361adda45d27d72ff0357e55"><div class="ttname"><a href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a></div><div class="ttdeci">const size_type invalid_size_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:382</div></div>
 <div class="ttc" id="classFeel_1_1DofFromPeriodic_html_aeb1d3e2af2b65459097817204c495f84"><div class="ttname"><a href="classFeel_1_1DofFromPeriodic.html#aeb1d3e2af2b65459097817204c495f84">Feel::DofFromPeriodic::~DofFromPeriodic</a></div><div class="ttdeci">~DofFromPeriodic()</div><div class="ttdoc">destructor </div><div class="ttdef"><b>Definition:</b> doffromperiodic.hpp:109</div></div>
-<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:319</div></div>
+<div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <script>

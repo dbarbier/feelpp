@@ -1,7 +1,7 @@
 var classFeel_1_1FunctionSpace =
 [
     [ "args", "classFeel_1_1FunctionSpace.html#a59c9133c635219a7b12c443d91928ea4", null ],
-    [ "bases_list", "classFeel_1_1FunctionSpace.html#af1ba2df5fb0ed8fdb6800fb196dff2df", null ],
+    [ "bases_list", "classFeel_1_1FunctionSpace.html#ad0d93b3cdc949819cd78ddf3784c4e4d", null ],
     [ "basis_0_type", "classFeel_1_1FunctionSpace.html#a21d5eb38ef99b443d82c146369063b10", null ],
     [ "basis_context_ptrtype", "classFeel_1_1FunctionSpace.html#a8ab663dec633933b7f3040cff47702cd", null ],
     [ "basis_context_type", "classFeel_1_1FunctionSpace.html#a3b88e3d9f732d6dcbb66cc5f99c372f3", null ],
@@ -10,7 +10,7 @@ var classFeel_1_1FunctionSpace =
     [ "BasisType", "classFeel_1_1FunctionSpace.html#a78e7fbdcc1f961deabfb7702fb35042f", null ],
     [ "component_basis_ptrtype", "classFeel_1_1FunctionSpace.html#ac509f25695ea188b9295523a34f020e9", null ],
     [ "component_basis_type", "classFeel_1_1FunctionSpace.html#a7720e339e7031f463fdd8fc6cb6eeb5c", null ],
-    [ "component_basis_vector_type", "classFeel_1_1FunctionSpace.html#a4097b73c699e72449e3533279349e532", null ],
+    [ "component_basis_vector_type", "classFeel_1_1FunctionSpace.html#a55a3b4f813678f4957f06f55e174a382", null ],
     [ "component_functionspace_ptrtype", "classFeel_1_1FunctionSpace.html#a8d9ca48dba197057c1ac5c6d2325f57e", null ],
     [ "component_functionspace_type", "classFeel_1_1FunctionSpace.html#abcff14ac189b07aac5e5e535f47cf08a", null ],
     [ "component_functionspace_vector_type", "classFeel_1_1FunctionSpace.html#a82de882685ec0c60309a381543b416ad", null ],

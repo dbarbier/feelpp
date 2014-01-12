@@ -7,7 +7,7 @@ var classIMSimplex =
     [ "matrix_type", "classIMSimplex.html#a687b5af2309958c632f2b9746df6cecb", null ],
     [ "parent_quadrature_type", "classIMSimplex.html#aa0186d38d8a410335238313fa44c2b6e", null ],
     [ "quad_type", "classIMSimplex.html#a21fc45e59402bb8adb58133756ae39cc", null ],
-    [ "quad_type", "classIMSimplex.html#a21fc45e59402bb8adb58133756ae39cc", null ],
+    [ "quad_type", "classIMSimplex.html#a26a430abf9a48470103208d0ab2c5c9a", null ],
     [ "value_type", "classIMSimplex.html#a5a44071920914d90b8acfa93ad673ad9", null ],
     [ "value_type", "classIMSimplex.html#a5a44071920914d90b8acfa93ad673ad9", null ],
     [ "vector_type", "classIMSimplex.html#a5a10e06077732934bd2f52d9c20a209d", null ],
