@@ -24,7 +24,7 @@ var classFeel_1_1OperatorLinear =
     [ "OperatorLinear", "classFeel_1_1OperatorLinear.html#a259dbde76adb96ec5b1fe42e3b46a76f", null ],
     [ "OperatorLinear", "classFeel_1_1OperatorLinear.html#a93d33d006abeb6e5f9a5862038bb803c", null ],
     [ "OperatorLinear", "classFeel_1_1OperatorLinear.html#a551623161a09882ded43dbbbb1f9be30", null ],
-    [ "~OperatorLinear", "classFeel_1_1OperatorLinear.html#a24d9f7708556dbfb88cfea5e35bc7162", null ],
+    [ "~OperatorLinear", "classFeel_1_1OperatorLinear.html#a62757c36657e46f5602c6db9623c4352", null ],
     [ "add", "classFeel_1_1OperatorLinear.html#a622ee6a0d70c94040162d4f9b4ca9189", null ],
     [ "add", "classFeel_1_1OperatorLinear.html#a1308383d71f3f99b0eb5be45ce1fc8fe", null ],
     [ "adjoint", "classFeel_1_1OperatorLinear.html#a07d84623008d62c649629f95d1b7f97c", null ],

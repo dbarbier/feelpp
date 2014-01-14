@@ -1,5 +1,6 @@
 var NAVTREEINDEX26 =
 {
+"structFeel_1_1BareEdge.html#accde13381487caf9ea8458e09adddb5d":[10,0,19,1],
 "structFeel_1_1BareFace.html":[10,0,20],
 "structFeel_1_1BareFace.html#a1b2987500ffe80fff52fa2c7611fa45d":[10,0,20,4],
 "structFeel_1_1BareFace.html#a7159508f7b9d122a921593d8cd2959b3":[10,0,20,5],

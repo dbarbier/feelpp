@@ -1,5 +1,6 @@
 var NAVTREEINDEX19 =
 {
+"classFeel_1_1PreconditionerPetsc.html#af8eb28cc24617536b7826efd0b76ee6b":[10,0,173,8],
 "classFeel_1_1PreconditionerPetsc.html#afe933b4d3b5ee4c59cd606cb53c948c4":[10,0,173,7],
 "classFeel_1_1Principal.html":[10,0,174],
 "classFeel_1_1Principal.html#a09452d31e2587c1f57d79616b6f26b1e":[10,0,174,14],
@@ -248,6 +249,5 @@ var NAVTREEINDEX19 =
 "classFeel_1_1SolverConstrained.html#a7b8002b9807ee0f9bc0f22c1ad0c2916":[10,0,192,10],
 "classFeel_1_1SolverConstrained.html#a8a85160830d81b6d8d1d5061646326b2":[10,0,192,4],
 "classFeel_1_1SolverConstrained.html#a9170f9251a8d6b911645a7cdee0689cc":[10,0,192,9],
-"classFeel_1_1SolverConstrained.html#a94091c026e611ecb34374ff601c1aac5":[10,0,192,25],
-"classFeel_1_1SolverConstrained.html#aa431c2410a8dbc9381b2c72743ba1d39":[10,0,192,3]
+"classFeel_1_1SolverConstrained.html#a94091c026e611ecb34374ff601c1aac5":[10,0,192,25]
 };

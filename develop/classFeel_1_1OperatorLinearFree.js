@@ -20,6 +20,7 @@ var classFeel_1_1OperatorLinearFree =
     [ "this_type", "classFeel_1_1OperatorLinearFree.html#a447ae2c15facd427e85f4cabf14f483d", null ],
     [ "OperatorLinearFree", "classFeel_1_1OperatorLinearFree.html#acacc11f5f7725e12335cc081f85fd075", null ],
     [ "OperatorLinearFree", "classFeel_1_1OperatorLinearFree.html#a2fde11fa7e8fcc032c47cdb672d3e3cd", null ],
+    [ "~OperatorLinearFree", "classFeel_1_1OperatorLinearFree.html#ada5dec66a567c8cb4a03e35764fcb736", null ],
     [ "apply", "classFeel_1_1OperatorLinearFree.html#a3a86902fe6d6ec2c9501212c05d871e3", null ],
     [ "apply", "classFeel_1_1OperatorLinearFree.html#a2fe6cb8e1a15fb7c6282694a4ec488ba", null ],
     [ "apply", "classFeel_1_1OperatorLinearFree.html#ac52755c53748c592ce12875ed6d919cd", null ],
