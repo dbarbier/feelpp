@@ -1,5 +1,7 @@
 var NAVTREEINDEX26 =
 {
+"structFeel_1_1BareEdge.html#a6818a3b8669e9733930a8dfb782ddc90":[10,0,19,0],
+"structFeel_1_1BareEdge.html#abde024a4e7ad597d6a83e44d51b8ce8c":[10,0,19,3],
 "structFeel_1_1BareEdge.html#accde13381487caf9ea8458e09adddb5d":[10,0,19,1],
 "structFeel_1_1BareFace.html":[10,0,20],
 "structFeel_1_1BareFace.html#a1b2987500ffe80fff52fa2c7611fa45d":[10,0,20,4],
@@ -37,8 +39,8 @@ var NAVTREEINDEX26 =
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,2],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,3],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aae08c8b04ff5d504167b6b0ef8710a90":[10,0,105,5],
-"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,105,0],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,105,1],
+"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,105,0],
 "structFeel_1_1IntegrationDegree.html":[10,0,108],
 "structFeel_1_1JacobiDegree.html":[10,0,111],
 "structFeel_1_1MeshTraits.html":[10,0,138],

@@ -27,6 +27,8 @@ var classFeel_1_1EIM =
     [ "beta", "classFeel_1_1EIM.html#acd150c192f845ce02ff0dac8a5030a9c", null ],
     [ "computationalTimeStatistics", "classFeel_1_1EIM.html#a5b680e6991701e6a823cc0063734f9fa", null ],
     [ "computeBestFit", "classFeel_1_1EIM.html#aa53ba4044128b4e52847145344ad942d", null ],
+    [ "elementErrorEstimation", "classFeel_1_1EIM.html#a1f88c4561e4d69944fa5d7e4e2bb70a0", null ],
+    [ "errorEstimationLinf", "classFeel_1_1EIM.html#a6ab2a4ce8aeb3b24c260b038126809a2", null ],
     [ "isOfflineDone", "classFeel_1_1EIM.html#a7b5118fc7ed34f9400639ee7ee33c0a5", null ],
     [ "nDOF", "classFeel_1_1EIM.html#a760ab4c7b0db6d80c89ee225c4b1e8cc", null ],
     [ "operator()", "classFeel_1_1EIM.html#a342811a8b9cc633171adce5e99d7fd54", null ],

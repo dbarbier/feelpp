@@ -1,5 +1,7 @@
 var NAVTREEINDEX8 =
 {
+"classFeel_1_1Elaxi.html#a514b3c84b927fa2a3435b14c250efdf5":[10,0,60,10],
+"classFeel_1_1Elaxi.html#a52e24bdbe4e525eb9c5edb8d3706b948":[10,0,60,14],
 "classFeel_1_1Elaxi.html#a62e1ccb69f20419284f51701e3cae920":[10,0,60,4],
 "classFeel_1_1Elaxi.html#a632cf05e95266b0970554f41e2a7b04c":[10,0,60,13],
 "classFeel_1_1Elaxi.html#a6728136a5792a4653cfe0603545d8008":[10,0,60,9],
@@ -247,7 +249,5 @@ var NAVTREEINDEX8 =
 "classFeel_1_1ExporterGnuplot.html#a6b9e4f918cda6fc97548738fa85e2200":[10,0,69,6],
 "classFeel_1_1ExporterGnuplot.html#a93315995158d7bc76de11c96eb552149":[10,0,69,10],
 "classFeel_1_1ExporterGnuplot.html#ab0a39294bfbde409896d4c50942c12a0":[10,0,69,0],
-"classFeel_1_1ExporterGnuplot.html#ac7dfc69d57af3cb5bad58555c41c308d":[10,0,69,18],
-"classFeel_1_1ExporterGnuplot.html#aca0036b62affdec688c065a940b979a7":[10,0,69,3],
-"classFeel_1_1ExporterGnuplot.html#acf1f7eb11bb1cb9fd4e01bc0a72cba2e":[10,0,69,14]
+"classFeel_1_1ExporterGnuplot.html#ac7dfc69d57af3cb5bad58555c41c308d":[10,0,69,18]
 };

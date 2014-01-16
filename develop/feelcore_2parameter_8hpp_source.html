@@ -361,39 +361,41 @@ $(document).ready(function(){initNavTree('feelcore_2parameter_8hpp_source.html',
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    BOOST_PARAMETER_NAME( home )</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    BOOST_PARAMETER_NAME( bugs )</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    BOOST_PARAMETER_NAME( version )</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;namespace Feel</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;{</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    BOOST_PARAMETER_NAME( max_points_used )</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;namespace Feel</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;{</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TheArgs, <span class="keyword">typename</span> Tag&gt;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="keyword">struct </span>remove_pointer_const_reference_type</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;{</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_pointer&lt;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keyword">typename</span> boost::remove_const&lt;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">typename</span> boost::remove_reference&lt;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">typename</span> parameter::binding&lt;TheArgs, Tag&gt;::type</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    &gt;::type</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    &gt;::type</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    &gt;::type type;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;};</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TheArgs, <span class="keyword">typename</span> Tag, <span class="keyword">typename</span> Default&gt;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="keyword">struct </span>remove_pointer_const_reference_default_type</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;{</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_pointer&lt;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keyword">typename</span> boost::remove_const&lt;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keyword">typename</span> boost::remove_reference&lt;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">typename</span> parameter::binding&lt;TheArgs, Tag, Default&gt;::type</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    &gt;::type</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    &gt;::type</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    &gt;::type type;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;};</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;} <span class="comment">// detail</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __feelcore_parameter_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;{</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TheArgs, <span class="keyword">typename</span> Tag&gt;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="keyword">struct </span>remove_pointer_const_reference_type</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;{</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_pointer&lt;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">typename</span> boost::remove_const&lt;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keyword">typename</span> boost::remove_reference&lt;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keyword">typename</span> parameter::binding&lt;TheArgs, Tag&gt;::type</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    &gt;::type</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    &gt;::type</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    &gt;::type type;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;};</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TheArgs, <span class="keyword">typename</span> Tag, <span class="keyword">typename</span> Default&gt;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="keyword">struct </span>remove_pointer_const_reference_default_type</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;{</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_pointer&lt;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">typename</span> boost::remove_const&lt;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keyword">typename</span> boost::remove_reference&lt;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keyword">typename</span> parameter::binding&lt;TheArgs, Tag, Default&gt;::type</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    &gt;::type</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    &gt;::type</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    &gt;::type type;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;};</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;} <span class="comment">// detail</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __feelcore_parameter_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <script>

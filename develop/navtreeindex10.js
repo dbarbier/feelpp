@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"classFeel_1_1Functional.html":[10,0,78],
+"classFeel_1_1Functional.html#a15d2e5ba5879b7b06bdf390a9911df1c":[10,0,78,1],
 "classFeel_1_1Functional.html#a1ea8da8b3865fa8e25ff7b180d6d44fe":[10,0,78,14],
 "classFeel_1_1Functional.html#a2539bc1ac416de96431ff4ba5f31ded7":[10,0,78,13],
 "classFeel_1_1Functional.html#a26f4d580c09199bc1efd7343fa40f32e":[10,0,78,8],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "classFeel_1_1GeoMap_1_1Context.html#a8ddbb36a4f4f93c32399541341e81555":[10,0,91,0,19],
 "classFeel_1_1GeoMap_1_1Context.html#a8fda01381ddca155e84bd0da7a6d0904":[10,0,91,0,25],
 "classFeel_1_1GeoMap_1_1Context.html#a98615baef35775fe64588726fe7e9641":[10,0,91,0,3],
-"classFeel_1_1GeoMap_1_1Context.html#a9dc183ead6db76eba7cd58474e33fbe4":[10,0,91,0,5],
-"classFeel_1_1GeoMap_1_1Context.html#a9f76ecea6acbfa6cb6d72f3f0fe76196":[10,0,91,0,75],
-"classFeel_1_1GeoMap_1_1Context.html#aa58e65be8a6d13a11b5af923254eaf9a":[10,0,91,0,30]
+"classFeel_1_1GeoMap_1_1Context.html#a9dc183ead6db76eba7cd58474e33fbe4":[10,0,91,0,5]
 };
