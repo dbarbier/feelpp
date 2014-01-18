@@ -25,6 +25,5 @@ var searchData=
   ['preconditionerpetsc_2ehpp',['preconditionerpetsc.hpp',['../preconditionerpetsc_8hpp.html',1,'']]],
   ['principal_2ehpp',['principal.hpp',['../principal_8hpp.html',1,'']]],
   ['problem_2ehpp',['problem.hpp',['../problem_8hpp.html',1,'']]],
-  ['products_2ehpp',['products.hpp',['../products_8hpp.html',1,'']]],
   ['projectors_2ehpp',['projectors.hpp',['../projectors_8hpp.html',1,'']]]
 ];

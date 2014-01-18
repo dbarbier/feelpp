@@ -41,6 +41,7 @@ var classFeel_1_1FunctionSpace =
     [ "meshes_list", "classFeel_1_1FunctionSpace.html#a278d06825b8aece5bf2127afd46d9004", null ],
     [ "MeshesListType", "classFeel_1_1FunctionSpace.html#ab81f56060f1646390fe872bb76d047cf", null ],
     [ "mortar_0_type", "classFeel_1_1FunctionSpace.html#a7f190a53d855173b2441165787b4da99", null ],
+    [ "mortar_fe_type", "classFeel_1_1FunctionSpace.html#ad6f39f37991332be6d6c987989ff9433", null ],
     [ "mortar_list", "classFeel_1_1FunctionSpace.html#a9d4add8c82e256b75a13fd60da0cab9d", null ],
     [ "node_type", "classFeel_1_1FunctionSpace.html#a6286220f5b4c1d912113f9057496c540", null ],
     [ "pc_ptrtype", "classFeel_1_1FunctionSpace.html#a757f6084b274f8d04b18574c47339d91", null ],

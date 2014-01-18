@@ -156,43 +156,45 @@ $(document).ready(function(){initNavTree('vf_8hpp_source.html','');});
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="trace_8hpp.html">feel/feelvf/trace.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="det_8hpp.html">feel/feelvf/det.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/symm.hpp&gt;</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="products_8hpp.html">feel/feelvf/products.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="norm_8hpp.html">feel/feelvf/norm.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ones_8hpp.html">feel/feelvf/ones.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="inv_8hpp.html">feel/feelvf/inv.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="twovalued_8hpp.html">feel/feelvf/twovalued.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">//#include &lt;feel/feelvf/eye.hpp&gt;</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="val_8hpp.html">feel/feelvf/val.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="function_8hpp.html">feel/feelvf/function.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="matvec_8hpp.html">feel/feelvf/matvec.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">//#include &lt;feel/feelvf/integral.hpp&gt;</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="form_8hpp.html">feel/feelvf/form.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="integrate_8hpp.html">feel/feelvf/integrate.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/mean.hpp&gt;</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/measure.hpp&gt;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="norml2_8hpp.html">feel/feelvf/norml2.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="norml2squared_8hpp.html">feel/feelvf/norml2squared.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="normh1_8hpp.html">feel/feelvf/normh1.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/normsemih1.hpp&gt;</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="on_8hpp.html">feel/feelvf/on.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">//#include &lt;feel/feelvf/integratordirac.hpp&gt;</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="projectors_8hpp.html">feel/feelvf/projectors.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="evaluator_8hpp.html">feel/feelvf/evaluator.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/evaluatorcontext.hpp&gt;</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/inner.hpp&gt;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/cross.hpp&gt;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="norm_8hpp.html">feel/feelvf/norm.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/norm2.hpp&gt;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ones_8hpp.html">feel/feelvf/ones.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="inv_8hpp.html">feel/feelvf/inv.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="twovalued_8hpp.html">feel/feelvf/twovalued.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">//#include &lt;feel/feelvf/eye.hpp&gt;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="val_8hpp.html">feel/feelvf/val.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="function_8hpp.html">feel/feelvf/function.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="matvec_8hpp.html">feel/feelvf/matvec.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">//#include &lt;feel/feelvf/integral.hpp&gt;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="form_8hpp.html">feel/feelvf/form.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="integrate_8hpp.html">feel/feelvf/integrate.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/mean.hpp&gt;</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/measure.hpp&gt;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="norml2_8hpp.html">feel/feelvf/norml2.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="norml2squared_8hpp.html">feel/feelvf/norml2squared.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="normh1_8hpp.html">feel/feelvf/normh1.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/normsemih1.hpp&gt;</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="on_8hpp.html">feel/feelvf/on.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">//#include &lt;feel/feelvf/integratordirac.hpp&gt;</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="projectors_8hpp.html">feel/feelvf/projectors.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="evaluator_8hpp.html">feel/feelvf/evaluator.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/evaluatorcontext.hpp&gt;</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ginac_8hpp.html">feel/feelvf/ginac.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#include &lt;boost/preprocessor/comparison/equal.hpp&gt;</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ginac_8hpp.html">feel/feelvf/ginac.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">namespace </span>Feel</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">using namespace </span>vf;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __VF_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#include &lt;boost/preprocessor/comparison/equal.hpp&gt;</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">namespace </span>Feel</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">using namespace </span>vf;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __VF_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="inv_8hpp_html"><div class="ttname"><a href="inv_8hpp.html">inv.hpp</a></div></div>
 <div class="ttc" id="on_8hpp_html"><div class="ttname"><a href="on_8hpp.html">on.hpp</a></div></div>
 <div class="ttc" id="normh1_8hpp_html"><div class="ttname"><a href="normh1_8hpp.html">normh1.hpp</a></div></div>
@@ -215,7 +217,6 @@ $(document).ready(function(){initNavTree('vf_8hpp_source.html','');});
 <div class="ttc" id="matvec_8hpp_html"><div class="ttname"><a href="matvec_8hpp.html">matvec.hpp</a></div></div>
 <div class="ttc" id="integrate_8hpp_html"><div class="ttname"><a href="integrate_8hpp.html">integrate.hpp</a></div></div>
 <div class="ttc" id="operators_8hpp_html"><div class="ttname"><a href="operators_8hpp.html">operators.hpp</a></div></div>
-<div class="ttc" id="products_8hpp_html"><div class="ttname"><a href="products_8hpp.html">products.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <script>

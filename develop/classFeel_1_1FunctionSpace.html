@@ -240,6 +240,14 @@ typedef boost::shared_ptr<br class="typebreak"/>
 <tr class="memitem:a06e4d6377e293dd205bf75b30aa0330d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06e4d6377e293dd205bf75b30aa0330d"></a>
 typedef reference_element_type&#160;</td><td class="memItemRight" valign="bottom"><b>fe_type</b></td></tr>
 <tr class="separator:a06e4d6377e293dd205bf75b30aa0330d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6f39f37991332be6d6c987989ff9433"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6f39f37991332be6d6c987989ff9433"></a>
+typedef mpl::if_&lt; mpl::bool_<br class="typebreak"/>
+&lt; is_composite &gt;<br class="typebreak"/>
+, mpl::identity&lt; fe_type &gt;<br class="typebreak"/>
+, mpl::identity&lt; typename <br class="typebreak"/>
+basis_0_type::SSpace::type &gt;<br class="typebreak"/>
+ &gt;::type::type&#160;</td><td class="memItemRight" valign="bottom"><b>mortar_fe_type</b></td></tr>
+<tr class="separator:ad6f39f37991332be6d6c987989ff9433"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1fa19dd3a94f5c5fa7f12025be6bfa1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1fa19dd3a94f5c5fa7f12025be6bfa1"></a>
 typedef reference_element_ptrtype&#160;</td><td class="memItemRight" valign="bottom"><b>fe_ptrtype</b></td></tr>
 <tr class="separator:af1fa19dd3a94f5c5fa7f12025be6bfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>

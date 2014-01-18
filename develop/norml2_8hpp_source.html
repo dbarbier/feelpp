@@ -128,40 +128,42 @@ $(document).ready(function(){initNavTree('norml2_8hpp_source.html','');});
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef FEELPP_VF_NORML2_HPP</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define FEELPP_VF_NORML2_HPP 1</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>Feel {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;feel/feelvf/inner.hpp&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;BOOST_PARAMETER_FUNCTION(</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ( <span class="keywordtype">double</span> ), <span class="comment">// return type</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    normL2,    <span class="comment">// 2. function name</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    tag,           <span class="comment">// 3. namespace of tag types</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>Feel {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;BOOST_PARAMETER_FUNCTION(</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ( <span class="keywordtype">double</span> ), <span class="comment">// return type</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    normL2,    <span class="comment">// 2. function name</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ( required</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      ( range, *  )</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      ( expr,   * )</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ) <span class="comment">// 4. one required parameter, and</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    ( optional</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      ( quad,   *, <span class="keyword">typename</span> vf::detail::integrate_type&lt;Args&gt;::_quad_type() )</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      ( geomap, *, GeomapStrategyType::GEOMAP_OPT )</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      ( quad1,   *, <span class="keyword">typename</span> vf::detail::integrate_type&lt;Args&gt;::_quad1_type() )</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      ( use_tbb,   ( <span class="keywordtype">bool</span> ), <span class="keyword">false</span> )</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      ( use_harts,   ( <span class="keywordtype">bool</span> ), <span class="keyword">false</span> )</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      ( grainsize,   ( <span class="keywordtype">int</span> ), 100 )</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      ( partitioner,   *, <span class="stringliteral">&quot;auto&quot;</span> )</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      ( verbose,   ( <span class="keywordtype">bool</span> ), <span class="keyword">false</span> )</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    )</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">double</span> a = <a class="code" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">integrate</a>( _range=range, _expr=inner(expr,expr), _quad=quad, _geomap=geomap,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                          _quad1=quad1, _use_tbb=use_tbb, _use_harts=use_harts, _grainsize=grainsize,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                          _partitioner=partitioner, _verbose=verbose ).evaluate()( 0, 0 );</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> math::sqrt( a );</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    tag,           <span class="comment">// 3. namespace of tag types</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ( required</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      ( range, *  )</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      ( expr,   * )</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    ) <span class="comment">// 4. one required parameter, and</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ( optional</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      ( quad,   *, <span class="keyword">typename</span> vf::detail::integrate_type&lt;Args&gt;::_quad_type() )</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      ( geomap, *, GeomapStrategyType::GEOMAP_OPT )</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      ( quad1,   *, <span class="keyword">typename</span> vf::detail::integrate_type&lt;Args&gt;::_quad1_type() )</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      ( use_tbb,   ( <span class="keywordtype">bool</span> ), <span class="keyword">false</span> )</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      ( use_harts,   ( <span class="keywordtype">bool</span> ), <span class="keyword">false</span> )</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      ( grainsize,   ( <span class="keywordtype">int</span> ), 100 )</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      ( partitioner,   *, <span class="stringliteral">&quot;auto&quot;</span> )</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      ( verbose,   ( <span class="keywordtype">bool</span> ), <span class="keyword">false</span> )</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    )</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">double</span> a = <a class="code" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">integrate</a>( _range=range, _expr=inner(expr,expr), _quad=quad, _geomap=geomap,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                          _quad1=quad1, _use_tbb=use_tbb, _use_harts=use_harts, _grainsize=grainsize,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                          _partitioner=partitioner, _verbose=verbose ).evaluate()( 0, 0 );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> math::sqrt( a );</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="namespaceFeel_html_a4c300b4c137594540a9428af36363049"><div class="ttname"><a href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">Feel::integrate</a></div><div class="ttdeci">Poly::value_type integrate(Polynomial&lt; Poly, PsetType &gt; const &amp;p)</div><div class="ttdoc">integrate a polynomial over a convex </div><div class="ttdef"><b>Definition:</b> feelpoly/operations.hpp:51</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -225,15 +225,24 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>checkOrthonormality
 <tr class="memitem:aa40eaa902ad75df8e0e46e2f50b39f4b"><td class="memItemLeft" align="right" valign="top">boost::tuple&lt; double, <br class="typebreak"/>
 matrix_info_tuple &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1CRB.html#aa40eaa902ad75df8e0e46e2f50b39f4b">lb</a> (<a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> N, <a class="el" href="classFeel_1_1ParameterSpace_1_1Element.html">parameter_type</a> const &amp;mu, std::vector&lt; vectorN_type &gt; &amp;uN, std::vector&lt; vectorN_type &gt; &amp;uNdu, std::vector&lt; vectorN_type &gt; &amp;uNold, std::vector&lt; vectorN_type &gt; &amp;uNduold, bool print_rb_matrix=false, int K=0) const </td></tr>
 <tr class="separator:aa40eaa902ad75df8e0e46e2f50b39f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a133f884b571b33634ceeb243e10d2e42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a133f884b571b33634ceeb243e10d2e42"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>offlineUpdateJacobian</b> (const vector_ptrtype &amp;X, sparse_matrix_ptrtype &amp;J, const <a class="el" href="classFeel_1_1ParameterSpace_1_1Element.html">parameter_type</a> &amp;mu)</td></tr>
+<tr class="separator:a133f884b571b33634ceeb243e10d2e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1b9bb8a017675f5bef0704a337074ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1b9bb8a017675f5bef0704a337074ff"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>updateJacobian</b> (const map_dense_vector_type &amp;map_X, map_dense_matrix_type &amp;map_J, const <a class="el" href="classFeel_1_1ParameterSpace_1_1Element.html">parameter_type</a> &amp;mu, int N) const </td></tr>
 <tr class="separator:ab1b9bb8a017675f5bef0704a337074ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91103b1096531eacae841974d2787ad8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91103b1096531eacae841974d2787ad8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>offlineUpdateResidual</b> (const vector_ptrtype &amp;X, vector_ptrtype &amp;R, const <a class="el" href="classFeel_1_1ParameterSpace_1_1Element.html">parameter_type</a> &amp;mu)</td></tr>
+<tr class="separator:a91103b1096531eacae841974d2787ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2642c35a9088a2986e8636302fd6fd92"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2642c35a9088a2986e8636302fd6fd92"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>updateResidual</b> (const map_dense_vector_type &amp;map_X, map_dense_vector_type &amp;map_R, const <a class="el" href="classFeel_1_1ParameterSpace_1_1Element.html">parameter_type</a> &amp;mu, int N) const </td></tr>
 <tr class="separator:a2642c35a9088a2986e8636302fd6fd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a0645f4652719bb4fa3443933e243d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a0645f4652719bb4fa3443933e243d6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>computeProjectionInitialGuess</b> (const <a class="el" href="classFeel_1_1ParameterSpace_1_1Element.html">parameter_type</a> &amp;mu, int N, vectorN_type &amp;initial_guess) const </td></tr>
 <tr class="separator:a8a0645f4652719bb4fa3443933e243d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760287812e4dc1d949f62920b8afda01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a760287812e4dc1d949f62920b8afda01"></a>
+<a class="el" href="classFeel_1_1CRB.html#aed783e3fef64f87a7d71afccd5eaae4a">element_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>offlineNewtonPrimal</b> (<a class="el" href="classFeel_1_1ParameterSpace_1_1Element.html">parameter_type</a> const &amp;mu)</td></tr>
+<tr class="separator:a760287812e4dc1d949f62920b8afda01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9db6d2715f035d55374839626a55e172"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9db6d2715f035d55374839626a55e172"></a>
 matrix_info_tuple&#160;</td><td class="memItemRight" valign="bottom"><b>newton</b> (<a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> N, <a class="el" href="classFeel_1_1ParameterSpace_1_1Element.html">parameter_type</a> const &amp;mu, vectorN_type &amp;uN, double &amp;output) const </td></tr>
 <tr class="separator:a9db6d2715f035d55374839626a55e172"><td class="memSeparator" colspan="2">&#160;</td></tr>

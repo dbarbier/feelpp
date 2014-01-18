@@ -416,11 +416,11 @@ $(document).ready(function(){initNavTree('elements_8hpp_source.html','');});
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordtype">bool</span> isBoundaryElement( element_type <span class="keyword">const</span> &amp; e )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordflow">return</span> M_elements.find( e )-&gt;isOnBoundary();</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordflow">return</span> elementIterator(e.id())-&gt;isOnBoundary();</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    }</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keywordtype">bool</span> isBoundaryElement( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> <span class="keyword">const</span> &amp; <span class="keywordtype">id</span> )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="keywordflow">return</span> M_elements.find( element_type( <span class="keywordtype">id</span> ) )-&gt;isOnBoundary();</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="keywordflow">return</span> elementIterator(<span class="keywordtype">id</span>)-&gt;isOnBoundary();</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    }</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    element_iterator elementIterator( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> i )<span class="keyword"> const</span></div>

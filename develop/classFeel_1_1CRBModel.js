@@ -56,6 +56,7 @@ var classFeel_1_1CRBModel =
     [ "computeBetaQm", "classFeel_1_1CRBModel.html#aaeb4f52b9f0c2fed81845949b58bf306", null ],
     [ "computeBetaQm", "classFeel_1_1CRBModel.html#a0cfe987290a910c80054430eb54fb98f", null ],
     [ "computeBetaQm", "classFeel_1_1CRBModel.html#a0656b7a0f7f4cf1fd521db999bc8db29", null ],
+    [ "computeBetaQm", "classFeel_1_1CRBModel.html#ab35fba66a4a27cb0e390171fda64fb4f", null ],
     [ "computeBetaQm", "classFeel_1_1CRBModel.html#a6aeefb051e44e0adece9d97edf09fc26", null ],
     [ "computeBetaQm", "classFeel_1_1CRBModel.html#a33087afe88fea41a4123192a5a8b78b3", null ],
     [ "computeBetaQm", "classFeel_1_1CRBModel.html#ac817159f977eaa9109bb8a6a954d3b21", null ],
