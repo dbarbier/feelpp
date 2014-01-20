@@ -1,5 +1,7 @@
 var NAVTREEINDEX17 =
 {
+"classFeel_1_1OperatorLinearFree.html#ad5b77f7f052847e4d184416fb721c845":[10,0,147,27],
+"classFeel_1_1OperatorLinearFree.html#ad6ff205990c2de27a72be74c982f1c0b":[10,0,147,33],
 "classFeel_1_1OperatorLinearFree.html#ad94e86004b00258b4695b70e0bbcab37":[10,0,147,13],
 "classFeel_1_1OperatorLinearFree.html#ad99537eb1983ba1dc5ebf2d34f8ea5d1":[10,0,147,14],
 "classFeel_1_1OperatorLinearFree.html#ada5dec66a567c8cb4a03e35764fcb736":[10,0,147,20],
@@ -247,7 +249,5 @@ var NAVTREEINDEX17 =
 "classFeel_1_1PointSet.html#a494a65b1dabd0d54070f64a06f483806":[10,0,163,25],
 "classFeel_1_1PointSet.html#a51df24d35fb5ec23504caf9c12a89f0d":[10,0,163,10],
 "classFeel_1_1PointSet.html#a56a4c162991f66a59d4d75c5e885f0a5":[10,0,163,3],
-"classFeel_1_1PointSet.html#a6556c156141f845ab66783506f709663":[10,0,163,26],
-"classFeel_1_1PointSet.html#a669a84156dc1f1c9131cdf7bdb50863e":[10,0,163,24],
-"classFeel_1_1PointSet.html#a6c272a70a235fa818bd555a302819a3b":[10,0,163,17]
+"classFeel_1_1PointSet.html#a6556c156141f845ab66783506f709663":[10,0,163,26]
 };

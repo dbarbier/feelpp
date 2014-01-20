@@ -538,8 +538,8 @@ $(document).ready(function(){initNavTree('bilinearformcontext_8hpp_source.html',
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        {</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;local Assembly for element &quot;</span> &lt;&lt; _gmc.id()</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                      &lt;&lt; <span class="stringliteral">&quot; UseMortar=&quot;</span> &lt;&lt; UseMortar &lt;&lt; <span class="stringliteral">&quot; bdy: &quot;</span> &lt;&lt; M_test_dof-&gt;mesh()-&gt;isBoundaryElement( _gmc.id() );</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;local Assembly for element &quot;</span> &lt;&lt; _gmc.id()</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                     &lt;&lt; <span class="stringliteral">&quot; UseMortar=&quot;</span> &lt;&lt; UseMortar &lt;&lt; <span class="stringliteral">&quot; bdy: &quot;</span> &lt;&lt; M_test_dof-&gt;mesh()-&gt;isBoundaryElement( _gmc.id() );</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            <span class="keywordflow">if</span> ( !UseMortar || !M_test_dof-&gt;mesh()-&gt;isBoundaryElement( _gmc.id() ) )</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; trial_dof_type::nDofPerElement; ++j )</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                    <span class="keywordflow">for</span> ( uint16_type i = 0; i &lt; test_dof_type::nDofPerElement; ++i )</div>
@@ -695,8 +695,8 @@ $(document).ready(function(){initNavTree('bilinearformcontext_8hpp_source.html',
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        DCHECK( trial_eid != <a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a> )</div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;this case should have been taken care of earlier before the assembly process\n&quot;</span>;</div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;local Assembly for element &quot;</span> &lt;&lt; elt_0</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot; UseMortar=&quot;</span> &lt;&lt; UseMortar &lt;&lt; <span class="stringliteral">&quot; bdy: &quot;</span> &lt;&lt; M_test_dof-&gt;mesh()-&gt;isBoundaryElement( elt_0 );</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;local Assembly for element &quot;</span> &lt;&lt; elt_0</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot; UseMortar=&quot;</span> &lt;&lt; UseMortar &lt;&lt; <span class="stringliteral">&quot; bdy: &quot;</span> &lt;&lt; M_test_dof-&gt;mesh()-&gt;isBoundaryElement( elt_0 );</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        <span class="keywordflow">if</span> ( !UseMortar || !M_test_dof-&gt;mesh()-&gt;isBoundaryElement( elt_0 ) )</div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        {</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;            M_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( elt_0 ).array() + row_start;</div>

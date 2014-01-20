@@ -37,7 +37,7 @@ var classFeel_1_1EIM =
     [ "q", "classFeel_1_1EIM.html#aac530aa3f7019c8572b02c071cbe1dbe", null ],
     [ "residual", "classFeel_1_1EIM.html#aac656d32570535bd416d47f8f1a1eeef", null ],
     [ "setTrainSet", "classFeel_1_1EIM.html#a788befbec8b6dc23f283ca5fb7335d5e", null ],
-    [ "studyConvergence", "classFeel_1_1EIM.html#a1f27b6c5bb5ba8f0975103c2f1a9d0b4", null ],
+    [ "studyConvergence", "classFeel_1_1EIM.html#a4bed66396e0a49d215bec0623cdc5b6e", null ],
     [ "M_index_max", "classFeel_1_1EIM.html#a5f5b7de895f8f1f5300b54f728b1e5ae", null ],
     [ "M_is_read", "classFeel_1_1EIM.html#a9a5a220c575db9fe4eeb150333b43e3a", null ],
     [ "M_is_written", "classFeel_1_1EIM.html#adc64b4020f3ca22cb521cacdb37edd90", null ],
