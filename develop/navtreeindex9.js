@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"classFeel_1_1ExporterGnuplot.html#a58082e2070d1429e1e03213917f910a1":[10,0,69,16],
 "classFeel_1_1ExporterGnuplot.html#a5c3132ff5e3f49c42169ac996516b28b":[10,0,69,8],
 "classFeel_1_1ExporterGnuplot.html#a5c3132ff5e3f49c42169ac996516b28ba666e2a0e43b4d2049d1675cb801e38cc":[10,0,69,8,1],
 "classFeel_1_1ExporterGnuplot.html#a5c3132ff5e3f49c42169ac996516b28ba989b5b5fe61dd2d597f246d51002d91c":[10,0,69,8,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "classFeel_1_1FunctionSpace.html#af1424ec781d3cb2a1f8bcf278f8800c5":[10,0,81,73],
 "classFeel_1_1FunctionSpace.html#af1fa19dd3a94f5c5fa7f12025be6bfa1":[10,0,81,20],
 "classFeel_1_1FunctionSpace.html#af248d264e07b0928d22a554b045fab54":[10,0,81,88],
-"classFeel_1_1FunctionSpace.html#af4d6df8f741e6b8cbac9b7c62711647c":[10,0,81,60],
-"classFeel_1_1FunctionSpace.html#af5357817ab361c0d0e5e99d73261bf42":[10,0,81,114]
+"classFeel_1_1FunctionSpace.html#af4d6df8f741e6b8cbac9b7c62711647c":[10,0,81,60]
 };

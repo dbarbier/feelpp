@@ -160,6 +160,7 @@ var classFeel_1_1CRBModel =
     [ "update", "classFeel_1_1CRBModel.html#a21028f41d19c439a5a98e58fec542caf", null ],
     [ "vm", "classFeel_1_1CRBModel.html#a3f10b11c9ba853f8d810f312b62375e3", null ],
     [ "writeConvergenceStatistics", "classFeel_1_1CRBModel.html#a8aaafcc09120777144f053c6e77242c1", null ],
+    [ "writeVectorsExtremumsRatio", "classFeel_1_1CRBModel.html#ae4937102a1dacb7e162b4d0996b2f2db", null ],
     [ "M_Aqm", "classFeel_1_1CRBModel.html#a014aa8871e6b7c994474583bdc1ceeff", null ],
     [ "M_Fqm", "classFeel_1_1CRBModel.html#afc7d7aa5dbfb1fa17e03e82cacab3aed", null ],
     [ "M_InitialGuessV", "classFeel_1_1CRBModel.html#ac703ce7a1d1b34626e2fda35ffb14329", null ],
