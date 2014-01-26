@@ -260,8 +260,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>checkLocalPermutation
 <tr class="memitem:ad6732eb98018400b002db4de00032446"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6732eb98018400b002db4de00032446"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
 <tr class="separator:ad6732eb98018400b002db4de00032446"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3932bc5bc367b87b1e9c5278ec177a05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Mesh.html#a3932bc5bc367b87b1e9c5278ec177a05">findNeighboringProcessors</a> ()</td></tr>
-<tr class="separator:a3932bc5bc367b87b1e9c5278ec177a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e1ef7dadfbd66cfebc682605f301bd8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Mesh.html#a9e1ef7dadfbd66cfebc682605f301bd8">isPeriodic</a> () const </td></tr>
 <tr class="separator:a9e1ef7dadfbd66cfebc682605f301bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42907164322ead3b8be2701a3683a9b1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Mesh.html#a42907164322ead3b8be2701a3683a9b1">Mesh</a> (WorldComm const &amp;worldComm=Environment::worldComm())</td></tr>
@@ -491,20 +489,34 @@ template&lt;typename Observer &gt; </td></tr>
 <tr class="memitem:a46ed5237acc56a8354173f59c8b0265d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46ed5237acc56a8354173f59c8b0265d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>removeFacesFromBoundary</b> (std::initializer_list&lt; uint16_type &gt; markers)</td></tr>
 <tr class="separator:a46ed5237acc56a8354173f59c8b0265d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a209b95379a14b0179e672e8892a00dc7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a209b95379a14b0179e672e8892a00dc7"></a>
-std::set&lt; <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> &gt;<br class="typebreak"/>
+<tr class="memitem:ad9bfac3bf2e07c75e4f2d4fa13519f5a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9bfac3bf2e07c75e4f2d4fa13519f5a"></a>
+std::set&lt; <a class="el" href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">rank_type</a> &gt;<br class="typebreak"/>
+::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>beginNeighborSubdomains</b> () const </td></tr>
+<tr class="separator:ad9bfac3bf2e07c75e4f2d4fa13519f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5736e7b5734a36c701ef6d3c0b0fc50"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5736e7b5734a36c701ef6d3c0b0fc50"></a>
+std::set&lt; <a class="el" href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">rank_type</a> &gt;<br class="typebreak"/>
+::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>endNeighborSubdomains</b> () const </td></tr>
+<tr class="separator:ad5736e7b5734a36c701ef6d3c0b0fc50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d948645bd6f7173e884ab8a624ae5d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3d948645bd6f7173e884ab8a624ae5d"></a>
+std::set&lt; <a class="el" href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">rank_type</a> &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>neighborSubdomains</b> () const </td></tr>
+<tr class="separator:ac3d948645bd6f7173e884ab8a624ae5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7067c7fea5791cd044bae14c67c5ada"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7067c7fea5791cd044bae14c67c5ada"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addNeighborSubdomain</b> (<a class="el" href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">rank_type</a> p)</td></tr>
+<tr class="separator:ac7067c7fea5791cd044bae14c67c5ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e16d54336e24cb386e2b1fb19957b60"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e16d54336e24cb386e2b1fb19957b60"></a>
+std::set&lt; <a class="el" href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">rank_type</a> &gt;<br class="typebreak"/>
 ::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>beginFaceNeighborSubdomains</b> () const </td></tr>
-<tr class="separator:a209b95379a14b0179e672e8892a00dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d4e1a07efa3f1981ec7a702ca95b5b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d4e1a07efa3f1981ec7a702ca95b5b0"></a>
-std::set&lt; <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> &gt;<br class="typebreak"/>
+<tr class="separator:a8e16d54336e24cb386e2b1fb19957b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629174f2268d421a1c52cdcd2f6ec700"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a629174f2268d421a1c52cdcd2f6ec700"></a>
+std::set&lt; <a class="el" href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">rank_type</a> &gt;<br class="typebreak"/>
 ::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>endFaceNeighborSubdomains</b> () const </td></tr>
-<tr class="separator:a0d4e1a07efa3f1981ec7a702ca95b5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ee404734ae2510985e2f8a92081ec50"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ee404734ae2510985e2f8a92081ec50"></a>
-std::set&lt; <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>faceNeighborSubdomains</b> () const </td></tr>
-<tr class="separator:a9ee404734ae2510985e2f8a92081ec50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad105a62f30ad45a4adfc6660dfde1091"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad105a62f30ad45a4adfc6660dfde1091"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addFaceNeighborSubdomain</b> (<a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> p)</td></tr>
-<tr class="separator:ad105a62f30ad45a4adfc6660dfde1091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a629174f2268d421a1c52cdcd2f6ec700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae09c8a234cf04d1c1f7bb530b0cb0776"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae09c8a234cf04d1c1f7bb530b0cb0776"></a>
+std::set&lt; <a class="el" href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">rank_type</a> &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>faceNeighborSubdomains</b> () const </td></tr>
+<tr class="separator:ae09c8a234cf04d1c1f7bb530b0cb0776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f7dfbec4429fe65041abbe1ae5d51cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f7dfbec4429fe65041abbe1ae5d51cb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addFaceNeighborSubdomain</b> (<a class="el" href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">rank_type</a> p)</td></tr>
+<tr class="separator:a6f7dfbec4429fe65041abbe1ae5d51cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a42907164322ead3b8be2701a3683a9b1"></a>
@@ -668,7 +680,7 @@ template&lt;typename C, typename V, int T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This function checks if the local numbering of the mesh elements is anticlockwise oriented. For the time being, this function only applies to tetrahedra meshes </p>
+<p>Finds all the processors that may contain elements that neighbor my elements. This list is guaranteed to include all processors that border any of my elements, but may include additional ones as well. This method computes bounding boxes for the elements on each processor and checks for overlaps. This function checks if the local numbering of the mesh elements is anticlockwise oriented. For the time being, this function only applies to tetrahedra meshes </p>
 
 </div>
 </div>
@@ -838,26 +850,6 @@ template&lt;typename Shape , typename T , int Tag&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>An iterator pointing to the element immediately following the one that was deleted, or <code>end()</code> if no such element exists. </dd></dl>
 
 <p>References <a class="el" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements()</a>, and <a class="el" href="namespaceFeel.html#a12d0226a5e73e64f3b97bf9c723ee239">Feel::faces()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3932bc5bc367b87b1e9c5278ec177a05"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Shape , typename T , int Tag&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classFeel_1_1Mesh.html">Feel::Mesh</a>&lt; Shape, T, Tag &gt;::findNeighboringProcessors </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Finds all the processors that may contain elements that neighbor my elements. This list is guaranteed to include all processors that border any of my elements, but may include additional ones as well. This method computes bounding boxes for the elements on each processor and checks for overlaps. </p>
-
-<p>References <a class="el" href="classFeel_1_1Sphere.html#a89f02d9b1aca1b29fe8d281785ba6794">Feel::Sphere::center()</a>, <a class="el" href="classFeel_1_1Sphere.html#a7880c79d26fd44e1a17692e225f44f13">Feel::Sphere::intersects()</a>, <a class="el" href="classFeel_1_1Sphere.html#a0f81fca29cdd2d681f3dde94d4708e52">Feel::Sphere::radius()</a>, and <a class="el" href="classFeel_1_1Sphere.html#a194c1b70ca26df8c79137331abc29899">Feel::Sphere::setRadius()</a>.</p>
 
 </div>
 </div>
@@ -1640,7 +1632,7 @@ template&lt;typename Shape , typename T , int Tag&gt; </div>
 <p>update the mesh data structure before using it</p>
 <p>by default if the number of processors if &gt; 1, we partition the mesh. A different behaviour is controlled by setting properly <code>setComponents()</code>, <code>components()</code> </p>
 
-<p>References <a class="el" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements()</a>, <a class="el" href="namespaceFeel.html#ad8a9273a3537c11a78f1c84f79b96eaf">Feel::elementsRange()</a>, <a class="el" href="namespaceFeel.html#a12d0226a5e73e64f3b97bf9c723ee239">Feel::faces()</a>, <a class="el" href="namespaceFeel.html#ac5004dc4ae1bd485dac6f693e19e7647">Feel::hasElement()</a>, and <a class="el" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a>.</p>
+<p>References <a class="el" href="namespaceFeel.html#a4cd4ca07dcfdbe557d3fa45207df6e83">Feel::beginGhostElement()</a>, <a class="el" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements()</a>, <a class="el" href="namespaceFeel.html#ad8a9273a3537c11a78f1c84f79b96eaf">Feel::elementsRange()</a>, <a class="el" href="namespaceFeel.html#a21d2d4147633e1221c5d0147f8dd8aef">Feel::endGhostElement()</a>, <a class="el" href="namespaceFeel.html#a12d0226a5e73e64f3b97bf9c723ee239">Feel::faces()</a>, <a class="el" href="namespaceFeel.html#ac5004dc4ae1bd485dac6f693e19e7647">Feel::hasElement()</a>, and <a class="el" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,8 @@
 var NAVTREEINDEX26 =
 {
+"structFeel_1_1BFGSInvHessian.html#a72a9c001bffe634ab241922356a38eb7":[10,0,25,6],
+"structFeel_1_1BFGSInvHessian.html#a8136a1ddc1ab1b95685bff9bee7858c5":[10,0,25,8],
+"structFeel_1_1BFGSInvHessian.html#a81ef191fd80d4d4f4353a4ee5af076d8":[10,0,25,11],
 "structFeel_1_1BFGSInvHessian.html#a82494ad6654577f9bdf6d53b0e79df60":[10,0,25,4],
 "structFeel_1_1BFGSInvHessian.html#a86f71b754658e6470e91a89c4fee9eba":[10,0,25,10],
 "structFeel_1_1BFGSInvHessian.html#aae2f3f994c51567df3034597c3ec0f56":[10,0,25,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX26 =
 "structFeel_1_1problem_1_1value.html#a7b69de998913e01e1135fd417979bf2a":[10,0,175,0,15],
 "structFeel_1_1problem_1_1value.html#a8120db93f6b7eab5bff28e1bec0166a2":[10,0,175,0,11],
 "structFeel_1_1problem_1_1value.html#a9cad51dbbddb3069c11938e700b3b7f4":[10,0,175,0,14],
-"structFeel_1_1problem_1_1value.html#aa7efe0a3333584b543a5a2f57bf3e428":[10,0,175,0,5],
-"structFeel_1_1problem_1_1value.html#ace00808d3945c55b8a1105093b5897f1":[10,0,175,0,8],
-"structFeel_1_1problem_1_1value.html#ad6c445f335cf3fb25fba936175ec00a4":[10,0,175,0,10],
-"structFeel_1_1problem_1_1value.html#adf76cf77b915ef911d9e36b41bc9c69e":[10,0,175,0,0]
+"structFeel_1_1problem_1_1value.html#aa7efe0a3333584b543a5a2f57bf3e428":[10,0,175,0,5]
 };

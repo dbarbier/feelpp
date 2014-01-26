@@ -23,7 +23,6 @@ var searchData=
   ['finalized',['finalized',['../classFeel_1_1Application.html#a557a482f6bd88fb483cb9e6377229da0',1,'Feel::Application::finalized()'],['../classFeel_1_1Application.html#a557a482f6bd88fb483cb9e6377229da0',1,'Feel::Application::finalized()'],['../classFeel_1_1detail_1_1Environment.html#a61ceeed3c0ec07c6f4de819b3b73be60',1,'Feel::detail::Environment::finalized()']]],
   ['findfile',['findFile',['../classFeel_1_1detail_1_1Environment.html#aeb133b6d43b8ec8a48c502d67676256b',1,'Feel::detail::Environment']]],
   ['findnearestneighborinwnmu',['findNearestNeighborInWNmu',['../classFeel_1_1CRBTrilinear.html#a727744ab53264e159ce53d26712d2fdf',1,'Feel::CRBTrilinear']]],
-  ['findneighboringprocessors',['findNeighboringProcessors',['../classFeel_1_1Mesh.html#a3932bc5bc367b87b1e9c5278ec177a05',1,'Feel::Mesh']]],
   ['findpoint',['findPoint',['../classFeel_1_1FunctionSpace.html#a5060ec2c8df1a0d889a9694e7fe4d560',1,'Feel::FunctionSpace']]],
   ['firstcolentryonproc',['firstColEntryOnProc',['../classFeel_1_1GraphCSR.html#a48625895488cad635b94aa36f15213b0',1,'Feel::GraphCSR']]],
   ['firstdof',['firstDof',['../classFeel_1_1DataMap.html#a06a06ede045ba810b8258505b60f13b6',1,'Feel::DataMap::firstDof() const '],['../classFeel_1_1DataMap.html#a3dd7ca59c8123ccbab2a31cc32fd4388',1,'Feel::DataMap::firstDof(const size_type proc) const ']]],

@@ -71,19 +71,19 @@ var NAVTREEINDEX =
 "classFeel_1_1GmshHypercubeDomain.html#a35763ce5ba186169ce505ab9131dd606",
 "classFeel_1_1Laplacian.html#a24d29128d00882ca2915d4e24d31b16a",
 "classFeel_1_1MatrixShellSparse.html#a3fd4a81891c3ebf4f1d3633525ea40cb",
-"classFeel_1_1Mesh.html#ac98d07dd8f7b70e16ccb9a01abf56b9c",
-"classFeel_1_1MeshBase.html#a5ebf3f84e6015c17b3b07bdf4f951814",
-"classFeel_1_1OperatorLinearFree.html#ad1094a9dfcfb30ed1bbba47568a49384",
-"classFeel_1_1PointSet.html#a6556c156141f845ab66783506f709663",
-"classFeel_1_1Preconditioner.html#af374a1ce1f04d4cc18416ef24805788d",
-"classFeel_1_1SolverBase.html#aa217195aba240bf8e24e67e8c9e3f366",
-"classFeel_1_1SolverUMFPACK.html",
-"classFeel_1_1TensorisedBoundaryAdapted.html#adb7c56a1f97f24d9fdab995d5cf9c6af",
-"classFeel_1_1Vector.html#a8bb58529298dbdfa71aed1eaffb84872",
-"classFeel_1_1core__data.html#a58ed417ab634aabfadaf4f832cdd6da2a2d7e897d31be7eeff2d32e710c7ecf50",
-"classFeel_1_1problem.html#a7db820e43f2c7aa64fee22c69586fd29ab9fb28bb8c01cd6767f4c9ee25cb97bb",
-"structFeel_1_1BFGSInvHessian.html#a82494ad6654577f9bdf6d53b0e79df60",
-"structFeel_1_1problem_1_1value.html#ae09ff1a0ea97d7faceaae35b84585391"
+"classFeel_1_1Mesh.html#ac7f1a6d23288bd64e1ab660f820cf247",
+"classFeel_1_1MeshBase.html#a57854f52ac870eecf2460bc08b14fc48",
+"classFeel_1_1OperatorLinearFree.html#ac2565d8878c4e50b5e4651d45602b82a",
+"classFeel_1_1PointSet.html#a494a65b1dabd0d54070f64a06f483806",
+"classFeel_1_1Preconditioner.html#aeb3a3c22bccee5ccef4ff1566999041c",
+"classFeel_1_1SolverBase.html#a4a0ffd5f9d65e1e279fe88ad6a1e0e54",
+"classFeel_1_1SolverNonLinear.html#afb6cb009cc2735aa1ee74845a79468a4",
+"classFeel_1_1TensorisedBoundaryAdapted.html#ad61db683b0fb988912bdfb431b02ee0e",
+"classFeel_1_1Vector.html#a83d41ddedb49b1b0d66990ad6176305e",
+"classFeel_1_1core__data.html#a28b80eae2e0c149e54863b8ddea723ab",
+"classFeel_1_1problem.html#a7db820e43f2c7aa64fee22c69586fd29a669a42965db82b60feb95c5fd84c3c42",
+"structFeel_1_1BFGSInvHessian.html#a72a9c001bffe634ab241922356a38eb7",
+"structFeel_1_1problem_1_1value.html#ace00808d3945c55b8a1105093b5897f1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
