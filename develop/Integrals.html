@@ -148,7 +148,7 @@ It can be any element (line, surface, domain, and so on). </td></tr>
 <tr>
 <td><div class="fragment"><div class="line"><a class="code" href="namespaceFeel.html#a6d4deea03257c3f53b0e9df514a7bf00">boundaryfaces</a>(mesh) </div>
 </div><!-- fragment --></td><td>All elements that own a topological dimension one below the mesh. <br/>
-For example, if you mesh is a 2D one, <code>boundaryfaces(mesh)</code> will return all the lines (because of dimension <img class="formulaInl" alt="$2-1=1$" src="form_842.png"/>).<br/>
+For example, if you mesh is a 2D one, <code>boundaryfaces(mesh)</code> will return all the lines (because of dimension <img class="formulaInl" alt="$2-1=1$" src="form_611.png"/>).<br/>
 These elements which have one dimension less, are corresponding to the boundary faces. </td></tr>
 <tr>
 <td><div class="fragment"><div class="line"><a class="code" href="namespaceFeel.html#a9a80650ba21cfe9d2f4ababe410a0ed5">internalelements</a>(mesh) </div>
@@ -224,11 +224,11 @@ integrate</h2>
 </div><!-- fragment --><h2><a class="anchor" id="Integrals_Computing"></a>
 Computing my first Integrals</h2>
 <p>This part explains how to integrate on a mesh with <a href="http://www.feelpp.org">Feel++</a> (source <code>"doc/manual/tutorial/myintegrals.cpp"</code>).</p>
-<p>Let's consider the domain <img class="formulaInl" alt="$\Omega=[0,1]^d$" src="form_582.png"/> and associated meshes.<br/>
+<p>Let's consider the domain <img class="formulaInl" alt="$\Omega=[0,1]^d$" src="form_612.png"/> and associated meshes.<br/>
  Here, we want to integrate the following function <br/>
 </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} f(x,y,z) = x^2 + y^2 + z^2 \end{aligned} $" src="form_583.png"/></center><p><br/>
- on the whole domain <img class="formulaInl" alt="$\Omega$" src="form_210.png"/> and on part of the boundary <img class="formulaInl" alt="$\Omega$" src="form_210.png"/>.</p>
+<center> <img class="formulaInl" alt="$ \begin{aligned} f(x,y,z) = x^2 + y^2 + z^2 \end{aligned} $" src="form_613.png"/></center><p><br/>
+ on the whole domain <img class="formulaInl" alt="$\Omega$" src="form_213.png"/> and on part of the boundary <img class="formulaInl" alt="$\Omega$" src="form_213.png"/>.</p>
 <p>There is the appropriate code : </p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
 <div class="line">main( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv )</div>
@@ -293,9 +293,9 @@ project</h2>
 <div class="line">              _expr = constant( 300 ) );</div>
 </div><!-- fragment --><h2><a class="anchor" id="Mean"></a>
 mean</h2>
-<p>Let <img class="formulaInl" alt="$f$" src="form_217.png"/> a bounded function on domain <img class="formulaInl" alt="$\Omega$" src="form_210.png"/>. You can evaluate the mean value : <br/>
+<p>Let <img class="formulaInl" alt="$f$" src="form_220.png"/> a bounded function on domain <img class="formulaInl" alt="$\Omega$" src="form_213.png"/>. You can evaluate the mean value : <br/>
 </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} \bar{f}&amp;=\frac{1}{|\Omega|}\int_\Omega f\\ &amp;=\frac{1}{\int\limits_\Omega 1}\int_\Omega f. \end{aligned} $" src="form_584.png"/></center><p><br/>
+<center> <img class="formulaInl" alt="$ \begin{aligned} \bar{f}&amp;=\frac{1}{|\Omega|}\int_\Omega f\\ &amp;=\frac{1}{\int\limits_\Omega 1}\int_\Omega f. \end{aligned} $" src="form_614.png"/></center><p><br/>
 </p>
 <p><b>Interface :</b><br/>
  </p>
@@ -322,9 +322,9 @@ mean</h2>
 Norms</h1>
 <h2><a class="anchor" id="NormL2"></a>
 normL2</h2>
-<p>Let <img class="formulaInl" alt="$f \in L^2(\Omega)$" src="form_585.png"/> you can evaluate the L2 norm : <br/>
+<p>Let <img class="formulaInl" alt="$f \in L^2(\Omega)$" src="form_615.png"/> you can evaluate the L2 norm : <br/>
 </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} \parallel f\parallel_{L^2(\Omega)}=\sqrt{\int_\Omega |f|^2} \end{aligned} $" src="form_586.png"/></center><p><br/>
+<center> <img class="formulaInl" alt="$ \begin{aligned} \parallel f\parallel_{L^2(\Omega)}=\sqrt{\int_\Omega |f|^2} \end{aligned} $" src="form_616.png"/></center><p><br/>
 </p>
 <p><b>Interface :</b><br/>
  </p>
@@ -350,9 +350,9 @@ normL2</h2>
 <div class="line">                           _expr=( idv( p )-mean_p - p_exact ) );</div>
 </div><!-- fragment --><h2><a class="anchor" id="NormH1"></a>
 normH1</h2>
-<p>In the same idea, you can evaluate the H1 norm or semi norm, for any function <img class="formulaInl" alt="$f \in H^1(\Omega)$" src="form_587.png"/> : <br/>
+<p>In the same idea, you can evaluate the H1 norm or semi norm, for any function <img class="formulaInl" alt="$f \in H^1(\Omega)$" src="form_617.png"/> : <br/>
 </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} \parallel f \parallel_{H^1(\Omega)}&amp;=\sqrt{\int_\Omega |f|^2+|\nabla f|^2}\\ &amp;=\sqrt{\int_\Omega |f|^2+\nabla f*\nabla f^T}\\ |f|_{H^1(\Omega)}&amp;=\sqrt{\int_\Omega |\nabla f|^2} \end{aligned} $" src="form_588.png"/></center><p><br/>
+<center> <img class="formulaInl" alt="$ \begin{aligned} \parallel f \parallel_{H^1(\Omega)}&amp;=\sqrt{\int_\Omega |f|^2+|\nabla f|^2}\\ &amp;=\sqrt{\int_\Omega |f|^2+\nabla f*\nabla f^T}\\ |f|_{H^1(\Omega)}&amp;=\sqrt{\int_\Omega |\nabla f|^2} \end{aligned} $" src="form_618.png"/></center><p><br/>
 </p>
 <p><b>Interface :</b><br/>
  </p>
@@ -386,9 +386,9 @@ normH1</h2>
 <div class="line">                         _grad_expr=(gradv(u)-trans(gradg)) );</div>
 </div><!-- fragment --><h2><a class="anchor" id="normLinf"></a>
 normLinf</h2>
-<p>Let <img class="formulaInl" alt="$f$" src="form_217.png"/> a bounded function on domain <img class="formulaInl" alt="$\Omega$" src="form_210.png"/>. You can evaluate the infinity norm : <br/>
+<p>Let <img class="formulaInl" alt="$f$" src="form_220.png"/> a bounded function on domain <img class="formulaInl" alt="$\Omega$" src="form_213.png"/>. You can evaluate the infinity norm : <br/>
 </p>
-<center> <img class="formulaInl" alt="$ \parallel f \parallel_\infty=\sup_\Omega(|f|) $" src="form_589.png"/></center><p><br/>
+<center> <img class="formulaInl" alt="$ \parallel f \parallel_\infty=\sup_\Omega(|f|) $" src="form_619.png"/></center><p><br/>
 </p>
 <p><b>Interface :</b><br/>
  : </p>

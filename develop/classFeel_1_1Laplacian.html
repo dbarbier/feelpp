@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('classFeel_1_1Laplacian.html','');});
 class Feel::Laplacian&lt; Dim, Order, Cont, Entity, FType &gt;</h3>
 
 <p><a class="el" href="classFeel_1_1Laplacian.html">Laplacian</a> Solver using discontinous approximation spaces</p>
-<p>solve <img class="formulaInl" alt="$ -\Delta u = f$" src="form_209.png"/> on <img class="formulaInl" alt="$\Omega$" src="form_210.png"/> and <img class="formulaInl" alt="$u= g$" src="form_211.png"/> on <img class="formulaInl" alt="$\Gamma$" src="form_212.png"/> </p>
+<p>solve <img class="formulaInl" alt="$ -\Delta u = f$" src="form_212.png"/> on <img class="formulaInl" alt="$\Omega$" src="form_213.png"/> and <img class="formulaInl" alt="$u= g$" src="form_214.png"/> on <img class="formulaInl" alt="$\Gamma$" src="form_215.png"/> </p>
 </div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for Feel::Laplacian&lt; Dim, Order, Cont, Entity, FType &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -416,7 +416,7 @@ template&lt;int Dim, int Order, typename Cont , template&lt; uint16_type, uint16
 <div class="line">element_type u( Xh, <span class="stringliteral">&quot;u&quot;</span> );</div>
 <div class="line">element_type v( Xh, <span class="stringliteral">&quot;v&quot;</span> );</div>
 <div class="line">element_type gproj( Xh, <span class="stringliteral">&quot;v&quot;</span> );</div>
-</div><!-- fragment --><p>define <img class="formulaInl" alt="$g$" src="form_114.png"/> the expression of the exact solution and <img class="formulaInl" alt="$f$" src="form_217.png"/> the expression of the right hand side such that <img class="formulaInl" alt="$g$" src="form_114.png"/> is the exact solution</p>
+</div><!-- fragment --><p>define <img class="formulaInl" alt="$g$" src="form_114.png"/> the expression of the exact solution and <img class="formulaInl" alt="$f$" src="form_220.png"/> the expression of the right hand side such that <img class="formulaInl" alt="$g$" src="form_114.png"/> is the exact solution</p>
 <div class="fragment"><div class="line"> */</div>
 <div class="line"><span class="comment">//# marker1 #</span></div>
 <div class="line"><span class="keywordtype">bool</span> weak_dirichlet = this-&gt;<a class="code" href="classFeel_1_1Application.html#a6d636004b73027e9dc226d7ec9e9d89c">vm</a>()[<span class="stringliteral">&quot;weakdir&quot;</span>].template as&lt;int&gt;();</div>
@@ -481,9 +481,9 @@ template&lt;int Dim, int Order, typename Cont , template&lt; uint16_type, uint16
 <div class="line">a = <a class="code" href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">integrate</a>( _range=<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>( mesh ), _expr=nu*gradt( u )*trans( grad( v ) ) );</div>
 </div><!-- fragment --><p>weak dirichlet conditions treatment for the boundaries marked 1 and 3</p>
 <ol type="1">
-<li>assemble <img class="formulaInl" alt="$\int_{\partial \Omega} -\nabla u \cdot \mathbf{n} v$" src="form_219.png"/></li>
-<li>assemble <img class="formulaInl" alt="$\int_{\partial \Omega} -\nabla v \cdot \mathbf{n} u$" src="form_220.png"/></li>
-<li>assemble <img class="formulaInl" alt="$\int_{\partial \Omega} \frac{\gamma}{h} u v$" src="form_221.png"/></li>
+<li>assemble <img class="formulaInl" alt="$\int_{\partial \Omega} -\nabla u \cdot \mathbf{n} v$" src="form_222.png"/></li>
+<li>assemble <img class="formulaInl" alt="$\int_{\partial \Omega} -\nabla v \cdot \mathbf{n} u$" src="form_223.png"/></li>
+<li>assemble <img class="formulaInl" alt="$\int_{\partial \Omega} \frac{\gamma}{h} u v$" src="form_224.png"/></li>
 </ol>
 <div class="fragment"><div class="line"> */</div>
 <div class="line"><span class="comment">//# marker10 #</span></div>

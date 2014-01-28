@@ -122,12 +122,12 @@ $(document).ready(function(){initNavTree('LaplacianParabolic.html','');});
 Description</h1>
 <p>This section is about another example easy to learn and understand : the parabolic equation. The aim is to solve equations like : </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\begin{equation} \left\{ \begin{aligned} \dfrac{\partial u}{\partial t} - nu*\Delta u = f &amp; \text{on}\; \Omega \;, \ u &amp; = 0 &amp; \text{on}\;\partial\Omega \;,\ \end{aligned} \right. \end{equation}" src="form_434.png"/>
+<img class="formulaDsp" alt="\begin{equation} \left\{ \begin{aligned} \dfrac{\partial u}{\partial t} - nu*\Delta u = f &amp; \text{on}\; \Omega \;, \ u &amp; = 0 &amp; \text{on}\;\partial\Omega \;,\ \end{aligned} \right. \end{equation}" src="form_440.png"/>
 </p>
-<p>where <img class="formulaInl" alt="$u\in\Omega$" src="form_422.png"/> is the unknown "trial" function and <img class="formulaInl" alt="$\Omega$" src="form_210.png"/> the domain.</p>
+<p>where <img class="formulaInl" alt="$u\in\Omega$" src="form_428.png"/> is the unknown "trial" function and <img class="formulaInl" alt="$\Omega$" src="form_213.png"/> the domain.</p>
 <p>However this LaplacianParabolic application can also be used in the stationnary form, that is to say, solve the equation : </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\begin{equation} \left\{ \begin{aligned} - nu*\Delta u = f &amp; \text{on}\; \Omega \;, \ u &amp; = 0 &amp; \text{on}\;\partial\Omega \;,\ \end{aligned} \right. \end{equation}" src="form_435.png"/>
+<img class="formulaDsp" alt="\begin{equation} \left\{ \begin{aligned} - nu*\Delta u = f &amp; \text{on}\; \Omega \;, \ u &amp; = 0 &amp; \text{on}\;\partial\Omega \;,\ \end{aligned} \right. \end{equation}" src="form_441.png"/>
 </p>
 <h2><a class="anchor" id="Discretization"></a>
 Time Discretization</h2>
@@ -229,12 +229,12 @@ Error class</h2>
 Results</h1>
 <p>To verify and validate the implementation, we made convergence study in stationnary and in temporal modes. The exact solution in the input is : </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\begin{equation} \sin(\Pi(x-1)) \sin(\Pi\dfrac{y-0.05}{0.1})e^{-t} \end{equation}" src="form_436.png"/>
+<img class="formulaDsp" alt="\begin{equation} \sin(\Pi(x-1)) \sin(\Pi\dfrac{y-0.05}{0.1})e^{-t} \end{equation}" src="form_442.png"/>
 </p>
 <p> (in the border, it is indeed equal to 0).</p>
 <p>For the time error, we implemented this formula :</p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\begin{equation} E_{r} = \left( \Delta t \: \sum\limits_{t=t_i}^{t_f} \| u - u^n \|_{L^2(\Omega^{tn})}^2 \right)^{\frac{1}{2}} \end{equation}" src="form_437.png"/>
+<img class="formulaDsp" alt="\begin{equation} E_{r} = \left( \Delta t \: \sum\limits_{t=t_i}^{t_f} \| u - u^n \|_{L^2(\Omega^{tn})}^2 \right)^{\frac{1}{2}} \end{equation}" src="form_443.png"/>
 </p>
 <p>Here we go with the graphs : </p>
 <h2><a class="anchor" id="Stationnary"></a>

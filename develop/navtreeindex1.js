@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"NumericalMethods.html":[6,0],
 "Projection.html":[5,5],
 "Projection.html#NodalProjection":[5,5,0],
 "Projection.html#ProjectionExpression":[5,5,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "classFeel_1_1AboutPerson.html#a9340ef525ac4f0af07180f09837eb85f":[10,0,7,0],
 "classFeel_1_1AboutPerson.html#aa1ec04c670c9471dc90194081cb2881f":[10,0,7,2],
 "classFeel_1_1AboutPerson.html#acf2e4f16edf49149bb49ef03f3bef1b7":[10,0,7,6],
-"classFeel_1_1AboutPerson.html#ad637a250766c04177018faf3a748137d":[10,0,7,1],
-"classFeel_1_1AboutPerson.html#af783d6e4afc0386a2b6973aef26f85f5":[10,0,7,5]
+"classFeel_1_1AboutPerson.html#ad637a250766c04177018faf3a748137d":[10,0,7,1]
 };

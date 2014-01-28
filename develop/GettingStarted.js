@@ -2,6 +2,7 @@ var GettingStarted =
 [
     [ "Crash Course", "CrashCourse.html", [
       [ "Requirements", "CrashCourse.html#Requirements", null ],
+      [ "Building <a href= http://www.feelpp.org>Feel++</a> from source on *nix", "CrashCourse.html#Building", null ],
       [ "Compiling", "CrashCourse.html#Compiling", null ],
       [ "Feel++ Hello World", "CrashCourse.html#Hello", [
         [ "About the math", "CrashCourse.html#Math", null ],
@@ -9,25 +10,25 @@ var GettingStarted =
       ] ],
       [ "First execution & vizualisation", "CrashCourse.html#First", null ]
     ] ],
-    [ "Building Feel++", "Building.html", [
-      [ "Getting the source via an archive", "Building.html#Archive", null ],
-      [ "Getting the source via Git", "Building.html#Git", null ],
-      [ "Unix : dependencies", "Building.html#Unis", null ],
-      [ "Feel++ on Debian and Ubuntu", "Building.html#DebianUbuntu", [
-        [ "Debian", "Building.html#Debian", null ],
-        [ "Ubuntu", "Building.html#Ubuntu", null ]
+    [ "Building Feel++", "BuildingP.html", [
+      [ "Getting the source via an archive", "BuildingP.html#Archive", null ],
+      [ "Getting the source via Git", "BuildingP.html#Git", null ],
+      [ "Unix : dependencies", "BuildingP.html#Unis", null ],
+      [ "Feel++ on Debian and Ubuntu", "BuildingP.html#DebianUbuntu", [
+        [ "Debian", "BuildingP.html#Debian", null ],
+        [ "Ubuntu", "BuildingP.html#Ubuntu", null ]
       ] ],
-      [ "Feel++ on Mac OS X", "Building.html#Mac", [
-        [ "Compilers", "Building.html#Compilers", null ],
-        [ "Package management systems", "Building.html#PMS", null ],
-        [ "Homebrew", "Building.html#Homebrew", null ],
-        [ "Homebrew and Feel++", "Building.html#HomebrewFeel", null ],
-        [ "MacPorts", "Building.html#MacPorts", null ],
-        [ "MacPorts and Feel++", "Building.html#MacPortsFeel", null ],
-        [ "Missing ports", "Building.html#Missing", null ],
-        [ "MacPorts and XCode 5", "Building.html#MacPortsXC5", null ]
+      [ "Feel++ on Mac OS X", "BuildingP.html#Mac", [
+        [ "Compilers", "BuildingP.html#Compilers", null ],
+        [ "Package management systems", "BuildingP.html#PMS", null ],
+        [ "Homebrew", "BuildingP.html#Homebrew", null ],
+        [ "Homebrew and Feel++", "BuildingP.html#HomebrewFeel", null ],
+        [ "MacPorts", "BuildingP.html#MacPorts", null ],
+        [ "MacPorts and Feel++", "BuildingP.html#MacPortsFeel", null ],
+        [ "Missing ports", "BuildingP.html#Missing", null ],
+        [ "MacPorts and XCode 5", "BuildingP.html#MacPortsXC5", null ]
       ] ],
-      [ "Compiling", "Building.html#Compiling", null ]
+      [ "Compiling", "BuildingP.html#Compiling", null ]
     ] ],
     [ "List of CMake Options", "DocCmakeLists.html", null ],
     [ "First Feel++ Application", "FirstApp.html", [

@@ -83,7 +83,7 @@ var searchData=
   ['buildboundarydofmap',['buildBoundaryDofMap',['../classFeel_1_1DofTable.html#ac427f4b6daaaab6c5adc348aea8d9e12',1,'Feel::DofTable']]],
   ['builddofmap',['buildDofMap',['../classFeel_1_1DofTable.html#a03400321ff5ef14d9bdc12b516480304',1,'Feel::DofTable']]],
   ['buildid',['buildId',['../classFeel_1_1Info.html#a47b2bd06ef6dfbe6e5356003255b4494',1,'Feel::Info']]],
-  ['building_20feel_2b_2b',['Building Feel++',['../Building.html',1,'GettingStarted']]],
+  ['building_20feel_2b_2b',['Building Feel++',['../BuildingP.html',1,'GettingStarted']]],
   ['buildlocallydiscontinuousdofmap',['buildLocallyDiscontinuousDofMap',['../classFeel_1_1DofTable.html#af5dd0024f372b60b8dd1cbf5c79d65d7',1,'Feel::DofTable']]],
   ['buildperiodicdofmap',['buildPeriodicDofMap',['../classFeel_1_1DofTable.html#abce02915e52f7dfb8c60552a3fa42857',1,'Feel::DofTable']]],
   ['bibliographic_20references',['Bibliographic References',['../citelist.html',1,'']]],

@@ -104,6 +104,7 @@ $(document).ready(function(){initNavTree('CrashCourse.html','');});
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
 <ul><li class="level1"><a href="#Requirements">Requirements</a></li>
+<li class="level1"><a href="#Building">Building <a href= http://www.feelpp.org>Feel++</a> from source on *nix</a></li>
 <li class="level1"><a href="#Compiling">Compiling</a></li>
 <li class="level1"><a href="#Hello">Feel++ Hello World</a><ul><li class="level2"><a href="#Math">About the math</a></li>
 <li class="level2"><a href="#Code">About the code</a></li>
@@ -119,7 +120,7 @@ $(document).ready(function(){initNavTree('CrashCourse.html','');});
 Requirements</h1>
 <p>Before installing <a href="http://www.feelpp.org">Feel++</a>, you need to get this required packages : </p>
 <ul>
-<li>g++ (4.6, 4.7 or higher) OR Clang (3.2 or higher) </li>
+<li>g++ (4.7 or higher) OR Clang (3.3 or higher) </li>
 <li>MPI : openmpi (preferred) or mpich </li>
 <li>Boost (1.39 or higher) </li>
 <li>Petsc (2.3.3 or higher) </li>
@@ -128,7 +129,7 @@ Requirements</h1>
 <li>Libxml2 It is assumed that all this packages are properly installed.</li>
 </ul>
 <h1><a class="anchor" id="Building"></a>
-Building Feel++</h1>
+Building &lt;a href= http://www.feelpp.org&gt;Feel++&lt;/a&gt; from source on *nix</h1>
 <p><a href="http://www.feelpp.org">Feel++</a> is distributed as a tarball once in a while. The tarballs are available at <br/>
  </p>
 <center><a href="http://code.google.com/p/feelpp/downloads/list"></a><a href="http://code.google.com/p/feelpp/downloads/list">http://code.google.com/p/feelpp/downloads/list</a></center><p>Download the latest tarball. Then follow the steps and replace <code>x, y, z </code>with the corresponding numbers</p>
@@ -165,25 +166,25 @@ Feel++ Hello World</h1>
 About the math</h2>
 <p>We want to solve the simplest problem:<br/>
  </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} - \Delta u &amp;= 1,\\ u_{|\partial \Omega} &amp;= 0, \end{aligned} $" src="form_486.png"/></center><p><br/>
- where <img class="formulaInl" alt="$\Omega \in \mathbb{R}^n, n\in{1,2,3}$" src="form_487.png"/>.<br/>
+<center> <img class="formulaInl" alt="$ \begin{aligned} - \Delta u &amp;= 1,\\ u_{|\partial \Omega} &amp;= 0, \end{aligned} $" src="form_515.png"/></center><p><br/>
+ where <img class="formulaInl" alt="$\Omega \in \mathbb{R}^n, n\in{1,2,3}$" src="form_516.png"/>.<br/>
 </p>
 <p>That problem written in variational form is: <br/>
-looks for <img class="formulaInl" alt="$v\in H^1\left( \Omega \right)$" src="form_488.png"/><br/>
+looks for <img class="formulaInl" alt="$v\in H^1\left( \Omega \right)$" src="form_517.png"/><br/>
  </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} a\left( u,v \right)&amp;=l\left( v \right)\\ \forall v &amp;\in H^1\left( \Omega \right). \end{aligned} $" src="form_489.png"/></center><p><br/>
+<center> <img class="formulaInl" alt="$ \begin{aligned} a\left( u,v \right)&amp;=l\left( v \right)\\ \forall v &amp;\in H^1\left( \Omega \right). \end{aligned} $" src="form_518.png"/></center><p><br/>
  with: <br/>
 </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} a\left( u,v \right)&amp;=\int_{\Omega} \nabla u \cdot \nabla v ,\\ l\left( v \right) &amp;= \int_{\Omega} v . \end{aligned} $" src="form_490.png"/></center><p><br/>
+<center> <img class="formulaInl" alt="$ \begin{aligned} a\left( u,v \right)&amp;=\int_{\Omega} \nabla u \cdot \nabla v ,\\ l\left( v \right) &amp;= \int_{\Omega} v . \end{aligned} $" src="form_519.png"/></center><p><br/>
 </p>
 <p>The aim of <a href="http://www.feelpp.org">Feel++</a> is to provide the simplest way to write the $a$ and $f$ forms.</p>
-<p>From a discrete point of view, we introduce <img class="formulaInl" alt="$V_h\subset H^1\left( \Omega \right)$" src="form_491.png"/> such that: <br/>
+<p>From a discrete point of view, we introduce <img class="formulaInl" alt="$V_h\subset H^1\left( \Omega \right)$" src="form_520.png"/> such that: <br/>
 </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} V_h = \left\{ v \in C^0\left( \Omega \right), \forall K\in \mathcal{T}_h, \right.v\left|_K \in P_1\left( K \right) \right\}, \end{aligned} $" src="form_492.png"/></center><p><br/>
- where <img class="formulaInl" alt="$\mathcal{T}_h$" src="form_493.png"/> is the set of element <img class="formulaInl" alt="$K$" src="form_359.png"/> forming the mesh of <img class="formulaInl" alt="$\Omega$" src="form_210.png"/>. <br/>
- We now look for <img class="formulaInl" alt="$u_h \in V_h$" src="form_494.png"/> such that: <br/>
+<center> <img class="formulaInl" alt="$ \begin{aligned} V_h = \left\{ v \in C^0\left( \Omega \right), \forall K\in \mathcal{T}_h, \right.v\left|_K \in P_1\left( K \right) \right\}, \end{aligned} $" src="form_521.png"/></center><p><br/>
+ where <img class="formulaInl" alt="$\mathcal{T}_h$" src="form_522.png"/> is the set of element <img class="formulaInl" alt="$K$" src="form_365.png"/> forming the mesh of <img class="formulaInl" alt="$\Omega$" src="form_213.png"/>. <br/>
+ We now look for <img class="formulaInl" alt="$u_h \in V_h$" src="form_523.png"/> such that: <br/>
 </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} \forall v_h\in V_h, a\left( u_h,v_h \right)=l\left( v_h \right). \end{aligned} $" src="form_495.png"/></center><p><br/>
+<center> <img class="formulaInl" alt="$ \begin{aligned} \forall v_h\in V_h, a\left( u_h,v_h \right)=l\left( v_h \right). \end{aligned} $" src="form_524.png"/></center><p><br/>
 </p>
 <h2><a class="anchor" id="Code"></a>
 About the code</h2>

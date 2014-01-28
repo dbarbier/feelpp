@@ -585,14 +585,14 @@ $(document).ready(function(){initNavTree('crbscm_8hpp_source.html','');});
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="preprocessor"></span>    LOG( INFO )&lt;&lt;<span class="stringliteral">&quot;eigenvalue ( min ) for mu_ref : &quot;</span>&lt;&lt;eigen_value;</div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="preprocessor">#if 0</span></div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span>( option(_name=<span class="stringliteral">&quot;crb.scm.check-eigenvector&quot;</span>).<span class="keyword">template</span> as&lt;bool&gt;() )</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="keywordflow">if</span>( option(_name=<span class="stringliteral">&quot;crb.scm.check-eigenvector&quot;</span>).<span class="keyword">template</span> as&lt;bool&gt;() )</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    {</div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;        <span class="keyword">auto</span> eigen_vector = modes.begin()-&gt;second.template get&lt;2&gt;();</div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;        <a class="code" href="classFeel_1_1CRBSCM.html#a81cf49d4c92e18f964bc9f671a2817e2">checkEigenVectorEigenValue</a>( sym, inner_prod, eigen_vector, eigen_value );</div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    }</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="preprocessor"></span>    <span class="comment">//store the eigen value in M_C_eigenvalues</span></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <span class="comment">//store the eigen value in M_C_eigenvalues</span></div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    M_C_eigenvalues[0] = modes.begin()-&gt;second.template get&lt;0&gt;();</div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;</div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    <a class="code" href="classFeel_1_1CRBSCM.html#a12103f88c6c21a574bbc048d1cbc23d0">saveDB</a>();</div>

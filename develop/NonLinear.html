@@ -186,22 +186,22 @@ Solving Nonlinear Equations</h1>
 <div class="line">  backend_ptrtype M_backend;</div>
 <div class="line">};</div>
 <div class="line">} <span class="comment">// namespace Feel</span></div>
-</div><!-- fragment --><p>The function <code>updateJacobian</code> and <code>updateResidual</code> implement the assmebly of the matrix <img class="formulaInl" alt="$J$" src="form_697.png"/> (jacobian matrix) and the vector <img class="formulaInl" alt="$R$" src="form_835.png"/> (residual vector) respectively.</p>
+</div><!-- fragment --><p>The function <code>updateJacobian</code> and <code>updateResidual</code> implement the assmebly of the matrix <img class="formulaInl" alt="$J$" src="form_727.png"/> (jacobian matrix) and the vector <img class="formulaInl" alt="$R$" src="form_864.png"/> (residual vector) respectively.</p>
 <h2><a class="anchor" id="Solving_First"></a>
 A first nonlinear problem</h2>
-<p>As a simple example, let <img class="formulaInl" alt="$\Omega $" src="form_836.png"/> be a subset of <img class="formulaInl" alt="$\mathbb{R}^d, d=1,2,3$" src="form_837.png"/>, (<em>i.e</em>. <img class="formulaInl" alt="$\Omega=[-1,1]^d$" src="form_838.png"/>) with boundary <img class="formulaInl" alt="$\partial \Omega$" src="form_411.png"/>. Consider now the following equation and boundary condition <br/>
+<p>As a simple example, let <img class="formulaInl" alt="$\Omega $" src="form_865.png"/> be a subset of <img class="formulaInl" alt="$\mathbb{R}^d, d=1,2,3$" src="form_866.png"/>, (<em>i.e</em>. <img class="formulaInl" alt="$\Omega=[-1,1]^d$" src="form_867.png"/>) with boundary <img class="formulaInl" alt="$\partial \Omega$" src="form_417.png"/>. Consider now the following equation and boundary condition <br/>
 </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} -\Delta u + u^\lambda = f,\quad u = 0 \text{ on } \partial \Omega. \end{aligned} $" src="form_839.png"/></center><p><br/>
+<center> <img class="formulaInl" alt="$ \begin{aligned} -\Delta u + u^\lambda = f,\quad u = 0 \text{ on } \partial \Omega. \end{aligned} $" src="form_868.png"/></center><p><br/>
 </p>
-<p>where <img class="formulaInl" alt="$\lambda \in \mathbb{R_+}$" src="form_840.png"/> is a given parameter and <img class="formulaInl" alt="$f=1$" src="form_433.png"/>.</p>
+<p>where <img class="formulaInl" alt="$\lambda \in \mathbb{R_+}$" src="form_869.png"/> is a given parameter and <img class="formulaInl" alt="$f=1$" src="form_439.png"/>.</p>
 <dl class="section note"><dt>Note</dt><dd>To be described in this section. For now see <code>"doc/manual/nonlinear/nonlinearpow.cpp"</code> for an implementation of this problem.</dd></dl>
 <h2><a class="anchor" id="Solving_Simplified"></a>
 Simplified combustion problem: Bratu</h2>
-<p>As a simple example, let <img class="formulaInl" alt="$\Omega$" src="form_210.png"/> be a subset of <img class="formulaInl" alt="$\mathbb{R}^d, d=1,2,3$" src="form_837.png"/>,(<em>i.e</em>. <img class="formulaInl" alt="$\Omega=[-1,1]^d$" src="form_838.png"/>) with boundary <img class="formulaInl" alt="$\partial\Omega$" src="form_284.png"/>. Consider now the following equation and boundary condition <br/>
+<p>As a simple example, let <img class="formulaInl" alt="$\Omega$" src="form_213.png"/> be a subset of <img class="formulaInl" alt="$\mathbb{R}^d, d=1,2,3$" src="form_866.png"/>,(<em>i.e</em>. <img class="formulaInl" alt="$\Omega=[-1,1]^d$" src="form_867.png"/>) with boundary <img class="formulaInl" alt="$\partial\Omega$" src="form_290.png"/>. Consider now the following equation and boundary condition <br/>
 </p>
-<center> <img class="formulaInl" alt="$ \begin{aligned} -\Delta u + \lambda e^u = f,\quad u = 0 \text{ on } \partial \Omega \end{aligned} $" src="form_841.png"/></center><p><br/>
+<center> <img class="formulaInl" alt="$ \begin{aligned} -\Delta u + \lambda e^u = f,\quad u = 0 \text{ on } \partial \Omega \end{aligned} $" src="form_870.png"/></center><p><br/>
 </p>
-<p>where <img class="formulaInl" alt="$\lambda$" src="form_286.png"/> is a given parameter. This is usually called the Bratu problem and appears in the simplification of nonlinear diffusion process for example in the field of combustion.</p>
+<p>where <img class="formulaInl" alt="$\lambda$" src="form_292.png"/> is a given parameter. This is usually called the Bratu problem and appears in the simplification of nonlinear diffusion process for example in the field of combustion.</p>
 <dl class="section note"><dt>Note</dt><dd>To be described in this section. For now see <code>"doc/manual/nonlinear/bratu.cpp"</code> for an implementation of this problem. </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

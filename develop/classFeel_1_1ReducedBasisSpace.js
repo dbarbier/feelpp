@@ -66,6 +66,8 @@ var classFeel_1_1ReducedBasisSpace =
     [ "primalRB", "classFeel_1_1ReducedBasisSpace.html#a5b4bd59cd6175643df7b167c595cbc85", null ],
     [ "primalRB", "classFeel_1_1ReducedBasisSpace.html#a648b913b5c156f4041132e9162c855d1", null ],
     [ "setBasis", "classFeel_1_1ReducedBasisSpace.html#ad46dec5603004cab21965a8038de1e71", null ],
+    [ "setDualBasis", "classFeel_1_1ReducedBasisSpace.html#a610319e411e6cf860b7d09148ef2625c", null ],
+    [ "setPrimalBasis", "classFeel_1_1ReducedBasisSpace.html#afb16559dcf215bc86e8ce0565043c5aa", null ],
     [ "size", "classFeel_1_1ReducedBasisSpace.html#a96669ba222abaa041679663a3cbcd8a9", null ],
     [ "visualize", "classFeel_1_1ReducedBasisSpace.html#ac79c5de8081a8d095ff174c2b93e3d8c", null ]
 ];
