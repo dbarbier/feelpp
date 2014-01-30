@@ -18,6 +18,7 @@ var searchData=
   ['ndofstart',['nDofStart',['../classFeel_1_1FunctionSpace.html#a8b5c48433db6b1c787656fc06c1dc5c0',1,'Feel::FunctionSpace']]],
   ['nedelec',['Nedelec',['../classFeel_1_1fem_1_1Nedelec.html',1,'Feel::fem']]],
   ['nedelec_2ehpp',['nedelec.hpp',['../nedelec_8hpp.html',1,'']]],
+  ['nedeleckind',['NedelecKind',['../namespaceFeel.html#a1fdfc8aada14afdb1914ce5719067a6b',1,'Feel']]],
   ['nedges',['nEdges',['../classFeel_1_1GeoEntity.html#a82a1c4a44542436984a0215c0b5666b6',1,'Feel::GeoEntity']]],
   ['neighbor',['neighbor',['../classFeel_1_1GeoND.html#ae797b300e4bdbe47087c6d2768b2629c',1,'Feel::GeoND']]],
   ['neighborpartitionids',['neighborPartitionIds',['../classFeel_1_1GeoEntity.html#a58072c11ca01cddcd3d4254bab467f03',1,'Feel::GeoEntity::neighborPartitionIds() const '],['../classFeel_1_1GeoEntity.html#ab1a06672b210695bee7e4b895d57deb8',1,'Feel::GeoEntity::neighborPartitionIds()']]],

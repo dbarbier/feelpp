@@ -352,69 +352,70 @@ $(document).ready(function(){initNavTree('mesh2d_8hpp_source.html','');});
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;</div>
 <div class="line"><a name="l00340"></a><span class="lineno"><a class="line" href="classFeel_1_1Mesh2D.html#a25780fd3f8809a4391dbf322e732d7c8">  340</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFeel_1_1Mesh2D.html#a25780fd3f8809a4391dbf322e732d7c8">updateEntitiesCoDimensionOnePermutation</a>()</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        {</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            <a class="code" href="classFeel_1_1Mesh2D.html#a25780fd3f8809a4391dbf322e732d7c8">updateEntitiesCoDimensionOnePermutation</a>( mpl::bool_&lt;Shape::nDim==Shape::nRealDim&gt;() );</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        }</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <a class="code" href="classFeel_1_1Mesh2D.html#a25780fd3f8809a4391dbf322e732d7c8">updateEntitiesCoDimensionOnePermutation</a>( mpl::bool_&lt;false&gt; )</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        {}</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFeel_1_1Mesh2D.html#a25780fd3f8809a4391dbf322e732d7c8">updateEntitiesCoDimensionOnePermutation</a>( mpl::bool_&lt;true&gt; )</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        {</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            <span class="keywordflow">for</span> ( <span class="keyword">typename</span> super_elements::element_iterator elt = this-&gt;beginElement();</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                  elt != this-&gt;endElement(); ++elt )</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            {</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; element_type::numEdges; j++ )</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                {</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                    <span class="keywordflow">if</span> ( elt-&gt;face( j ).isConnectedTo1() &amp;&amp;</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                         elt-&gt;face( j ).ad_second() == elt-&gt;id() )</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                    {</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                        this-&gt;<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>().modify( elt,</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                                                 Feel::detail::UpdateEdgePermutation&lt;edge_permutation_type&gt;( elt-&gt;face( j ).pos_second(),</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                                                                                                       edge_permutation_type( edge_permutation_type::REVERSE_PERMUTATION ) ) );</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                    }</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                }</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            }</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        }</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            <span class="comment">//updateEntitiesCoDimensionOnePermutation( mpl::bool_&lt;Shape::nDim==Shape::nRealDim&gt;() );</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            <a class="code" href="classFeel_1_1Mesh2D.html#a25780fd3f8809a4391dbf322e732d7c8">updateEntitiesCoDimensionOnePermutation</a>( mpl::bool_&lt;true&gt;() );</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        }</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <a class="code" href="classFeel_1_1Mesh2D.html#a25780fd3f8809a4391dbf322e732d7c8">updateEntitiesCoDimensionOnePermutation</a>( mpl::bool_&lt;false&gt; )</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        {}</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFeel_1_1Mesh2D.html#a25780fd3f8809a4391dbf322e732d7c8">updateEntitiesCoDimensionOnePermutation</a>( mpl::bool_&lt;true&gt; )</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        {</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            <span class="keywordflow">for</span> ( <span class="keyword">typename</span> super_elements::element_iterator elt = this-&gt;beginElement();</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                  elt != this-&gt;endElement(); ++elt )</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            {</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; element_type::numEdges; j++ )</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                    <span class="keywordflow">if</span> ( elt-&gt;face( j ).isConnectedTo1() &amp;&amp;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                         elt-&gt;face( j ).ad_second() == elt-&gt;id() )</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                    {</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                        this-&gt;<a class="code" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements</a>().modify( elt,</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                                                 Feel::detail::UpdateEdgePermutation&lt;edge_permutation_type&gt;( elt-&gt;face( j ).pos_second(),</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                                                                                                       edge_permutation_type( edge_permutation_type::REVERSE_PERMUTATION ) ) );</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                    }</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                }</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            }</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        }</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;</div>
-<div class="line"><a name="l00371"></a><span class="lineno"><a class="line" href="classFeel_1_1Mesh2D.html#a634eef66fde7f6ef2fc6b9fc037632d4">  371</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFeel_1_1Mesh2D.html#a634eef66fde7f6ef2fc6b9fc037632d4">updateEntitiesCoDimensionTwo</a>()</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        {</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            <span class="comment">// no-op</span></div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        }</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
+<div class="line"><a name="l00372"></a><span class="lineno"><a class="line" href="classFeel_1_1Mesh2D.html#a634eef66fde7f6ef2fc6b9fc037632d4">  372</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFeel_1_1Mesh2D.html#a634eef66fde7f6ef2fc6b9fc037632d4">updateEntitiesCoDimensionTwo</a>()</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        {</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            <span class="comment">// no-op</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        }</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>boost::serialization::access;</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Archive&gt;</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keywordtype">void</span> serialize( Archive &amp; ar, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> version )</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        {</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            ar &amp; boost::serialization::base_object&lt;super&gt;( *this );</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;Serializing points\n&quot;</span>;</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            std::string str;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            str = <span class="stringliteral">&quot;points&quot;</span>;</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            ar &amp; str;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;            ar &amp; boost::serialization::base_object&lt;super_points&gt;( *this );</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="preprocessor">#if 1</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="preprocessor"></span>            str = <span class="stringliteral">&quot;faces&quot;</span>;</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            ar &amp; str;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;Serializing faces\n&quot;</span>;</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            ar &amp; boost::serialization::base_object&lt;super_faces&gt;( *this );</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="preprocessor"></span>            str = <span class="stringliteral">&quot;elements&quot;</span>;</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            ar &amp; str;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;Serializing elements\n&quot;</span>;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            ar &amp; boost::serialization::base_object&lt;super_elements&gt;( *this );</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        }</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>boost::serialization::access;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Archive&gt;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordtype">void</span> serialize( Archive &amp; ar, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> version )</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        {</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            ar &amp; boost::serialization::base_object&lt;super&gt;( *this );</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;Serializing points\n&quot;</span>;</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            std::string str;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            str = <span class="stringliteral">&quot;points&quot;</span>;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;            ar &amp; str;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;            ar &amp; boost::serialization::base_object&lt;super_points&gt;( *this );</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="preprocessor">#if 1</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="preprocessor"></span>            str = <span class="stringliteral">&quot;faces&quot;</span>;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            ar &amp; str;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;Serializing faces\n&quot;</span>;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            ar &amp; boost::serialization::base_object&lt;super_faces&gt;( *this );</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="preprocessor"></span>            str = <span class="stringliteral">&quot;elements&quot;</span>;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;            ar &amp; str;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;Serializing elements\n&quot;</span>;</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            ar &amp; boost::serialization::base_object&lt;super_elements&gt;( *this );</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        }</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;};</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __Mesh2D_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;};</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __Mesh2D_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classFeel_1_1Mesh2D_html_a3b24571d5e1ddf276a28b035c374cfbe"><div class="ttname"><a href="classFeel_1_1Mesh2D.html#a3b24571d5e1ddf276a28b035c374cfbe">Feel::Mesh2D::renumber</a></div><div class="ttdeci">void renumber()</div><div class="ttdef"><b>Definition:</b> mesh2d.hpp:331</div></div>
 <div class="ttc" id="classFeel_1_1Mesh2D_html_a74acbea0e1927a1410bc70401613e417"><div class="ttname"><a href="classFeel_1_1Mesh2D.html#a74acbea0e1927a1410bc70401613e417">Feel::Mesh2D::numFaces</a></div><div class="ttdeci">size_type numFaces() const </div><div class="ttdef"><b>Definition:</b> mesh2d.hpp:256</div></div>
 <div class="ttc" id="namespaceFeel_html_ace44a7a9c428a5849b81de59532e4ef8"><div class="ttname"><a href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements</a></div><div class="ttdeci">elements_type const &amp; elements() const </div><div class="ttdef"><b>Definition:</b> elements.hpp:367</div></div>
@@ -436,7 +437,7 @@ $(document).ready(function(){initNavTree('mesh2d_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1Mesh2D_html_ac57c067e710214ab8018dee4f2aeb216"><div class="ttname"><a href="classFeel_1_1Mesh2D.html#ac57c067e710214ab8018dee4f2aeb216">Feel::Mesh2D::numEdges</a></div><div class="ttdeci">size_type numEdges() const </div><div class="ttdef"><b>Definition:</b> mesh2d.hpp:264</div></div>
 <div class="ttc" id="classFeel_1_1Mesh2D_html_ae77dd767169654a9fc7997c75beef784"><div class="ttname"><a href="classFeel_1_1Mesh2D.html#ae77dd767169654a9fc7997c75beef784">Feel::Mesh2D::~Mesh2D</a></div><div class="ttdeci">~Mesh2D()</div><div class="ttdef"><b>Definition:</b> mesh2d.hpp:176</div></div>
 <div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
-<div class="ttc" id="classFeel_1_1Mesh2D_html_a634eef66fde7f6ef2fc6b9fc037632d4"><div class="ttname"><a href="classFeel_1_1Mesh2D.html#a634eef66fde7f6ef2fc6b9fc037632d4">Feel::Mesh2D::updateEntitiesCoDimensionTwo</a></div><div class="ttdeci">void updateEntitiesCoDimensionTwo()</div><div class="ttdef"><b>Definition:</b> mesh2d.hpp:371</div></div>
+<div class="ttc" id="classFeel_1_1Mesh2D_html_a634eef66fde7f6ef2fc6b9fc037632d4"><div class="ttname"><a href="classFeel_1_1Mesh2D.html#a634eef66fde7f6ef2fc6b9fc037632d4">Feel::Mesh2D::updateEntitiesCoDimensionTwo</a></div><div class="ttdeci">void updateEntitiesCoDimensionTwo()</div><div class="ttdef"><b>Definition:</b> mesh2d.hpp:372</div></div>
 <div class="ttc" id="namespaceFeel_html_a50972fd7b0bc76c7a441e8ed1b779871"><div class="ttname"><a href="namespaceFeel.html#a50972fd7b0bc76c7a441e8ed1b779871">Feel::operator=</a></div><div class="ttdeci">Elements &amp; operator=(Elements const &amp;e)</div><div class="ttdef"><b>Definition:</b> elements.hpp:347</div></div>
 <div class="ttc" id="classFeel_1_1Mesh2D_html_aa4273bde2d122622afa00f114b6398c9"><div class="ttname"><a href="classFeel_1_1Mesh2D.html#aa4273bde2d122622afa00f114b6398c9">Feel::Mesh2D::Mesh2D</a></div><div class="ttdeci">Mesh2D(Mesh2D const &amp;m)</div><div class="ttdef"><b>Definition:</b> mesh2d.hpp:164</div></div>
 <div class="ttc" id="elements_8hpp_html"><div class="ttname"><a href="elements_8hpp.html">elements.hpp</a></div></div>

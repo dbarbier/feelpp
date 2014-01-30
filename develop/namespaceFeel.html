@@ -732,6 +732,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1VisitorCyclic.html">VisitorCyclic</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1WorldsComm.html">WorldsComm</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -1502,6 +1504,13 @@ Enumerations</h2></td></tr>
 <br/>
  }</td></tr>
 <tr class="separator:a8f188bccae5932f091813db8109ff4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fdfc8aada14afdb1914ce5719067a6b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a1fdfc8aada14afdb1914ce5719067a6b">NedelecKind</a> { <br/>
+&#160;&#160;<b>NED1</b>, 
+<br/>
+&#160;&#160;<b>NED2</b>
+<br/>
+ }</td></tr>
+<tr class="separator:a1fdfc8aada14afdb1914ce5719067a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22e3e6735fed56036283d38e6f0bd10a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10a">on_context_type</a> { <br/>
 &#160;&#160;<a class="el" href="namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10aaee23b75351d5814e1d0a468e6241e047">ON_NONE</a> = 0x0, 
 <br/>
@@ -1903,6 +1912,25 @@ typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a>&lt; M
 typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a>&lt; MeshType &gt;<br class="typebreak"/>
 ::location_face_const_iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a6d4deea03257c3f53b0e9df514a7bf00">boundaryfaces</a> (MeshType const &amp;mesh)</td></tr>
 <tr class="separator:a6d4deea03257c3f53b0e9df514a7bf00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb44d1c80aec0280303739b984228d44"><td class="memTemplParams" colspan="2"><a class="anchor" id="aeb44d1c80aec0280303739b984228d44"></a>
+template&lt;typename MeshType &gt; </td></tr>
+<tr class="memitem:aeb44d1c80aec0280303739b984228d44"><td class="memTemplItemLeft" align="right" valign="top">boost::tuple&lt; mpl::size_t<br class="typebreak"/>
+&lt; <a class="el" href="namespaceFeel.html#a9e8a34e55922ab08cf593c8f9addd590a45f482eab6ccb2dd97a838fbbf7b287a">MESH_FACES</a> &gt;, typename <br class="typebreak"/>
+std::vector<br class="typebreak"/>
+&lt; boost::reference_wrapper<br class="typebreak"/>
+&lt; typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a><br class="typebreak"/>
+&lt; MeshType &gt;::face_type const  &gt;<br class="typebreak"/>
+ &gt;::const_iterator, typename <br class="typebreak"/>
+std::vector<br class="typebreak"/>
+&lt; boost::reference_wrapper<br class="typebreak"/>
+&lt; typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a><br class="typebreak"/>
+&lt; MeshType &gt;::face_type const  &gt;<br class="typebreak"/>
+ &gt;::const_iterator, <br class="typebreak"/>
+boost::shared_ptr&lt; std::vector<br class="typebreak"/>
+&lt; boost::reference_wrapper<br class="typebreak"/>
+&lt; typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a><br class="typebreak"/>
+&lt; MeshType &gt;::face_type const  &gt; &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>boundaryfaces</b> (MeshType const &amp;mesh, bool addExtendedMPIElt)</td></tr>
+<tr class="separator:aeb44d1c80aec0280303739b984228d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bbc5b859c51ad73faa39f6ab301b8b9"><td class="memTemplParams" colspan="2">template&lt;typename MeshType &gt; </td></tr>
 <tr class="memitem:a0bbc5b859c51ad73faa39f6ab301b8b9"><td class="memTemplItemLeft" align="right" valign="top">boost::tuple&lt; mpl::size_t<br class="typebreak"/>
 &lt; <a class="el" href="namespaceFeel.html#a9e8a34e55922ab08cf593c8f9addd590a9a4435f4374f50c44d57dbbcff2b0fd3">MESH_POINTS</a> &gt;, typename <br class="typebreak"/>
@@ -2031,6 +2059,13 @@ template&lt;int Dim, typename Matrix &gt; </td></tr>
 template&lt;typename FUNCTION , typename DERIVATIVE , typename VECTOR , typename IterationBFGS &gt; </td></tr>
 <tr class="memitem:ab5c73a46a30d5f12ad410cc8826e3b4a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>dfp</b> (FUNCTION f, DERIVATIVE grad, VECTOR &amp;x, int restart, IterationBFGS &amp;iter, <a class="el" href="namespaceFeel.html#a9f782edf3ce1e077391aa88c4347526c">BFGSType</a> version=DFP)</td></tr>
 <tr class="separator:ab5c73a46a30d5f12ad410cc8826e3b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f5a3ede8e8bb97981ca89ab12585d1a"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3f5a3ede8e8bb97981ca89ab12585d1a"></a>
+template&lt;int Order, typename MeshType &gt; </td></tr>
+<tr class="memitem:a3f5a3ede8e8bb97981ca89ab12585d1a"><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt; MeshType, <br class="typebreak"/>
+bases&lt; RaviartThomas&lt; Order &gt;<br class="typebreak"/>
+ &gt;, Periodicity&lt; <a class="el" href="classFeel_1_1NoPeriodicity.html">NoPeriodicity</a> &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Dh</b> (boost::shared_ptr&lt; MeshType &gt; mesh, bool buildExtendedDofTable=false)</td></tr>
+<tr class="separator:a3f5a3ede8e8bb97981ca89ab12585d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4325f5fef1deb9c9a3e8b8dde02f1eb8"><td class="memTemplParams" colspan="2"><a class="anchor" id="ga4325f5fef1deb9c9a3e8b8dde02f1eb8"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga4325f5fef1deb9c9a3e8b8dde02f1eb8"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>distance</b> (<a class="el" href="classFeel_1_1Geo0D.html">Geo0D</a>&lt; 1, T &gt; const &amp;p1, <a class="el" href="classFeel_1_1Geo0D.html">Geo0D</a>&lt; 1, T &gt; const &amp;p2)</td></tr>
@@ -2143,26 +2178,26 @@ std::list&lt; ElementType &gt;<br class="typebreak"/>
 typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a>&lt; MeshType &gt;<br class="typebreak"/>
 ::element_const_iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a39073cc1999197bf9963bd5bdc86454a">elements</a> (MeshType const &amp;mesh)</td></tr>
 <tr class="separator:a39073cc1999197bf9963bd5bdc86454a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6831a5b51df2ddcb0d6118b620dfb75"><td class="memTemplParams" colspan="2"><a class="anchor" id="ad6831a5b51df2ddcb0d6118b620dfb75"></a>
+<tr class="memitem:ad93061e1ca8a3a78cea6bf082e55cfeb"><td class="memTemplParams" colspan="2"><a class="anchor" id="ad93061e1ca8a3a78cea6bf082e55cfeb"></a>
 template&lt;typename MeshType &gt; </td></tr>
-<tr class="memitem:ad6831a5b51df2ddcb0d6118b620dfb75"><td class="memTemplItemLeft" align="right" valign="top">boost::tuple&lt; mpl::size_t<br class="typebreak"/>
+<tr class="memitem:ad93061e1ca8a3a78cea6bf082e55cfeb"><td class="memTemplItemLeft" align="right" valign="top">boost::tuple&lt; mpl::size_t<br class="typebreak"/>
 &lt; <a class="el" href="namespaceFeel.html#a9e8a34e55922ab08cf593c8f9addd590aba9f37f6ea35ac09cf969b638eac11d6">MESH_ELEMENTS</a> &gt;, typename <br class="typebreak"/>
-std::list<br class="typebreak"/>
+std::vector<br class="typebreak"/>
 &lt; boost::reference_wrapper<br class="typebreak"/>
 &lt; typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a><br class="typebreak"/>
 &lt; MeshType &gt;::element_type <br class="typebreak"/>
 const  &gt; &gt;::const_iterator, <br class="typebreak"/>
-typename std::list<br class="typebreak"/>
+typename std::vector<br class="typebreak"/>
 &lt; boost::reference_wrapper<br class="typebreak"/>
 &lt; typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a><br class="typebreak"/>
 &lt; MeshType &gt;::element_type <br class="typebreak"/>
 const  &gt; &gt;::const_iterator, <br class="typebreak"/>
-boost::shared_ptr&lt; std::list<br class="typebreak"/>
+boost::shared_ptr&lt; std::vector<br class="typebreak"/>
 &lt; boost::reference_wrapper<br class="typebreak"/>
 &lt; typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a><br class="typebreak"/>
 &lt; MeshType &gt;::element_type <br class="typebreak"/>
 const  &gt; &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>elements</b> (MeshType const &amp;mesh, bool addExtendedMPIElt)</td></tr>
-<tr class="separator:ad6831a5b51df2ddcb0d6118b620dfb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ad93061e1ca8a3a78cea6bf082e55cfeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbea88a58f2837278fc9d1760a73da5d"><td class="memTemplParams" colspan="2"><a class="anchor" id="acbea88a58f2837278fc9d1760a73da5d"></a>
 template&lt;size_t S, class ITERATOR &gt; </td></tr>
 <tr class="memitem:acbea88a58f2837278fc9d1760a73da5d"><td class="memTemplItemLeft" align="right" valign="top">ITERATOR&#160;</td><td class="memTemplItemRight" valign="bottom"><b>end</b> (boost::tuple&lt; mpl::size_t&lt; S &gt;, ITERATOR, ITERATOR &gt; &amp;range)</td></tr>
@@ -2953,26 +2988,26 @@ InterpType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>
 <tr class="memitem:a9cfc0a1896a836e45d6526292dcc187f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9cfc0a1896a836e45d6526292dcc187f"></a>
 po::options_description&#160;</td><td class="memItemRight" valign="bottom"><b>parameters_options</b> (std::string const &amp;prefix)</td></tr>
 <tr class="separator:a9cfc0a1896a836e45d6526292dcc187f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af66233e3b193825d3dffb3b89e198c2b"><td class="memTemplParams" colspan="2"><a class="anchor" id="af66233e3b193825d3dffb3b89e198c2b"></a>
-template&lt;int Order, typename MeshType &gt; </td></tr>
-<tr class="memitem:af66233e3b193825d3dffb3b89e198c2b"><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr<br class="typebreak"/>
+<tr class="memitem:a52c776da2cc11e48ff78962c28abfa3c"><td class="memTemplParams" colspan="2"><a class="anchor" id="a52c776da2cc11e48ff78962c28abfa3c"></a>
+template&lt;int Order, template&lt; class, uint16_type, class &gt; class Pts = PointSetEquiSpaced, typename MeshType &gt; </td></tr>
+<tr class="memitem:a52c776da2cc11e48ff78962c28abfa3c"><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt; MeshType, <br class="typebreak"/>
 bases&lt; Lagrange&lt; Order, <a class="el" href="structFeel_1_1Scalar.html">Scalar</a>, <br class="typebreak"/>
-<a class="el" href="classFeel_1_1Continuous.html">Continuous</a> &gt; &gt;, Periodicity<br class="typebreak"/>
-&lt; <a class="el" href="classFeel_1_1NoPeriodicity.html">NoPeriodicity</a> &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Pch</b> (boost::shared_ptr&lt; MeshType &gt; mesh, bool buildExtendedDofTable=false)</td></tr>
-<tr class="separator:af66233e3b193825d3dffb3b89e198c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f91dc5e031f35133148027c4e53f0ad"><td class="memTemplParams" colspan="2">template&lt;int Order, typename MeshType &gt; </td></tr>
-<tr class="memitem:a1f91dc5e031f35133148027c4e53f0ad"><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr<br class="typebreak"/>
+<a class="el" href="classFeel_1_1Continuous.html">Continuous</a>, Pts &gt;<br class="typebreak"/>
+ &gt;, Periodicity&lt; <a class="el" href="classFeel_1_1NoPeriodicity.html">NoPeriodicity</a> &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Pch</b> (boost::shared_ptr&lt; MeshType &gt; mesh, bool buildExtendedDofTable=false)</td></tr>
+<tr class="separator:a52c776da2cc11e48ff78962c28abfa3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a304749e5e01d35d772fe6c36fa22c82b"><td class="memTemplParams" colspan="2">template&lt;int Order, template&lt; class, uint16_type, class &gt; class Pts = PointSetEquiSpaced, typename MeshType &gt; </td></tr>
+<tr class="memitem:a304749e5e01d35d772fe6c36fa22c82b"><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt; MeshType, <br class="typebreak"/>
 bases&lt; Lagrange&lt; Order, <br class="typebreak"/>
-<a class="el" href="structFeel_1_1Vectorial.html">Vectorial</a> &gt; &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a1f91dc5e031f35133148027c4e53f0ad">Pchv</a> (boost::shared_ptr&lt; MeshType &gt; mesh, bool buildExtendedDofTable=false)</td></tr>
-<tr class="separator:a1f91dc5e031f35133148027c4e53f0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5982db788d72b89316afa6fc39ceddf8"><td class="memTemplParams" colspan="2">template&lt;int Order, typename MeshType &gt; </td></tr>
-<tr class="memitem:a5982db788d72b89316afa6fc39ceddf8"><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr<br class="typebreak"/>
+<a class="el" href="structFeel_1_1Vectorial.html">Vectorial</a>, <a class="el" href="classFeel_1_1Continuous.html">Continuous</a>, Pts &gt; &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a304749e5e01d35d772fe6c36fa22c82b">Pchv</a> (boost::shared_ptr&lt; MeshType &gt; mesh, bool buildExtendedDofTable=false)</td></tr>
+<tr class="separator:a304749e5e01d35d772fe6c36fa22c82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53759c8639ef21b5fe598a23adb37d66"><td class="memTemplParams" colspan="2">template&lt;int Order, template&lt; class, uint16_type, class &gt; class Pts = PointSetEquiSpaced, typename MeshType &gt; </td></tr>
+<tr class="memitem:a53759c8639ef21b5fe598a23adb37d66"><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt; MeshType, <br class="typebreak"/>
 bases&lt; Lagrange&lt; Order, <a class="el" href="structFeel_1_1Scalar.html">Scalar</a>, <br class="typebreak"/>
-Discontinuous &gt; &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a5982db788d72b89316afa6fc39ceddf8">Pdh</a> (boost::shared_ptr&lt; MeshType &gt; mesh, bool buildExtendedDofTable=false)</td></tr>
-<tr class="separator:a5982db788d72b89316afa6fc39ceddf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+Discontinuous, Pts &gt; &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a53759c8639ef21b5fe598a23adb37d66">Pdh</a> (boost::shared_ptr&lt; MeshType &gt; mesh, bool buildExtendedDofTable=false)</td></tr>
+<tr class="separator:a53759c8639ef21b5fe598a23adb37d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64b6385e7cec0a634eb60b796041e8d8"><td class="memTemplParams" colspan="2"><a class="anchor" id="a64b6385e7cec0a634eb60b796041e8d8"></a>
 template&lt;typename A0 &gt; </td></tr>
 <tr class="memitem:a64b6385e7cec0a634eb60b796041e8d8"><td class="memTemplItemLeft" align="right" valign="top">Periodicity&lt; A0 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>periodicity</b> (A0 const &amp;a0)</td></tr>
@@ -3277,6 +3312,9 @@ DebugStream&#160;</td><td class="memItemRight" valign="bottom"><b>Warning</b> (i
 <tr class="memitem:a6d3b5091878d448a92cf2ad5078e7325"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d3b5091878d448a92cf2ad5078e7325"></a>
 DebugStream&#160;</td><td class="memItemRight" valign="bottom"><b>Warning</b> (bool cond, int area)</td></tr>
 <tr class="separator:a6d3b5091878d448a92cf2ad5078e7325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6936cd55cd0d297ad545fbc63b96c69"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6936cd55cd0d297ad545fbc63b96c69"></a>
+<a class="el" href="classFeel_1_1WorldsComm.html">WorldsComm</a>&#160;</td><td class="memItemRight" valign="bottom"><b>worldsComm</b> (WorldComm const &amp;wc)</td></tr>
+<tr class="separator:ae6936cd55cd0d297ad545fbc63b96c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Operator overloads</div></td></tr>
 <tr class="memitem:a50972fd7b0bc76c7a441e8ed1b779871"><td class="memItemLeft" align="right" valign="top">Elements &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a50972fd7b0bc76c7a441e8ed1b779871">operator=</a> (Elements const &amp;e)</td></tr>
 <tr class="separator:a50972fd7b0bc76c7a441e8ed1b779871"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3969,6 +4007,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr
       </table>
 </div><div class="memdoc">
 <p>Components of a mesh that can be enabled or disabled when calling <code>updateForUse()</code> </p>
+
+</div>
+</div>
+<a class="anchor" id="a1fdfc8aada14afdb1914ce5719067a6b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceFeel.html#a1fdfc8aada14afdb1914ce5719067a6b">Feel::NedelecKind</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<ul>
+<li>NED1 H(curl) Nedelec finite element of the first kind</li>
+<li>NED2 H(curl) Nedelec finite element of the second kind (full polynomial space) </li>
+</ul>
 
 </div>
 </div>
@@ -5849,6 +5911,8 @@ template&lt;typename SpaceType , typename FunctionType &gt; </div>
 <a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt;mesh_type,fusion::vector&lt;Lagrange&lt;&gt; &gt; &gt;::element_type u;
 interpolate( Xh, f, u );
 </pre> 
+<p>References <a class="el" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">elements()</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="abc95225dae92e77cc06508c91b1be972"></a>
@@ -6722,17 +6786,17 @@ template&lt;typename space_type &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a1f91dc5e031f35133148027c4e53f0ad"></a>
+<a class="anchor" id="a304749e5e01d35d772fe6c36fa22c82b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Order, typename MeshType &gt; </div>
+template&lt;int Order, template&lt; class, uint16_type, class &gt; class Pts = PointSetEquiSpaced, typename MeshType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::shared_ptr&lt;<a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt;MeshType,bases&lt;Lagrange&lt;Order,<a class="el" href="structFeel_1_1Vectorial.html">Vectorial</a>&gt; &gt; &gt; &gt; Feel::Pchv </td>
+          <td class="memname">boost::shared_ptr&lt;<a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt;MeshType,bases&lt;Lagrange&lt;Order,<a class="el" href="structFeel_1_1Vectorial.html">Vectorial</a>,<a class="el" href="classFeel_1_1Continuous.html">Continuous</a>,Pts&gt; &gt; &gt; &gt; Feel::Pchv </td>
           <td>(</td>
           <td class="paramtype">boost::shared_ptr&lt; MeshType &gt;&#160;</td>
           <td class="paramname"><em>mesh</em>, </td>
@@ -6759,17 +6823,17 @@ template&lt;int Order, typename MeshType &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a5982db788d72b89316afa6fc39ceddf8"></a>
+<a class="anchor" id="a53759c8639ef21b5fe598a23adb37d66"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Order, typename MeshType &gt; </div>
+template&lt;int Order, template&lt; class, uint16_type, class &gt; class Pts = PointSetEquiSpaced, typename MeshType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::shared_ptr&lt;<a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt;MeshType,bases&lt;Lagrange&lt;Order,<a class="el" href="structFeel_1_1Scalar.html">Scalar</a>,Discontinuous&gt; &gt; &gt; &gt; Feel::Pdh </td>
+          <td class="memname">boost::shared_ptr&lt;<a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpace</a>&lt;MeshType,bases&lt;Lagrange&lt;Order,<a class="el" href="structFeel_1_1Scalar.html">Scalar</a>,Discontinuous,Pts&gt; &gt; &gt; &gt; Feel::Pdh </td>
           <td>(</td>
           <td class="paramtype">boost::shared_ptr&lt; MeshType &gt;&#160;</td>
           <td class="paramname"><em>mesh</em>, </td>

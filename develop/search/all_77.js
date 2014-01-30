@@ -11,5 +11,7 @@ var searchData=
   ['worldcomm_2ehpp',['worldcomm.hpp',['../worldcomm_8hpp.html',1,'']]],
   ['worldcoords',['worldCoords',['../classFeel_1_1Sphere.html#a6fe7bec6994b0f3e9e0d04eab93a5bd3',1,'Feel::Sphere::worldCoords()'],['../classFeel_1_1Surface.html#a2b1dfd3ceaab2e52289cdbe1e3fd53c4',1,'Feel::Surface::worldCoords()']]],
   ['worldscomm',['worldsComm',['../classFeel_1_1detail_1_1Environment.html#abc34a3d8c5a9b7bb0353941af2c8ada8',1,'Feel::detail::Environment']]],
+  ['worldscomm',['WorldsComm',['../classFeel_1_1WorldsComm.html',1,'Feel']]],
+  ['worldscomm_2ehpp',['worldscomm.hpp',['../worldscomm_8hpp.html',1,'']]],
   ['writelatexdata',['writeLatexData',['../classFeel_1_1KDTree.html#ac7f3487fb692f27dd510c61e41d93851',1,'Feel::KDTree']]]
 ];

@@ -245,5 +245,6 @@ var namespaceFeel =
     [ "Visitor", "classFeel_1_1Visitor.html", "classFeel_1_1Visitor" ],
     [ "VisitorBase", "classFeel_1_1VisitorBase.html", "classFeel_1_1VisitorBase" ],
     [ "VisitorBaseImpl", "classFeel_1_1VisitorBaseImpl.html", null ],
-    [ "VisitorCyclic", "classFeel_1_1VisitorCyclic.html", "classFeel_1_1VisitorCyclic" ]
+    [ "VisitorCyclic", "classFeel_1_1VisitorCyclic.html", "classFeel_1_1VisitorCyclic" ],
+    [ "WorldsComm", "classFeel_1_1WorldsComm.html", "classFeel_1_1WorldsComm" ]
 ];

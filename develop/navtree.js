@@ -76,14 +76,14 @@ var NAVTREEINDEX =
 "classFeel_1_1OperatorLinearFree.html#ac208830526d5227ff90c6b4096e2e2a4",
 "classFeel_1_1PointSet.html#a669a84156dc1f1c9131cdf7bdb50863e",
 "classFeel_1_1Preconditioner.html#afabfa4a2c0816962103c8280cb5a80eb",
-"classFeel_1_1SolverBase.html#a980d9511216a1f91bd7080a9f82c5ef8",
-"classFeel_1_1SolverNonLinear.html#afce003dc732ee4d422681e813b96c9fd",
-"classFeel_1_1TensorisedBoundaryAdapted.html#ad8c6e6e59cdbd0e3f28dd2ef07ade12e",
-"classFeel_1_1Vector.html#a884d738439c93bc2b7a57d8ecb6c5427",
-"classFeel_1_1core__data.html#a3285405ad8f868d85ba5d612ae5570fc",
-"classFeel_1_1problem.html#a7db820e43f2c7aa64fee22c69586fd29aa295e5972928bb8921afe66b42e8d091",
-"structFeel_1_1BFGSInvHessian.html#a81ef191fd80d4d4f4353a4ee5af076d8",
-"structFeel_1_1problem_1_1value.html#adf76cf77b915ef911d9e36b41bc9c69e"
+"classFeel_1_1SolverBase.html#a4a0ffd5f9d65e1e279fe88ad6a1e0e54",
+"classFeel_1_1SolverNonLinear.html#afb6cb009cc2735aa1ee74845a79468a4",
+"classFeel_1_1TensorisedBoundaryAdapted.html#ad61db683b0fb988912bdfb431b02ee0e",
+"classFeel_1_1Vector.html#a83d41ddedb49b1b0d66990ad6176305e",
+"classFeel_1_1core__data.html",
+"classFeel_1_1problem.html#a740f80ca45550c04e99e841d7065ab4b",
+"pages.html",
+"structFeel_1_1problem_1_1value.html#a733d8a9c6cc9c7806de5e095ad7672fca0fa8d9474f721586b236fa2772b569ba"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

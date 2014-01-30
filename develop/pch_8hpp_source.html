@@ -132,12 +132,12 @@ $(document).ready(function(){initNavTree('pch_8hpp_source.html','');});
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>Feel {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Order,<span class="keyword">typename</span> MeshType&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Order,<span class="keyword">template</span>&lt;<span class="keyword">class</span>, u<span class="keywordtype">int</span>16_type, <span class="keyword">class</span>&gt; <span class="keyword">class </span>Pts = PointSetEquiSpaced,<span class="keyword">typename</span> MeshType&gt;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;boost::shared_ptr&lt;FunctionSpace&lt;MeshType,bases&lt;Lagrange&lt;Order,Scalar,Continuous&gt;&gt;,Periodicity &lt;NoPeriodicity&gt;&gt;&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;boost::shared_ptr&lt;FunctionSpace&lt;MeshType,bases&lt;Lagrange&lt;Order,Scalar,Continuous,Pts&gt;&gt;,Periodicity &lt;NoPeriodicity&gt;&gt;&gt;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;Pch( boost::shared_ptr&lt;MeshType&gt; mesh, <span class="keywordtype">bool</span> buildExtendedDofTable=<span class="keyword">false</span> )</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> FunctionSpace&lt;MeshType,bases&lt;Lagrange&lt;Order,Scalar,Continuous&gt;&gt;, Periodicity &lt;NoPeriodicity&gt;&gt;::New( _mesh=mesh,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> FunctionSpace&lt;MeshType,bases&lt;Lagrange&lt;Order,Scalar,Continuous,Pts&gt;&gt;, Periodicity &lt;NoPeriodicity&gt;&gt;::New( _mesh=mesh,</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                                                                                               _worldscomm=std::vector&lt;WorldComm&gt;( 1,mesh-&gt;worldComm() ),</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                                                                                               _extended_doftable=std::vector&lt;bool&gt;( 1,buildExtendedDofTable ) );</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
