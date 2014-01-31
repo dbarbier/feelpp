@@ -299,6 +299,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>rankProcInNameOfFiles
 double&#160;</td><td class="memItemRight" valign="bottom"><b>realTimePerIteration</b> () const </td></tr>
 <tr class="memdesc:a9f0d126c50de66da99ca3fe0ca914455 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the real time in seconds spent in the iteration <br/></td></tr>
 <tr class="separator:a9f0d126c50de66da99ca3fe0ca914455 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b29e5a7ea4cc30cf2f0e6de7dfebd33 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b29e5a7ea4cc30cf2f0e6de7dfebd33"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reloadMetaData</b> ()</td></tr>
+<tr class="memdesc:a4b29e5a7ea4cc30cf2f0e6de7dfebd33 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">reload metadata to get all time step already done <br/></td></tr>
+<tr class="separator:a4b29e5a7ea4cc30cf2f0e6de7dfebd33 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85fb83fcbedf50ca7e685f52805cc29c inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85fb83fcbedf50ca7e685f52805cc29c"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>restart</b> ()</td></tr>
 <tr class="memdesc:a85fb83fcbedf50ca7e685f52805cc29c inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">restart the bdf <br/></td></tr>
@@ -306,6 +310,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>restart</b> ()</td>
 <tr class="memitem:ade0f3aea06aecf108227236126f4531d inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade0f3aea06aecf108227236126f4531d"></a>
 fs::path&#160;</td><td class="memItemRight" valign="bottom"><b>restartPath</b> ()</td></tr>
 <tr class="separator:ade0f3aea06aecf108227236126f4531d inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf5275ae150b6728dbf34a02f48e75a0 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf5275ae150b6728dbf34a02f48e75a0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>restartStepBeforeLastSave</b> () const </td></tr>
+<tr class="memdesc:aaf5275ae150b6728dbf34a02f48e75a0 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the step index before the last used to restart <br/></td></tr>
+<tr class="separator:aaf5275ae150b6728dbf34a02f48e75a0 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a892faee3c5fdac3d9172b0d5377bb908 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a892faee3c5fdac3d9172b0d5377bb908"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>saveFreq</b> () const </td></tr>
 <tr class="separator:a892faee3c5fdac3d9172b0d5377bb908 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -469,6 +477,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>M_restartAtLastSave</
 fs::path&#160;</td><td class="memItemRight" valign="bottom"><b>M_restartPath</b></td></tr>
 <tr class="memdesc:a8dcfc9ebcfa0cdb8023fd65186acd64f inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">restart path <br/></td></tr>
 <tr class="separator:a8dcfc9ebcfa0cdb8023fd65186acd64f inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfb24a3cb965818ca4d06b5c17313f3a inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfb24a3cb965818ca4d06b5c17313f3a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>M_restartStepBeforeLastSave</b></td></tr>
+<tr class="memdesc:abfb24a3cb965818ca4d06b5c17313f3a inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">do restart with the ieme step before the last save <br/></td></tr>
+<tr class="separator:abfb24a3cb965818ca4d06b5c17313f3a inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47054838e16e1f6b57d0c657ca15f4b8 inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47054838e16e1f6b57d0c657ca15f4b8"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>M_saveFreq</b></td></tr>
 <tr class="memdesc:a47054838e16e1f6b57d0c657ca15f4b8 inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">frequence of save solutions <br/></td></tr>
