@@ -1828,70 +1828,71 @@ $(document).ready(function(){initNavTree('feeldiscr_2mesh_8hpp_source.html','');
 <div class="line"><a name="l02024"></a><span class="lineno"> 2024</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> p = 0;</div>
 <div class="line"><a name="l02025"></a><span class="lineno"> 2025</span>&#160;    <span class="keywordflow">for</span>( ; it != en; ++it )</div>
 <div class="line"><a name="l02026"></a><span class="lineno"> 2026</span>&#160;    {</div>
-<div class="line"><a name="l02027"></a><span class="lineno"> 2027</span>&#160;        <span class="keywordflow">for</span> ( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> j = 0; j &lt; it-&gt;numLocalVertices; j++ )</div>
-<div class="line"><a name="l02028"></a><span class="lineno"> 2028</span>&#160;        {</div>
-<div class="line"><a name="l02029"></a><span class="lineno"> 2029</span>&#160;            <span class="keywordtype">int</span> pid = it-&gt;point( j ).id();</div>
-<div class="line"><a name="l02030"></a><span class="lineno"> 2030</span>&#160;            <span class="keyword">auto</span> ins = nodeset.insert( pid );</div>
-<div class="line"><a name="l02031"></a><span class="lineno"> 2031</span>&#160;            <span class="keywordflow">if</span> ( ins.second )</div>
-<div class="line"><a name="l02032"></a><span class="lineno"> 2032</span>&#160;            {</div>
-<div class="line"><a name="l02033"></a><span class="lineno"> 2033</span>&#160;                <span class="keywordflow">if</span> ( renumber )</div>
-<div class="line"><a name="l02034"></a><span class="lineno"> 2034</span>&#160;                    ids.push_back( p+1 );</div>
-<div class="line"><a name="l02035"></a><span class="lineno"> 2035</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l02036"></a><span class="lineno"> 2036</span>&#160;                    ids.push_back( pid );</div>
-<div class="line"><a name="l02037"></a><span class="lineno"> 2037</span>&#160;                old2new[pid]=ids[p];</div>
-<div class="line"><a name="l02038"></a><span class="lineno"> 2038</span>&#160;                new2old[ids[p]]=pid;</div>
-<div class="line"><a name="l02039"></a><span class="lineno"> 2039</span>&#160;                nodemap[pid] = p;</div>
-<div class="line"><a name="l02040"></a><span class="lineno"> 2040</span>&#160;                ++p;</div>
-<div class="line"><a name="l02041"></a><span class="lineno"> 2041</span>&#160;            }</div>
-<div class="line"><a name="l02042"></a><span class="lineno"> 2042</span>&#160;        }</div>
-<div class="line"><a name="l02043"></a><span class="lineno"> 2043</span>&#160;    }</div>
-<div class="line"><a name="l02044"></a><span class="lineno"> 2044</span>&#160;    CHECK( p == ids.size() ) &lt;&lt; <span class="stringliteral">&quot;Invalid number of points &quot;</span> &lt;&lt; ids.size() &lt;&lt; <span class="stringliteral">&quot;!=&quot;</span> &lt;&lt; p;</div>
-<div class="line"><a name="l02045"></a><span class="lineno"> 2045</span>&#160;    <span class="keywordtype">int</span> nv = ids.size();</div>
-<div class="line"><a name="l02046"></a><span class="lineno"> 2046</span>&#160;</div>
-<div class="line"><a name="l02047"></a><span class="lineno"> 2047</span>&#160;    coords.resize( 3*nv, 0 );</div>
-<div class="line"><a name="l02048"></a><span class="lineno"> 2048</span>&#160;</div>
-<div class="line"><a name="l02049"></a><span class="lineno"> 2049</span>&#160;    <span class="keyword">auto</span> pit = ids.begin();</div>
-<div class="line"><a name="l02050"></a><span class="lineno"> 2050</span>&#160;    <span class="keyword">auto</span> pen = ids.end();</div>
-<div class="line"><a name="l02051"></a><span class="lineno"> 2051</span>&#160;    <span class="comment">//for( auto i = 0; i &lt; nv; ++i )</span></div>
-<div class="line"><a name="l02052"></a><span class="lineno"> 2052</span>&#160;    <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; pit != pen; ++pit, ++i )</div>
-<div class="line"><a name="l02053"></a><span class="lineno"> 2053</span>&#160;    {</div>
-<div class="line"><a name="l02054"></a><span class="lineno"> 2054</span>&#160;        CHECK( *pit &gt; 0 ) &lt;&lt; <span class="stringliteral">&quot;invalid id &quot;</span> &lt;&lt; *pit;</div>
-<div class="line"><a name="l02055"></a><span class="lineno"> 2055</span>&#160;        <span class="comment">//LOG(INFO) &lt;&lt; &quot;p &quot; &lt;&lt; i &lt;&lt; &quot;/&quot; &lt;&lt; nv &lt;&lt; &quot; =&quot; &lt;&lt; *pit;</span></div>
-<div class="line"><a name="l02056"></a><span class="lineno"> 2056</span>&#160;        <span class="comment">//int pid = (renumber)?nodemap[*pit]+1:*pit;</span></div>
-<div class="line"><a name="l02057"></a><span class="lineno"> 2057</span>&#160;        <span class="keywordtype">int</span> pid = *pit;</div>
-<div class="line"><a name="l02058"></a><span class="lineno"> 2058</span>&#160;</div>
-<div class="line"><a name="l02059"></a><span class="lineno"> 2059</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span>&amp; p = mesh-&gt;point( new2old[*pit] );</div>
-<div class="line"><a name="l02060"></a><span class="lineno"> 2060</span>&#160;        <span class="keywordflow">if</span> ( outer )</div>
-<div class="line"><a name="l02061"></a><span class="lineno"> 2061</span>&#160;            coords[i] = ( T ) p.node()[0];</div>
-<div class="line"><a name="l02062"></a><span class="lineno"> 2062</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l02063"></a><span class="lineno"> 2063</span>&#160;            coords[3*i] = ( T ) p.node()[0];</div>
-<div class="line"><a name="l02064"></a><span class="lineno"> 2064</span>&#160;</div>
-<div class="line"><a name="l02065"></a><span class="lineno"> 2065</span>&#160;        <span class="keywordflow">if</span> ( MeshType::nRealDim &gt;= 2 )</div>
-<div class="line"><a name="l02066"></a><span class="lineno"> 2066</span>&#160;        {</div>
-<div class="line"><a name="l02067"></a><span class="lineno"> 2067</span>&#160;            <span class="keywordflow">if</span> ( outer )</div>
-<div class="line"><a name="l02068"></a><span class="lineno"> 2068</span>&#160;                coords[nv+i] = ( T ) p.node()[1];</div>
-<div class="line"><a name="l02069"></a><span class="lineno"> 2069</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l02070"></a><span class="lineno"> 2070</span>&#160;                coords[3*i+1] = ( T ) p.node()[1];</div>
-<div class="line"><a name="l02071"></a><span class="lineno"> 2071</span>&#160;        }</div>
-<div class="line"><a name="l02072"></a><span class="lineno"> 2072</span>&#160;        <span class="keywordflow">if</span> ( MeshType::nRealDim &gt;= 3 )</div>
-<div class="line"><a name="l02073"></a><span class="lineno"> 2073</span>&#160;        {</div>
-<div class="line"><a name="l02074"></a><span class="lineno"> 2074</span>&#160;            <span class="keywordflow">if</span> ( outer )</div>
-<div class="line"><a name="l02075"></a><span class="lineno"> 2075</span>&#160;                coords[2*nv+i] = T( p.node()[2] );</div>
-<div class="line"><a name="l02076"></a><span class="lineno"> 2076</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l02077"></a><span class="lineno"> 2077</span>&#160;                coords[3*i+2] = T( p.node()[2] );</div>
-<div class="line"><a name="l02078"></a><span class="lineno"> 2078</span>&#160;        }</div>
-<div class="line"><a name="l02079"></a><span class="lineno"> 2079</span>&#160;    }</div>
-<div class="line"><a name="l02080"></a><span class="lineno"> 2080</span>&#160;}</div>
+<div class="line"><a name="l02027"></a><span class="lineno"> 2027</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span>&amp; elt = boost::unwrap_ref( *it );</div>
+<div class="line"><a name="l02028"></a><span class="lineno"> 2028</span>&#160;        <span class="keywordflow">for</span> ( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> j = 0; j &lt; elt.numLocalVertices; j++ )</div>
+<div class="line"><a name="l02029"></a><span class="lineno"> 2029</span>&#160;        {</div>
+<div class="line"><a name="l02030"></a><span class="lineno"> 2030</span>&#160;            <span class="keywordtype">int</span> pid = elt.point( j ).id();</div>
+<div class="line"><a name="l02031"></a><span class="lineno"> 2031</span>&#160;            <span class="keyword">auto</span> ins = nodeset.insert( pid );</div>
+<div class="line"><a name="l02032"></a><span class="lineno"> 2032</span>&#160;            <span class="keywordflow">if</span> ( ins.second )</div>
+<div class="line"><a name="l02033"></a><span class="lineno"> 2033</span>&#160;            {</div>
+<div class="line"><a name="l02034"></a><span class="lineno"> 2034</span>&#160;                <span class="keywordflow">if</span> ( renumber )</div>
+<div class="line"><a name="l02035"></a><span class="lineno"> 2035</span>&#160;                    ids.push_back( p+1 );</div>
+<div class="line"><a name="l02036"></a><span class="lineno"> 2036</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l02037"></a><span class="lineno"> 2037</span>&#160;                    ids.push_back( pid );</div>
+<div class="line"><a name="l02038"></a><span class="lineno"> 2038</span>&#160;                old2new[pid]=ids[p];</div>
+<div class="line"><a name="l02039"></a><span class="lineno"> 2039</span>&#160;                new2old[ids[p]]=pid;</div>
+<div class="line"><a name="l02040"></a><span class="lineno"> 2040</span>&#160;                nodemap[pid] = p;</div>
+<div class="line"><a name="l02041"></a><span class="lineno"> 2041</span>&#160;                ++p;</div>
+<div class="line"><a name="l02042"></a><span class="lineno"> 2042</span>&#160;            }</div>
+<div class="line"><a name="l02043"></a><span class="lineno"> 2043</span>&#160;        }</div>
+<div class="line"><a name="l02044"></a><span class="lineno"> 2044</span>&#160;    }</div>
+<div class="line"><a name="l02045"></a><span class="lineno"> 2045</span>&#160;    CHECK( p == ids.size() ) &lt;&lt; <span class="stringliteral">&quot;Invalid number of points &quot;</span> &lt;&lt; ids.size() &lt;&lt; <span class="stringliteral">&quot;!=&quot;</span> &lt;&lt; p;</div>
+<div class="line"><a name="l02046"></a><span class="lineno"> 2046</span>&#160;    <span class="keywordtype">int</span> nv = ids.size();</div>
+<div class="line"><a name="l02047"></a><span class="lineno"> 2047</span>&#160;</div>
+<div class="line"><a name="l02048"></a><span class="lineno"> 2048</span>&#160;    coords.resize( 3*nv, 0 );</div>
+<div class="line"><a name="l02049"></a><span class="lineno"> 2049</span>&#160;</div>
+<div class="line"><a name="l02050"></a><span class="lineno"> 2050</span>&#160;    <span class="keyword">auto</span> pit = ids.begin();</div>
+<div class="line"><a name="l02051"></a><span class="lineno"> 2051</span>&#160;    <span class="keyword">auto</span> pen = ids.end();</div>
+<div class="line"><a name="l02052"></a><span class="lineno"> 2052</span>&#160;    <span class="comment">//for( auto i = 0; i &lt; nv; ++i )</span></div>
+<div class="line"><a name="l02053"></a><span class="lineno"> 2053</span>&#160;    <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; pit != pen; ++pit, ++i )</div>
+<div class="line"><a name="l02054"></a><span class="lineno"> 2054</span>&#160;    {</div>
+<div class="line"><a name="l02055"></a><span class="lineno"> 2055</span>&#160;        CHECK( *pit &gt; 0 ) &lt;&lt; <span class="stringliteral">&quot;invalid id &quot;</span> &lt;&lt; *pit;</div>
+<div class="line"><a name="l02056"></a><span class="lineno"> 2056</span>&#160;        <span class="comment">//LOG(INFO) &lt;&lt; &quot;p &quot; &lt;&lt; i &lt;&lt; &quot;/&quot; &lt;&lt; nv &lt;&lt; &quot; =&quot; &lt;&lt; *pit;</span></div>
+<div class="line"><a name="l02057"></a><span class="lineno"> 2057</span>&#160;        <span class="comment">//int pid = (renumber)?nodemap[*pit]+1:*pit;</span></div>
+<div class="line"><a name="l02058"></a><span class="lineno"> 2058</span>&#160;        <span class="keywordtype">int</span> pid = *pit;</div>
+<div class="line"><a name="l02059"></a><span class="lineno"> 2059</span>&#160;</div>
+<div class="line"><a name="l02060"></a><span class="lineno"> 2060</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span>&amp; p = mesh-&gt;point( new2old[*pit] );</div>
+<div class="line"><a name="l02061"></a><span class="lineno"> 2061</span>&#160;        <span class="keywordflow">if</span> ( outer )</div>
+<div class="line"><a name="l02062"></a><span class="lineno"> 2062</span>&#160;            coords[i] = ( T ) p.node()[0];</div>
+<div class="line"><a name="l02063"></a><span class="lineno"> 2063</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l02064"></a><span class="lineno"> 2064</span>&#160;            coords[3*i] = ( T ) p.node()[0];</div>
+<div class="line"><a name="l02065"></a><span class="lineno"> 2065</span>&#160;</div>
+<div class="line"><a name="l02066"></a><span class="lineno"> 2066</span>&#160;        <span class="keywordflow">if</span> ( MeshType::nRealDim &gt;= 2 )</div>
+<div class="line"><a name="l02067"></a><span class="lineno"> 2067</span>&#160;        {</div>
+<div class="line"><a name="l02068"></a><span class="lineno"> 2068</span>&#160;            <span class="keywordflow">if</span> ( outer )</div>
+<div class="line"><a name="l02069"></a><span class="lineno"> 2069</span>&#160;                coords[nv+i] = ( T ) p.node()[1];</div>
+<div class="line"><a name="l02070"></a><span class="lineno"> 2070</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l02071"></a><span class="lineno"> 2071</span>&#160;                coords[3*i+1] = ( T ) p.node()[1];</div>
+<div class="line"><a name="l02072"></a><span class="lineno"> 2072</span>&#160;        }</div>
+<div class="line"><a name="l02073"></a><span class="lineno"> 2073</span>&#160;        <span class="keywordflow">if</span> ( MeshType::nRealDim &gt;= 3 )</div>
+<div class="line"><a name="l02074"></a><span class="lineno"> 2074</span>&#160;        {</div>
+<div class="line"><a name="l02075"></a><span class="lineno"> 2075</span>&#160;            <span class="keywordflow">if</span> ( outer )</div>
+<div class="line"><a name="l02076"></a><span class="lineno"> 2076</span>&#160;                coords[2*nv+i] = T( p.node()[2] );</div>
+<div class="line"><a name="l02077"></a><span class="lineno"> 2077</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l02078"></a><span class="lineno"> 2078</span>&#160;                coords[3*i+2] = T( p.node()[2] );</div>
+<div class="line"><a name="l02079"></a><span class="lineno"> 2079</span>&#160;        }</div>
+<div class="line"><a name="l02080"></a><span class="lineno"> 2080</span>&#160;    }</div>
 <div class="line"><a name="l02081"></a><span class="lineno"> 2081</span>&#160;}</div>
-<div class="line"><a name="l02082"></a><span class="lineno"> 2082</span>&#160;</div>
-<div class="line"><a name="l02083"></a><span class="lineno"> 2083</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l02084"></a><span class="lineno"> 2084</span>&#160;</div>
+<div class="line"><a name="l02082"></a><span class="lineno"> 2082</span>&#160;}</div>
+<div class="line"><a name="l02083"></a><span class="lineno"> 2083</span>&#160;</div>
+<div class="line"><a name="l02084"></a><span class="lineno"> 2084</span>&#160;} <span class="comment">// Feel</span></div>
 <div class="line"><a name="l02085"></a><span class="lineno"> 2085</span>&#160;</div>
-<div class="line"><a name="l02086"></a><span class="lineno"> 2086</span>&#160;<span class="comment">//#if !defined(FEELPP_INSTANTIATION_MODE)</span></div>
-<div class="line"><a name="l02087"></a><span class="lineno"> 2087</span>&#160;<span class="preprocessor"># include &lt;<a class="code" href="meshimpl_8hpp.html">feel/feeldiscr/meshimpl.hpp</a>&gt;</span></div>
-<div class="line"><a name="l02088"></a><span class="lineno"> 2088</span>&#160;<span class="comment">//#endif //</span></div>
-<div class="line"><a name="l02089"></a><span class="lineno"> 2089</span>&#160;</div>
-<div class="line"><a name="l02090"></a><span class="lineno"> 2090</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __mesh_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l02086"></a><span class="lineno"> 2086</span>&#160;</div>
+<div class="line"><a name="l02087"></a><span class="lineno"> 2087</span>&#160;<span class="comment">//#if !defined(FEELPP_INSTANTIATION_MODE)</span></div>
+<div class="line"><a name="l02088"></a><span class="lineno"> 2088</span>&#160;<span class="preprocessor"># include &lt;<a class="code" href="meshimpl_8hpp.html">feel/feeldiscr/meshimpl.hpp</a>&gt;</span></div>
+<div class="line"><a name="l02089"></a><span class="lineno"> 2089</span>&#160;<span class="comment">//#endif //</span></div>
+<div class="line"><a name="l02090"></a><span class="lineno"> 2090</span>&#160;</div>
+<div class="line"><a name="l02091"></a><span class="lineno"> 2091</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __mesh_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classFeel_1_1Mesh_html_a44af1658a34df3be9f48e39b375ce238"><div class="ttname"><a href="classFeel_1_1Mesh.html#a44af1658a34df3be9f48e39b375ce238">Feel::Mesh::updateEntitiesCoDimensionOneGhostCellByUsingBlockingComm</a></div><div class="ttdeci">void updateEntitiesCoDimensionOneGhostCellByUsingBlockingComm()</div></div>
 <div class="ttc" id="mesh2d_8hpp_html"><div class="ttname"><a href="mesh2d_8hpp.html">mesh2d.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1Mesh_html_a3de0529e616efb50929004fdaee7e124"><div class="ttname"><a href="classFeel_1_1Mesh.html#a3de0529e616efb50929004fdaee7e124">Feel::Mesh::referenceConvex</a></div><div class="ttdeci">reference_convex_type referenceConvex() const </div><div class="ttdef"><b>Definition:</b> feeldiscr/mesh.hpp:367</div></div>
@@ -1928,7 +1929,7 @@ $(document).ready(function(){initNavTree('feeldiscr_2mesh_8hpp_source.html','');
 <div class="ttc" id="classFeel_1_1Mesh_html_af834b36337c5b6fc473da16b9020d277"><div class="ttname"><a href="classFeel_1_1Mesh.html#af834b36337c5b6fc473da16b9020d277">Feel::Mesh::setPartitioner</a></div><div class="ttdeci">void setPartitioner(std::string partitioner)</div><div class="ttdef"><b>Definition:</b> feeldiscr/mesh.hpp:417</div></div>
 <div class="ttc" id="geomapinv_8hpp_html"><div class="ttname"><a href="geomapinv_8hpp.html">geomapinv.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1Mesh_html_af5707dbf4faba99d38bb8268c78e2e1a"><div class="ttname"><a href="classFeel_1_1Mesh.html#af5707dbf4faba99d38bb8268c78e2e1a">Feel::Mesh::updateMarker2WithRange</a></div><div class="ttdeci">void updateMarker2WithRange(IteratorRange const &amp;range, flag_type flag, mpl::int_&lt; MESH_FACES &gt;)</div><div class="ttdef"><b>Definition:</b> feeldiscr/mesh.hpp:639</div></div>
-<div class="ttc" id="namespaceFeel_html_a12d0226a5e73e64f3b97bf9c723ee239"><div class="ttname"><a href="namespaceFeel.html#a12d0226a5e73e64f3b97bf9c723ee239">Feel::faces</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_FACES &gt;, typename MeshTraits&lt; MeshType &gt;::pid_face_const_iterator, typename MeshTraits&lt; MeshType &gt;::pid_face_const_iterator &gt; faces(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> feelmesh/filters.hpp:949</div></div>
+<div class="ttc" id="namespaceFeel_html_a12d0226a5e73e64f3b97bf9c723ee239"><div class="ttname"><a href="namespaceFeel.html#a12d0226a5e73e64f3b97bf9c723ee239">Feel::faces</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_FACES &gt;, typename MeshTraits&lt; MeshType &gt;::pid_face_const_iterator, typename MeshTraits&lt; MeshType &gt;::pid_face_const_iterator &gt; faces(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> feelmesh/filters.hpp:950</div></div>
 <div class="ttc" id="namespaceFeel_html_a9953bc678e33419edee8d48033ee31a6"><div class="ttname"><a href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">Feel::rank_type</a></div><div class="ttdeci">uint16_type rank_type</div><div class="ttdoc">type for mpi rank ids </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:335</div></div>
 <div class="ttc" id="classFeel_1_1Mesh_html_ac2473dcd188e511e636de69a46d99d6c"><div class="ttname"><a href="classFeel_1_1Mesh.html#ac2473dcd188e511e636de69a46d99d6c">Feel::Mesh::checkLocalPermutation</a></div><div class="ttdeci">void checkLocalPermutation(mpl::bool_&lt; false &gt;) const </div><div class="ttdef"><b>Definition:</b> feeldiscr/mesh.hpp:872</div></div>
 <div class="ttc" id="classFeel_1_1Mesh_html_a42907164322ead3b8be2701a3683a9b1"><div class="ttname"><a href="classFeel_1_1Mesh.html#a42907164322ead3b8be2701a3683a9b1">Feel::Mesh::Mesh</a></div><div class="ttdeci">Mesh(WorldComm const &amp;worldComm=Environment::worldComm())</div><div class="ttdef"><b>Definition:</b> meshimpl.hpp:45</div></div>
@@ -1945,7 +1946,7 @@ $(document).ready(function(){initNavTree('feeldiscr_2mesh_8hpp_source.html','');
 <div class="ttc" id="classFeel_1_1Mesh_html_a946870191ffac78c6560229d921a91de"><div class="ttname"><a href="classFeel_1_1Mesh.html#a946870191ffac78c6560229d921a91de">Feel::Mesh::gm</a></div><div class="ttdeci">gm_ptrtype &amp; gm()</div><div class="ttdef"><b>Definition:</b> feeldiscr/mesh.hpp:350</div></div>
 <div class="ttc" id="classFeel_1_1Mesh_html_a7971c57a45052fa3828f042d4900344c"><div class="ttname"><a href="classFeel_1_1Mesh.html#a7971c57a45052fa3828f042d4900344c">Feel::Mesh::gm</a></div><div class="ttdeci">gm_ptrtype const &amp; gm() const </div><div class="ttdef"><b>Definition:</b> feeldiscr/mesh.hpp:334</div></div>
 <div class="ttc" id="classFeel_1_1Mesh_html_a3f35f265cacd2e9943f70526b4d3db80"><div class="ttname"><a href="classFeel_1_1Mesh.html#a3f35f265cacd2e9943f70526b4d3db80">Feel::Mesh::localFaceId</a></div><div class="ttdeci">face_processor_type &amp; localFaceId(size_type const e, size_type const n)</div><div class="ttdef"><b>Definition:</b> feeldiscr/mesh.hpp:434</div></div>
-<div class="ttc" id="namespaceFeel_html_a6d4deea03257c3f53b0e9df514a7bf00"><div class="ttname"><a href="namespaceFeel.html#a6d4deea03257c3f53b0e9df514a7bf00">Feel::boundaryfaces</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_FACES &gt;, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator &gt; boundaryfaces(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> feelmesh/filters.hpp:1174</div></div>
+<div class="ttc" id="namespaceFeel_html_a6d4deea03257c3f53b0e9df514a7bf00"><div class="ttname"><a href="namespaceFeel.html#a6d4deea03257c3f53b0e9df514a7bf00">Feel::boundaryfaces</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_FACES &gt;, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator, typename MeshTraits&lt; MeshType &gt;::location_face_const_iterator &gt; boundaryfaces(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> feelmesh/filters.hpp:1175</div></div>
 <div class="ttc" id="classFeel_1_1Mesh_html_a5ff2647ebb8528566465fc30321ca7b4"><div class="ttname"><a href="classFeel_1_1Mesh.html#a5ff2647ebb8528566465fc30321ca7b4">Feel::Mesh::createP1mesh</a></div><div class="ttdeci">P1_mesh_ptrtype createP1mesh() const </div><div class="ttdef"><b>Definition:</b> feeldiscr/mesh.hpp:1703</div></div>
 <div class="ttc" id="classFeel_1_1Mesh_html_a2493d6513298342b1c630bdd8dc96630"><div class="ttname"><a href="classFeel_1_1Mesh.html#a2493d6513298342b1c630bdd8dc96630">Feel::Mesh::localFaceId</a></div><div class="ttdeci">face_processor_type const &amp; localFaceId(element_type const &amp;e, size_type const n) const </div><div class="ttdef"><b>Definition:</b> feeldiscr/mesh.hpp:375</div></div>
 <div class="ttc" id="createsubmesh_8hpp_html"><div class="ttname"><a href="createsubmesh_8hpp.html">createsubmesh.hpp</a></div></div>
