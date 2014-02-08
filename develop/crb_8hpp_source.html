@@ -7759,164 +7759,173 @@ $(document).ready(function(){initNavTree('crb_8hpp_source.html','');});
 <div class="line"><a name="l07906"></a><span class="lineno"> 7906</span>&#160;    <span class="keywordflow">if</span>( option(_name=<span class="stringliteral">&quot;crb.use-newton&quot;</span>).<span class="keyword">template</span> as&lt;bool&gt;() != M_use_newton  )</div>
 <div class="line"><a name="l07907"></a><span class="lineno"> 7907</span>&#160;        {</div>
 <div class="line"><a name="l07908"></a><span class="lineno"> 7908</span>&#160;            <span class="keywordflow">if</span>( M_use_newton )</div>
-<div class="line"><a name="l07909"></a><span class="lineno"> 7909</span>&#160;                <span class="keywordflow">throw</span> std::logic_error( <span class="stringliteral">&quot;[CRB::loadDB] ERROR in the database used the option use-newton=true and it&#39;s not the case in your option&quot;</span> );</div>
-<div class="line"><a name="l07910"></a><span class="lineno"> 7910</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l07911"></a><span class="lineno"> 7911</span>&#160;                <span class="keywordflow">throw</span> std::logic_error( <span class="stringliteral">&quot;[CRB::loadDB] ERROR in the database used the option use-newton=false and it&#39;s not the case in your option&quot;</span> );</div>
-<div class="line"><a name="l07912"></a><span class="lineno"> 7912</span>&#160;        }</div>
-<div class="line"><a name="l07913"></a><span class="lineno"> 7913</span>&#160;</div>
-<div class="line"><a name="l07914"></a><span class="lineno"> 7914</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_primal_apee_basis );</div>
-<div class="line"><a name="l07915"></a><span class="lineno"> 7915</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_dual_apee_basis );</div>
-<div class="line"><a name="l07916"></a><span class="lineno"> 7916</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_primal_V );</div>
-<div class="line"><a name="l07917"></a><span class="lineno"> 7917</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_dual_V );</div>
-<div class="line"><a name="l07918"></a><span class="lineno"> 7918</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_primal_T );</div>
-<div class="line"><a name="l07919"></a><span class="lineno"> 7919</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_dual_T );</div>
-<div class="line"><a name="l07920"></a><span class="lineno"> 7920</span>&#160;</div>
-<div class="line"><a name="l07921"></a><span class="lineno"> 7921</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_model_executed_in_steady_mode );</div>
-<div class="line"><a name="l07922"></a><span class="lineno"> 7922</span>&#160;    <span class="keywordtype">bool</span> current_option=option(_name=<span class="stringliteral">&quot;crb.is-model-executed-in-steady-mode&quot;</span>).template as&lt;bool&gt;();</div>
-<div class="line"><a name="l07923"></a><span class="lineno"> 7923</span>&#160;    <span class="keywordflow">if</span>( M_model_executed_in_steady_mode != current_option )</div>
-<div class="line"><a name="l07924"></a><span class="lineno"> 7924</span>&#160;    {</div>
-<div class="line"><a name="l07925"></a><span class="lineno"> 7925</span>&#160;        <span class="keywordflow">if</span>( M_model_executed_in_steady_mode &amp;&amp; Environment::worldComm().isMasterRank() )</div>
-<div class="line"><a name="l07926"></a><span class="lineno"> 7926</span>&#160;            std::cout&lt;&lt;<span class="stringliteral">&quot;[CRB::loadDB] WARNING in the database used, the model was executed in steady mode but now you want to execute it in transient mode. make sure that --crb.rebuild-database=true&quot;</span>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l07927"></a><span class="lineno"> 7927</span>&#160;    }</div>
-<div class="line"><a name="l07928"></a><span class="lineno"> 7928</span>&#160;<span class="preprocessor">#if 0</span></div>
-<div class="line"><a name="l07929"></a><span class="lineno"> 7929</span>&#160;<span class="preprocessor"></span>    std::cout &lt;&lt; <span class="stringliteral">&quot;[loadDB] output index : &quot;</span> &lt;&lt; M_output_index &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l07930"></a><span class="lineno"> 7930</span>&#160;              &lt;&lt; <span class="stringliteral">&quot;[loadDB] N : &quot;</span> &lt;&lt; M_N &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l07931"></a><span class="lineno"> 7931</span>&#160;              &lt;&lt; <span class="stringliteral">&quot;[loadDB] error type : &quot;</span> &lt;&lt; M_error_type &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l07932"></a><span class="lineno"> 7932</span>&#160;</div>
-<div class="line"><a name="l07933"></a><span class="lineno"> 7933</span>&#160;    <span class="keywordflow">for</span> ( <span class="keyword">auto</span> it = M_rbconv.begin(), en = M_rbconv.end();it != en; ++it )</div>
-<div class="line"><a name="l07934"></a><span class="lineno"> 7934</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;[loadDB] convergence: (&quot;</span> &lt;&lt; it-&gt;left &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>  &lt;&lt; it-&gt;right  &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;</div>
-<div class="line"><a name="l07935"></a><span class="lineno"> 7935</span>&#160;</div>
-<div class="line"><a name="l07936"></a><span class="lineno"> 7936</span>&#160;        <a class="code" href="classFeel_1_1CRB.html#aed783e3fef64f87a7d71afccd5eaae4a">element_type</a> temp = Xh-&gt;element();</div>
-<div class="line"><a name="l07937"></a><span class="lineno"> 7937</span>&#160;</div>
-<div class="line"><a name="l07938"></a><span class="lineno"> 7938</span>&#160;        M_WN.resize( M_N );</div>
-<div class="line"><a name="l07939"></a><span class="lineno"> 7939</span>&#160;        M_WNdu.resize( M_N );</div>
-<div class="line"><a name="l07940"></a><span class="lineno"> 7940</span>&#160;</div>
-<div class="line"><a name="l07941"></a><span class="lineno"> 7941</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0 ; i &lt; M_N ; i++ )</div>
-<div class="line"><a name="l07942"></a><span class="lineno"> 7942</span>&#160;        {</div>
-<div class="line"><a name="l07943"></a><span class="lineno"> 7943</span>&#160;            temp.setName( (boost::format( <span class="stringliteral">&quot;fem-primal-%1%&quot;</span> ) % ( i ) ).str() );</div>
-<div class="line"><a name="l07944"></a><span class="lineno"> 7944</span>&#160;            ar &amp; BOOST_SERIALIZATION_NVP( temp );</div>
-<div class="line"><a name="l07945"></a><span class="lineno"> 7945</span>&#160;            M_WN[i] = temp;</div>
-<div class="line"><a name="l07946"></a><span class="lineno"> 7946</span>&#160;        }</div>
-<div class="line"><a name="l07947"></a><span class="lineno"> 7947</span>&#160;</div>
-<div class="line"><a name="l07948"></a><span class="lineno"> 7948</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0 ; i &lt; M_N ; i++ )</div>
-<div class="line"><a name="l07949"></a><span class="lineno"> 7949</span>&#160;        {</div>
-<div class="line"><a name="l07950"></a><span class="lineno"> 7950</span>&#160;            temp.setName( (boost::format( <span class="stringliteral">&quot;fem-dual-%1%&quot;</span> ) % ( i ) ).str() );</div>
-<div class="line"><a name="l07951"></a><span class="lineno"> 7951</span>&#160;            ar &amp; BOOST_SERIALIZATION_NVP( temp );</div>
-<div class="line"><a name="l07952"></a><span class="lineno"> 7952</span>&#160;            M_WNdu[i] = temp;</div>
-<div class="line"><a name="l07953"></a><span class="lineno"> 7953</span>&#160;        }</div>
-<div class="line"><a name="l07954"></a><span class="lineno"> 7954</span>&#160;</div>
-<div class="line"><a name="l07955"></a><span class="lineno"> 7955</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l07956"></a><span class="lineno"> 7956</span>&#160;<span class="preprocessor"></span>    LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;[CRB::load] end of load function&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l07957"></a><span class="lineno"> 7957</span>&#160;}</div>
-<div class="line"><a name="l07958"></a><span class="lineno"> 7958</span>&#160;</div>
-<div class="line"><a name="l07959"></a><span class="lineno"> 7959</span>&#160;</div>
-<div class="line"><a name="l07960"></a><span class="lineno"> 7960</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TruthModelType&gt;</div>
-<div class="line"><a name="l07961"></a><span class="lineno"> 7961</span>&#160;<span class="keywordtype">bool</span></div>
-<div class="line"><a name="l07962"></a><span class="lineno"><a class="line" href="classFeel_1_1CRB.html#a140419097ed1b98e8ecdf8bde29ee41d"> 7962</a></span>&#160;<a class="code" href="classFeel_1_1CRB.html#a140419097ed1b98e8ecdf8bde29ee41d">CRB&lt;TruthModelType&gt;::printErrorDuringOfflineStep</a>()</div>
-<div class="line"><a name="l07963"></a><span class="lineno"> 7963</span>&#160;{</div>
-<div class="line"><a name="l07964"></a><span class="lineno"> 7964</span>&#160;    <span class="keywordtype">bool</span> print = option(_name=<span class="stringliteral">&quot;crb.print-error-during-rb-construction&quot;</span>).template as&lt;bool&gt;();</div>
-<div class="line"><a name="l07965"></a><span class="lineno"> 7965</span>&#160;    <span class="keywordflow">return</span> print;</div>
+<div class="line"><a name="l07909"></a><span class="lineno"> 7909</span>&#160;            {</div>
+<div class="line"><a name="l07910"></a><span class="lineno"> 7910</span>&#160;                <span class="keywordflow">if</span>( Environment::worldComm().isMasterRank() )</div>
+<div class="line"><a name="l07911"></a><span class="lineno"> 7911</span>&#160;                    std::cout&lt;&lt;<span class="stringliteral">&quot;[CRB::loadDB] WARNING in the database used the option use-newton=true and it&#39;s not the case in your options so make sure that crb.rebuild-database=true !&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line"><a name="l07912"></a><span class="lineno"> 7912</span>&#160;                LOG( INFO )&lt;&lt;<span class="stringliteral">&quot;[CRB::loadDB] WARNING in the database used the option use-newton=true and it&#39;s not the case in your options so make sure that crb.rebuild-database=true !&quot;</span> ;</div>
+<div class="line"><a name="l07913"></a><span class="lineno"> 7913</span>&#160;            }</div>
+<div class="line"><a name="l07914"></a><span class="lineno"> 7914</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l07915"></a><span class="lineno"> 7915</span>&#160;            {</div>
+<div class="line"><a name="l07916"></a><span class="lineno"> 7916</span>&#160;                <span class="keywordflow">if</span>( Environment::worldComm().isMasterRank() )</div>
+<div class="line"><a name="l07917"></a><span class="lineno"> 7917</span>&#160;                    std::cout&lt;&lt; <span class="stringliteral">&quot;[CRB::loadDB] WARNING in the database used the option use-newton=false and it&#39;s not the case in your options so make sure that crb.rebuild-database=true !&quot;</span>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l07918"></a><span class="lineno"> 7918</span>&#160;                LOG( INFO )&lt;&lt; <span class="stringliteral">&quot;[CRB::loadDB] WARNING in the database used the option use-newton=false and it&#39;s not the case in your options so make sure that crb.rebuild-database=true !&quot;</span>;</div>
+<div class="line"><a name="l07919"></a><span class="lineno"> 7919</span>&#160;            }</div>
+<div class="line"><a name="l07920"></a><span class="lineno"> 7920</span>&#160;        }</div>
+<div class="line"><a name="l07921"></a><span class="lineno"> 7921</span>&#160;</div>
+<div class="line"><a name="l07922"></a><span class="lineno"> 7922</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_primal_apee_basis );</div>
+<div class="line"><a name="l07923"></a><span class="lineno"> 7923</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_dual_apee_basis );</div>
+<div class="line"><a name="l07924"></a><span class="lineno"> 7924</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_primal_V );</div>
+<div class="line"><a name="l07925"></a><span class="lineno"> 7925</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_dual_V );</div>
+<div class="line"><a name="l07926"></a><span class="lineno"> 7926</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_primal_T );</div>
+<div class="line"><a name="l07927"></a><span class="lineno"> 7927</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_dual_T );</div>
+<div class="line"><a name="l07928"></a><span class="lineno"> 7928</span>&#160;</div>
+<div class="line"><a name="l07929"></a><span class="lineno"> 7929</span>&#160;    ar &amp; BOOST_SERIALIZATION_NVP( M_model_executed_in_steady_mode );</div>
+<div class="line"><a name="l07930"></a><span class="lineno"> 7930</span>&#160;    <span class="keywordtype">bool</span> current_option=option(_name=<span class="stringliteral">&quot;crb.is-model-executed-in-steady-mode&quot;</span>).template as&lt;bool&gt;();</div>
+<div class="line"><a name="l07931"></a><span class="lineno"> 7931</span>&#160;    <span class="keywordflow">if</span>( M_model_executed_in_steady_mode != current_option )</div>
+<div class="line"><a name="l07932"></a><span class="lineno"> 7932</span>&#160;    {</div>
+<div class="line"><a name="l07933"></a><span class="lineno"> 7933</span>&#160;        <span class="keywordflow">if</span>( M_model_executed_in_steady_mode &amp;&amp; Environment::worldComm().isMasterRank() )</div>
+<div class="line"><a name="l07934"></a><span class="lineno"> 7934</span>&#160;            std::cout&lt;&lt;<span class="stringliteral">&quot;[CRB::loadDB] WARNING in the database used, the model was executed in steady mode but now you want to execute it in transient mode. make sure that --crb.rebuild-database=true&quot;</span>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l07935"></a><span class="lineno"> 7935</span>&#160;        LOG( INFO ) &lt;&lt;<span class="stringliteral">&quot;[CRB::loadDB] WARNING in the database used, the model was executed in steady mode but now you want to execute it in transient mode. make sure that --crb.rebuild-database=true&quot;</span>;</div>
+<div class="line"><a name="l07936"></a><span class="lineno"> 7936</span>&#160;    }</div>
+<div class="line"><a name="l07937"></a><span class="lineno"> 7937</span>&#160;<span class="preprocessor">#if 0</span></div>
+<div class="line"><a name="l07938"></a><span class="lineno"> 7938</span>&#160;<span class="preprocessor"></span>    std::cout &lt;&lt; <span class="stringliteral">&quot;[loadDB] output index : &quot;</span> &lt;&lt; M_output_index &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l07939"></a><span class="lineno"> 7939</span>&#160;              &lt;&lt; <span class="stringliteral">&quot;[loadDB] N : &quot;</span> &lt;&lt; M_N &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l07940"></a><span class="lineno"> 7940</span>&#160;              &lt;&lt; <span class="stringliteral">&quot;[loadDB] error type : &quot;</span> &lt;&lt; M_error_type &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l07941"></a><span class="lineno"> 7941</span>&#160;</div>
+<div class="line"><a name="l07942"></a><span class="lineno"> 7942</span>&#160;    <span class="keywordflow">for</span> ( <span class="keyword">auto</span> it = M_rbconv.begin(), en = M_rbconv.end();it != en; ++it )</div>
+<div class="line"><a name="l07943"></a><span class="lineno"> 7943</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;[loadDB] convergence: (&quot;</span> &lt;&lt; it-&gt;left &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>  &lt;&lt; it-&gt;right  &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;</div>
+<div class="line"><a name="l07944"></a><span class="lineno"> 7944</span>&#160;</div>
+<div class="line"><a name="l07945"></a><span class="lineno"> 7945</span>&#160;        <a class="code" href="classFeel_1_1CRB.html#aed783e3fef64f87a7d71afccd5eaae4a">element_type</a> temp = Xh-&gt;element();</div>
+<div class="line"><a name="l07946"></a><span class="lineno"> 7946</span>&#160;</div>
+<div class="line"><a name="l07947"></a><span class="lineno"> 7947</span>&#160;        M_WN.resize( M_N );</div>
+<div class="line"><a name="l07948"></a><span class="lineno"> 7948</span>&#160;        M_WNdu.resize( M_N );</div>
+<div class="line"><a name="l07949"></a><span class="lineno"> 7949</span>&#160;</div>
+<div class="line"><a name="l07950"></a><span class="lineno"> 7950</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0 ; i &lt; M_N ; i++ )</div>
+<div class="line"><a name="l07951"></a><span class="lineno"> 7951</span>&#160;        {</div>
+<div class="line"><a name="l07952"></a><span class="lineno"> 7952</span>&#160;            temp.setName( (boost::format( <span class="stringliteral">&quot;fem-primal-%1%&quot;</span> ) % ( i ) ).str() );</div>
+<div class="line"><a name="l07953"></a><span class="lineno"> 7953</span>&#160;            ar &amp; BOOST_SERIALIZATION_NVP( temp );</div>
+<div class="line"><a name="l07954"></a><span class="lineno"> 7954</span>&#160;            M_WN[i] = temp;</div>
+<div class="line"><a name="l07955"></a><span class="lineno"> 7955</span>&#160;        }</div>
+<div class="line"><a name="l07956"></a><span class="lineno"> 7956</span>&#160;</div>
+<div class="line"><a name="l07957"></a><span class="lineno"> 7957</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0 ; i &lt; M_N ; i++ )</div>
+<div class="line"><a name="l07958"></a><span class="lineno"> 7958</span>&#160;        {</div>
+<div class="line"><a name="l07959"></a><span class="lineno"> 7959</span>&#160;            temp.setName( (boost::format( <span class="stringliteral">&quot;fem-dual-%1%&quot;</span> ) % ( i ) ).str() );</div>
+<div class="line"><a name="l07960"></a><span class="lineno"> 7960</span>&#160;            ar &amp; BOOST_SERIALIZATION_NVP( temp );</div>
+<div class="line"><a name="l07961"></a><span class="lineno"> 7961</span>&#160;            M_WNdu[i] = temp;</div>
+<div class="line"><a name="l07962"></a><span class="lineno"> 7962</span>&#160;        }</div>
+<div class="line"><a name="l07963"></a><span class="lineno"> 7963</span>&#160;</div>
+<div class="line"><a name="l07964"></a><span class="lineno"> 7964</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l07965"></a><span class="lineno"> 7965</span>&#160;<span class="preprocessor"></span>    LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;[CRB::load] end of load function&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l07966"></a><span class="lineno"> 7966</span>&#160;}</div>
 <div class="line"><a name="l07967"></a><span class="lineno"> 7967</span>&#160;</div>
-<div class="line"><a name="l07968"></a><span class="lineno"> 7968</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TruthModelType&gt;</div>
-<div class="line"><a name="l07969"></a><span class="lineno"> 7969</span>&#160;<span class="keywordtype">bool</span></div>
-<div class="line"><a name="l07970"></a><span class="lineno"><a class="line" href="classFeel_1_1CRB.html#a5a47e56dbbb68057386103c09394f6e2"> 7970</a></span>&#160;<a class="code" href="classFeel_1_1CRB.html#a5a47e56dbbb68057386103c09394f6e2">CRB&lt;TruthModelType&gt;::rebuildDB</a>()</div>
-<div class="line"><a name="l07971"></a><span class="lineno"> 7971</span>&#160;{</div>
-<div class="line"><a name="l07972"></a><span class="lineno"> 7972</span>&#160;    <span class="keywordtype">bool</span> rebuild_db = option(_name=<span class="stringliteral">&quot;crb.rebuild-database&quot;</span>).template as&lt;bool&gt;();</div>
-<div class="line"><a name="l07973"></a><span class="lineno"> 7973</span>&#160;    <span class="keywordtype">int</span> Nrestart = option(_name=<span class="stringliteral">&quot;crb.restart-from-N&quot;</span>).template as&lt;int&gt;();</div>
-<div class="line"><a name="l07974"></a><span class="lineno"> 7974</span>&#160;    <span class="keywordtype">bool</span> rebuild=<span class="keyword">false</span>;</div>
-<div class="line"><a name="l07975"></a><span class="lineno"> 7975</span>&#160;    <span class="keywordflow">if</span> ( rebuild_db &amp;&amp; Nrestart &lt; 1 )</div>
-<div class="line"><a name="l07976"></a><span class="lineno"> 7976</span>&#160;    {</div>
-<div class="line"><a name="l07977"></a><span class="lineno"> 7977</span>&#160;        rebuild=<span class="keyword">true</span>;</div>
-<div class="line"><a name="l07978"></a><span class="lineno"> 7978</span>&#160;    }</div>
-<div class="line"><a name="l07979"></a><span class="lineno"> 7979</span>&#160;    <span class="keywordflow">if</span>( M_N == 0 )</div>
-<div class="line"><a name="l07980"></a><span class="lineno"> 7980</span>&#160;    {</div>
-<div class="line"><a name="l07981"></a><span class="lineno"> 7981</span>&#160;        rebuild=<span class="keyword">true</span>;</div>
-<div class="line"><a name="l07982"></a><span class="lineno"> 7982</span>&#160;    }</div>
-<div class="line"><a name="l07983"></a><span class="lineno"> 7983</span>&#160;    <span class="keywordflow">return</span> rebuild;</div>
-<div class="line"><a name="l07984"></a><span class="lineno"> 7984</span>&#160;}</div>
-<div class="line"><a name="l07985"></a><span class="lineno"> 7985</span>&#160;</div>
-<div class="line"><a name="l07986"></a><span class="lineno"> 7986</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TruthModelType&gt;</div>
-<div class="line"><a name="l07987"></a><span class="lineno"> 7987</span>&#160;<span class="keywordtype">bool</span></div>
-<div class="line"><a name="l07988"></a><span class="lineno"><a class="line" href="classFeel_1_1CRB.html#a0a0700cf0af27df6c163154d945516b6"> 7988</a></span>&#160;<a class="code" href="classFeel_1_1CRB.html#a0a0700cf0af27df6c163154d945516b6">CRB&lt;TruthModelType&gt;::showMuSelection</a>()</div>
-<div class="line"><a name="l07989"></a><span class="lineno"> 7989</span>&#160;{</div>
-<div class="line"><a name="l07990"></a><span class="lineno"> 7990</span>&#160;    <span class="keywordtype">bool</span> show = option(_name=<span class="stringliteral">&quot;crb.show-mu-selection&quot;</span>).template as&lt;bool&gt;();</div>
-<div class="line"><a name="l07991"></a><span class="lineno"> 7991</span>&#160;    <span class="keywordflow">return</span> show;</div>
-<div class="line"><a name="l07992"></a><span class="lineno"> 7992</span>&#160;}</div>
-<div class="line"><a name="l07993"></a><span class="lineno"> 7993</span>&#160;</div>
+<div class="line"><a name="l07968"></a><span class="lineno"> 7968</span>&#160;</div>
+<div class="line"><a name="l07969"></a><span class="lineno"> 7969</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TruthModelType&gt;</div>
+<div class="line"><a name="l07970"></a><span class="lineno"> 7970</span>&#160;<span class="keywordtype">bool</span></div>
+<div class="line"><a name="l07971"></a><span class="lineno"><a class="line" href="classFeel_1_1CRB.html#a140419097ed1b98e8ecdf8bde29ee41d"> 7971</a></span>&#160;<a class="code" href="classFeel_1_1CRB.html#a140419097ed1b98e8ecdf8bde29ee41d">CRB&lt;TruthModelType&gt;::printErrorDuringOfflineStep</a>()</div>
+<div class="line"><a name="l07972"></a><span class="lineno"> 7972</span>&#160;{</div>
+<div class="line"><a name="l07973"></a><span class="lineno"> 7973</span>&#160;    <span class="keywordtype">bool</span> print = option(_name=<span class="stringliteral">&quot;crb.print-error-during-rb-construction&quot;</span>).template as&lt;bool&gt;();</div>
+<div class="line"><a name="l07974"></a><span class="lineno"> 7974</span>&#160;    <span class="keywordflow">return</span> print;</div>
+<div class="line"><a name="l07975"></a><span class="lineno"> 7975</span>&#160;}</div>
+<div class="line"><a name="l07976"></a><span class="lineno"> 7976</span>&#160;</div>
+<div class="line"><a name="l07977"></a><span class="lineno"> 7977</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TruthModelType&gt;</div>
+<div class="line"><a name="l07978"></a><span class="lineno"> 7978</span>&#160;<span class="keywordtype">bool</span></div>
+<div class="line"><a name="l07979"></a><span class="lineno"><a class="line" href="classFeel_1_1CRB.html#a5a47e56dbbb68057386103c09394f6e2"> 7979</a></span>&#160;<a class="code" href="classFeel_1_1CRB.html#a5a47e56dbbb68057386103c09394f6e2">CRB&lt;TruthModelType&gt;::rebuildDB</a>()</div>
+<div class="line"><a name="l07980"></a><span class="lineno"> 7980</span>&#160;{</div>
+<div class="line"><a name="l07981"></a><span class="lineno"> 7981</span>&#160;    <span class="keywordtype">bool</span> rebuild_db = option(_name=<span class="stringliteral">&quot;crb.rebuild-database&quot;</span>).template as&lt;bool&gt;();</div>
+<div class="line"><a name="l07982"></a><span class="lineno"> 7982</span>&#160;    <span class="keywordtype">int</span> Nrestart = option(_name=<span class="stringliteral">&quot;crb.restart-from-N&quot;</span>).template as&lt;int&gt;();</div>
+<div class="line"><a name="l07983"></a><span class="lineno"> 7983</span>&#160;    <span class="keywordtype">bool</span> rebuild=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l07984"></a><span class="lineno"> 7984</span>&#160;    <span class="keywordflow">if</span> ( rebuild_db &amp;&amp; Nrestart &lt; 1 )</div>
+<div class="line"><a name="l07985"></a><span class="lineno"> 7985</span>&#160;    {</div>
+<div class="line"><a name="l07986"></a><span class="lineno"> 7986</span>&#160;        rebuild=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l07987"></a><span class="lineno"> 7987</span>&#160;    }</div>
+<div class="line"><a name="l07988"></a><span class="lineno"> 7988</span>&#160;    <span class="keywordflow">if</span>( M_N == 0 )</div>
+<div class="line"><a name="l07989"></a><span class="lineno"> 7989</span>&#160;    {</div>
+<div class="line"><a name="l07990"></a><span class="lineno"> 7990</span>&#160;        rebuild=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l07991"></a><span class="lineno"> 7991</span>&#160;    }</div>
+<div class="line"><a name="l07992"></a><span class="lineno"> 7992</span>&#160;    <span class="keywordflow">return</span> rebuild;</div>
+<div class="line"><a name="l07993"></a><span class="lineno"> 7993</span>&#160;}</div>
 <div class="line"><a name="l07994"></a><span class="lineno"> 7994</span>&#160;</div>
 <div class="line"><a name="l07995"></a><span class="lineno"> 7995</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TruthModelType&gt;</div>
-<div class="line"><a name="l07996"></a><span class="lineno"> 7996</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l07997"></a><span class="lineno"><a class="line" href="classFeel_1_1CRB.html#a39d510c1295521c3f2de52d359b368ee"> 7997</a></span>&#160;<a class="code" href="classFeel_1_1CRB.html#a39d510c1295521c3f2de52d359b368ee">CRB&lt;TruthModelType&gt;::saveDB</a>()</div>
+<div class="line"><a name="l07996"></a><span class="lineno"> 7996</span>&#160;<span class="keywordtype">bool</span></div>
+<div class="line"><a name="l07997"></a><span class="lineno"><a class="line" href="classFeel_1_1CRB.html#a0a0700cf0af27df6c163154d945516b6"> 7997</a></span>&#160;<a class="code" href="classFeel_1_1CRB.html#a0a0700cf0af27df6c163154d945516b6">CRB&lt;TruthModelType&gt;::showMuSelection</a>()</div>
 <div class="line"><a name="l07998"></a><span class="lineno"> 7998</span>&#160;{</div>
-<div class="line"><a name="l07999"></a><span class="lineno"> 7999</span>&#160;    fs::ofstream ofs( this-&gt;<a class="code" href="classFeel_1_1CRBDB.html#a6ab0476785ef1a656f50e0a86fe81703">dbLocalPath</a>() / this-&gt;<a class="code" href="classFeel_1_1CRBDB.html#af37a10b53fc44efe766ebf6febee3b86">dbFilename</a>() );</div>
-<div class="line"><a name="l08000"></a><span class="lineno"> 8000</span>&#160;</div>
-<div class="line"><a name="l08001"></a><span class="lineno"> 8001</span>&#160;    <span class="keywordflow">if</span> ( ofs )</div>
-<div class="line"><a name="l08002"></a><span class="lineno"> 8002</span>&#160;    {</div>
-<div class="line"><a name="l08003"></a><span class="lineno"> 8003</span>&#160;        <span class="comment">//boost::archive::text_oarchive oa( ofs );</span></div>
-<div class="line"><a name="l08004"></a><span class="lineno"> 8004</span>&#160;        boost::archive::binary_oarchive oa( ofs );</div>
-<div class="line"><a name="l08005"></a><span class="lineno"> 8005</span>&#160;        <span class="comment">// write class instance to archive</span></div>
-<div class="line"><a name="l08006"></a><span class="lineno"> 8006</span>&#160;        oa &lt;&lt; *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l08007"></a><span class="lineno"> 8007</span>&#160;        <span class="comment">// archive and stream closed when destructors are called</span></div>
-<div class="line"><a name="l08008"></a><span class="lineno"> 8008</span>&#160;    }</div>
-<div class="line"><a name="l08009"></a><span class="lineno"> 8009</span>&#160;}</div>
-<div class="line"><a name="l08010"></a><span class="lineno"> 8010</span>&#160;</div>
-<div class="line"><a name="l08011"></a><span class="lineno"> 8011</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TruthModelType&gt;</div>
-<div class="line"><a name="l08012"></a><span class="lineno"> 8012</span>&#160;<span class="keywordtype">bool</span></div>
-<div class="line"><a name="l08013"></a><span class="lineno"><a class="line" href="classFeel_1_1CRB.html#aa853eb0c65919f945f3613b0507f72cb"> 8013</a></span>&#160;<a class="code" href="classFeel_1_1CRB.html#aa853eb0c65919f945f3613b0507f72cb">CRB&lt;TruthModelType&gt;::loadDB</a>()</div>
-<div class="line"><a name="l08014"></a><span class="lineno"> 8014</span>&#160;{</div>
-<div class="line"><a name="l08015"></a><span class="lineno"> 8015</span>&#160;    <span class="comment">//if ( this-&gt;rebuildDB() )</span></div>
-<div class="line"><a name="l08016"></a><span class="lineno"> 8016</span>&#160;    <span class="comment">//    return false;</span></div>
-<div class="line"><a name="l08017"></a><span class="lineno"> 8017</span>&#160;</div>
-<div class="line"><a name="l08018"></a><span class="lineno"> 8018</span>&#160;    <span class="keywordflow">if</span>( this-&gt;<a class="code" href="classFeel_1_1CRBDB.html#a6b26667b5d61e737479bcc9d0782b43e">isDBLoaded</a>() )</div>
-<div class="line"><a name="l08019"></a><span class="lineno"> 8019</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l08020"></a><span class="lineno"> 8020</span>&#160;</div>
-<div class="line"><a name="l08021"></a><span class="lineno"> 8021</span>&#160;    fs::path db = this-&gt;<a class="code" href="classFeel_1_1CRBDB.html#ac80c6f91b8fffec72cbc69a13bef3ab0">lookForDB</a>();</div>
-<div class="line"><a name="l08022"></a><span class="lineno"> 8022</span>&#160;</div>
-<div class="line"><a name="l08023"></a><span class="lineno"> 8023</span>&#160;    <span class="keywordflow">if</span> ( db.empty() )</div>
-<div class="line"><a name="l08024"></a><span class="lineno"> 8024</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l08025"></a><span class="lineno"> 8025</span>&#160;</div>
-<div class="line"><a name="l08026"></a><span class="lineno"> 8026</span>&#160;    <span class="keywordflow">if</span> ( !fs::exists( db ) )</div>
-<div class="line"><a name="l08027"></a><span class="lineno"> 8027</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l08028"></a><span class="lineno"> 8028</span>&#160;</div>
-<div class="line"><a name="l08029"></a><span class="lineno"> 8029</span>&#160;    <span class="comment">//std::cout &lt;&lt; &quot;Loading &quot; &lt;&lt; db &lt;&lt; &quot;...\n&quot;;</span></div>
-<div class="line"><a name="l08030"></a><span class="lineno"> 8030</span>&#160;    fs::ifstream ifs( db );</div>
+<div class="line"><a name="l07999"></a><span class="lineno"> 7999</span>&#160;    <span class="keywordtype">bool</span> show = option(_name=<span class="stringliteral">&quot;crb.show-mu-selection&quot;</span>).template as&lt;bool&gt;();</div>
+<div class="line"><a name="l08000"></a><span class="lineno"> 8000</span>&#160;    <span class="keywordflow">return</span> show;</div>
+<div class="line"><a name="l08001"></a><span class="lineno"> 8001</span>&#160;}</div>
+<div class="line"><a name="l08002"></a><span class="lineno"> 8002</span>&#160;</div>
+<div class="line"><a name="l08003"></a><span class="lineno"> 8003</span>&#160;</div>
+<div class="line"><a name="l08004"></a><span class="lineno"> 8004</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TruthModelType&gt;</div>
+<div class="line"><a name="l08005"></a><span class="lineno"> 8005</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l08006"></a><span class="lineno"><a class="line" href="classFeel_1_1CRB.html#a39d510c1295521c3f2de52d359b368ee"> 8006</a></span>&#160;<a class="code" href="classFeel_1_1CRB.html#a39d510c1295521c3f2de52d359b368ee">CRB&lt;TruthModelType&gt;::saveDB</a>()</div>
+<div class="line"><a name="l08007"></a><span class="lineno"> 8007</span>&#160;{</div>
+<div class="line"><a name="l08008"></a><span class="lineno"> 8008</span>&#160;    fs::ofstream ofs( this-&gt;<a class="code" href="classFeel_1_1CRBDB.html#a6ab0476785ef1a656f50e0a86fe81703">dbLocalPath</a>() / this-&gt;<a class="code" href="classFeel_1_1CRBDB.html#af37a10b53fc44efe766ebf6febee3b86">dbFilename</a>() );</div>
+<div class="line"><a name="l08009"></a><span class="lineno"> 8009</span>&#160;</div>
+<div class="line"><a name="l08010"></a><span class="lineno"> 8010</span>&#160;    <span class="keywordflow">if</span> ( ofs )</div>
+<div class="line"><a name="l08011"></a><span class="lineno"> 8011</span>&#160;    {</div>
+<div class="line"><a name="l08012"></a><span class="lineno"> 8012</span>&#160;        <span class="comment">//boost::archive::text_oarchive oa( ofs );</span></div>
+<div class="line"><a name="l08013"></a><span class="lineno"> 8013</span>&#160;        boost::archive::binary_oarchive oa( ofs );</div>
+<div class="line"><a name="l08014"></a><span class="lineno"> 8014</span>&#160;        <span class="comment">// write class instance to archive</span></div>
+<div class="line"><a name="l08015"></a><span class="lineno"> 8015</span>&#160;        oa &lt;&lt; *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l08016"></a><span class="lineno"> 8016</span>&#160;        <span class="comment">// archive and stream closed when destructors are called</span></div>
+<div class="line"><a name="l08017"></a><span class="lineno"> 8017</span>&#160;    }</div>
+<div class="line"><a name="l08018"></a><span class="lineno"> 8018</span>&#160;}</div>
+<div class="line"><a name="l08019"></a><span class="lineno"> 8019</span>&#160;</div>
+<div class="line"><a name="l08020"></a><span class="lineno"> 8020</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TruthModelType&gt;</div>
+<div class="line"><a name="l08021"></a><span class="lineno"> 8021</span>&#160;<span class="keywordtype">bool</span></div>
+<div class="line"><a name="l08022"></a><span class="lineno"><a class="line" href="classFeel_1_1CRB.html#aa853eb0c65919f945f3613b0507f72cb"> 8022</a></span>&#160;<a class="code" href="classFeel_1_1CRB.html#aa853eb0c65919f945f3613b0507f72cb">CRB&lt;TruthModelType&gt;::loadDB</a>()</div>
+<div class="line"><a name="l08023"></a><span class="lineno"> 8023</span>&#160;{</div>
+<div class="line"><a name="l08024"></a><span class="lineno"> 8024</span>&#160;    <span class="comment">//if ( this-&gt;rebuildDB() )</span></div>
+<div class="line"><a name="l08025"></a><span class="lineno"> 8025</span>&#160;    <span class="comment">//    return false;</span></div>
+<div class="line"><a name="l08026"></a><span class="lineno"> 8026</span>&#160;</div>
+<div class="line"><a name="l08027"></a><span class="lineno"> 8027</span>&#160;    <span class="keywordflow">if</span>( this-&gt;<a class="code" href="classFeel_1_1CRBDB.html#a6b26667b5d61e737479bcc9d0782b43e">isDBLoaded</a>() )</div>
+<div class="line"><a name="l08028"></a><span class="lineno"> 8028</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l08029"></a><span class="lineno"> 8029</span>&#160;</div>
+<div class="line"><a name="l08030"></a><span class="lineno"> 8030</span>&#160;    fs::path db = this-&gt;<a class="code" href="classFeel_1_1CRBDB.html#ac80c6f91b8fffec72cbc69a13bef3ab0">lookForDB</a>();</div>
 <div class="line"><a name="l08031"></a><span class="lineno"> 8031</span>&#160;</div>
-<div class="line"><a name="l08032"></a><span class="lineno"> 8032</span>&#160;    <span class="keywordflow">if</span> ( ifs )</div>
-<div class="line"><a name="l08033"></a><span class="lineno"> 8033</span>&#160;    {</div>
-<div class="line"><a name="l08034"></a><span class="lineno"> 8034</span>&#160;        <span class="comment">//boost::archive::text_iarchive ia( ifs );</span></div>
-<div class="line"><a name="l08035"></a><span class="lineno"> 8035</span>&#160;        boost::archive::binary_iarchive ia( ifs );</div>
-<div class="line"><a name="l08036"></a><span class="lineno"> 8036</span>&#160;        <span class="comment">// write class instance to archive</span></div>
-<div class="line"><a name="l08037"></a><span class="lineno"> 8037</span>&#160;        ia &gt;&gt; *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l08038"></a><span class="lineno"> 8038</span>&#160;        <span class="comment">//std::cout &lt;&lt; &quot;Loading &quot; &lt;&lt; db &lt;&lt; &quot; done...\n&quot;;</span></div>
-<div class="line"><a name="l08039"></a><span class="lineno"> 8039</span>&#160;        this-&gt;setIsLoaded( <span class="keyword">true</span> );</div>
-<div class="line"><a name="l08040"></a><span class="lineno"> 8040</span>&#160;        <span class="comment">// archive and stream closed when destructors are called</span></div>
-<div class="line"><a name="l08041"></a><span class="lineno"> 8041</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l08042"></a><span class="lineno"> 8042</span>&#160;    }</div>
-<div class="line"><a name="l08043"></a><span class="lineno"> 8043</span>&#160;</div>
-<div class="line"><a name="l08044"></a><span class="lineno"> 8044</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l08045"></a><span class="lineno"> 8045</span>&#160;}</div>
-<div class="line"><a name="l08046"></a><span class="lineno"> 8046</span>&#160;</div>
-<div class="line"><a name="l08047"></a><span class="lineno"> 8047</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l08048"></a><span class="lineno"> 8048</span>&#160;</div>
-<div class="line"><a name="l08049"></a><span class="lineno"> 8049</span>&#160;<span class="keyword">namespace </span>boost</div>
-<div class="line"><a name="l08050"></a><span class="lineno"> 8050</span>&#160;{</div>
-<div class="line"><a name="l08051"></a><span class="lineno"> 8051</span>&#160;<span class="keyword">namespace </span>serialization</div>
-<div class="line"><a name="l08052"></a><span class="lineno"> 8052</span>&#160;{</div>
-<div class="line"><a name="l08053"></a><span class="lineno"> 8053</span>&#160;<span class="keyword">template</span>&lt; <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l08054"></a><span class="lineno"> 8054</span>&#160;<span class="keyword">struct </span>version&lt; Feel::<a class="code" href="classFeel_1_1CRB.html#ac1ebf1a0031cd9f1c2f0a07d7dce726e">CRB</a>&lt;T&gt; &gt;</div>
-<div class="line"><a name="l08055"></a><span class="lineno"> 8055</span>&#160;{</div>
-<div class="line"><a name="l08056"></a><span class="lineno"> 8056</span>&#160;    <span class="comment">// at the moment the version of the CRB DB is 0. if any changes is done</span></div>
-<div class="line"><a name="l08057"></a><span class="lineno"> 8057</span>&#160;    <span class="comment">// to the format it is mandatory to increase the version number below</span></div>
-<div class="line"><a name="l08058"></a><span class="lineno"> 8058</span>&#160;    <span class="comment">// and use the new version number of identify the new entries in the DB</span></div>
-<div class="line"><a name="l08059"></a><span class="lineno"> 8059</span>&#160;    <span class="keyword">typedef</span> mpl::int_&lt;0&gt; type;</div>
-<div class="line"><a name="l08060"></a><span class="lineno"> 8060</span>&#160;    <span class="keyword">typedef</span> mpl::integral_c_tag tag;</div>
-<div class="line"><a name="l08061"></a><span class="lineno"> 8061</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value = version::type::value;</div>
-<div class="line"><a name="l08062"></a><span class="lineno"> 8062</span>&#160;};</div>
-<div class="line"><a name="l08063"></a><span class="lineno"> 8063</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> version&lt;Feel::CRB&lt;T&gt; &gt;::value;</div>
-<div class="line"><a name="l08064"></a><span class="lineno"> 8064</span>&#160;}</div>
-<div class="line"><a name="l08065"></a><span class="lineno"> 8065</span>&#160;}</div>
-<div class="line"><a name="l08066"></a><span class="lineno"> 8066</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __CRB_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l08032"></a><span class="lineno"> 8032</span>&#160;    <span class="keywordflow">if</span> ( db.empty() )</div>
+<div class="line"><a name="l08033"></a><span class="lineno"> 8033</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l08034"></a><span class="lineno"> 8034</span>&#160;</div>
+<div class="line"><a name="l08035"></a><span class="lineno"> 8035</span>&#160;    <span class="keywordflow">if</span> ( !fs::exists( db ) )</div>
+<div class="line"><a name="l08036"></a><span class="lineno"> 8036</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l08037"></a><span class="lineno"> 8037</span>&#160;</div>
+<div class="line"><a name="l08038"></a><span class="lineno"> 8038</span>&#160;    <span class="comment">//std::cout &lt;&lt; &quot;Loading &quot; &lt;&lt; db &lt;&lt; &quot;...\n&quot;;</span></div>
+<div class="line"><a name="l08039"></a><span class="lineno"> 8039</span>&#160;    fs::ifstream ifs( db );</div>
+<div class="line"><a name="l08040"></a><span class="lineno"> 8040</span>&#160;</div>
+<div class="line"><a name="l08041"></a><span class="lineno"> 8041</span>&#160;    <span class="keywordflow">if</span> ( ifs )</div>
+<div class="line"><a name="l08042"></a><span class="lineno"> 8042</span>&#160;    {</div>
+<div class="line"><a name="l08043"></a><span class="lineno"> 8043</span>&#160;        <span class="comment">//boost::archive::text_iarchive ia( ifs );</span></div>
+<div class="line"><a name="l08044"></a><span class="lineno"> 8044</span>&#160;        boost::archive::binary_iarchive ia( ifs );</div>
+<div class="line"><a name="l08045"></a><span class="lineno"> 8045</span>&#160;        <span class="comment">// write class instance to archive</span></div>
+<div class="line"><a name="l08046"></a><span class="lineno"> 8046</span>&#160;        ia &gt;&gt; *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l08047"></a><span class="lineno"> 8047</span>&#160;        <span class="comment">//std::cout &lt;&lt; &quot;Loading &quot; &lt;&lt; db &lt;&lt; &quot; done...\n&quot;;</span></div>
+<div class="line"><a name="l08048"></a><span class="lineno"> 8048</span>&#160;        this-&gt;setIsLoaded( <span class="keyword">true</span> );</div>
+<div class="line"><a name="l08049"></a><span class="lineno"> 8049</span>&#160;        <span class="comment">// archive and stream closed when destructors are called</span></div>
+<div class="line"><a name="l08050"></a><span class="lineno"> 8050</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l08051"></a><span class="lineno"> 8051</span>&#160;    }</div>
+<div class="line"><a name="l08052"></a><span class="lineno"> 8052</span>&#160;</div>
+<div class="line"><a name="l08053"></a><span class="lineno"> 8053</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l08054"></a><span class="lineno"> 8054</span>&#160;}</div>
+<div class="line"><a name="l08055"></a><span class="lineno"> 8055</span>&#160;</div>
+<div class="line"><a name="l08056"></a><span class="lineno"> 8056</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l08057"></a><span class="lineno"> 8057</span>&#160;</div>
+<div class="line"><a name="l08058"></a><span class="lineno"> 8058</span>&#160;<span class="keyword">namespace </span>boost</div>
+<div class="line"><a name="l08059"></a><span class="lineno"> 8059</span>&#160;{</div>
+<div class="line"><a name="l08060"></a><span class="lineno"> 8060</span>&#160;<span class="keyword">namespace </span>serialization</div>
+<div class="line"><a name="l08061"></a><span class="lineno"> 8061</span>&#160;{</div>
+<div class="line"><a name="l08062"></a><span class="lineno"> 8062</span>&#160;<span class="keyword">template</span>&lt; <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l08063"></a><span class="lineno"> 8063</span>&#160;<span class="keyword">struct </span>version&lt; Feel::<a class="code" href="classFeel_1_1CRB.html#ac1ebf1a0031cd9f1c2f0a07d7dce726e">CRB</a>&lt;T&gt; &gt;</div>
+<div class="line"><a name="l08064"></a><span class="lineno"> 8064</span>&#160;{</div>
+<div class="line"><a name="l08065"></a><span class="lineno"> 8065</span>&#160;    <span class="comment">// at the moment the version of the CRB DB is 0. if any changes is done</span></div>
+<div class="line"><a name="l08066"></a><span class="lineno"> 8066</span>&#160;    <span class="comment">// to the format it is mandatory to increase the version number below</span></div>
+<div class="line"><a name="l08067"></a><span class="lineno"> 8067</span>&#160;    <span class="comment">// and use the new version number of identify the new entries in the DB</span></div>
+<div class="line"><a name="l08068"></a><span class="lineno"> 8068</span>&#160;    <span class="keyword">typedef</span> mpl::int_&lt;0&gt; type;</div>
+<div class="line"><a name="l08069"></a><span class="lineno"> 8069</span>&#160;    <span class="keyword">typedef</span> mpl::integral_c_tag tag;</div>
+<div class="line"><a name="l08070"></a><span class="lineno"> 8070</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value = version::type::value;</div>
+<div class="line"><a name="l08071"></a><span class="lineno"> 8071</span>&#160;};</div>
+<div class="line"><a name="l08072"></a><span class="lineno"> 8072</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> version&lt;Feel::CRB&lt;T&gt; &gt;::value;</div>
+<div class="line"><a name="l08073"></a><span class="lineno"> 8073</span>&#160;}</div>
+<div class="line"><a name="l08074"></a><span class="lineno"> 8074</span>&#160;}</div>
+<div class="line"><a name="l08075"></a><span class="lineno"> 8075</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __CRB_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a9e1d3f886f35357eb0fd93330c543228"><div class="ttname"><a href="classFeel_1_1CRB.html#a9e1d3f886f35357eb0fd93330c543228">Feel::CRB::computeErrorEstimationEfficiencyIndicator</a></div><div class="ttdeci">void computeErrorEstimationEfficiencyIndicator(parameterspace_ptrtype const &amp;Dmu, double &amp;max_ei, double &amp;min_ei, int N=4)</div><div class="ttdef"><b>Definition:</b> crb.hpp:3861</div></div>
 <div class="ttc" id="classFeel_1_1CRBDB_html_a57b7b91bc9b624aa98653f5c5897747d"><div class="ttname"><a href="classFeel_1_1CRBDB.html#a57b7b91bc9b624aa98653f5c5897747d">Feel::CRBDB::setDBFilename</a></div><div class="ttdeci">void setDBFilename(std::string const &amp;filename)</div><div class="ttdoc">set the DB filename </div><div class="ttdef"><b>Definition:</b> crbdb.hpp:157</div></div>
 <div class="ttc" id="namespaceFeel_html_a4c300b4c137594540a9428af36363049"><div class="ttname"><a href="namespaceFeel.html#a4c300b4c137594540a9428af36363049">Feel::integrate</a></div><div class="ttdeci">Poly::value_type integrate(Polynomial&lt; Poly, PsetType &gt; const &amp;p)</div><div class="ttdoc">integrate a polynomial over a convex </div><div class="ttdef"><b>Definition:</b> feelpoly/operations.hpp:51</div></div>
@@ -7928,7 +7937,7 @@ $(document).ready(function(){initNavTree('crb_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1CRBDB_html"><div class="ttname"><a href="classFeel_1_1CRBDB.html">Feel::CRBDB</a></div><div class="ttdoc">brief description </div><div class="ttdef"><b>Definition:</b> crbdb.hpp:50</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_ad6faa151ef95521c94a277b41be2f3c7"><div class="ttname"><a href="classFeel_1_1CRB.html#ad6faa151ef95521c94a277b41be2f3c7">Feel::CRB::outputIndex</a></div><div class="ttdeci">int outputIndex() const </div><div class="ttdef"><b>Definition:</b> crb.hpp:453</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a24455f285005030c7b322d30ca036ec8"><div class="ttname"><a href="classFeel_1_1CRB.html#a24455f285005030c7b322d30ca036ec8">Feel::CRB::mesh_type</a></div><div class="ttdeci">model_type::mesh_type mesh_type</div><div class="ttdoc">mesh type </div><div class="ttdef"><b>Definition:</b> crb.hpp:209</div></div>
-<div class="ttc" id="namespaceFeel_html_affe8f1716191835c1f39a4f88c8f7299"><div class="ttname"><a href="namespaceFeel.html#affe8f1716191835c1f39a4f88c8f7299">Feel::PreconditionerType</a></div><div class="ttdeci">PreconditionerType</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:115</div></div>
+<div class="ttc" id="namespaceFeel_html_affe8f1716191835c1f39a4f88c8f7299"><div class="ttname"><a href="namespaceFeel.html#affe8f1716191835c1f39a4f88c8f7299">Feel::PreconditionerType</a></div><div class="ttdeci">PreconditionerType</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:100</div></div>
 <div class="ttc" id="classFeel_1_1CRBDB_html_aafbd9eddb9faeb89f4f0fa29d01744e9"><div class="ttname"><a href="classFeel_1_1CRBDB.html#aafbd9eddb9faeb89f4f0fa29d01744e9">Feel::CRBDB::name</a></div><div class="ttdeci">std::string const &amp; name() const </div><div class="ttdef"><b>Definition:</b> crbdb.hpp:112</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_ac2f4df29955251700b2f048050f0fbfe"><div class="ttname"><a href="classFeel_1_1CRB.html#ac2f4df29955251700b2f048050f0fbfe">Feel::CRB::~CRB</a></div><div class="ttdeci">~CRB()</div><div class="ttdoc">destructor </div><div class="ttdef"><b>Definition:</b> crb.hpp:409</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html"><div class="ttname"><a href="classFeel_1_1Exporter.html">Feel::Exporter</a></div><div class="ttdoc">export Feel generated data to some file formatsUse the visitor and factory pattern. </div><div class="ttdef"><b>Definition:</b> exporter.hpp:82</div></div>
@@ -7940,7 +7949,7 @@ $(document).ready(function(){initNavTree('crb_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1CRB_html_ae3cfe73eb528132f67939c49cdab1e1c"><div class="ttname"><a href="classFeel_1_1CRB.html#ae3cfe73eb528132f67939c49cdab1e1c">Feel::CRB::selectPrimalApeeParameters</a></div><div class="ttdeci">void selectPrimalApeeParameters(int N, std::vector&lt; parameter_type &gt; &amp;new_parameters)</div><div class="ttdef"><b>Definition:</b> crb.hpp:7294</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a5791f5983bdd0359a003f5b462717aeb"><div class="ttname"><a href="classFeel_1_1CRB.html#a5791f5983bdd0359a003f5b462717aeb">Feel::CRB::setOfflineStep</a></div><div class="ttdeci">void setOfflineStep(bool b)</div><div class="ttdoc">set boolean indicates if we are in offline_step or not </div><div class="ttdef"><b>Definition:</b> crb.hpp:552</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a0e376b3cf00e1c16a8da2a2f6aa1232c"><div class="ttname"><a href="classFeel_1_1CRB.html#a0e376b3cf00e1c16a8da2a2f6aa1232c">Feel::CRB::space_type</a></div><div class="ttdeci">model_type::space_type space_type</div><div class="ttdoc">space type </div><div class="ttdef"><b>Definition:</b> crb.hpp:213</div></div>
-<div class="ttc" id="classFeel_1_1CRB_html_a140419097ed1b98e8ecdf8bde29ee41d"><div class="ttname"><a href="classFeel_1_1CRB.html#a140419097ed1b98e8ecdf8bde29ee41d">Feel::CRB::printErrorDuringOfflineStep</a></div><div class="ttdeci">bool printErrorDuringOfflineStep()</div><div class="ttdef"><b>Definition:</b> crb.hpp:7962</div></div>
+<div class="ttc" id="classFeel_1_1CRB_html_a140419097ed1b98e8ecdf8bde29ee41d"><div class="ttname"><a href="classFeel_1_1CRB.html#a140419097ed1b98e8ecdf8bde29ee41d">Feel::CRB::printErrorDuringOfflineStep</a></div><div class="ttdeci">bool printErrorDuringOfflineStep()</div><div class="ttdef"><b>Definition:</b> crb.hpp:7971</div></div>
 <div class="ttc" id="classFeel_1_1CRBDB_html_a6b26667b5d61e737479bcc9d0782b43e"><div class="ttname"><a href="classFeel_1_1CRBDB.html#a6b26667b5d61e737479bcc9d0782b43e">Feel::CRBDB::isDBLoaded</a></div><div class="ttdeci">bool isDBLoaded() const </div><div class="ttdef"><b>Definition:</b> crbdb.hpp:145</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_afd59bfa368bf7dabeb1ce0a0aa4de549"><div class="ttname"><a href="classFeel_1_1CRB.html#afd59bfa368bf7dabeb1ce0a0aa4de549">Feel::CRB::delta</a></div><div class="ttdeci">value_type delta(size_type N, parameter_ptrtype const &amp;mu, std::vector&lt; vectorN_type &gt; const &amp;uN, std::vector&lt; vectorN_type &gt; const &amp;uNdu, std::vector&lt; vectorN_type &gt; const &amp;uNold, std::vector&lt; vectorN_type &gt; const &amp;uNduold, int k=0) const </div><div class="ttdef"><b>Definition:</b> crb.hpp:914</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a45a8ffcc886669d72bc08d6841f89324"><div class="ttname"><a href="classFeel_1_1CRB.html#a45a8ffcc886669d72bc08d6841f89324">Feel::CRB::transientPrimalResidual</a></div><div class="ttdeci">residual_error_type transientPrimalResidual(int Ncur, parameter_type const &amp;mu, vectorN_type const &amp;Un, vectorN_type const &amp;Unold=vectorN_type(), double time_step=1, double time=1e30) const </div><div class="ttdef"><b>Definition:</b> crb.hpp:5514</div></div>
@@ -7953,7 +7962,7 @@ $(document).ready(function(){initNavTree('crb_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1CRB_html_aa40eaa902ad75df8e0e46e2f50b39f4b"><div class="ttname"><a href="classFeel_1_1CRB.html#aa40eaa902ad75df8e0e46e2f50b39f4b">Feel::CRB::lb</a></div><div class="ttdeci">boost::tuple&lt; double, matrix_info_tuple &gt; lb(size_type N, parameter_type const &amp;mu, std::vector&lt; vectorN_type &gt; &amp;uN, std::vector&lt; vectorN_type &gt; &amp;uNdu, std::vector&lt; vectorN_type &gt; &amp;uNold, std::vector&lt; vectorN_type &gt; &amp;uNduold, bool print_rb_matrix=false, int K=0) const </div><div class="ttdef"><b>Definition:</b> crb.hpp:4747</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a641db99e003d2c860fc7682993fffa91"><div class="ttname"><a href="classFeel_1_1CRB.html#a641db99e003d2c860fc7682993fffa91">Feel::CRB::computeConditioning</a></div><div class="ttdeci">double computeConditioning(matrixN_type &amp;A) const </div><div class="ttdef"><b>Definition:</b> crb.hpp:4128</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a793fc041819a0d8044c657eb27e6a84f"><div class="ttname"><a href="classFeel_1_1CRB.html#a793fc041819a0d8044c657eb27e6a84f">Feel::CRB::setOutputIndex</a></div><div class="ttdeci">void setOutputIndex(uint16_type oindex)</div><div class="ttdoc">set the output index </div><div class="ttdef"><b>Definition:</b> crb.hpp:491</div></div>
-<div class="ttc" id="classFeel_1_1CRB_html_a0a0700cf0af27df6c163154d945516b6"><div class="ttname"><a href="classFeel_1_1CRB.html#a0a0700cf0af27df6c163154d945516b6">Feel::CRB::showMuSelection</a></div><div class="ttdeci">bool showMuSelection()</div><div class="ttdef"><b>Definition:</b> crb.hpp:7988</div></div>
+<div class="ttc" id="classFeel_1_1CRB_html_a0a0700cf0af27df6c163154d945516b6"><div class="ttname"><a href="classFeel_1_1CRB.html#a0a0700cf0af27df6c163154d945516b6">Feel::CRB::showMuSelection</a></div><div class="ttdeci">bool showMuSelection()</div><div class="ttdef"><b>Definition:</b> crb.hpp:7997</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_acad77f2e541c366f914125c65b60a259"><div class="ttname"><a href="classFeel_1_1CRB.html#acad77f2e541c366f914125c65b60a259">Feel::CRB::setTruthModel</a></div><div class="ttdeci">void setTruthModel(truth_model_ptrtype const &amp;model)</div><div class="ttdoc">set the truth offline model </div><div class="ttdef"><b>Definition:</b> crb.hpp:522</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a23f8baf22f884034d197e53a7c7404fa"><div class="ttname"><a href="classFeel_1_1CRB.html#a23f8baf22f884034d197e53a7c7404fa">Feel::CRB::lb</a></div><div class="ttdeci">boost::tuple&lt; double, double &gt; lb(parameter_ptrtype const &amp;mu, size_type N, std::vector&lt; vectorN_type &gt; &amp;uN, std::vector&lt; vectorN_type &gt; &amp;uNdu) const </div><div class="ttdef"><b>Definition:</b> crb.hpp:880</div></div>
 <div class="ttc" id="classFeel_1_1Backend_html"><div class="ttname"><a href="classFeel_1_1Backend.html">Feel::Backend</a></div><div class="ttdoc">base class for all linear algebra backends </div><div class="ttdef"><b>Definition:</b> backend.hpp:134</div></div>
@@ -7980,7 +7989,7 @@ $(document).ready(function(){initNavTree('crb_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1CRB_html_ab599edbc7305ff9e6758e3b75f070e9c"><div class="ttname"><a href="classFeel_1_1CRB.html#ab599edbc7305ff9e6758e3b75f070e9c">Feel::CRB::CRB</a></div><div class="ttdeci">CRB(CRB const &amp;o)</div><div class="ttdoc">copy constructor </div><div class="ttdef"><b>Definition:</b> crb.hpp:374</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a7878f971a68f86fb1bb261b6f9aac137"><div class="ttname"><a href="classFeel_1_1CRB.html#a7878f971a68f86fb1bb261b6f9aac137">Feel::CRB::maxErrorBounds</a></div><div class="ttdeci">max_error_type maxErrorBounds(size_type N) const </div><div class="ttdoc">Retuns maximum value of the relative error. </div><div class="ttdef"><b>Definition:</b> crb.hpp:5063</div></div>
 <div class="ttc" id="serialization_8hpp_html"><div class="ttname"><a href="serialization_8hpp.html">serialization.hpp</a></div></div>
-<div class="ttc" id="classFeel_1_1CRB_html_a39d510c1295521c3f2de52d359b368ee"><div class="ttname"><a href="classFeel_1_1CRB.html#a39d510c1295521c3f2de52d359b368ee">Feel::CRB::saveDB</a></div><div class="ttdeci">void saveDB()</div><div class="ttdef"><b>Definition:</b> crb.hpp:7997</div></div>
+<div class="ttc" id="classFeel_1_1CRB_html_a39d510c1295521c3f2de52d359b368ee"><div class="ttname"><a href="classFeel_1_1CRB.html#a39d510c1295521c3f2de52d359b368ee">Feel::CRB::saveDB</a></div><div class="ttdeci">void saveDB()</div><div class="ttdef"><b>Definition:</b> crb.hpp:8006</div></div>
 <div class="ttc" id="classFeel_1_1POD_html"><div class="ttname"><a href="classFeel_1_1POD.html">Feel::POD</a></div><div class="ttdoc">POD class. </div><div class="ttdef"><b>Definition:</b> pod.hpp:91</div></div>
 <div class="ttc" id="crbelementsdb_8hpp_html"><div class="ttname"><a href="crbelementsdb_8hpp.html">crbelementsdb.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a8e127cfaa0cd70e6d5210d2f79cf3e67"><div class="ttname"><a href="classFeel_1_1CRB.html#a8e127cfaa0cd70e6d5210d2f79cf3e67">Feel::CRB::updateApeeBasisConstruction</a></div><div class="ttdeci">void updateApeeBasisConstruction(int N, std::vector&lt; parameter_type &gt; const &amp;new_primal_parameters, std::vector&lt; parameter_type &gt; const &amp;new_dual_parameters) const </div><div class="ttdef"><b>Definition:</b> crb.hpp:7138</div></div>
@@ -8000,15 +8009,15 @@ $(document).ready(function(){initNavTree('crb_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1CRBDB_html_a8826a0c808f54acc619447f6cdc35cab"><div class="ttname"><a href="classFeel_1_1CRBDB.html#a8826a0c808f54acc619447f6cdc35cab">Feel::CRBDB::vm</a></div><div class="ttdeci">po::variables_map vm()</div><div class="ttdef"><b>Definition:</b> crbdb.hpp:133</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a2e3675cdd7b5f8a6d0045d1371e2a9d2"><div class="ttname"><a href="classFeel_1_1CRB.html#a2e3675cdd7b5f8a6d0045d1371e2a9d2">Feel::CRB::ub</a></div><div class="ttdeci">value_type ub(size_type N, parameter_type const &amp;mu, std::vector&lt; vectorN_type &gt; &amp;uN, std::vector&lt; vectorN_type &gt; &amp;uNdu) const </div><div class="ttdef"><b>Definition:</b> crb.hpp:897</div></div>
 <div class="ttc" id="crbenums_8hpp_html"><div class="ttname"><a href="crbenums_8hpp.html">crbenums.hpp</a></div></div>
-<div class="ttc" id="classFeel_1_1CRB_html_aa853eb0c65919f945f3613b0507f72cb"><div class="ttname"><a href="classFeel_1_1CRB.html#aa853eb0c65919f945f3613b0507f72cb">Feel::CRB::loadDB</a></div><div class="ttdeci">bool loadDB()</div><div class="ttdef"><b>Definition:</b> crb.hpp:8013</div></div>
+<div class="ttc" id="classFeel_1_1CRB_html_aa853eb0c65919f945f3613b0507f72cb"><div class="ttname"><a href="classFeel_1_1CRB.html#aa853eb0c65919f945f3613b0507f72cb">Feel::CRB::loadDB</a></div><div class="ttdeci">bool loadDB()</div><div class="ttdef"><b>Definition:</b> crb.hpp:8022</div></div>
 <div class="ttc" id="solvereigen_8hpp_html"><div class="ttname"><a href="solvereigen_8hpp.html">solvereigen.hpp</a></div></div>
-<div class="ttc" id="namespaceFeel_html_a2eb3bfe66231d4aa5a681365d5a5c64b"><div class="ttname"><a href="namespaceFeel.html#a2eb3bfe66231d4aa5a681365d5a5c64b">Feel::subelements</a></div><div class="ttdeci">fusion::result_of::accumulate&lt; typename EltType::functionspace_type::functionspace_vector_type, fusion::vector&lt;&gt;, Feel::detail::CreateElementVector&lt; EltType &gt; &gt;::type subelements(EltType const &amp;e, std::vector&lt; std::string &gt; const &amp;n)</div><div class="ttdef"><b>Definition:</b> functionspace.hpp:6577</div></div>
+<div class="ttc" id="namespaceFeel_html_a2eb3bfe66231d4aa5a681365d5a5c64b"><div class="ttname"><a href="namespaceFeel.html#a2eb3bfe66231d4aa5a681365d5a5c64b">Feel::subelements</a></div><div class="ttdeci">fusion::result_of::accumulate&lt; typename EltType::functionspace_type::functionspace_vector_type, fusion::vector&lt;&gt;, Feel::detail::CreateElementVector&lt; EltType &gt; &gt;::type subelements(EltType const &amp;e, std::vector&lt; std::string &gt; const &amp;n)</div><div class="ttdef"><b>Definition:</b> functionspace.hpp:6580</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_ad307002187f7f6a96d27bc82cb327a4a"><div class="ttname"><a href="classFeel_1_1CRB.html#ad307002187f7f6a96d27bc82cb327a4a">Feel::CRB::factor</a></div><div class="ttdeci">int factor() const </div><div class="ttdoc">return factor </div><div class="ttdef"><b>Definition:</b> crb.hpp:436</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a2964effaa2b0cd23cbb5fa8963982fb5"><div class="ttname"><a href="classFeel_1_1CRB.html#a2964effaa2b0cd23cbb5fa8963982fb5">Feel::CRB::crb_elements_db_type</a></div><div class="ttdeci">CRBElementsDB&lt; truth_model_type &gt; crb_elements_db_type</div><div class="ttdoc">elements database </div><div class="ttdef"><b>Definition:</b> crb.hpp:158</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a27e55857c23991212b9b3b458cd8f822"><div class="ttname"><a href="classFeel_1_1CRB.html#a27e55857c23991212b9b3b458cd8f822">Feel::CRB::bdf_type</a></div><div class="ttdeci">Bdf&lt; space_type &gt; bdf_type</div><div class="ttdoc">time discretization </div><div class="ttdef"><b>Definition:</b> crb.hpp:217</div></div>
 <div class="ttc" id="classFeel_1_1ParameterSpace_1_1Element_html"><div class="ttname"><a href="classFeel_1_1ParameterSpace_1_1Element.html">Feel::ParameterSpace::Element</a></div><div class="ttdoc">element of a parameter space </div><div class="ttdef"><b>Definition:</b> parameterspace.hpp:84</div></div>
 <div class="ttc" id="classFeel_1_1CRBDB_html_a6ab0476785ef1a656f50e0a86fe81703"><div class="ttname"><a href="classFeel_1_1CRBDB.html#a6ab0476785ef1a656f50e0a86fe81703">Feel::CRBDB::dbLocalPath</a></div><div class="ttdeci">fs::path dbLocalPath() const </div><div class="ttdef"><b>Definition:</b> crbdb.cpp:95</div></div>
-<div class="ttc" id="classFeel_1_1CRB_html_a5a47e56dbbb68057386103c09394f6e2"><div class="ttname"><a href="classFeel_1_1CRB.html#a5a47e56dbbb68057386103c09394f6e2">Feel::CRB::rebuildDB</a></div><div class="ttdeci">bool rebuildDB()</div><div class="ttdef"><b>Definition:</b> crb.hpp:7970</div></div>
+<div class="ttc" id="classFeel_1_1CRB_html_a5a47e56dbbb68057386103c09394f6e2"><div class="ttname"><a href="classFeel_1_1CRB.html#a5a47e56dbbb68057386103c09394f6e2">Feel::CRB::rebuildDB</a></div><div class="ttdeci">bool rebuildDB()</div><div class="ttdef"><b>Definition:</b> crb.hpp:7979</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a71c49c891eb5a2a3405c2cbe081d9ad6"><div class="ttname"><a href="classFeel_1_1CRB.html#a71c49c891eb5a2a3405c2cbe081d9ad6">Feel::CRB::projectionOnPodSpace</a></div><div class="ttdeci">void projectionOnPodSpace(const element_type &amp;u, element_ptrtype &amp;projection, const std::string &amp;name_of_space=&quot;primal&quot;)</div><div class="ttdef"><b>Definition:</b> crb.hpp:7036</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_af5e232e9ca971667970eca4d5227a4ec"><div class="ttname"><a href="classFeel_1_1CRB.html#af5e232e9ca971667970eca4d5227a4ec">Feel::CRB::setMaxIter</a></div><div class="ttdeci">void setMaxIter(int K)</div><div class="ttdoc">set max iteration number </div><div class="ttdef"><b>Definition:</b> crb.hpp:540</div></div>
 <div class="ttc" id="classFeel_1_1CRB_html_a49c90b6943720eaf4065886a2fb277ef"><div class="ttname"><a href="classFeel_1_1CRB.html#a49c90b6943720eaf4065886a2fb277ef">Feel::CRB::setCRBErrorType</a></div><div class="ttdeci">void setCRBErrorType(CRBErrorType error)</div><div class="ttdoc">set the crb error type </div><div class="ttdef"><b>Definition:</b> crb.hpp:510</div></div>

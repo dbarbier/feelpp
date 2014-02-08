@@ -45,6 +45,7 @@ var searchData=
   ['m_5fname',['M_name',['../classFeel_1_1Preconditioner.html#adac9b259564bb6bc86a0be18bcd31207',1,'Feel::Preconditioner::M_name()'],['../classFeel_1_1TimeSet.html#a5e3b3ad21901c256499b6fe2fc4a3966',1,'Feel::TimeSet::M_name()'],['../classFeel_1_1Material.html#ae918c33e5cf15ae0b496a2a9fcfb4ae6',1,'Feel::Material::M_name()']]],
   ['m_5fnbitmax',['M_nbItMax',['../classFeel_1_1SolverNonLinear.html#ab53d2853b7825d9ed335df2f5cb51829',1,'Feel::SolverNonLinear']]],
   ['m_5fncv',['M_ncv',['../classFeel_1_1SolverEigen.html#a70a38fa62c2afa43e966e08e7e35e129',1,'Feel::SolverEigen']]],
+  ['m_5fneighbor_5fprocessors',['M_neighbor_processors',['../classFeel_1_1DataMap.html#a36a838f4de998c3747546f5389826815',1,'Feel::DataMap']]],
   ['m_5fnev',['M_nev',['../classFeel_1_1SolverEigen.html#a2906d7e18e029b25afdb816dfa8c2795',1,'Feel::SolverEigen']]],
   ['m_5forder',['M_order',['../classFeel_1_1Gmsh.html#a2175e8c010303f6a64be84802ad6986e',1,'Feel::Gmsh']]],
   ['m_5foutput_5fvalues',['M_output_values',['../classFeel_1_1ApplicationXML.html#ad5737ff4630b9a1c7f4df9d34a7c846f',1,'Feel::ApplicationXML']]],

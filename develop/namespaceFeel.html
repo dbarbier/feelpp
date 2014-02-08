@@ -1520,19 +1520,19 @@ Enumerations</h2></td></tr>
 <br/>
  }</td></tr>
 <tr class="separator:a1fdfc8aada14afdb1914ce5719067a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22e3e6735fed56036283d38e6f0bd10a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10a">on_context_type</a> { <br/>
-&#160;&#160;<a class="el" href="namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10aaee23b75351d5814e1d0a468e6241e047">ON_NONE</a> = 0x0, 
+<tr class="memitem:af30a491cfca047316937626d0d9bad46"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46">OnContext</a> { <br/>
+&#160;&#160;<a class="el" href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46ab50339a10e1de285ac99d4c3990b8693">OnContext::NONE</a> = 0x0, 
 <br/>
-&#160;&#160;<a class="el" href="namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10aaf2c420d247276b43791a9554713f838c">ON_ELIMINATION</a> = 0x1, 
+&#160;&#160;<a class="el" href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46a132622c4a416a2ab8f18f8e110a4763c">OnContext::ELIMINATION</a> = 0x1, 
 <br/>
-&#160;&#160;<a class="el" href="namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10aa9fedbe2a76c0b49db59f5c26de372915">ON_PENALISATION</a> = 0x2, 
+&#160;&#160;<a class="el" href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46ac98f45c98191f55e7694e2cc9c9439d6">OnContext::PENALISATION</a> = 0x2, 
 <br/>
-&#160;&#160;<a class="el" href="namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10aac885f100d1a310c35efd57a5fe100c8e">ON_ELIMINATION_KEEP_DIAGONAL</a> = 0x4, 
+&#160;&#160;<a class="el" href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46a63d8e8c4e5f8256562c0e7c557a4cf9b">OnContext::ELIMINATION_KEEP_DIAGONAL</a> = 0x4, 
 <br/>
-&#160;&#160;<a class="el" href="namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10aae2a39c0d36d2e91cf3a53072f83dc6b8">ON_ELIMINATION_SYMMETRIC</a> = 0x8
+&#160;&#160;<a class="el" href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46a2dd9728ea297afd9bdcc7749b1fa63dd">OnContext::ELIMINATION_SYMMETRIC</a> = 0x8
 <br/>
  }</td></tr>
-<tr class="separator:a22e3e6735fed56036283d38e6f0bd10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:af30a491cfca047316937626d0d9bad46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a504c387a8fcb75b28105b9e65278fc37"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>Pattern</b> { <br/>
 &#160;&#160;<b>DEFAULT</b> = 1 &lt;&lt; 0, 
 <br/>
@@ -1952,6 +1952,12 @@ typename <a class="el" href="structFeel_1_1MeshTraits.html">MeshTraits</a>&lt; M
 <a class="el" href="feelmacros_8hpp.html#afd589deb669a64692fc8abc1e1a4c0d3">FEELPP_NO_EXPORT</a> <br class="typebreak"/>
 RegionTree::element_base *&#160;</td><td class="memItemRight" valign="bottom"><b>build</b> (RegionTree::pbox_container_type &amp;b, const node_type &amp;bmin, const node_type &amp;bmax, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> last_dir)</td></tr>
 <tr class="separator:a0295d353f00b6182bed6806fa0d929d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e4a3be2cb4a9445da0f5783eb3723c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e4a3be2cb4a9445da0f5783eb3723c9"></a>
+std::tuple&lt; std::function<br class="typebreak"/>
+&lt; double(double)&gt;<br class="typebreak"/>
+, std::function&lt; double(double)&gt;<br class="typebreak"/>
+, double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>circleParametrization</b> (double r, double x0, double y0)</td></tr>
+<tr class="separator:a5e4a3be2cb4a9445da0f5783eb3723c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46c8cc9a5279bd59846a3467a7eacb82"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46c8cc9a5279bd59846a3467a7eacb82"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>configurePC</b> (PC &amp;pc, WorldComm const &amp;worldComm, std::string sub=&quot;&quot;, std::string prefix=&quot;&quot;)</td></tr>
 <tr class="separator:a46c8cc9a5279bd59846a3467a7eacb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2018,6 +2024,12 @@ TheTag &gt;::mesh_build_ptrtype&#160;</td><td class="memTemplItemRight" valign="
 boost::shared_ptr&lt; <a class="el" href="classFeel_1_1Mesh.html">Mesh</a><br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1Simplex.html">Simplex</a>&lt; 2 &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>createSubMeshLaplacianBlock</b> (boost::shared_ptr&lt; <a class="el" href="classFeel_1_1Mesh.html">Mesh</a>&lt; <a class="el" href="classFeel_1_1Simplex.html">Simplex</a>&lt; 2 &gt; &gt; &gt; mesh)</td></tr>
 <tr class="separator:aa393db87731d2b97f5be2785081ea8ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affafdcb6c68942f0f2c176ca9d73a674"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affafdcb6c68942f0f2c176ca9d73a674"></a>
+std::tuple&lt; std::function<br class="typebreak"/>
+&lt; double(double)&gt;<br class="typebreak"/>
+, std::function&lt; double(double)&gt;<br class="typebreak"/>
+, double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>crescentParametrization</b> (double R1, double R2, double H, double l, double x0, double y0)</td></tr>
+<tr class="separator:affafdcb6c68942f0f2c176ca9d73a674"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga703b094178a719a2acbe543b4fa03fdd"><td class="memTemplParams" colspan="2"><a class="anchor" id="ga703b094178a719a2acbe543b4fa03fdd"></a>
 template&lt;typename E1 , typename E2 &gt; </td></tr>
 <tr class="memitem:ga703b094178a719a2acbe543b4fa03fdd"><td class="memTemplItemLeft" align="right" valign="top">ublas::vector&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>cross</b> (ublas::vector_expression&lt; E1 &gt; _p1, ublas::vector_expression&lt; E2 &gt; _p2)</td></tr>
@@ -2213,6 +2225,12 @@ boost::shared_ptr&lt; std::vector<br class="typebreak"/>
 &lt; MeshType &gt;::element_type <br class="typebreak"/>
 const  &gt; &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>elements</b> (MeshType const &amp;mesh, bool addExtendedMPIElt)</td></tr>
 <tr class="separator:ad93061e1ca8a3a78cea6bf082e55cfeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae6ed1c520d2aa9f2448b9f29290846"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afae6ed1c520d2aa9f2448b9f29290846"></a>
+std::tuple&lt; std::function<br class="typebreak"/>
+&lt; double(double)&gt;<br class="typebreak"/>
+, std::function&lt; double(double)&gt;<br class="typebreak"/>
+, double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ellipseParametrization</b> (double a_ell, double b_ell, double x0, double y0)</td></tr>
+<tr class="separator:afae6ed1c520d2aa9f2448b9f29290846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbea88a58f2837278fc9d1760a73da5d"><td class="memTemplParams" colspan="2"><a class="anchor" id="acbea88a58f2837278fc9d1760a73da5d"></a>
 template&lt;size_t S, class ITERATOR &gt; </td></tr>
 <tr class="memitem:acbea88a58f2837278fc9d1760a73da5d"><td class="memTemplItemLeft" align="right" valign="top">ITERATOR&#160;</td><td class="memTemplItemRight" valign="bottom"><b>end</b> (boost::tuple&lt; mpl::size_t&lt; S &gt;, ITERATOR, ITERATOR &gt; &amp;range)</td></tr>
@@ -2224,6 +2242,11 @@ template&lt;class ITERATOR &gt; </td></tr>
 <tr class="memitem:ab6955566da6efdd3349d1aabe8ab2f22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6955566da6efdd3349d1aabe8ab2f22"></a>
 NdebugStream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>endl</b> (NdebugStream &amp;s)</td></tr>
 <tr class="separator:ab6955566da6efdd3349d1aabe8ab2f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4bbf68ad82438781efc7e567c39e2d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4bbf68ad82438781efc7e567c39e2d0"></a>
+std::tuple&lt; std::function<br class="typebreak"/>
+&lt; double(double)&gt;<br class="typebreak"/>
+, std::function&lt; double(double)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>epitrochoidParametrization</b> (double a_epi, double b_epi, double scaleFactor, double x0, double y0)</td></tr>
+<tr class="separator:ae4bbf68ad82438781efc7e567c39e2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a526247c8c47c857ce82809c7967ade5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a526247c8c47c857ce82809c7967ade5f"></a>
 DebugStream&#160;</td><td class="memItemRight" valign="bottom"><b>Error</b> (int area)</td></tr>
 <tr class="separator:a526247c8c47c857ce82809c7967ade5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3596,6 +3619,8 @@ const uint16_type&#160;</td><td class="memItemRight" valign="bottom"><b>MESH_ALL
 <tr class="memitem:abb3d68ba0c883c2d7cbd75e7f37e4231"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb3d68ba0c883c2d7cbd75e7f37e4231"></a>
 const uint16_type&#160;</td><td class="memItemRight" valign="bottom"><b>MESH_COMPONENTS_DEFAULTS</b> = MESH_RENUMBER | MESH_CHECK</td></tr>
 <tr class="separator:abb3d68ba0c883c2d7cbd75e7f37e4231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b63ab11f1fe7c40bf5cf16d586476f1"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46">OnContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>OnContextMap</b></td></tr>
+<tr class="separator:a4b63ab11f1fe7c40bf5cf16d586476f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6097da8bc17d065050751743fd5e76f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6097da8bc17d065050751743fd5e76f"></a>
 const double&#160;</td><td class="memItemRight" valign="bottom"><b>Pi</b> = 3.14159265358979323846264338328</td></tr>
 <tr class="separator:ab6097da8bc17d065050751743fd5e76f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4069,30 +4094,38 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr
 
 </div>
 </div>
-<a class="anchor" id="a22e3e6735fed56036283d38e6f0bd10a"></a>
+<a class="anchor" id="af30a491cfca047316937626d0d9bad46"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="namespaceFeel.html#a22e3e6735fed56036283d38e6f0bd10a">Feel::on_context_type</a></td>
+          <td class="memname">enum <a class="el" href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46">Feel::OnContext</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p><a class="el" href="classFeel_1_1Context.html" title="Context class. ">Context</a> for 'on' operation on sparse matrices </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a22e3e6735fed56036283d38e6f0bd10aaee23b75351d5814e1d0a468e6241e047"></a>ON_NONE</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="af30a491cfca047316937626d0d9bad46ab50339a10e1de285ac99d4c3990b8693"></a>NONE</em>&nbsp;</td><td class="fielddoc">
 <p>none </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a22e3e6735fed56036283d38e6f0bd10aaf2c420d247276b43791a9554713f838c"></a>ON_ELIMINATION</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="af30a491cfca047316937626d0d9bad46a132622c4a416a2ab8f18f8e110a4763c"></a>ELIMINATION</em>&nbsp;</td><td class="fielddoc">
 <p>elimination </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a22e3e6735fed56036283d38e6f0bd10aa9fedbe2a76c0b49db59f5c26de372915"></a>ON_PENALISATION</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="af30a491cfca047316937626d0d9bad46ac98f45c98191f55e7694e2cc9c9439d6"></a>PENALISATION</em>&nbsp;</td><td class="fielddoc">
 <p>penalisation </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a22e3e6735fed56036283d38e6f0bd10aac885f100d1a310c35efd57a5fe100c8e"></a>ON_ELIMINATION_KEEP_DIAGONAL</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="af30a491cfca047316937626d0d9bad46a63d8e8c4e5f8256562c0e7c557a4cf9b"></a>ELIMINATION_KEEP_DIAGONAL</em>&nbsp;</td><td class="fielddoc">
 <p>enables elimination and keep diagonal entry(ie don't put 1), modify rhs accordingly </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a22e3e6735fed56036283d38e6f0bd10aae2a39c0d36d2e91cf3a53072f83dc6b8"></a>ON_ELIMINATION_SYMMETRIC</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="af30a491cfca047316937626d0d9bad46a2dd9728ea297afd9bdcc7749b1fa63dd"></a>ELIMINATION_SYMMETRIC</em>&nbsp;</td><td class="fielddoc">
 <p>enables elimination and make a symmetric elimination </p>
 </td></tr>
 </table>
@@ -7500,6 +7533,24 @@ template&lt;int Ngeo = 1&gt; </div>
 </div><div class="memdoc">
 <p>Invalid uint8_type value </p>
 
+</div>
+</div>
+<a class="anchor" id="a4b63ab11f1fe7c40bf5cf16d586476f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, <a class="el" href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46">OnContext</a> &gt; Feel::OnContextMap</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<span class="stringliteral">&quot;none&quot;</span>, OnContext::NONE},</div>
+<div class="line">    {<span class="stringliteral">&quot;elimination&quot;</span>, OnContext::ELIMINATION},</div>
+<div class="line">    {<span class="stringliteral">&quot;penalisation&quot;</span>, OnContext::PENALISATION},</div>
+<div class="line">    {<span class="stringliteral">&quot;elimination_symmetric&quot;</span>, OnContext::ELIMINATION_SYMMETRIC}</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

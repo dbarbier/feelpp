@@ -629,223 +629,233 @@ $(document).ready(function(){initNavTree('bilinearformcontext_8hpp_source.html',
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                          ( mpl::int_&lt;shape::M&gt;, mpl::int_&lt;shape::N&gt; ) );</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    test_geometric_mapping_context_type <span class="keyword">const</span>&amp; _gmc = *fusion::at_key&lt;gmc&lt;0&gt; &gt;( M_test_gmc );</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[BilinearForm::integrate] local assembly in element &quot;</span> &lt;&lt; _gmc.id() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">if</span> ( !UseMortar || !M_test_dof-&gt;mesh()-&gt;isBoundaryElement( _gmc.id() ) )</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    {</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        <span class="keywordflow">if</span> ( isFirstExperience )</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;            <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; trial_dof_type::nDofPerElement; ++j )</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                <span class="keywordflow">for</span> ( uint16_type i = 0; i &lt; test_dof_type::nDofPerElement; ++i )</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;                {</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                    M_rep( i, j ) = M_integrator( *M_eval_expr00, i, j, 0, 0, indexLocalToQuad );</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;                }</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;            <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; trial_dof_type::nDofPerElement; ++j )</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                <span class="keywordflow">for</span> ( uint16_type i = 0; i &lt; test_dof_type::nDofPerElement; ++i )</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                {</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                    M_rep( i, j ) += M_integrator( *M_eval_expr00, i, j, 0, 0, indexLocalToQuad );</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                }</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    }</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    {</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        <span class="keywordflow">if</span> ( isFirstExperience )</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;            <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; trial_dof_type::nDofPerElement; ++j )</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                <span class="keywordflow">for</span> ( uint16_type i = 0; i &lt; uint16_type(test_dof_type::nDofPerElement-1); ++i )</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;                {</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;                    M_mortar_rep( i, j ) = M_integrator( *M_eval_expr00, i, j, 0, 0, indexLocalToQuad );</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;                }</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;            <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; trial_dof_type::nDofPerElement; ++j )</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                <span class="keywordflow">for</span> ( uint16_type i = 0; i &lt; uint16_type(test_dof_type::nDofPerElement-1); ++i )</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;                {</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                    M_mortar_rep( i, j ) += M_integrator( *M_eval_expr00, i, j, 0, 0, indexLocalToQuad );</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;                }</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    }</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;}</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> FE1,  <span class="keyword">typename</span> FE2, <span class="keyword">typename</span> ElemContType&gt;</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> GeomapTestContext,<span class="keyword">typename</span> ExprT,<span class="keyword">typename</span> IM,<span class="keyword">typename</span> GeomapExprContext,<span class="keyword">typename</span> GeomapTrialContext,<span class="keywordtype">bool</span> UseMortar&gt;</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;BilinearForm&lt;FE1,FE2,ElemContType&gt;::Context&lt;GeomapTestContext,ExprT,IM,GeomapExprContext,GeomapTrialContext,UseMortar&gt;::assemble( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> elt_0 )</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;{</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> row_start = M_lb.front().globalRowStart();</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> col_start = M_lb.front().globalColumnStart();</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="preprocessor">#if !defined(NDEBUG)</span></div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;<span class="preprocessor"></span>    DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[BilinearForm::assemble] global assembly in element &quot;</span> &lt;&lt; elt_0 &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[BilinearForm::assemble] row start &quot;</span> &lt;&lt; row_start &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[BilinearForm::assemble] col start &quot;</span> &lt;&lt; col_start &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* NDEBUG */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">bool</span> do_less = ( ( M_form.isPatternDefault() &amp;&amp;</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                       ( M_test_dof-&gt;nComponents == M_trial_dof-&gt;nComponents ) ) &amp;&amp;</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                     !M_form.isPatternCoupled() );</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    <span class="keywordflow">if</span> ( do_less )</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    {</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        <span class="keywordflow">for</span> ( uint16_type c = 0; c &lt; trial_dof_type::nComponents1; ++c )</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        {</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            M_c_rep = M_rep.block( c*test_dof_type::fe_type::nLocalDof, c*trial_dof_type::fe_type::nLocalDof,</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                                    test_dof_type::fe_type::nLocalDof, trial_dof_type::fe_type::nLocalDof );</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;            M_c_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( elt_0 ).array().segment( c*test_dof_type::fe_type::nLocalDof,</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;                                     test_dof_type::fe_type::nLocalDof ) + row_start;</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;            M_c_local_cols.array() = M_trial_dof-&gt;localToGlobalIndices( elt_0 ).array().segment( c*trial_dof_type::fe_type::nLocalDof,</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;                                     trial_dof_type::fe_type::nLocalDof ) + col_start;</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;            <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;            {</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                M_c_local_rowsigns = M_test_dof-&gt;localToGlobalSigns( elt_0 ).segment( c*test_dof_type::fe_type::nLocalDof,test_dof_type::fe_type::nLocalDof );</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                M_c_local_colsigns = M_trial_dof-&gt;localToGlobalSigns( elt_0 ).segment( c*trial_dof_type::fe_type::nLocalDof,trial_dof_type::fe_type::nLocalDof );</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                M_c_rep.array() *= ( M_c_local_rowsigns*M_c_local_colsigns.transpose() ).array().template cast&lt;value_type&gt;();</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            }</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    test_geometric_mapping_context_type <span class="keyword">const</span>&amp; _gmcTest = *fusion::at_key&lt;gmc&lt;0&gt; &gt;( M_test_gmc );</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    trial_geometric_mapping_context_type <span class="keyword">const</span>&amp; _gmcTrial = *fusion::at_key&lt;gmc&lt;0&gt; &gt;( M_trial_gmc );</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;[BilinearForm::integrate] local assembly in element test &quot;</span> &lt;&lt; _gmcTest.id() &lt;&lt; <span class="stringliteral">&quot; trial : &quot;</span> &lt;&lt; _gmcTrial.id();</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    <span class="keyword">auto</span> mapLocDofTrial = M_trial_dof-&gt;localIndices( _gmcTest.element(), _gmcTrial.element() );</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    std::for_each( mapLocDofTrial.begin(), mapLocDofTrial.end(), []( <span class="keywordtype">int</span> i ) { LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;mapLocDofTrial index &quot;</span> &lt;&lt; i; } );</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordflow">if</span> ( !UseMortar || !M_test_dof-&gt;mesh()-&gt;isBoundaryElement( _gmcTest.id() ) )</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    {</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        <span class="keywordflow">if</span> ( isFirstExperience )</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;            <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; trial_dof_type::nDofPerElement; ++j )</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;                <span class="keywordflow">for</span> ( uint16_type i = 0; i &lt; test_dof_type::nDofPerElement; ++i )</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                {</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;                    M_rep( i, mapLocDofTrial[j] ) = M_integrator( *M_eval_expr00, i, j, 0, 0, indexLocalToQuad );</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                }</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;            <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; trial_dof_type::nDofPerElement; ++j )</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;                <span class="keywordflow">for</span> ( uint16_type i = 0; i &lt; test_dof_type::nDofPerElement; ++i )</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                {</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;                    M_rep( i, mapLocDofTrial[j] ) += M_integrator( *M_eval_expr00, i, j, 0, 0, indexLocalToQuad );</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;                }</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;M_rep = &quot;</span> &lt;&lt; M_rep*6/0.25;</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    }</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    {</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="keywordflow">if</span> ( isFirstExperience )</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; trial_dof_type::nDofPerElement; ++j )</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                <span class="keywordflow">for</span> ( uint16_type i = 0; i &lt; uint16_type(test_dof_type::nDofPerElement-1); ++i )</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                {</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                    M_mortar_rep( i, mapLocDofTrial[j] ) = M_integrator( *M_eval_expr00, i, j, 0, 0, indexLocalToQuad );</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;                }</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;            <span class="keywordflow">for</span> ( uint16_type j = 0; j &lt; trial_dof_type::nDofPerElement; ++j )</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;                <span class="keywordflow">for</span> ( uint16_type i = 0; i &lt; uint16_type(test_dof_type::nDofPerElement-1); ++i )</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;                {</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;                    M_mortar_rep( i, mapLocDofTrial[j] ) += M_integrator( *M_eval_expr00, i, j, 0, 0, indexLocalToQuad );</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                }</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;M_mortar_rep = &quot;</span> &lt;&lt; M_mortar_rep*6/0.25;</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    }</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;}</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> FE1,  <span class="keyword">typename</span> FE2, <span class="keyword">typename</span> ElemContType&gt;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> GeomapTestContext,<span class="keyword">typename</span> ExprT,<span class="keyword">typename</span> IM,<span class="keyword">typename</span> GeomapExprContext,<span class="keyword">typename</span> GeomapTrialContext,<span class="keywordtype">bool</span> UseMortar&gt;</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;BilinearForm&lt;FE1,FE2,ElemContType&gt;::Context&lt;GeomapTestContext,ExprT,IM,GeomapExprContext,GeomapTrialContext,UseMortar&gt;::assemble( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> elt_0 )</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;{</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> row_start = M_lb.front().globalRowStart();</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> col_start = M_lb.front().globalColumnStart();</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="preprocessor">#if !defined(NDEBUG)</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="preprocessor"></span>    DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[BilinearForm::assemble] global assembly in element &quot;</span> &lt;&lt; elt_0 &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[BilinearForm::assemble] row start &quot;</span> &lt;&lt; row_start &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[BilinearForm::assemble] col start &quot;</span> &lt;&lt; col_start &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* NDEBUG */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">bool</span> do_less = ( ( M_form.isPatternDefault() &amp;&amp;</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                       ( M_test_dof-&gt;nComponents == M_trial_dof-&gt;nComponents ) ) &amp;&amp;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                     !M_form.isPatternCoupled() );</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    <span class="keywordflow">if</span> ( do_less )</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    {</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        <span class="keywordflow">for</span> ( uint16_type c = 0; c &lt; trial_dof_type::nComponents1; ++c )</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        {</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;            M_c_rep = M_rep.block( c*test_dof_type::fe_type::nLocalDof, c*trial_dof_type::fe_type::nLocalDof,</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;                                    test_dof_type::fe_type::nLocalDof, trial_dof_type::fe_type::nLocalDof );</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;            M_c_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( elt_0 ).array().segment( c*test_dof_type::fe_type::nLocalDof,</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                                     test_dof_type::fe_type::nLocalDof ) + row_start;</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            M_c_local_cols.array() = M_trial_dof-&gt;localToGlobalIndices( elt_0 ).array().segment( c*trial_dof_type::fe_type::nLocalDof,</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                                     trial_dof_type::fe_type::nLocalDof ) + col_start;</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;            M_form.addMatrix( M_c_local_rows.data(), M_c_local_rows.size(),</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                               M_c_local_cols.data(), M_c_local_cols.size(),</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;                               M_c_rep.data() );</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        }</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    }</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    {</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> trial_eid= this-&gt;trialElementId( elt_0 );</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        <span class="comment">//</span></div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        DCHECK( trial_eid != <a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a> )</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;this case should have been taken care of earlier before the assembly process\n&quot;</span>;</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;            <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;            {</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;                M_c_local_rowsigns = M_test_dof-&gt;localToGlobalSigns( elt_0 ).segment( c*test_dof_type::fe_type::nLocalDof,test_dof_type::fe_type::nLocalDof );</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;                M_c_local_colsigns = M_trial_dof-&gt;localToGlobalSigns( elt_0 ).segment( c*trial_dof_type::fe_type::nLocalDof,trial_dof_type::fe_type::nLocalDof );</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                M_c_rep.array() *= ( M_c_local_rowsigns*M_c_local_colsigns.transpose() ).array().template cast&lt;value_type&gt;();</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            }</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            M_form.addMatrix( M_c_local_rows.data(), M_c_local_rows.size(),</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;                               M_c_local_cols.data(), M_c_local_cols.size(),</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;                               M_c_rep.data() );</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        }</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    }</div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;        DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;local Assembly for element &quot;</span> &lt;&lt; elt_0</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot; UseMortar=&quot;</span> &lt;&lt; UseMortar &lt;&lt; <span class="stringliteral">&quot; bdy: &quot;</span> &lt;&lt; M_test_dof-&gt;mesh()-&gt;isBoundaryElement( elt_0 );</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        <span class="keywordflow">if</span> ( !UseMortar || !M_test_dof-&gt;mesh()-&gt;isBoundaryElement( elt_0 ) )</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;        {</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;            M_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( elt_0 ).array() + row_start;</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;            M_local_cols.array() = M_trial_dof-&gt;localToGlobalIndices( trial_eid ).array() + col_start;</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    {</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> trial_eid= this-&gt;trialElementId( elt_0 );</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;        <span class="comment">//</span></div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        DCHECK( trial_eid != <a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a> )</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;this case should have been taken care of earlier before the assembly process\n&quot;</span>;</div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;            <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;            {</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                M_local_rowsigns = M_test_dof-&gt;localToGlobalSigns( elt_0 );</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                M_local_colsigns = M_trial_dof-&gt;localToGlobalSigns( trial_eid );</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                M_rep.array() *= ( M_local_rowsigns*M_local_colsigns.transpose() ).array().template cast&lt;value_type&gt;();</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;            }</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;        DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;local Assembly for element &quot;</span> &lt;&lt; elt_0</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                 &lt;&lt; <span class="stringliteral">&quot; UseMortar=&quot;</span> &lt;&lt; UseMortar &lt;&lt; <span class="stringliteral">&quot; bdy: &quot;</span> &lt;&lt; M_test_dof-&gt;mesh()-&gt;isBoundaryElement( elt_0 );</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;        <span class="keywordflow">if</span> ( !UseMortar || !M_test_dof-&gt;mesh()-&gt;isBoundaryElement( elt_0 ) )</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;        {</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;            M_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( elt_0 ).array() + row_start;</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;            M_local_cols.array() = M_trial_dof-&gt;localToGlobalIndices( trial_eid ).array() + col_start;</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;            M_form.addMatrix( M_local_rows.data(), M_local_rows.size(),</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;                              M_local_cols.data(), M_local_cols.size(),</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;                              M_rep.data() );</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;        }</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;        {</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;            M_mortar_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( elt_0 ).array() + row_start;</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;            M_local_cols.array() = M_trial_dof-&gt;localToGlobalIndices( trial_eid ).array() + col_start;</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;            <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;            {</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;                M_local_rowsigns = M_test_dof-&gt;localToGlobalSigns( elt_0 );</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;                M_local_colsigns = M_trial_dof-&gt;localToGlobalSigns( trial_eid );</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;                M_rep.array() *= ( M_local_rowsigns*M_local_colsigns.transpose() ).array().template cast&lt;value_type&gt;();</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;            }</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;            <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;            {</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;                M_local_rowsigns = M_test_dof-&gt;localToGlobalSigns( elt_0 );</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;                M_local_colsigns = M_trial_dof-&gt;localToGlobalSigns( trial_eid );</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;                M_rep.array() *= ( M_local_rowsigns*M_local_colsigns.transpose() ).array().template cast&lt;value_type&gt;();</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;            }</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;            M_form.addMatrix( M_local_rows.data(), M_local_rows.size(),</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;                              M_local_cols.data(), M_local_cols.size(),</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                              M_rep.data() );</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;        }</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;        {</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;            M_mortar_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( elt_0 ).array() + row_start;</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;            M_local_cols.array() = M_trial_dof-&gt;localToGlobalIndices( trial_eid ).array() + col_start;</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;</div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;            M_form.addMatrix( M_mortar_local_rows.data(), M_mortar_local_rows.size(),</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;                              M_local_cols.data(), M_local_cols.size(),</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                              M_mortar_rep.data() );</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        }</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    }</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;}</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;            <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;            {</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                M_local_rowsigns = M_test_dof-&gt;localToGlobalSigns( elt_0 );</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;                M_local_colsigns = M_trial_dof-&gt;localToGlobalSigns( trial_eid );</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;                M_rep.array() *= ( M_local_rowsigns*M_local_colsigns.transpose() ).array().template cast&lt;value_type&gt;();</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;            }</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> FE1,  <span class="keyword">typename</span> FE2, <span class="keyword">typename</span> ElemContType&gt;</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> GeomapTestContext,<span class="keyword">typename</span> ExprT,<span class="keyword">typename</span> IM,<span class="keyword">typename</span> GeomapExprContext,<span class="keyword">typename</span> GeomapTrialContext,<span class="keywordtype">bool</span> UseMortar&gt;</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;BilinearForm&lt;FE1,FE2,ElemContType&gt;::Context&lt;GeomapTestContext,ExprT,IM,GeomapExprContext,GeomapTrialContext,UseMortar&gt;::assemble( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> elt_0, <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> elt_1  )</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;{</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> row_start = M_lb.front().globalRowStart();</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> col_start = M_lb.front().globalColumnStart();</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    M_local_rows_2.template head&lt;test_dof_type::nDofPerElement&gt;().array() = M_test_dof-&gt;localToGlobalIndices( elt_0 ).array() + row_start;</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    M_local_rows_2.template tail&lt;test_dof_type::nDofPerElement&gt;().array() = M_test_dof-&gt;localToGlobalIndices( elt_1 ).array() + row_start;</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    M_local_cols_2.template head&lt;trial_dof_type::nDofPerElement&gt;().array() = M_trial_dof-&gt;localToGlobalIndices( elt_0 ).array() + col_start;</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    M_local_cols_2.template tail&lt;trial_dof_type::nDofPerElement&gt;().array() = M_trial_dof-&gt;localToGlobalIndices( elt_1 ).array() + col_start;</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    {</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        M_local_rowsigns_2.template head&lt;test_dof_type::nDofPerElement&gt;() = M_test_dof-&gt;localToGlobalSigns( elt_0 );</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;        M_local_rowsigns_2.template tail&lt;test_dof_type::nDofPerElement&gt;() = M_test_dof-&gt;localToGlobalSigns( elt_1 );</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        M_local_colsigns_2.template head&lt;trial_dof_type::nDofPerElement&gt;() = M_trial_dof-&gt;localToGlobalSigns( elt_0 );</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        M_local_colsigns_2.template tail&lt;trial_dof_type::nDofPerElement&gt;() = M_trial_dof-&gt;localToGlobalSigns( elt_1 );</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        M_rep_2.array() *= ( M_local_rowsigns_2*M_local_colsigns_2.transpose() ).array().template cast&lt;value_type&gt;();</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    }</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    M_form.addMatrix( M_local_rows_2.data(), M_local_rows_2.size(),</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;                       M_local_cols_2.data(), M_local_cols_2.size(),</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;                       M_rep_2.data() );</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;}</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> FE1,  <span class="keyword">typename</span> FE2, <span class="keyword">typename</span> ElemContType&gt;</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> GeomapTestContext,<span class="keyword">typename</span> ExprT,<span class="keyword">typename</span> IM,<span class="keyword">typename</span> GeomapExprContext,<span class="keyword">typename</span> GeomapTrialContext,<span class="keywordtype">bool</span> UseMortar&gt;</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;BilinearForm&lt;FE1,FE2,ElemContType&gt;::Context&lt;GeomapTestContext,ExprT,IM,GeomapExprContext,GeomapTrialContext,UseMortar&gt;::assembleInCaseOfInterpolate()</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;{</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> row_start = M_lb.front().globalRowStart();</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> col_start = M_lb.front().globalColumnStart();</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keyword">auto</span> eltTest = fusion::at_key&lt;gmc&lt;0&gt; &gt;( M_test_gmc )-&gt;<span class="keywordtype">id</span>();</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <span class="keyword">auto</span> eltTrial = fusion::at_key&lt;gmc&lt;0&gt; &gt;( M_trial_gmc )-&gt;<span class="keywordtype">id</span>();</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keywordflow">if</span> ( !UseMortar || !M_test_dof-&gt;mesh()-&gt;isBoundaryElement( eltTest ) )</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    {</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        M_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( eltTest ).array() + row_start;</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;        M_local_cols.array() = M_trial_dof-&gt;localToGlobalIndices( eltTrial ).array() + col_start;</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="preprocessor">#if 0</span></div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="preprocessor"></span>        <span class="keywordtype">bool</span> do_less = ( ( M_form.isPatternDefault() &amp;&amp;</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                           ( M_test_dof-&gt;nComponents == M_trial_dof-&gt;nComponents ) ) &amp;&amp;</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;                         !M_form.isPatternCoupled() );</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;        <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        {</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;            M_local_rowsigns = M_test_dof-&gt;localToGlobalSigns( eltTest );</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;            M_local_colsigns = M_trial_dof-&gt;localToGlobalSigns( eltTrial );</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;            M_rep.array() *= ( M_local_rowsigns*M_local_colsigns.transpose() ).array().template cast&lt;value_type&gt;();</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        }</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;        M_form.addMatrix( M_local_rows.data(), M_local_rows.size(),</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                          M_local_cols.data(), M_local_cols.size(),</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;                          M_rep.data() );</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    }</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    {</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        M_mortar_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( eltTest ).array() + row_start;</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;        M_local_cols.array() = M_trial_dof-&gt;localToGlobalIndices( eltTrial ).array() + col_start;</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="preprocessor">#if 0</span></div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;<span class="preprocessor"></span>        <span class="keywordtype">bool</span> do_less = ( ( M_form.isPatternDefault() &amp;&amp;</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                           ( M_test_dof-&gt;nComponents == M_trial_dof-&gt;nComponents ) ) &amp;&amp;</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;                         !M_form.isPatternCoupled() );</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;        <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;        {</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;            M_local_rowsigns = M_test_dof-&gt;localToGlobalSigns( eltTest );</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;            M_local_colsigns = M_trial_dof-&gt;localToGlobalSigns( eltTrial );</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;            M_rep.array() *= ( M_local_rowsigns*M_local_colsigns.transpose() ).array().template cast&lt;value_type&gt;();</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;        }</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;        M_form.addMatrix( M_mortar_local_rows.data(), M_mortar_local_rows.size(),</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                          M_local_cols.data(), M_local_cols.size(),</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;                          M_mortar_rep.data() );</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    }</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;}</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;}</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;}</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;}</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __BilinearFormContext_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;            M_form.addMatrix( M_mortar_local_rows.data(), M_mortar_local_rows.size(),</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;                              M_local_cols.data(), M_local_cols.size(),</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;                              M_mortar_rep.data() );</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;        }</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    }</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;}</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> FE1,  <span class="keyword">typename</span> FE2, <span class="keyword">typename</span> ElemContType&gt;</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> GeomapTestContext,<span class="keyword">typename</span> ExprT,<span class="keyword">typename</span> IM,<span class="keyword">typename</span> GeomapExprContext,<span class="keyword">typename</span> GeomapTrialContext,<span class="keywordtype">bool</span> UseMortar&gt;</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;BilinearForm&lt;FE1,FE2,ElemContType&gt;::Context&lt;GeomapTestContext,ExprT,IM,GeomapExprContext,GeomapTrialContext,UseMortar&gt;::assemble( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> elt_0, <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> elt_1  )</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;{</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> row_start = M_lb.front().globalRowStart();</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> col_start = M_lb.front().globalColumnStart();</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    M_local_rows_2.template head&lt;test_dof_type::nDofPerElement&gt;().array() = M_test_dof-&gt;localToGlobalIndices( elt_0 ).array() + row_start;</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    M_local_rows_2.template tail&lt;test_dof_type::nDofPerElement&gt;().array() = M_test_dof-&gt;localToGlobalIndices( elt_1 ).array() + row_start;</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    M_local_cols_2.template head&lt;trial_dof_type::nDofPerElement&gt;().array() = M_trial_dof-&gt;localToGlobalIndices( elt_0 ).array() + col_start;</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    M_local_cols_2.template tail&lt;trial_dof_type::nDofPerElement&gt;().array() = M_trial_dof-&gt;localToGlobalIndices( elt_1 ).array() + col_start;</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    {</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;        M_local_rowsigns_2.template head&lt;test_dof_type::nDofPerElement&gt;() = M_test_dof-&gt;localToGlobalSigns( elt_0 );</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;        M_local_rowsigns_2.template tail&lt;test_dof_type::nDofPerElement&gt;() = M_test_dof-&gt;localToGlobalSigns( elt_1 );</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        M_local_colsigns_2.template head&lt;trial_dof_type::nDofPerElement&gt;() = M_trial_dof-&gt;localToGlobalSigns( elt_0 );</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        M_local_colsigns_2.template tail&lt;trial_dof_type::nDofPerElement&gt;() = M_trial_dof-&gt;localToGlobalSigns( elt_1 );</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;        M_rep_2.array() *= ( M_local_rowsigns_2*M_local_colsigns_2.transpose() ).array().template cast&lt;value_type&gt;();</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    }</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    M_form.addMatrix( M_local_rows_2.data(), M_local_rows_2.size(),</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                       M_local_cols_2.data(), M_local_cols_2.size(),</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                       M_rep_2.data() );</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;}</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> FE1,  <span class="keyword">typename</span> FE2, <span class="keyword">typename</span> ElemContType&gt;</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> GeomapTestContext,<span class="keyword">typename</span> ExprT,<span class="keyword">typename</span> IM,<span class="keyword">typename</span> GeomapExprContext,<span class="keyword">typename</span> GeomapTrialContext,<span class="keywordtype">bool</span> UseMortar&gt;</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;BilinearForm&lt;FE1,FE2,ElemContType&gt;::Context&lt;GeomapTestContext,ExprT,IM,GeomapExprContext,GeomapTrialContext,UseMortar&gt;::assembleInCaseOfInterpolate()</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;{</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> row_start = M_lb.front().globalRowStart();</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> col_start = M_lb.front().globalColumnStart();</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    <span class="keyword">auto</span> eltTest = fusion::at_key&lt;gmc&lt;0&gt; &gt;( M_test_gmc )-&gt;<span class="keywordtype">id</span>();</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    <span class="keyword">auto</span> eltTrial = fusion::at_key&lt;gmc&lt;0&gt; &gt;( M_trial_gmc )-&gt;<span class="keywordtype">id</span>();</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    <span class="keywordflow">if</span> ( !UseMortar || !M_test_dof-&gt;mesh()-&gt;isBoundaryElement( eltTest ) )</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    {</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;        M_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( eltTest ).array() + row_start;</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;        M_local_cols.array() = M_trial_dof-&gt;localToGlobalIndices( eltTrial ).array() + col_start;</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;M_local_rows: &quot;</span> &lt;&lt; M_local_rows;</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;M_local_cols: &quot;</span> &lt;&lt; M_local_cols;</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="preprocessor">#if 0</span></div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="preprocessor"></span>        <span class="keywordtype">bool</span> do_less = ( ( M_form.isPatternDefault() &amp;&amp;</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                           ( M_test_dof-&gt;nComponents == M_trial_dof-&gt;nComponents ) ) &amp;&amp;</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                         !M_form.isPatternCoupled() );</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;        <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;        {</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;            M_local_rowsigns = M_test_dof-&gt;localToGlobalSigns( eltTest );</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;            M_local_colsigns = M_trial_dof-&gt;localToGlobalSigns( eltTrial );</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;            M_rep.array() *= ( M_local_rowsigns*M_local_colsigns.transpose() ).array().template cast&lt;value_type&gt;();</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        }</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;add rep : &quot;</span> &lt;&lt; M_rep;</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;        M_form.addMatrix( M_local_rows.data(), M_local_rows.size(),</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                          M_local_cols.data(), M_local_cols.size(),</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                          M_rep.data() );</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;    }</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    {</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;        M_mortar_local_rows.array() = M_test_dof-&gt;localToGlobalIndices( eltTest ).array() + row_start;</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;        M_local_cols.array() = M_trial_dof-&gt;localToGlobalIndices( eltTrial ).array() + col_start;</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;M_mortar_local_rows: &quot;</span> &lt;&lt; M_mortar_local_rows;</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;M_local_cols: &quot;</span> &lt;&lt; M_local_cols;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="preprocessor">#if 0</span></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;<span class="preprocessor"></span>        <span class="keywordtype">bool</span> do_less = ( ( M_form.isPatternDefault() &amp;&amp;</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                           ( M_test_dof-&gt;nComponents == M_trial_dof-&gt;nComponents ) ) &amp;&amp;</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                         !M_form.isPatternCoupled() );</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;        <span class="keywordflow">if</span> ( test_dof_type::is_modal || trial_dof_type::is_modal )</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;        {</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;            M_local_rowsigns = M_test_dof-&gt;localToGlobalSigns( eltTest );</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;            M_local_colsigns = M_trial_dof-&gt;localToGlobalSigns( eltTrial );</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;            M_rep.array() *= ( M_local_rowsigns*M_local_colsigns.transpose() ).array().template cast&lt;value_type&gt;();</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;        }</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;add mortar rep : &quot;</span> &lt;&lt; M_mortar_rep;</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;        M_form.addMatrix( M_mortar_local_rows.data(), M_mortar_local_rows.size(),</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                          M_local_cols.data(), M_local_cols.size(),</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                          M_mortar_rep.data() );</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    }</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;}</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;}</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;}</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;}</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __BilinearFormContext_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="namespaceFeel_html_a07ec0494dee4ca9a16b866e8c1f4d495"><div class="ttname"><a href="namespaceFeel.html#a07ec0494dee4ca9a16b866e8c1f4d495">Feel::points</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_POINTS &gt;, typename MeshTraits&lt; MeshType &gt;::point_const_iterator, typename MeshTraits&lt; MeshType &gt;::point_const_iterator &gt; points(MeshType const &amp;mesh)</div><div class="ttdef"><b>Definition:</b> feelmesh/filters.hpp:1330</div></div>
 <div class="ttc" id="namespaceFeel_html_a0d4d77cd361adda45d27d72ff0357e55"><div class="ttname"><a href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a></div><div class="ttdeci">const size_type invalid_size_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:382</div></div>
 <div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>
