@@ -466,11 +466,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateEntitiesCoDimen
 <tr class="memitem:a2f3aee791a7965909ab4e055961c795a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f3aee791a7965909ab4e055961c795a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>updateEntitiesCoDimensionOne</b> (mpl::bool_&lt; false &gt;)</td></tr>
 <tr class="separator:a2f3aee791a7965909ab4e055961c795a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44af1658a34df3be9f48e39b375ce238"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Mesh.html#a44af1658a34df3be9f48e39b375ce238">updateEntitiesCoDimensionOneGhostCellByUsingBlockingComm</a> ()</td></tr>
-<tr class="separator:a44af1658a34df3be9f48e39b375ce238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9103d61397d8db410980c536a4901bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9103d61397d8db410980c536a4901bb"></a>
+<tr class="memitem:aa48a676e0a6429597521104c3ac35454"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Mesh.html#aa48a676e0a6429597521104c3ac35454">updateEntitiesCoDimensionOneGhostCellByUsingBlockingComm</a> ()</td></tr>
+<tr class="separator:aa48a676e0a6429597521104c3ac35454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98636c86fa98680b7a131fa13c77a8eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98636c86fa98680b7a131fa13c77a8eb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>updateEntitiesCoDimensionOneGhostCellByUsingNonBlockingComm</b> ()</td></tr>
-<tr class="separator:ab9103d61397d8db410980c536a4901bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a98636c86fa98680b7a131fa13c77a8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -1589,17 +1589,17 @@ template&lt;typename Shape , typename T , int Tag&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a44af1658a34df3be9f48e39b375ce238"></a>
+<a class="anchor" id="aa48a676e0a6429597521104c3ac35454"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename C, typename V, int T&gt; </div>
+template&lt;typename Shape , typename T , int Tag&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classFeel_1_1Mesh.html">Feel::Mesh</a>&lt; C, V, T &gt;::updateEntitiesCoDimensionOneGhostCellByUsingBlockingComm </td>
+          <td class="memname">void <a class="el" href="classFeel_1_1Mesh.html">Feel::Mesh</a>&lt; Shape, T, Tag &gt;::updateEntitiesCoDimensionOneGhostCellByUsingBlockingComm </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1612,6 +1612,8 @@ template&lt;typename C, typename V, int T&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Update in ghost cells of entities of codimension 1 </p>
+
+<p>References <a class="el" href="namespaceFeel.html#a4cd4ca07dcfdbe557d3fa45207df6e83">Feel::beginGhostElement()</a>, <a class="el" href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements()</a>, <a class="el" href="namespaceFeel.html#a21d2d4147633e1221c5d0147f8dd8aef">Feel::endGhostElement()</a>, <a class="el" href="namespaceFeel.html#a12d0226a5e73e64f3b97bf9c723ee239">Feel::faces()</a>, <a class="el" href="namespaceFeel.html#a74681da1036cc5b236aabef05d8a8f87">Feel::invalid_uint16_type_value</a>, and <a class="el" href="namespaceFeel.html#a07ec0494dee4ca9a16b866e8c1f4d495">Feel::points()</a>.</p>
 
 </div>
 </div>

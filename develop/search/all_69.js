@@ -7,7 +7,7 @@ var searchData=
   ['idedfaces',['idedfaces',['../namespaceFeel.html#a93fd163019ef944e6b726ab5a3da416b',1,'Feel']]],
   ['idin1',['idIn1',['../classFeel_1_1GeoMap_1_1Context.html#a308cd6df263f96b75d08f6e56f61f20d',1,'Feel::GeoMap::Context']]],
   ['idin2',['idIn2',['../classFeel_1_1GeoMap_1_1Context.html#ae25a84a693f18a3d5a3971dcae04dcb1',1,'Feel::GeoMap::Context']]],
-  ['idinotherspartitions',['idInOthersPartitions',['../classFeel_1_1GeoEntity.html#acffce426c3f47cc9ddddf1d62d1bda85',1,'Feel::GeoEntity::idInOthersPartitions(uint16_type pid) const '],['../classFeel_1_1GeoEntity.html#a8db1058e529a9f86dc3d2892caff0eb5',1,'Feel::GeoEntity::idInOthersPartitions() const ']]],
+  ['idinotherspartitions',['idInOthersPartitions',['../classFeel_1_1GeoEntity.html#a84a221c95ea9f362f118d39ce3ac27a8',1,'Feel::GeoEntity::idInOthersPartitions(rank_type pid) const '],['../classFeel_1_1GeoEntity.html#aa876a3ba05e72c1e5672c4dcf8906e35',1,'Feel::GeoEntity::idInOthersPartitions() const ']]],
   ['im_2ehpp',['im.hpp',['../im_8hpp.html',1,'']]],
   ['imexact',['IMExact',['../classFeel_1_1IMExact.html',1,'Feel']]],
   ['imexact_2ehpp',['imexact.hpp',['../imexact_8hpp.html',1,'']]],

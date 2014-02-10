@@ -1,5 +1,7 @@
 var NAVTREEINDEX17 =
 {
+"classFeel_1_1OperatorLinearFree.html#a2fde11fa7e8fcc032c47cdb672d3e3cd":[10,0,147,19],
+"classFeel_1_1OperatorLinearFree.html#a2fe6cb8e1a15fb7c6282694a4ec488ba":[10,0,147,22],
 "classFeel_1_1OperatorLinearFree.html#a37a1f2d9cbc166bb04719e7cde43e6fd":[10,0,147,30],
 "classFeel_1_1OperatorLinearFree.html#a3a86902fe6d6ec2c9501212c05d871e3":[10,0,147,21],
 "classFeel_1_1OperatorLinearFree.html#a447ae2c15facd427e85f4cabf14f483d":[10,0,147,17],
@@ -247,7 +249,5 @@ var NAVTREEINDEX17 =
 "classFeel_1_1PeriodicStokes.html#a545fb68d96f191c66e78814f54385cc7":[10,0,160,7],
 "classFeel_1_1PeriodicStokes.html#a55d6fdef4f148664032fc1c2a02c21fe":[10,0,160,11],
 "classFeel_1_1PeriodicStokes.html#a78fbf79d68a7c2c986691b6f0fe5ebe9":[10,0,160,2],
-"classFeel_1_1PeriodicStokes.html#a8ca43045d8849b05496e98a090a9a09d":[10,0,160,1],
-"classFeel_1_1PeriodicStokes.html#a9f25bf57c21fbdaa3803bfdf38ba958a":[10,0,160,4],
-"classFeel_1_1PeriodicStokes.html#aa1dee2bc5280543f48fa15e5d9c5b449":[10,0,160,8]
+"classFeel_1_1PeriodicStokes.html#a8ca43045d8849b05496e98a090a9a09d":[10,0,160,1]
 };

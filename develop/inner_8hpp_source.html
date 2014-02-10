@@ -412,8 +412,8 @@ $(document).ready(function(){initNavTree('inner_8hpp_source.html','');});
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            <span class="keywordflow">if</span> ( Type == 1 )</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            {</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c2 = 0; c2 &lt; left_shape::N; ++ c2 )</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                    <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c1 = 0; c1 &lt; left_shape::M; ++ c1 )</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c1 = 0; c1 &lt; left_shape::M; ++ c1 )</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                    <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c2 = 0; c2 &lt; left_shape::N; ++ c2 )</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                    {</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                        res += M_l_tensor_expr.evalq( c1, c2, q )*M_r_tensor_expr.evalq( c1, c2, q );</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                    }</div>
@@ -428,54 +428,56 @@ $(document).ready(function(){initNavTree('inner_8hpp_source.html','');});
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            <span class="keywordflow">if</span> ( Type == 1 )</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            {</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c2 = 0; c2 &lt; left_shape::N; ++ c2 )</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                    <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c1 = 0; c1 &lt; left_shape::M; ++ c1 )</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                    {</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                        <span class="keyword">auto</span> a = M_l_tensor_expr.evalq( c1, c2, q );</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                        res += a*a;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                    }</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            }</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            <span class="keywordflow">if</span> ( ApplySqrt )</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                <span class="keywordflow">return</span> math::sqrt(res);</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        }</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        l_tensor_expr_type M_l_tensor_expr;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        r_tensor_expr_type M_r_tensor_expr;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keyword">mutable</span> Eigen::Matrix&lt;value_type,left_shape::M,left_shape::N&gt; M1,M2;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    };</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keyword">mutable</span> left_expression_type  M_left_expr;</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">mutable</span> right_expression_type  M_right_expr;</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;};</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ExprL, <span class="keyword">typename</span> ExprR&gt;</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;Expr&lt; Product&lt;ExprL, ExprR,1,InnerProperties::NONE&gt; &gt;</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;inner( ExprL l, ExprR r)</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;{</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="keyword">typedef</span> Product&lt;ExprL, ExprR,1,InnerProperties::NONE&gt; product_t;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordflow">return</span> Expr&lt; product_t &gt;(  product_t( l, r ) );</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;}</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ExprL, <span class="keyword">typename</span> ExprR, <span class="keywordtype">int</span> Props&gt;</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="keyword">inline</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;Expr&lt; Product&lt;ExprL, ExprR,1,Props&gt; &gt;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;inner( ExprL l, ExprR r, mpl::int_&lt;Props&gt; )</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;{</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keyword">typedef</span> Product&lt;ExprL, ExprR,1,Props&gt; product_t;</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <span class="keywordflow">return</span> Expr&lt; product_t &gt;(  product_t( l, r ) );</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;}</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;} <span class="comment">// vf</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                <span class="keywordflow">for</span> ( uint16_type l = 0; l &lt; left_shape::M; ++l )</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                {</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                    <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> c2 = 0; c2 &lt; left_shape::N; ++ c2 )</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                    {</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                        <span class="keyword">auto</span> a = M_l_tensor_expr.evalq( l, c2, q );</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                        res += a*a;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                    }</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                }</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            }</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            <span class="keywordflow">if</span> ( ApplySqrt )</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                <span class="keywordflow">return</span> math::sqrt(res);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        }</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        l_tensor_expr_type M_l_tensor_expr;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        r_tensor_expr_type M_r_tensor_expr;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keyword">mutable</span> Eigen::Matrix&lt;value_type,left_shape::M,left_shape::N&gt; M1,M2;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    };</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keyword">mutable</span> left_expression_type  M_left_expr;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keyword">mutable</span> right_expression_type  M_right_expr;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;};</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ExprL, <span class="keyword">typename</span> ExprR&gt;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;Expr&lt; Product&lt;ExprL, ExprR,1,InnerProperties::NONE&gt; &gt;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;inner( ExprL l, ExprR r)</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;{</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keyword">typedef</span> Product&lt;ExprL, ExprR,1,InnerProperties::NONE&gt; product_t;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordflow">return</span> Expr&lt; product_t &gt;(  product_t( l, r ) );</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;}</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ExprL, <span class="keyword">typename</span> ExprR, <span class="keywordtype">int</span> Props&gt;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="keyword">inline</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;Expr&lt; Product&lt;ExprL, ExprR,1,Props&gt; &gt;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;inner( ExprL l, ExprR r, mpl::int_&lt;Props&gt; )</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;{</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keyword">typedef</span> Product&lt;ExprL, ExprR,1,Props&gt; product_t;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keywordflow">return</span> Expr&lt; product_t &gt;(  product_t( l, r ) );</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;}</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FEELPP_FEELVF_INNER_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;} <span class="comment">// vf</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FEELPP_FEELVF_INNER_HPP */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="namespaceFeel_html_af30a491cfca047316937626d0d9bad46ab50339a10e1de285ac99d4c3990b8693"><div class="ttname"><a href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46ab50339a10e1de285ac99d4c3990b8693">Feel::OnContext::NONE</a></div></div>
 <div class="ttc" id="expr_8hpp_html"><div class="ttname"><a href="expr_8hpp.html">expr.hpp</a></div></div>
 <div class="ttc" id="namespaceFeel_html_a285d572c85de361b3f3e2695b41a4ce0"><div class="ttname"><a href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">Feel::size_type</a></div><div class="ttdeci">size_t size_type</div><div class="ttdoc">Indices (starting from 0) </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:332</div></div>

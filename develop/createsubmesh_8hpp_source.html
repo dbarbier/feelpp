@@ -501,7 +501,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                    newElem.setProcessId(oldElem.processId());</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                    newElem.clearIdInOthersPartitions();</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                    std::vector&lt;int&gt; newNeighborPartitionIds(1);</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                    std::vector&lt;rank_type&gt; newNeighborPartitionIds(1);</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                    newNeighborPartitionIds[0]=newMesh-&gt;worldComm().localRank();</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                    newElem.setNeighborPartitionIds( newNeighborPartitionIds );</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;</div>
@@ -831,7 +831,7 @@ $(document).ready(function(){initNavTree('createsubmesh_8hpp_source.html','');})
 <div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                    <span class="comment">//CHECK( proc==old_elem.processId() ) &lt;&lt; &quot;invalid process id\n&quot;;</span></div>
 <div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                    newElem.setProcessId( proc );</div>
 <div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                    <span class="comment">//newElem.clearIdInOthersPartitions();</span></div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                    std::vector&lt;int&gt; newNeighborPartitionIds(1);</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                    std::vector&lt;rank_type&gt; newNeighborPartitionIds(1);</div>
 <div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;                    newNeighborPartitionIds[0]=newMesh-&gt;worldComm().localRank();</div>
 <div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;                    newElem.setNeighborPartitionIds( newNeighborPartitionIds );</div>
 <div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;</div>

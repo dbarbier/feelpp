@@ -58,6 +58,8 @@ var classFeel_1_1GeoMap_1_1Context =
     [ "pc", "classFeel_1_1GeoMap_1_1Context.html#a0d485b38ce4aeb367c1af78092698f22", null ],
     [ "pcFaces", "classFeel_1_1GeoMap_1_1Context.html#a1e932d1245d5244e522b05b4fee2fb2c", null ],
     [ "permutation", "classFeel_1_1GeoMap_1_1Context.html#a31bf85298851064fcc0b284c6ffb6419", null ],
+    [ "projectorTangent", "classFeel_1_1GeoMap_1_1Context.html#a40dabccaacc3ca38e89ea3293dfb73be", null ],
+    [ "projectorTangent", "classFeel_1_1GeoMap_1_1Context.html#a07da786201eb6eb3c3986de375bf115f", null ],
     [ "radiusEstimate", "classFeel_1_1GeoMap_1_1Context.html#a1f75dc38c18d86cd50e287167d492f0a", null ],
     [ "refNormal", "classFeel_1_1GeoMap_1_1Context.html#a3df2ae6374b378396a644e8cefffa601", null ],
     [ "setPc", "classFeel_1_1GeoMap_1_1Context.html#a48b6548cb018e992bb8104d43216846d", null ],

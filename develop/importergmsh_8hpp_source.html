@@ -211,7 +211,7 @@ $(document).ready(function(){initNavTree('importergmsh_8hpp_source.html','');});
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                 <span class="keywordtype">int</span> e,</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                 <span class="keywordtype">int</span> _numPartitions,</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                 <span class="keywordtype">int</span> _partition,</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                 std::vector&lt;int&gt; <span class="keyword">const</span>&amp; _ghosts,</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                 std::vector&lt;rank_type&gt; <span class="keyword">const</span>&amp; _ghosts,</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                 <span class="keywordtype">int</span> _parent,</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                 <span class="keywordtype">int</span> _dom1, <span class="keywordtype">int</span> _dom2,</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                 <span class="keywordtype">int</span> _numVertices,</div>
@@ -294,7 +294,7 @@ $(document).ready(function(){initNavTree('importergmsh_8hpp_source.html','');});
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">void</span> updatePartition( std::map&lt;int,int&gt; <span class="keyword">const</span>&amp; p2e, <span class="keywordtype">int</span> worldcommrank, <span class="keywordtype">int</span> worldcommsize )</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        {</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            partition = num;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordflow">for</span>( <span class="keywordtype">int</span>&amp; g : ghosts )</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordflow">for</span>( <span class="keyword">auto</span>&amp; g : ghosts )</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                g = p2e.at(g)-1;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            setPartition( worldcommrank, worldcommsize );</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        }</div>
@@ -305,7 +305,7 @@ $(document).ready(function(){initNavTree('importergmsh_8hpp_source.html','');});
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordtype">int</span> numPartitions;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordtype">int</span> partition;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    std::vector&lt;int&gt; ghosts;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    std::vector&lt;rank_type&gt; ghosts;</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">bool</span> is_on_processor;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordtype">bool</span> is_ghost;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordtype">int</span> ghost_partition_id;</div>
@@ -752,7 +752,7 @@ $(document).ready(function(){initNavTree('importergmsh_8hpp_source.html','');});
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        {</div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;          <span class="keywordtype">int</span> num, type, physical = 0, elementary = 0, parent = 0;</div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;          <span class="keywordtype">int</span> dom1 = 0, dom2 = 0, numVertices;</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;          std::vector&lt;int&gt; ghosts;</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;          std::vector&lt;rank_type&gt; ghosts;</div>
 <div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;          <span class="keywordtype">int</span> numTags;</div>
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;          <span class="comment">// some faces may not be associated to a partition in the mesh file,</span></div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;          <span class="comment">// hence will be read given the partition id 0 and will be discarded</span></div>
@@ -845,7 +845,7 @@ $(document).ready(function(){initNavTree('importergmsh_8hpp_source.html','');});
 <div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = 1 + numTags + numVertices;</div>
 <div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;            std::vector&lt;int&gt; data(n);</div>
 <div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;            std::vector&lt;int&gt; indices( numVertices );</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;            std::vector&lt;int&gt; ghosts;</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;            std::vector&lt;rank_type&gt; ghosts;</div>
 <div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;</div>
 <div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; numElems; i++)</div>
 <div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;            {</div>

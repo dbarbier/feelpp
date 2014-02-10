@@ -1,5 +1,7 @@
 var NAVTREEINDEX26 =
 {
+"classThreeFieldsLaplacian.html#a97f3d5217198a97dfc8e51fdeacd4e68":[10,11,25],
+"classThreeFieldsLaplacian.html#a9e2a5fa621fd7e2508d7165201c51a23":[10,11,27],
 "classThreeFieldsLaplacian.html#a9f76b3874b7635f59fad6ba8fffa8aae":[10,11,20],
 "classThreeFieldsLaplacian.html#aa382bb456e82e506d79de4b80dfe5ba2":[10,11,30],
 "classThreeFieldsLaplacian.html#abfa63c2a754c2187788ba06156ea386e":[10,11,18],
@@ -10,8 +12,8 @@ var NAVTREEINDEX26 =
 "classThreeFieldsLaplacian.html#ad1aada0099d45c1c61e7fb1149f36dc2":[10,11,14],
 "classThreeFieldsLaplacian.html#ad2ba185089e485cdd2d3a50326476b72":[10,11,3],
 "classThreeFieldsLaplacian.html#aef0b85cec754ffad5684a4c3c244c644":[10,11,22],
-"index.html":[0],
 "index.html":[],
+"index.html":[0],
 "md_Credits.html":[1],
 "md__home_vhuber_feelpp_8git_COPYING.html":[8],
 "namespaceFeel.html":[10,0],
@@ -71,8 +73,8 @@ var NAVTREEINDEX26 =
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a24f2edf51794093c9006affe4889ea1c":[10,0,105,4],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a263e8c4c3415b075865bb909aaebf3cf":[10,0,105,7],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a47a159d96c1faef9f6b57e104411690f":[10,0,105,6],
-"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,3],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,2],
+"structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#a5b14a31c265d13987d9d2d7f2b19dfd3":[10,0,105,3],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aae08c8b04ff5d504167b6b0ef8710a90":[10,0,105,5],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,105,1],
 "structFeel_1_1IMTetrahedra_3_011_00_01T_01_4.html#aff78ebe8b1d46fcf7f5cdc3c860ec8f6":[10,0,105,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX26 =
 "structFeel_1_1functional_1_1PointsGradient.html":[10,0,79,13],
 "structFeel_1_1functional_1_1PointsGradient.html#a0c8b3968df9c221f90935c2a9942a2de":[10,0,79,13,5],
 "structFeel_1_1functional_1_1PointsGradient.html#a1bbe46d8306b745e7a1fc26491c03cc9":[10,0,79,13,0],
-"structFeel_1_1functional_1_1PointsGradient.html#a23622d07b11af57b062f96c4a06f4e76":[10,0,79,13,1],
-"structFeel_1_1functional_1_1PointsGradient.html#a589239a17e53d98095164dc170c1392f":[10,0,79,13,2],
-"structFeel_1_1functional_1_1PointsGradient.html#a96a6b8921e4bc0367eae0ce7fe93a00e":[10,0,79,13,4]
+"structFeel_1_1functional_1_1PointsGradient.html#a23622d07b11af57b062f96c4a06f4e76":[10,0,79,13,1]
 };
