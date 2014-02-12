@@ -1,5 +1,6 @@
 var NAVTREEINDEX13 =
 {
+"classFeel_1_1KDTree.html#af03c0f026893411543e1baea664b1e58":[10,0,112,13],
 "classFeel_1_1KDTree.html#af8c483b6b585291afd4476a0ab87b69c":[10,0,112,8],
 "classFeel_1_1LU.html":[10,0,116],
 "classFeel_1_1LU.html#a24265632f581b250995e155168eceef3":[10,0,116,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX13 =
 "classFeel_1_1MatrixEigenSparse.html#aea42ef856ee559231fe7a5f57edd0618":[10,0,123,36],
 "classFeel_1_1MatrixEigenSparse.html#aef791a77012ca8300bd833af598979c7":[10,0,123,32],
 "classFeel_1_1MatrixEigenSparse.html#af8e2166b8be44c54c058fd0dae839d54":[10,0,123,21],
-"classFeel_1_1MatrixEigenSparse.html#af8ea97330f4ce882f0032555e43cf22e":[10,0,123,18],
-"classFeel_1_1MatrixEigenSparse.html#afaf4ef59fc2099653cfe4fd4d8b4caeb":[10,0,123,16]
+"classFeel_1_1MatrixEigenSparse.html#af8ea97330f4ce882f0032555e43cf22e":[10,0,123,18]
 };

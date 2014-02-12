@@ -74,6 +74,7 @@ var classFeel_1_1CRBModel =
     [ "Fqm", "classFeel_1_1CRBModel.html#a7803bbbacd885bd86cf5f536723ff179", null ],
     [ "functionalCompositeF", "classFeel_1_1CRBModel.html#ac577417e0d192de01c1b6c5799fae720", null ],
     [ "functionSpace", "classFeel_1_1CRBModel.html#aa2e4ed155f7c3e3bef638b4cd1d1c4af", null ],
+    [ "generateGeoFileForOutputPlot", "classFeel_1_1CRBModel.html#ad7aa22c2a19ca588bf76e65f3ffe1631", null ],
     [ "h1", "classFeel_1_1CRBModel.html#a52e8be521c0cc6452c6fe2e0533717a6", null ],
     [ "h1", "classFeel_1_1CRBModel.html#ab589451f06f7d49f391e83fcdb184544", null ],
     [ "h1", "classFeel_1_1CRBModel.html#a1c8deb8ba5df0197195fde43abb36f9c", null ],

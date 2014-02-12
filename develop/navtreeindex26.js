@@ -1,5 +1,6 @@
 var NAVTREEINDEX26 =
 {
+"classThreeFieldsLaplacian.html#a974068e67c7282939a2498430da1e1f8":[10,11,11],
 "classThreeFieldsLaplacian.html#a97f3d5217198a97dfc8e51fdeacd4e68":[10,11,25],
 "classThreeFieldsLaplacian.html#a9e2a5fa621fd7e2508d7165201c51a23":[10,11,27],
 "classThreeFieldsLaplacian.html#a9f76b3874b7635f59fad6ba8fffa8aae":[10,11,20],
@@ -248,6 +249,5 @@ var NAVTREEINDEX26 =
 "structFeel_1_1functional_1_1PointsEvaluation.html#af80af16027bfbf7f417cb7bc00f7dbe8":[10,0,79,12,0],
 "structFeel_1_1functional_1_1PointsGradient.html":[10,0,79,13],
 "structFeel_1_1functional_1_1PointsGradient.html#a0c8b3968df9c221f90935c2a9942a2de":[10,0,79,13,5],
-"structFeel_1_1functional_1_1PointsGradient.html#a1bbe46d8306b745e7a1fc26491c03cc9":[10,0,79,13,0],
-"structFeel_1_1functional_1_1PointsGradient.html#a23622d07b11af57b062f96c4a06f4e76":[10,0,79,13,1]
+"structFeel_1_1functional_1_1PointsGradient.html#a1bbe46d8306b745e7a1fc26491c03cc9":[10,0,79,13,0]
 };

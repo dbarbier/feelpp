@@ -305,7 +305,7 @@ $(document).ready(function(){initNavTree('disttocurve_8hpp_source.html','');});
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="keywordflow">if</span> (exportPoints)</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                    std::string expName = exportName.empty() ? <span class="stringliteral">&quot;nodes.particles&quot;</span> : exportName;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                    std::string expName = exportName.empty() ? <span class="stringliteral">&quot;nodes.particles&quot;</span> : exportName+<span class="stringliteral">&quot;.particles&quot;</span>;</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                    nodeFile.open(expName, std::ofstream::out);</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                }</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
@@ -441,137 +441,135 @@ $(document).ready(function(){initNavTree('disttocurve_8hpp_source.html','');});
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                        <span class="keywordflow">if</span> ( closestDist &lt; (*shape)(indexGlobDof) * (*shape)(indexGlobDof) )</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                            {</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                                <span class="keyword">const</span> node_type closestPointCoord = tNodeMap[ closestPoint ];</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                                <span class="comment">// (tx, ty) = vector tangent to the parametrized curve at the closest point on param curve</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                                <span class="keywordtype">double</span> tx, ty;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                                <span class="comment">// try to get the point next to the closest point (in the particular case where closest point is the last point, get the previous one)</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                                <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                                    {</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                                        <span class="keyword">const</span> node_type closestPointPlusDtCoord = tNodeMap[ closestPoint + M_dt ];</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                                        tx = closestPointPlusDtCoord[0] - closestPointCoord[0];</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                                        ty = closestPointPlusDtCoord[1] - closestPointCoord[1];</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                                    }</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                                <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::out_of_range&amp; oor)</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                                    {</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                                        <span class="keyword">const</span> node_type closestPointMinusDtCoord = tNodeMap[ closestPoint - M_dt ];</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                                        tx =  closestPointCoord[0] - closestPointMinusDtCoord[0];</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                                        ty =  closestPointCoord[1] - closestPointMinusDtCoord[1];</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                                    }</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                                <span class="comment">// (vx, vy) = vector pointing from the closest point on curve to the concerned dof</span></div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">double</span> vx = xdof - closestPointCoord[0];</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">double</span> vy = ydof - closestPointCoord[1];</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                                <span class="comment">// the sign of the distance function is ruled by the vectorial product of the tangent vector and the vector v : sign(v x t)</span></div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                                <span class="comment">// in 3D, it should be somthing like :  sign( (v x t) . n ) where n is the normal of the param surface pointing outward</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">double</span> prodVecSign = vx * ty - vy * tx &gt; 0 ? 1 : -1;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                                (*shape)( indexGlobDof ) = std::sqrt(closestDist) * prodVecSign;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                            }</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                    }</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                                <span class="comment">// (tx, ty) = vector tangent to the parametrized curve at the closest point on param curve</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                                <span class="keywordtype">double</span> tx, ty;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                                <span class="comment">// try to get the point next to the closest point (in the particular case where closest point is the last point, get the previous one)</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                                <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                                    {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                                        <span class="keyword">const</span> node_type closestPointPlusDtCoord = tNodeMap.at( closestPoint + M_dt );</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                                        tx = closestPointPlusDtCoord[0] - closestPointCoord[0];</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                                        ty = closestPointPlusDtCoord[1] - closestPointCoord[1];</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                                    }</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                                <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::out_of_range&amp; oor)</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                                    {</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                                        <span class="keyword">const</span> node_type closestPointMinusDtCoord = tNodeMap.at( closestPoint - M_dt );</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                                        tx =  closestPointCoord[0] - closestPointMinusDtCoord[0];</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                                        ty =  closestPointCoord[1] - closestPointMinusDtCoord[1];</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                                    }</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                                <span class="comment">// (vx, vy) = vector pointing from the closest point on curve to the concerned dof</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">double</span> vx = xdof - closestPointCoord[0];</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">double</span> vy = ydof - closestPointCoord[1];</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                                <span class="comment">// the sign of the distance function is ruled by the vectorial product of the tangent vector and the vector v : sign(v x t)</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                                <span class="comment">// in 3D, it should be somthing like :  sign( (v x t) . n ) where n is the normal of the param surface pointing outward</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">double</span> prodVecSign = vx * ty - vy * tx &gt; 0 ? 1 : -1;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                                (*shape)( indexGlobDof ) = std::sqrt(closestDist) * prodVecSign;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                            }</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                    }</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            <span class="keywordflow">return</span> shape;</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;            <span class="keywordflow">return</span> shape;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        } <span class="comment">// makeDistanceFunctionSequential</span></div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        } <span class="comment">// makeDistanceFunctionSequential</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keywordtype">void</span> reduceDistanceFunction( element_ptrtype shape )</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        {</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            <span class="comment">// given a distance function made by makeDistanceFunctionSequential which has different values on nodes being at the interface between several subdomain, make a nice, homogeneous distance function (requires several communications though all the proc !)</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keywordtype">void</span> reduceDistanceFunction( element_ptrtype shape )</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        {</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            <span class="comment">// given a distance function made by makeDistanceFunctionSequential which has different values on nodes being at the interface between several subdomain, make a nice, homogeneous distance function (requires several communications though all the proc !)</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            <span class="keyword">auto</span> eltHavingPointP1 = vf::project(M_spaceP1, <a class="code" href="namespaceFeel.html#af03a372bfd8ffdca749fbe87870382a3">marked2elements</a>(M_mesh, 1), cst(1) );</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            <span class="keyword">auto</span> eltHavingPointP1 = vf::project(M_spaceP1, <a class="code" href="namespaceFeel.html#af03a372bfd8ffdca749fbe87870382a3">marked2elements</a>(M_mesh, 1), cst(1) );</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            <span class="comment">// search for all the dof being marked on at least one proc and being ghost on at least one proc (not necessarily the same proc)</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            <span class="keyword">auto</span> checkMarked = backend()-&gt;newVector( M_spaceP1 );</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;            <span class="keyword">auto</span> checkGhost = backend()-&gt;newVector( M_spaceP1 );</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> k = 0 ; k &lt; M_spaceP1-&gt;nLocalDof() ; ++k )</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                {</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                    checkMarked-&gt;add(k,  eltHavingPointP1(k) == 1 ? 1 : 0 );</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                    checkGhost-&gt;add( k, M_spaceP1-&gt;dof()-&gt;dofGlobalProcessIsGhost( k ) ? 1 : 0 );</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                }</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;            checkMarked-&gt;close();</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;            checkGhost-&gt;close();</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            <span class="comment">// store the value of all the dof being marked and ghost</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            std::vector&lt; std::pair&lt; size_type, value_type &gt; &gt; idOnClusterAndValue;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> k = 0 ; k &lt; M_spaceP1-&gt;nLocalDof() ; ++k )</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                <span class="keywordflow">if</span> ( (*checkGhost)(k) &amp;&amp; (*checkMarked)(k) )</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                    idOnClusterAndValue.push_back( { processorToCluster(k), (*shape)(k) } );</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            <span class="comment">// search for all the dof being marked on at least one proc and being ghost on at least one proc (not necessarily the same proc)</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;            <span class="keyword">auto</span> checkMarked = backend()-&gt;newVector( M_spaceP1 );</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            <span class="keyword">auto</span> checkGhost = backend()-&gt;newVector( M_spaceP1 );</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> k = 0 ; k &lt; M_spaceP1-&gt;nLocalDof() ; ++k )</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                {</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                    checkMarked-&gt;add(k,  eltHavingPointP1(k) == 1 ? 1 : 0 );</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                    checkGhost-&gt;add( k, M_spaceP1-&gt;dof()-&gt;dofGlobalProcessIsGhost( k ) ? 1 : 0 );</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                }</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;            checkMarked-&gt;close();</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            checkGhost-&gt;close();</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;            <span class="comment">// store the value of all the dof being marked and ghost</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            std::vector&lt; std::pair&lt; size_type, value_type &gt; &gt; idOnClusterAndValue;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> k = 0 ; k &lt; M_spaceP1-&gt;nLocalDof() ; ++k )</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                <span class="keywordflow">if</span> ( (*checkGhost)(k) &amp;&amp; (*checkMarked)(k) )</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                    idOnClusterAndValue.push_back( { processorToCluster(k), (*shape)(k) } );</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            <span class="comment">// gather all these values to one single proc</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;            std::vector&lt; std::vector&lt; std::pair&lt; size_type, value_type &gt; &gt; &gt; allIdOnClusterAndValue;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;            mpi::gather( Environment::worldComm().globalComm(),</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                         idOnClusterAndValue,</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                         allIdOnClusterAndValue, 0 );</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;            <span class="comment">// this proc makes all the work :</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            <span class="comment">// extract all the values in a map having (key = GlobalIdOnCluster, value = min value of shape )</span></div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            std::map&lt; size_type, value_type &gt; idOnClusterAndMinValue;</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            <span class="keywordflow">if</span> (Environment::worldComm().localRank() == 0)</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span> <span class="keyword">const</span>&amp; v1 : allIdOnClusterAndValue)</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; idValue : v1)</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                        {</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                            <span class="keywordflow">if</span> (idOnClusterAndMinValue.count( idValue.first ) )</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                                idOnClusterAndMinValue[ idValue.first ] =</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                                    std::abs( idValue.second ) &lt; std::abs( idOnClusterAndMinValue[ idValue.first ] )</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                                                                 ? idValue.second : idOnClusterAndMinValue[ idValue.first ];</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                                idOnClusterAndMinValue.insert( idValue );</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                        }</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            allIdOnClusterAndValue.clear(); <span class="comment">// the info is treated, this vector is not needed anymore</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            idOnClusterAndValue.clear();</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            <span class="comment">// all proc get a copy of the id and the good min value</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            mpi::broadcast( Environment::worldComm().globalComm(),</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                            idOnClusterAndMinValue, 0);</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            <span class="comment">// gather all these values to one single proc</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            std::vector&lt; std::vector&lt; std::pair&lt; size_type, value_type &gt; &gt; &gt; allIdOnClusterAndValue;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            mpi::gather( Environment::worldComm().globalComm(),</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                         idOnClusterAndValue,</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                         allIdOnClusterAndValue, 0 );</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            <span class="comment">// this proc makes all the work :</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            <span class="comment">// extract all the values in a map having (key = GlobalIdOnCluster, value = min value of shape )</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;            std::map&lt; size_type, value_type &gt; idOnClusterAndMinValue;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            <span class="keywordflow">if</span> (Environment::worldComm().localRank() == 0)</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span> <span class="keyword">const</span>&amp; v1 : allIdOnClusterAndValue)</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; idValue : v1)</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;                        {</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                            <span class="keywordflow">if</span> (idOnClusterAndMinValue.count( idValue.first ) )</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                                idOnClusterAndMinValue[ idValue.first ] =</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                                    std::abs( idValue.second ) &lt; std::abs( idOnClusterAndMinValue[ idValue.first ] )</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                                                                 ? idValue.second : idOnClusterAndMinValue[ idValue.first ];</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                                idOnClusterAndMinValue.insert( idValue );</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                        }</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            allIdOnClusterAndValue.clear(); <span class="comment">// the info is treated, this vector is not needed anymore</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;            idOnClusterAndValue.clear();</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            <span class="comment">// all proc get a copy of the id and the good min value</span></div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;            mpi::broadcast( Environment::worldComm().globalComm(),</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                            idOnClusterAndMinValue, 0);</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;            <span class="comment">// all the elements which are on the proc (ghost or not) have to be set to the min value</span></div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; idValue : idOnClusterAndMinValue)</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;                {</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;                    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> locId=<a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a>;</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;                    <span class="keywordflow">if</span> ( (M_spaceP1-&gt;dof()-&gt;dofGlobalClusterIsOnProc( idValue.first )) )</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;                        locId = clusterToProcessor(idValue.first);</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( ghostClusterToProc.count(idValue.first) )</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;                        locId = ghostClusterToProc[ idValue.first ];</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                    if ( locId != <a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a> )</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                        (*shape)(locId) = idValue.second;</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                }</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;            <span class="comment">// all the elements which are on the proc (ghost or not) have to be set to the min value</span></div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; idValue : idOnClusterAndMinValue)</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;                {</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;                    <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> locId=<a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a>;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;                    <span class="keywordflow">if</span> ( (M_spaceP1-&gt;dof()-&gt;dofGlobalClusterIsOnProc( idValue.first )) )</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;                        locId = clusterToProcessor(idValue.first);</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( ghostClusterToProc.count(idValue.first) )</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;                        locId = ghostClusterToProc[ idValue.first ];</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;                    if ( locId != <a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a> )</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;                        (*shape)(locId) = idValue.second;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                }</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        } <span class="comment">// reduceDistanceFunction</span></div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        } <span class="comment">// reduceDistanceFunction</span></div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    }; <span class="comment">//DistToCurve</span></div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    }; <span class="comment">//DistToCurve</span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> FunctionSpaceP0Type, <span class="keyword">typename</span> FunctionSpaceP1Type &gt;</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    boost::shared_ptr&lt; DistToCurve&lt; FunctionSpaceP0Type, FunctionSpaceP1Type &gt; &gt;</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    distToCurve( boost::shared_ptr&lt;FunctionSpaceP0Type&gt; spaceP0, boost::shared_ptr&lt;FunctionSpaceP1Type&gt; spaceP1 )</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    {</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        <span class="keyword">auto</span> dtc = DistToCurve&lt; FunctionSpaceP0Type, FunctionSpaceP1Type &gt;::New( spaceP0, spaceP1 );</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        <span class="keywordflow">return</span> dtc;</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    }</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">typename</span> FunctionSpaceP0Type, <span class="keyword">typename</span> FunctionSpaceP1Type &gt;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    boost::shared_ptr&lt; DistToCurve&lt; FunctionSpaceP0Type, FunctionSpaceP1Type &gt; &gt;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    distToCurve( boost::shared_ptr&lt;FunctionSpaceP0Type&gt; spaceP0, boost::shared_ptr&lt;FunctionSpaceP1Type&gt; spaceP1 )</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    {</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;        <span class="keyword">auto</span> dtc = DistToCurve&lt; FunctionSpaceP0Type, FunctionSpaceP1Type &gt;::New( spaceP0, spaceP1 );</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        <span class="keywordflow">return</span> dtc;</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    }</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;} <span class="comment">//namespace Feel</span></div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;} <span class="comment">//namespace Feel</span></div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="preprocessor">#endif // DISTTOCURVE_HPP</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="preprocessor">#endif // DISTTOCURVE_HPP</span></div>
 <div class="ttc" id="namespaceFeel_html_ace44a7a9c428a5849b81de59532e4ef8"><div class="ttname"><a href="namespaceFeel.html#ace44a7a9c428a5849b81de59532e4ef8">Feel::elements</a></div><div class="ttdeci">elements_type const &amp; elements() const </div><div class="ttdef"><b>Definition:</b> elements.hpp:367</div></div>
 <div class="ttc" id="namespaceFeel_html_a0d4d77cd361adda45d27d72ff0357e55"><div class="ttname"><a href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">Feel::invalid_size_type_value</a></div><div class="ttdeci">const size_type invalid_size_type_value</div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:382</div></div>
 <div class="ttc" id="namespaceFeel_html_af03a372bfd8ffdca749fbe87870382a3"><div class="ttname"><a href="namespaceFeel.html#af03a372bfd8ffdca749fbe87870382a3">Feel::marked2elements</a></div><div class="ttdeci">boost::tuple&lt; mpl::size_t&lt; MESH_ELEMENTS &gt;, typename MeshTraits&lt; MeshType &gt;::marker2_element_const_iterator, typename MeshTraits&lt; MeshType &gt;::marker2_element_const_iterator &gt; marked2elements(MeshType const &amp;mesh, flag_type flag)</div><div class="ttdef"><b>Definition:</b> feelmesh/filters.hpp:829</div></div>

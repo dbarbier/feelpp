@@ -1,5 +1,6 @@
 var NAVTREEINDEX14 =
 {
+"classFeel_1_1MatrixEigenSparse.html#afaf4ef59fc2099653cfe4fd4d8b4caeb":[10,0,123,16],
 "classFeel_1_1MatrixShell.html":[10,0,124],
 "classFeel_1_1MatrixShell.html#a035142c6a257e68f85ee54c6ea85e728":[10,0,124,4],
 "classFeel_1_1MatrixShell.html#a0cac404fefeea737b231f31231ad5157":[10,0,124,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX14 =
 "classFeel_1_1Mesh.html#a8abe2df74e1d32bcc2ac1434b8621404":[10,0,130,114],
 "classFeel_1_1Mesh.html#a8e16d54336e24cb386e2b1fb19957b60":[10,0,130,43],
 "classFeel_1_1Mesh.html#a8f9111093c70b1b93cabe65a6965aae8":[10,0,130,25],
-"classFeel_1_1Mesh.html#a91e3c9f23cc48a5d5d297e8c6592219e":[10,0,130,21],
-"classFeel_1_1Mesh.html#a92254ad7c7029f19113b4acb36443052":[10,0,130,75]
+"classFeel_1_1Mesh.html#a91e3c9f23cc48a5d5d297e8c6592219e":[10,0,130,21]
 };

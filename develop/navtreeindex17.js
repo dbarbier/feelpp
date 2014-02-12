@@ -1,5 +1,6 @@
 var NAVTREEINDEX17 =
 {
+"classFeel_1_1OperatorLinearFree.html#a102f7d9f0a88a3e1291ae76f081bd904":[10,0,147,7],
 "classFeel_1_1OperatorLinearFree.html#a2fde11fa7e8fcc032c47cdb672d3e3cd":[10,0,147,19],
 "classFeel_1_1OperatorLinearFree.html#a2fe6cb8e1a15fb7c6282694a4ec488ba":[10,0,147,22],
 "classFeel_1_1OperatorLinearFree.html#a37a1f2d9cbc166bb04719e7cde43e6fd":[10,0,147,30],
@@ -248,6 +249,5 @@ var NAVTREEINDEX17 =
 "classFeel_1_1PeriodicStokes.html#a2b14e8c158cd99912456d1eb2574e526":[10,0,160,13],
 "classFeel_1_1PeriodicStokes.html#a545fb68d96f191c66e78814f54385cc7":[10,0,160,7],
 "classFeel_1_1PeriodicStokes.html#a55d6fdef4f148664032fc1c2a02c21fe":[10,0,160,11],
-"classFeel_1_1PeriodicStokes.html#a78fbf79d68a7c2c986691b6f0fe5ebe9":[10,0,160,2],
-"classFeel_1_1PeriodicStokes.html#a8ca43045d8849b05496e98a090a9a09d":[10,0,160,1]
+"classFeel_1_1PeriodicStokes.html#a78fbf79d68a7c2c986691b6f0fe5ebe9":[10,0,160,2]
 };

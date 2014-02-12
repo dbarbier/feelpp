@@ -30,6 +30,7 @@ var searchData=
   ['det',['det',['../classFeel_1_1LU.html#a8e21b67e0eaa807aeddf80fa355fa1d0',1,'Feel::LU']]],
   ['det_2ehpp',['det.hpp',['../det_8hpp.html',1,'']]],
   ['dh_2ehpp',['dh.hpp',['../dh_8hpp.html',1,'']]],
+  ['dhpdh',['DhPdh',['../namespaceFeel.html#ae0540c7eb660e0e488dbfb3d94f01cf5',1,'Feel']]],
   ['diagonal',['diagonal',['../classFeel_1_1MatrixBlockBase.html#a118a09fb8a2d451ab9c1cd6460425065',1,'Feel::MatrixBlockBase::diagonal()'],['../classFeel_1_1MatrixEigenDense.html#af73aa0e1371c18948291e8d7badd2639',1,'Feel::MatrixEigenDense::diagonal()'],['../classFeel_1_1MatrixEigenSparse.html#af8ea97330f4ce882f0032555e43cf22e',1,'Feel::MatrixEigenSparse::diagonal()'],['../classFeel_1_1MatrixShell.html#a479afdacd3cae1a6ec91bd1ea0d43901',1,'Feel::MatrixShell::diagonal()'],['../classFeel_1_1MatrixShellSparse.html#ab63e558380cb3c96ea408c1cb86b5b21',1,'Feel::MatrixShellSparse::diagonal()'],['../classFeel_1_1MatrixSparse.html#a0b125a43ee70bfe128ca4f174213959f',1,'Feel::MatrixSparse::diagonal(Vector&lt; T &gt; &amp;dest) const =0'],['../classFeel_1_1MatrixSparse.html#a8e94e17bd426ae3d89dc7bea160d2932',1,'Feel::MatrixSparse::diagonal(boost::shared_ptr&lt; Vector&lt; T &gt; &gt; &amp;dest) const ']]],
   ['dim',['dim',['../classFeel_1_1GeoMap.html#a1c476e61b658eac8a832f47a35cc7d31',1,'Feel::GeoMap']]],
   ['dim_5ftype',['dim_type',['../namespaceFeel.html#a5155120d1dda406c1dde284a66a1b000',1,'Feel']]],
