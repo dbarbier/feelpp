@@ -3041,8 +3041,8 @@ $(document).ready(function(){initNavTree('integrator_8hpp_source.html','');});
 <div class="line"><a name="l03027"></a><span class="lineno"> 3027</span>&#160;                            <span class="keywordtype">bool</span> check=<span class="keyword">true</span>;</div>
 <div class="line"><a name="l03028"></a><span class="lineno"> 3028</span>&#160;                            <span class="keywordflow">for</span> ( uint16_type i=0;i&lt;__c01-&gt;nPoints() &amp;&amp; check;++i )</div>
 <div class="line"><a name="l03029"></a><span class="lineno"> 3029</span>&#160;                            {</div>
-<div class="line"><a name="l03030"></a><span class="lineno"> 3030</span>&#160;                                LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;c0.xreal = &quot;</span> &lt;&lt; __c01-&gt;xReal(i);</div>
-<div class="line"><a name="l03031"></a><span class="lineno"> 3031</span>&#160;                                LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;c1.xreal(&quot;</span> &lt;&lt; __p &lt;&lt; <span class="stringliteral">&quot;) = &quot;</span> &lt;&lt; __c11-&gt;xReal(i);</div>
+<div class="line"><a name="l03030"></a><span class="lineno"> 3030</span>&#160;                                <span class="comment">//LOG(INFO) &lt;&lt; &quot;c0.xreal = &quot; &lt;&lt; __c01-&gt;xReal(i);</span></div>
+<div class="line"><a name="l03031"></a><span class="lineno"> 3031</span>&#160;                                <span class="comment">//LOG(INFO) &lt;&lt; &quot;c1.xreal(&quot; &lt;&lt; __p &lt;&lt; &quot;) = &quot; &lt;&lt; __c11-&gt;xReal(i);</span></div>
 <div class="line"><a name="l03032"></a><span class="lineno"> 3032</span>&#160;                                <span class="keywordflow">for</span> (uint16_type d=0;d&lt;gmc1_type::NDim;++d)</div>
 <div class="line"><a name="l03033"></a><span class="lineno"> 3033</span>&#160;                                    check = check &amp;&amp; ( std::abs(__c01-&gt;xReal(i)[d] - __c11-&gt;xReal(i)[d])&lt;1e-8 );</div>
 <div class="line"><a name="l03034"></a><span class="lineno"> 3034</span>&#160;                            }</div>
