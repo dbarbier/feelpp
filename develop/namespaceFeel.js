@@ -21,7 +21,8 @@ var namespaceFeel =
       [ "details", null, [
         [ "EvaluatorContext", "classFeel_1_1vf_1_1details_1_1EvaluatorContext.html", "classFeel_1_1vf_1_1details_1_1EvaluatorContext" ],
         [ "Projector", "classFeel_1_1vf_1_1details_1_1Projector.html", "classFeel_1_1vf_1_1details_1_1Projector" ]
-      ] ]
+      ] ],
+      [ "GinacMatrix", "classFeel_1_1vf_1_1GinacMatrix.html", "classFeel_1_1vf_1_1GinacMatrix" ]
     ] ],
     [ "AboutData", "classFeel_1_1AboutData.html", "classFeel_1_1AboutData" ],
     [ "AboutPerson", "classFeel_1_1AboutPerson.html", "classFeel_1_1AboutPerson" ],

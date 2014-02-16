@@ -82,8 +82,8 @@ var NAVTREEINDEX =
 "classFeel_1_1Vector.html#a526ad3a552b7ca3bd9f03df2f44bcdef",
 "classFeel_1_1VectorValue.html#aaa4628f1fa637858075e2f3a4470f34e",
 "classFeel_1_1functional_1_1PointEvaluation.html#acfce8a6fea9a9112edefccbe581d442b",
-"classThreeFieldsLaplacian.html#a974068e67c7282939a2498430da1e1f8",
-"structFeel_1_1functional_1_1PointsGradient.html#a23622d07b11af57b062f96c4a06f4e76"
+"classThreeFieldsLaplacian.html#a16e0de96d9c06491d0ba9ce9c8ff2236",
+"structFeel_1_1functional_1_1PointsDerivative.html#a6ab866a46b87bfd7b7f43a2d70c94a72"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

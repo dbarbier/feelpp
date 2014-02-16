@@ -208,256 +208,286 @@ $(document).ready(function(){initNavTree('environment_8hpp_source.html','');});
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        {</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordtype">char</span>** argv = args[_argv];</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="keywordtype">int</span> argc = args[_argc];</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            S_desc = boost::shared_ptr&lt;po::options_description&gt;( <span class="keyword">new</span> po::options_description( args[_desc | Feel::feel_options()] ) );</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <a class="code" href="classFeel_1_1AboutData.html">AboutData</a> about = args[_about| makeAbout(argv[0])];</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            S_desc-&gt;add( file_options( about.appName() ) );</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            init( argc, argv, *S_desc, about );</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">if</span> ( S_vm.count(<span class="stringliteral">&quot;nochdir&quot;</span>) == 0 )</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            {</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                std::string defaultdir = about.appName();</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <span class="keywordflow">if</span> ( S_vm.count(<span class="stringliteral">&quot;directory&quot;</span>) )</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                    defaultdir = S_vm[<span class="stringliteral">&quot;directory&quot;</span>].as&lt;std::string&gt;();</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                std::string d = args[_directory|defaultdir];</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;change directory to &quot;</span> &lt;&lt; d &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                boost::format f( d );</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                changeRepository( _directory=f );</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            }</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        }</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">void</span> init( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv, po::options_description <span class="keyword">const</span>&amp; desc, <a class="code" href="classFeel_1_1AboutData.html">AboutData</a> <span class="keyword">const</span>&amp; about );</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab1b19d2790ac19db7b56ea9bc129777a">~Environment</a>();</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            S_desc_app = boost::shared_ptr&lt;po::options_description&gt;( <span class="keyword">new</span> po::options_description( args[_desc] ) );</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            S_desc_lib = boost::shared_ptr&lt;po::options_description&gt;( <span class="keyword">new</span> po::options_description( args[_desc_lib | Feel::feel_options()] ) );</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <a class="code" href="classFeel_1_1AboutData.html">AboutData</a> about = args[_about| makeAbout(argv[0])];</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            S_desc = boost::shared_ptr&lt;po::options_description&gt;( <span class="keyword">new</span> po::options_description( ) );</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            S_desc-&gt;add( *S_desc_app );</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="comment">// try to see if the feel++ lib options are already in S_desc_app, if yes then we do not add S_desc_lib</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            <span class="comment">// otherwise we will have duplicated options</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            std::vector&lt;boost::shared_ptr&lt;po::option_description&gt;&gt; opts = <a class="code" href="classFeel_1_1detail_1_1Environment.html#a658d96fe22e5f71c135b57cdf509dabe">Environment::optionsDescriptionApplication</a>().options();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keyword">auto</span> it = std::find_if( opts.begin(), opts.end(),</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                    []( boost::shared_ptr&lt;po::option_description&gt; <span class="keyword">const</span>&amp;o )</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                    {</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                                        <span class="keywordflow">return</span> o-&gt;format_name().erase(0,2) == <span class="stringliteral">&quot;backend&quot;</span>;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                                    });</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="keywordflow">if</span>   ( it == opts.end() )</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                S_desc-&gt;add( *S_desc_lib );</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            S_desc-&gt;add( file_options( about.appName() ) );</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            S_desc-&gt;add( generic_options() );</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            init( argc, argv, *S_desc, *S_desc_lib, about );</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keywordflow">if</span> ( S_vm.count(<span class="stringliteral">&quot;nochdir&quot;</span>) == 0 )</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            {</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                std::string defaultdir = about.appName();</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                <span class="keywordflow">if</span> ( S_vm.count(<span class="stringliteral">&quot;directory&quot;</span>) )</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                    defaultdir = S_vm[<span class="stringliteral">&quot;directory&quot;</span>].as&lt;std::string&gt;();</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                std::string d = args[_directory|defaultdir];</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;change directory to &quot;</span> &lt;&lt; d &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                boost::format f( d );</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                changeRepository( _directory=f );</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            }</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        }</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#a04f2999c33e2834e1e6c6dd14019fa8b">initialized</a>();</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">void</span> init( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv, po::options_description <span class="keyword">const</span>&amp; desc,</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;               po::options_description <span class="keyword">const</span>&amp; desc_lib, <a class="code" href="classFeel_1_1AboutData.html">AboutData</a> <span class="keyword">const</span>&amp; about );</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab1b19d2790ac19db7b56ea9bc129777a">~Environment</a>();</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#a61ceeed3c0ec07c6f4de819b3b73be60">finalized</a>();</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#ae60e87ffd72558a37c29852634190641">  223</a></span>&#160;    <span class="keyword">static</span> WorldComm&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#ae60e87ffd72558a37c29852634190641">worldComm</a>() { <span class="keywordflow">return</span> *S_worldcomm; }</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">static</span> WorldComm&amp; worldCommSeq() { <span class="keywordflow">return</span> *S_worldcommSeq; }</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">static</span> std::vector&lt;WorldComm&gt; <span class="keyword">const</span>&amp;  <a class="code" href="classFeel_1_1detail_1_1Environment.html#abc34a3d8c5a9b7bb0353941af2c8ada8">worldsComm</a>( <span class="keywordtype">int</span> n );</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keyword">static</span> std::vector&lt;WorldComm&gt; <span class="keyword">const</span>&amp;  worldsCommSeq( <span class="keywordtype">int</span> n );</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">static</span> std::vector&lt;WorldComm&gt; <span class="keyword">const</span>&amp;  worldsCommGroupBySubspace( <span class="keywordtype">int</span> n );</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keyword">static</span> WorldComm <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#af8e4a9e2baddd9178b1f9e394498dce6">masterWorldComm</a>( <span class="keywordtype">int</span> n );</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
-<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#abdfe67905fb6f43796f5432313db61b5">  242</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#abdfe67905fb6f43796f5432313db61b5">numberOfProcessors</a>()  { <span class="keywordflow">return</span> S_worldcomm-&gt;godSize(); }</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#a04f2999c33e2834e1e6c6dd14019fa8b">initialized</a>();</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#a61ceeed3c0ec07c6f4de819b3b73be60">finalized</a>();</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#ae60e87ffd72558a37c29852634190641">  241</a></span>&#160;    <span class="keyword">static</span> WorldComm&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#ae60e87ffd72558a37c29852634190641">worldComm</a>() { <span class="keywordflow">return</span> *S_worldcomm; }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keyword">static</span> WorldComm&amp; worldCommSeq() { <span class="keywordflow">return</span> *S_worldcommSeq; }</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#a859c1617874d549669d1f79ff6b8ca68">  247</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">rank_type</a> <a class="code" href="classFeel_1_1detail_1_1Environment.html#a859c1617874d549669d1f79ff6b8ca68">rank</a>() { <span class="keywordflow">return</span> S_worldcomm-&gt;globalRank(); }</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">  252</a></span>&#160;    <span class="keyword">static</span> po::variables_map <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">vm</a>() { <span class="keywordflow">return</span> S_vm; }</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">static</span> <a class="code" href="classFeel_1_1AboutData.html">AboutData</a> <span class="keyword">const</span>&amp; about() { <span class="keywordflow">return</span> S_about; }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#ab4b8596baef27e631769ab7ba5cbc8cf">  259</a></span>&#160;    <span class="keyword">static</span> po::options_description <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab4b8596baef27e631769ab7ba5cbc8cf">optionsDescription</a>() { <span class="keywordflow">return</span> *S_desc; }</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keyword">static</span> std::vector&lt;WorldComm&gt; <span class="keyword">const</span>&amp;  <a class="code" href="classFeel_1_1detail_1_1Environment.html#abc34a3d8c5a9b7bb0353941af2c8ada8">worldsComm</a>( <span class="keywordtype">int</span> n );</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">static</span> std::vector&lt;WorldComm&gt; <span class="keyword">const</span>&amp;  worldsCommSeq( <span class="keywordtype">int</span> n );</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keyword">static</span> std::vector&lt;WorldComm&gt; <span class="keyword">const</span>&amp;  worldsCommGroupBySubspace( <span class="keywordtype">int</span> n );</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keyword">static</span> WorldComm <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#af8e4a9e2baddd9178b1f9e394498dce6">masterWorldComm</a>( <span class="keywordtype">int</span> n );</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#abdfe67905fb6f43796f5432313db61b5">  260</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#abdfe67905fb6f43796f5432313db61b5">numberOfProcessors</a>()  { <span class="keywordflow">return</span> S_worldcomm-&gt;godSize(); }</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#a859c1617874d549669d1f79ff6b8ca68">  265</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">rank_type</a> <a class="code" href="classFeel_1_1detail_1_1Environment.html#a859c1617874d549669d1f79ff6b8ca68">rank</a>() { <span class="keywordflow">return</span> S_worldcomm-&gt;globalRank(); }</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00270"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#aca4440fef331b4cfa5fb75a8d6843158">  270</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#aca4440fef331b4cfa5fb75a8d6843158">setWorldComm</a>( WorldComm&amp; worldcomm ) { S_worldcomm = worldcomm.shared_from_this(); }</div>
+<div class="line"><a name="l00270"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">  270</a></span>&#160;    <span class="keyword">static</span> po::variables_map <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">vm</a>() { <span class="keywordflow">return</span> S_vm; }</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keyword">static</span> <a class="code" href="classFeel_1_1AboutData.html">AboutData</a> <span class="keyword">const</span>&amp; about() { <span class="keywordflow">return</span> S_about; }</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classFeel_1_1detail_1_1Environment.html#ac14a1f5d50dca4cbc198b1996adb4864">rootRepository</a>();</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classFeel_1_1detail_1_1Environment.html#aeb133b6d43b8ec8a48c502d67676256b">findFile</a>( std::string <span class="keyword">const</span>&amp; filename );</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::string&gt; <a class="code" href="classFeel_1_1detail_1_1Environment.html#abd55a574b5edb51d7230f2947568f2d0">geoPathList</a>();</div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#ab4b8596baef27e631769ab7ba5cbc8cf">  277</a></span>&#160;    <span class="keyword">static</span> po::options_description <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab4b8596baef27e631769ab7ba5cbc8cf">optionsDescription</a>() { <span class="keywordflow">return</span> *S_desc; }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#a658d96fe22e5f71c135b57cdf509dabe">  282</a></span>&#160;    <span class="keyword">static</span> po::options_description <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#a658d96fe22e5f71c135b57cdf509dabe">optionsDescriptionApplication</a>() { <span class="keywordflow">return</span> *S_desc_app; }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#a420210381846d21dea52c9f8b96db605">  287</a></span>&#160;    <span class="keyword">static</span> po::options_description <span class="keyword">const</span>&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#a420210381846d21dea52c9f8b96db605">optionsDescriptionLibrary</a>() { <span class="keywordflow">return</span> *S_desc_lib; }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#aca4440fef331b4cfa5fb75a8d6843158">  298</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#aca4440fef331b4cfa5fb75a8d6843158">setWorldComm</a>( WorldComm&amp; worldcomm ) { S_worldcomm = worldcomm.shared_from_this(); }</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classFeel_1_1detail_1_1Environment.html#a56f1882ced469e11ae30c3087955feae">localGeoRepository</a>();</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keyword">static</span> boost::tuple&lt;std::string,bool&gt; <a class="code" href="classFeel_1_1detail_1_1Environment.html#aeefdfd9a9974472b880eab52815d764b">systemGeoRepository</a>();</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classFeel_1_1detail_1_1Environment.html#ac14a1f5d50dca4cbc198b1996adb4864">rootRepository</a>();</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classFeel_1_1detail_1_1Environment.html#a76eee3c62c3b066513326415f2eefce4">localConfigRepository</a>();</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keyword">static</span> boost::tuple&lt;std::string,bool&gt; <a class="code" href="classFeel_1_1detail_1_1Environment.html#accc0286be09be956304e56a142ce9766">systemConfigRepository</a>();</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    BOOST_PARAMETER_MEMBER_FUNCTION(</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        (po::variable_value), <span class="keyword">static</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">vm</a>, tag,</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        (required</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;         (name,(std::string)))</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        (optional</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;         (worldcomm, ( WorldComm ), <a class="code" href="classFeel_1_1detail_1_1Environment.html#ae60e87ffd72558a37c29852634190641">Environment::worldComm</a>() )</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;         (sub,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;         (prefix,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            ))</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        {</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            std::ostringstream os;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            <span class="keywordflow">if</span> ( !prefix.empty() )</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                os &lt;&lt; prefix &lt;&lt; <span class="stringliteral">&quot;.&quot;</span>;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            <span class="keywordflow">if</span> ( !sub.empty() )</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                os &lt;&lt; sub &lt;&lt; <span class="stringliteral">&quot;-&quot;</span>;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            os &lt;&lt; name;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            <span class="keyword">auto</span> it = <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">Environment::vm</a>().find(os.str());</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            CHECK( it != <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">Environment::vm</a>().end() ) &lt;&lt; <span class="stringliteral">&quot;Invalid option &quot;</span> &lt;&lt; os.str() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            <span class="keywordflow">return</span> it-&gt;second;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        }</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classFeel_1_1detail_1_1Environment.html#aeb133b6d43b8ec8a48c502d67676256b">findFile</a>( std::string <span class="keyword">const</span>&amp; filename );</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::string&gt; <a class="code" href="classFeel_1_1detail_1_1Environment.html#abd55a574b5edb51d7230f2947568f2d0">geoPathList</a>();</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classFeel_1_1detail_1_1Environment.html#a56f1882ced469e11ae30c3087955feae">localGeoRepository</a>();</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keyword">static</span> boost::tuple&lt;std::string,bool&gt; <a class="code" href="classFeel_1_1detail_1_1Environment.html#aeefdfd9a9974472b880eab52815d764b">systemGeoRepository</a>();</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keyword">static</span> std::string <a class="code" href="classFeel_1_1detail_1_1Environment.html#a76eee3c62c3b066513326415f2eefce4">localConfigRepository</a>();</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keyword">static</span> MemoryUsage <a class="code" href="classFeel_1_1detail_1_1Environment.html#ae72a5f2f5a5310f367f0fa395e0b17d8">logMemoryUsage</a>( std::string <span class="keyword">const</span>&amp; message );</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">//static po::variables_map vm( po::options_description const&amp; desc );</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#a8d5768d6df047f5d26e92933e7ceeca0">setLogs</a>( std::string <span class="keyword">const</span>&amp; prefix );</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Observer&gt;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    addDeleteObserver( Observer <span class="keyword">const</span>&amp; obs )</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        {</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            S_deleteObservers.connect( obs );</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        }</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Observer&gt;</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    addDeleteObserver( boost::shared_ptr&lt;Observer&gt; <span class="keyword">const</span>&amp; obs )</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        {</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            S_deleteObservers.connect(boost::bind(&amp;Observer::operator(), obs));</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keyword">static</span> boost::tuple&lt;std::string,bool&gt; <a class="code" href="classFeel_1_1detail_1_1Environment.html#accc0286be09be956304e56a142ce9766">systemConfigRepository</a>();</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    BOOST_PARAMETER_MEMBER_FUNCTION(</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        (po::variable_value), <span class="keyword">static</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">vm</a>, tag,</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        (required</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;         (name,(std::string)))</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        (optional</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;         (worldcomm, ( WorldComm ), <a class="code" href="classFeel_1_1detail_1_1Environment.html#ae60e87ffd72558a37c29852634190641">Environment::worldComm</a>() )</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;         (sub,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;         (prefix,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            ))</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        {</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            std::ostringstream os;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <span class="keywordflow">if</span> ( !prefix.empty() )</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                os &lt;&lt; prefix &lt;&lt; <span class="stringliteral">&quot;.&quot;</span>;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            <span class="keywordflow">if</span> ( !sub.empty() )</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                os &lt;&lt; sub &lt;&lt; <span class="stringliteral">&quot;-&quot;</span>;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            os &lt;&lt; name;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            <span class="keyword">auto</span> it = <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">Environment::vm</a>().find(os.str());</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            CHECK( it != <a class="code" href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">Environment::vm</a>().end() ) &lt;&lt; <span class="stringliteral">&quot;Invalid option &quot;</span> &lt;&lt; os.str() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <span class="keywordflow">return</span> it-&gt;second;</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        }</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> clearSomeMemory();</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
-<div class="line"><a name="l00376"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#affa75c138fef9477510cbadc15a8b6e3">  376</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> fs::path&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#affa75c138fef9477510cbadc15a8b6e3">scratchDirectory</a>() { <span class="keywordflow">return</span> S_scratchdir; }</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keyword">static</span> MemoryUsage <a class="code" href="classFeel_1_1detail_1_1Environment.html#ae72a5f2f5a5310f367f0fa395e0b17d8">logMemoryUsage</a>( std::string <span class="keyword">const</span>&amp; message );</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="comment">//static po::variables_map vm( po::options_description const&amp; desc );</span></div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> changeRepositoryImpl( boost::format fmt, std::string <span class="keyword">const</span>&amp; logfile, <span class="keywordtype">bool</span> add_subdir_np );</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classFeel_1_1detail_1_1Environment.html#a8d5768d6df047f5d26e92933e7ceeca0">setLogs</a>( std::string <span class="keyword">const</span>&amp; prefix );</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> doOptions( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv, po::options_description <span class="keyword">const</span>&amp; desc, std::string <span class="keyword">const</span>&amp; appName );</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> generateOLFiles( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> ** argv, std::string <span class="keyword">const</span>&amp; appName );</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> processGenericOptions();</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> parseAndStoreOptions( po::command_line_parser parser, <span class="keywordtype">bool</span> extra_parser = <span class="keyword">false</span> );</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="keywordtype">bool</span> i_initialized;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    mpi::environment M_env;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keyword">static</span> std::vector&lt;fs::path&gt; S_paths;</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Observer&gt;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    addDeleteObserver( Observer <span class="keyword">const</span>&amp; obs )</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        {</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;            S_deleteObservers.connect( obs );</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        }</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Observer&gt;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    addDeleteObserver( boost::shared_ptr&lt;Observer&gt; <span class="keyword">const</span>&amp; obs )</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        {</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            S_deleteObservers.connect(boost::bind(&amp;Observer::operator(), obs));</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        }</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> clearSomeMemory();</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;</div>
+<div class="line"><a name="l00404"></a><span class="lineno"><a class="line" href="classFeel_1_1detail_1_1Environment.html#affa75c138fef9477510cbadc15a8b6e3">  404</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> fs::path&amp; <a class="code" href="classFeel_1_1detail_1_1Environment.html#affa75c138fef9477510cbadc15a8b6e3">scratchDirectory</a>() { <span class="keywordflow">return</span> S_scratchdir; }</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keyword">static</span>  fs::path S_scratchdir;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keyword">static</span> <a class="code" href="classFeel_1_1AboutData.html">AboutData</a> S_about;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keyword">static</span> po::variables_map S_vm;</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keyword">static</span> boost::shared_ptr&lt;po::options_description&gt; S_desc;</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::string&gt; S_to_pass_further;</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <span class="keyword">static</span> boost::signals2::signal&lt;void()&gt; S_deleteObservers;</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keyword">static</span> boost::shared_ptr&lt;WorldComm&gt; S_worldcomm;</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keyword">static</span> boost::shared_ptr&lt;WorldComm&gt; S_worldcommSeq;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;};</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;} <span class="comment">// detail</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="keyword">class </span>Environment : <span class="keyword">public</span> detail::Environment</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;{</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    BOOST_PARAMETER_CONSTRUCTOR(</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        Environment, (detail::Environment), tag,</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        (required</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;         (argc,*)</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;         (argv,*))</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        (optional</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;         (desc,*)</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;         (about,*)</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;         (directory,( std::string ))</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;            )) <span class="comment">// no semicolon</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;};</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> changeRepositoryImpl( boost::format fmt, std::string <span class="keyword">const</span>&amp; logfile, <span class="keywordtype">bool</span> add_subdir_np );</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> doOptions( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv,</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;                           po::options_description <span class="keyword">const</span>&amp; desc,</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;                           po::options_description <span class="keyword">const</span>&amp; desc_lib,</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                           std::string <span class="keyword">const</span>&amp; appName );</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> generateOLFiles( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> ** argv, std::string <span class="keyword">const</span>&amp; appName );</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> processGenericOptions();</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> parseAndStoreOptions( po::command_line_parser parser, <span class="keywordtype">bool</span> extra_parser = <span class="keyword">false</span> );</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keywordtype">bool</span> i_initialized;</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    mpi::environment M_env;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="keyword">static</span> std::vector&lt;fs::path&gt; S_paths;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keyword">static</span>  fs::path S_scratchdir;</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;BOOST_PARAMETER_FUNCTION(</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    (po::variable_value), option, tag,</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    (required</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;     (name,(std::string)))</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    (optional</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;     (worldcomm, ( WorldComm ), Environment::worldComm() )</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;     (sub,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;     (prefix,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        ))</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;{</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keywordflow">return</span> Environment::vm(_name=name,_worldcomm=worldcomm,_sub=sub,_prefix=prefix);</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;}</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="keyword">namespace </span>detail</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;{</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Args, <span class="keyword">typename</span> Tag=tag::opt&gt;</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="keyword">struct </span>option</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;{</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_pointer&lt;</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        <span class="keyword">typename</span> boost::remove_const&lt;</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;            <span class="keyword">typename</span> boost::remove_reference&lt;</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                <span class="keyword">typename</span> parameter::binding&lt;Args, Tag&gt;::type</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;                &gt;::type</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;            &gt;::type</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        &gt;::type type;</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;};</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;}</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;BOOST_PARAMETER_FUNCTION(</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    ( <span class="keyword">typename</span> Feel::detail::option&lt;Args&gt;::type ),</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    optionT, tag,</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    (required</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;     (name,(std::string))</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;     (in_out(opt),*))</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    (optional</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;     (worldcomm, ( WorldComm ), Environment::worldComm() )</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;     (sub,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;     (prefix,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        ))</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;{</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    {</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        opt = Environment::vm(_name=name,_worldcomm=worldcomm,_sub=sub,_prefix=prefix).template as&lt;typename Feel::detail::option&lt;Args&gt;::type&gt;();</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    }</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    <span class="keywordflow">catch</span> (boost::bad_any_cast bac)</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;    {</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        CHECK( <span class="keyword">false</span> ) &lt;&lt;<span class="stringliteral">&quot;problem in conversion type of argument &quot;</span>&lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; : check the option type&quot;</span>&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    }</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="keywordflow">return</span> opt;</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;}</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;}</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __Environment_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_aeefdfd9a9974472b880eab52815d764b"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#aeefdfd9a9974472b880eab52815d764b">Feel::detail::Environment::systemGeoRepository</a></div><div class="ttdeci">static boost::tuple&lt; std::string, bool &gt; systemGeoRepository()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1125</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ac14a1f5d50dca4cbc198b1996adb4864"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ac14a1f5d50dca4cbc198b1996adb4864">Feel::detail::Environment::rootRepository</a></div><div class="ttdeci">static std::string rootRepository()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1006</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_affa75c138fef9477510cbadc15a8b6e3"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#affa75c138fef9477510cbadc15a8b6e3">Feel::detail::Environment::scratchDirectory</a></div><div class="ttdeci">static const fs::path &amp; scratchDirectory()</div><div class="ttdef"><b>Definition:</b> environment.hpp:376</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_acaf2f1ff09bbcd3e2f73e7500c5bd16d"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#acaf2f1ff09bbcd3e2f73e7500c5bd16d">Feel::detail::Environment::Environment</a></div><div class="ttdeci">Environment()</div><div class="ttdef"><b>Definition:</b> environment.cpp:697</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a8d5768d6df047f5d26e92933e7ceeca0"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a8d5768d6df047f5d26e92933e7ceeca0">Feel::detail::Environment::setLogs</a></div><div class="ttdeci">static void setLogs(std::string const &amp;prefix)</div><div class="ttdoc">get variables_map from options_description desc </div><div class="ttdef"><b>Definition:</b> environment.cpp:1216</div></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keyword">static</span> <a class="code" href="classFeel_1_1AboutData.html">AboutData</a> S_about;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keyword">static</span> po::variables_map S_vm;</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="keyword">static</span> boost::shared_ptr&lt;po::options_description&gt; S_desc;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keyword">static</span> boost::shared_ptr&lt;po::options_description&gt; S_desc_app;</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="keyword">static</span> boost::shared_ptr&lt;po::options_description&gt; S_desc_lib;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keyword">static</span> std::vector&lt;std::string&gt; S_to_pass_further;</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keyword">static</span> boost::signals2::signal&lt;void()&gt; S_deleteObservers;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keyword">static</span> boost::shared_ptr&lt;WorldComm&gt; S_worldcomm;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keyword">static</span> boost::shared_ptr&lt;WorldComm&gt; S_worldcommSeq;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;};</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;} <span class="comment">// detail</span></div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="keyword">class </span>Environment : <span class="keyword">public</span> detail::Environment</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;{</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    BOOST_PARAMETER_CONSTRUCTOR(</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        Environment, (detail::Environment), tag,</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        (required</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;         (argc,*)</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;         (argv,*))</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;        (optional</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;         (desc,*)</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;         (desc_lib,*)</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;         (about,*)</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;         (directory,( std::string ))</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;            )) <span class="comment">// no semicolon</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;};</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;BOOST_PARAMETER_FUNCTION(</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    (po::variable_value), option, tag,</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    (required</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;     (name,(std::string)))</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    (optional</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;     (worldcomm, ( WorldComm ), Environment::worldComm() )</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;     (sub,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;     (prefix,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        ))</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;{</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <span class="keywordflow">return</span> Environment::vm(_name=name,_worldcomm=worldcomm,_sub=sub,_prefix=prefix);</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;}</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;{</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Args, <span class="keyword">typename</span> Tag=tag::opt&gt;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="keyword">struct </span>option</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;{</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::remove_pointer&lt;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        <span class="keyword">typename</span> boost::remove_const&lt;</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;            <span class="keyword">typename</span> boost::remove_reference&lt;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                <span class="keyword">typename</span> parameter::binding&lt;Args, Tag&gt;::type</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                &gt;::type</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;            &gt;::type</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        &gt;::type type;</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;};</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;}</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;BOOST_PARAMETER_FUNCTION(</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    ( <span class="keyword">typename</span> Feel::detail::option&lt;Args&gt;::type ),</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    optionT, tag,</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    (required</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;     (name,(std::string))</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;     (in_out(opt),*))</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    (optional</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;     (worldcomm, ( WorldComm ), Environment::worldComm() )</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;     (sub,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;     (prefix,( std::string ),<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        ))</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;{</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    {</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        opt = Environment::vm(_name=name,_worldcomm=worldcomm,_sub=sub,_prefix=prefix).template as&lt;typename Feel::detail::option&lt;Args&gt;::type&gt;();</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    }</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="keywordflow">catch</span> (boost::bad_any_cast bac)</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    {</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        CHECK( <span class="keyword">false</span> ) &lt;&lt;<span class="stringliteral">&quot;problem in conversion type of argument &quot;</span>&lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; : check the option type&quot;</span>&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    }</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <span class="keywordflow">return</span> opt;</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;}</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;}</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __Environment_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_aeefdfd9a9974472b880eab52815d764b"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#aeefdfd9a9974472b880eab52815d764b">Feel::detail::Environment::systemGeoRepository</a></div><div class="ttdeci">static boost::tuple&lt; std::string, bool &gt; systemGeoRepository()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1151</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ac14a1f5d50dca4cbc198b1996adb4864"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ac14a1f5d50dca4cbc198b1996adb4864">Feel::detail::Environment::rootRepository</a></div><div class="ttdeci">static std::string rootRepository()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1032</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_affa75c138fef9477510cbadc15a8b6e3"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#affa75c138fef9477510cbadc15a8b6e3">Feel::detail::Environment::scratchDirectory</a></div><div class="ttdeci">static const fs::path &amp; scratchDirectory()</div><div class="ttdef"><b>Definition:</b> environment.hpp:404</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_acaf2f1ff09bbcd3e2f73e7500c5bd16d"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#acaf2f1ff09bbcd3e2f73e7500c5bd16d">Feel::detail::Environment::Environment</a></div><div class="ttdeci">Environment()</div><div class="ttdef"><b>Definition:</b> environment.cpp:720</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a8d5768d6df047f5d26e92933e7ceeca0"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a8d5768d6df047f5d26e92933e7ceeca0">Feel::detail::Environment::setLogs</a></div><div class="ttdeci">static void setLogs(std::string const &amp;prefix)</div><div class="ttdoc">get variables_map from options_description desc </div><div class="ttdef"><b>Definition:</b> environment.cpp:1242</div></div>
 <div class="ttc" id="about_8hpp_html"><div class="ttname"><a href="about_8hpp.html">about.hpp</a></div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a04f2999c33e2834e1e6c6dd14019fa8b"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a04f2999c33e2834e1e6c6dd14019fa8b">Feel::detail::Environment::initialized</a></div><div class="ttdeci">static bool initialized()</div><div class="ttdef"><b>Definition:</b> environment.cpp:980</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_aeb133b6d43b8ec8a48c502d67676256b"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#aeb133b6d43b8ec8a48c502d67676256b">Feel::detail::Environment::findFile</a></div><div class="ttdeci">static std::string findFile(std::string const &amp;filename)</div><div class="ttdef"><b>Definition:</b> environment.cpp:1036</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a76eee3c62c3b066513326415f2eefce4"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a76eee3c62c3b066513326415f2eefce4">Feel::detail::Environment::localConfigRepository</a></div><div class="ttdeci">static std::string localConfigRepository()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1135</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_abd55a574b5edb51d7230f2947568f2d0"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#abd55a574b5edb51d7230f2947568f2d0">Feel::detail::Environment::geoPathList</a></div><div class="ttdeci">static std::vector&lt; std::string &gt; geoPathList()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1095</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a04f2999c33e2834e1e6c6dd14019fa8b"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a04f2999c33e2834e1e6c6dd14019fa8b">Feel::detail::Environment::initialized</a></div><div class="ttdeci">static bool initialized()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1006</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_aeb133b6d43b8ec8a48c502d67676256b"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#aeb133b6d43b8ec8a48c502d67676256b">Feel::detail::Environment::findFile</a></div><div class="ttdeci">static std::string findFile(std::string const &amp;filename)</div><div class="ttdef"><b>Definition:</b> environment.cpp:1062</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a76eee3c62c3b066513326415f2eefce4"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a76eee3c62c3b066513326415f2eefce4">Feel::detail::Environment::localConfigRepository</a></div><div class="ttdeci">static std::string localConfigRepository()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1161</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_abd55a574b5edb51d7230f2947568f2d0"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#abd55a574b5edb51d7230f2947568f2d0">Feel::detail::Environment::geoPathList</a></div><div class="ttdeci">static std::vector&lt; std::string &gt; geoPathList()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1121</div></div>
 <div class="ttc" id="classFeel_1_1AboutData_html"><div class="ttname"><a href="classFeel_1_1AboutData.html">Feel::AboutData</a></div><div class="ttdoc">Holds information needed by the &amp;quot;About&amp;quot; box and other classes. </div><div class="ttdef"><b>Definition:</b> about.hpp:173</div></div>
 <div class="ttc" id="worldscomm_8hpp_html"><div class="ttname"><a href="worldscomm_8hpp.html">worldscomm.hpp</a></div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a56f1882ced469e11ae30c3087955feae"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a56f1882ced469e11ae30c3087955feae">Feel::detail::Environment::localGeoRepository</a></div><div class="ttdeci">static std::string localGeoRepository()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1112</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a658d96fe22e5f71c135b57cdf509dabe"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a658d96fe22e5f71c135b57cdf509dabe">Feel::detail::Environment::optionsDescriptionApplication</a></div><div class="ttdeci">static po::options_description const &amp; optionsDescriptionApplication()</div><div class="ttdef"><b>Definition:</b> environment.hpp:282</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a56f1882ced469e11ae30c3087955feae"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a56f1882ced469e11ae30c3087955feae">Feel::detail::Environment::localGeoRepository</a></div><div class="ttdeci">static std::string localGeoRepository()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1138</div></div>
 <div class="ttc" id="classFeel_1_1detail_1_1Environment_html"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html">Feel::detail::Environment</a></div><div class="ttdoc">Initialize, finalize, and query the Feel++ environment. </div><div class="ttdef"><b>Definition:</b> environment.hpp:102</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_aca4440fef331b4cfa5fb75a8d6843158"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#aca4440fef331b4cfa5fb75a8d6843158">Feel::detail::Environment::setWorldComm</a></div><div class="ttdeci">static void setWorldComm(WorldComm &amp;worldcomm)</div><div class="ttdef"><b>Definition:</b> environment.hpp:270</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ab2b28bbafcdbad667fd52b22702be57d"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">Feel::detail::Environment::vm</a></div><div class="ttdeci">static po::variables_map const &amp; vm()</div><div class="ttdef"><b>Definition:</b> environment.hpp:252</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_aca4440fef331b4cfa5fb75a8d6843158"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#aca4440fef331b4cfa5fb75a8d6843158">Feel::detail::Environment::setWorldComm</a></div><div class="ttdeci">static void setWorldComm(WorldComm &amp;worldcomm)</div><div class="ttdef"><b>Definition:</b> environment.hpp:298</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ab2b28bbafcdbad667fd52b22702be57d"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ab2b28bbafcdbad667fd52b22702be57d">Feel::detail::Environment::vm</a></div><div class="ttdeci">static po::variables_map const &amp; vm()</div><div class="ttdef"><b>Definition:</b> environment.hpp:270</div></div>
 <div class="ttc" id="namespaceFeel_html_a9953bc678e33419edee8d48033ee31a6"><div class="ttname"><a href="namespaceFeel.html#a9953bc678e33419edee8d48033ee31a6">Feel::rank_type</a></div><div class="ttdeci">uint16_type rank_type</div><div class="ttdoc">type for mpi rank ids </div><div class="ttdef"><b>Definition:</b> feelcore/feel.hpp:335</div></div>
 <div class="ttc" id="worldcomm_8hpp_html"><div class="ttname"><a href="worldcomm_8hpp.html">worldcomm.hpp</a></div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a859c1617874d549669d1f79ff6b8ca68"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a859c1617874d549669d1f79ff6b8ca68">Feel::detail::Environment::rank</a></div><div class="ttdeci">static rank_type rank()</div><div class="ttdef"><b>Definition:</b> environment.hpp:247</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_accc0286be09be956304e56a142ce9766"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#accc0286be09be956304e56a142ce9766">Feel::detail::Environment::systemConfigRepository</a></div><div class="ttdeci">static boost::tuple&lt; std::string, bool &gt; systemConfigRepository()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1148</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_af8e4a9e2baddd9178b1f9e394498dce6"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#af8e4a9e2baddd9178b1f9e394498dce6">Feel::detail::Environment::masterWorldComm</a></div><div class="ttdeci">static WorldComm const &amp; masterWorldComm(int n)</div><div class="ttdef"><b>Definition:</b> environment.cpp:1251</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ab1b19d2790ac19db7b56ea9bc129777a"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ab1b19d2790ac19db7b56ea9bc129777a">Feel::detail::Environment::~Environment</a></div><div class="ttdeci">~Environment()</div><div class="ttdef"><b>Definition:</b> environment.cpp:940</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a61ceeed3c0ec07c6f4de819b3b73be60"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a61ceeed3c0ec07c6f4de819b3b73be60">Feel::detail::Environment::finalized</a></div><div class="ttdeci">static bool finalized()</div><div class="ttdef"><b>Definition:</b> environment.cpp:993</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_abc34a3d8c5a9b7bb0353941af2c8ada8"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#abc34a3d8c5a9b7bb0353941af2c8ada8">Feel::detail::Environment::worldsComm</a></div><div class="ttdeci">static std::vector&lt; WorldComm &gt; const &amp; worldsComm(int n)</div><div class="ttdef"><b>Definition:</b> environment.cpp:1223</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_abdfe67905fb6f43796f5432313db61b5"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#abdfe67905fb6f43796f5432313db61b5">Feel::detail::Environment::numberOfProcessors</a></div><div class="ttdeci">static int numberOfProcessors()</div><div class="ttdef"><b>Definition:</b> environment.hpp:242</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ae72a5f2f5a5310f367f0fa395e0b17d8"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ae72a5f2f5a5310f367f0fa395e0b17d8">Feel::detail::Environment::logMemoryUsage</a></div><div class="ttdeci">static MemoryUsage logMemoryUsage(std::string const &amp;message)</div><div class="ttdef"><b>Definition:</b> environment.cpp:1258</div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ae60e87ffd72558a37c29852634190641"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ae60e87ffd72558a37c29852634190641">Feel::detail::Environment::worldComm</a></div><div class="ttdeci">static WorldComm &amp; worldComm()</div><div class="ttdef"><b>Definition:</b> environment.hpp:223</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a859c1617874d549669d1f79ff6b8ca68"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a859c1617874d549669d1f79ff6b8ca68">Feel::detail::Environment::rank</a></div><div class="ttdeci">static rank_type rank()</div><div class="ttdef"><b>Definition:</b> environment.hpp:265</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_accc0286be09be956304e56a142ce9766"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#accc0286be09be956304e56a142ce9766">Feel::detail::Environment::systemConfigRepository</a></div><div class="ttdeci">static boost::tuple&lt; std::string, bool &gt; systemConfigRepository()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1174</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_af8e4a9e2baddd9178b1f9e394498dce6"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#af8e4a9e2baddd9178b1f9e394498dce6">Feel::detail::Environment::masterWorldComm</a></div><div class="ttdeci">static WorldComm const &amp; masterWorldComm(int n)</div><div class="ttdef"><b>Definition:</b> environment.cpp:1277</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ab1b19d2790ac19db7b56ea9bc129777a"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ab1b19d2790ac19db7b56ea9bc129777a">Feel::detail::Environment::~Environment</a></div><div class="ttdeci">~Environment()</div><div class="ttdef"><b>Definition:</b> environment.cpp:966</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a61ceeed3c0ec07c6f4de819b3b73be60"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a61ceeed3c0ec07c6f4de819b3b73be60">Feel::detail::Environment::finalized</a></div><div class="ttdeci">static bool finalized()</div><div class="ttdef"><b>Definition:</b> environment.cpp:1019</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_abc34a3d8c5a9b7bb0353941af2c8ada8"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#abc34a3d8c5a9b7bb0353941af2c8ada8">Feel::detail::Environment::worldsComm</a></div><div class="ttdeci">static std::vector&lt; WorldComm &gt; const &amp; worldsComm(int n)</div><div class="ttdef"><b>Definition:</b> environment.cpp:1249</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_a420210381846d21dea52c9f8b96db605"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#a420210381846d21dea52c9f8b96db605">Feel::detail::Environment::optionsDescriptionLibrary</a></div><div class="ttdeci">static po::options_description const &amp; optionsDescriptionLibrary()</div><div class="ttdef"><b>Definition:</b> environment.hpp:287</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_abdfe67905fb6f43796f5432313db61b5"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#abdfe67905fb6f43796f5432313db61b5">Feel::detail::Environment::numberOfProcessors</a></div><div class="ttdeci">static int numberOfProcessors()</div><div class="ttdef"><b>Definition:</b> environment.hpp:260</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ae72a5f2f5a5310f367f0fa395e0b17d8"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ae72a5f2f5a5310f367f0fa395e0b17d8">Feel::detail::Environment::logMemoryUsage</a></div><div class="ttdeci">static MemoryUsage logMemoryUsage(std::string const &amp;message)</div><div class="ttdef"><b>Definition:</b> environment.cpp:1284</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ae60e87ffd72558a37c29852634190641"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ae60e87ffd72558a37c29852634190641">Feel::detail::Environment::worldComm</a></div><div class="ttdeci">static WorldComm &amp; worldComm()</div><div class="ttdef"><b>Definition:</b> environment.hpp:241</div></div>
 <div class="ttc" id="options_8hpp_html"><div class="ttname"><a href="options_8hpp.html">options.hpp</a></div></div>
-<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ab4b8596baef27e631769ab7ba5cbc8cf"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ab4b8596baef27e631769ab7ba5cbc8cf">Feel::detail::Environment::optionsDescription</a></div><div class="ttdeci">static po::options_description const &amp; optionsDescription()</div><div class="ttdef"><b>Definition:</b> environment.hpp:259</div></div>
+<div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ab4b8596baef27e631769ab7ba5cbc8cf"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ab4b8596baef27e631769ab7ba5cbc8cf">Feel::detail::Environment::optionsDescription</a></div><div class="ttdeci">static po::options_description const &amp; optionsDescription()</div><div class="ttdef"><b>Definition:</b> environment.hpp:277</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <script>

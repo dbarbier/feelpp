@@ -869,3 +869,4 @@
 \form#868:$ \begin{aligned} -\Delta u + u^\lambda = f,\quad u = 0 \text{ on } \partial \Omega. \end{aligned} $
 \form#869:$\lambda \in \mathbb{R_+}$
 \form#870:$ \begin{aligned} -\Delta u + \lambda e^u = f,\quad u = 0 \text{ on } \partial \Omega \end{aligned} $
+\form#871:$ -\nabla cdot k(u) \nabla u + q(u) = 0, \quad u_\Gamma = 0$

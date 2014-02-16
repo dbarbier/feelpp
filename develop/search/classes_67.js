@@ -15,6 +15,7 @@ var searchData=
   ['geomapinverse',['GeoMapInverse',['../classFeel_1_1GeoMapInverse.html',1,'Feel']]],
   ['geond',['GeoND',['../classFeel_1_1GeoND.html',1,'Feel']]],
   ['geond_3c_20dim_2c_20geoshape_2c_20t_2c_20geoelement0d_3c_20dim_2c_20subfaceofnone_2c_20t_20_3e_20_3e',['GeoND&lt; Dim, GEOSHAPE, T, GeoElement0D&lt; Dim, SubFaceOfNone, T &gt; &gt;',['../classFeel_1_1GeoND.html',1,'Feel']]],
+  ['ginacmatrix',['GinacMatrix',['../classFeel_1_1vf_1_1GinacMatrix.html',1,'Feel::vf']]],
   ['gmsh',['Gmsh',['../classFeel_1_1Gmsh.html',1,'Feel']]],
   ['gmshellipsoiddomain',['GmshEllipsoidDomain',['../classFeel_1_1GmshEllipsoidDomain.html',1,'Feel']]],
   ['gmshhypercubedomain',['GmshHypercubeDomain',['../classFeel_1_1GmshHypercubeDomain.html',1,'Feel']]],

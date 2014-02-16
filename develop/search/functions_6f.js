@@ -28,6 +28,8 @@ var searchData=
   ['oplagrangep1_5fimpl',['opLagrangeP1_impl',['../namespaceFeel.html#a21efc9691b90422e04cad6949de8c1fd',1,'Feel']]],
   ['optimize',['optimize',['../classFeel_1_1SolverConstrained.html#ad53301e2b5a6fdb5b50e5f8ae21b605c',1,'Feel::SolverConstrained::optimize()'],['../classFeel_1_1SolverUnconstrained.html#a034ad37f63b30aad6762e26c9e490fd2',1,'Feel::SolverUnconstrained::optimize()']]],
   ['optionsdescription',['optionsDescription',['../classFeel_1_1Application.html#a7ea7f307aaafa0a0bd666c1c5d43410b',1,'Feel::Application::optionsDescription()'],['../classFeel_1_1detail_1_1Environment.html#ab4b8596baef27e631769ab7ba5cbc8cf',1,'Feel::detail::Environment::optionsDescription()']]],
+  ['optionsdescriptionapplication',['optionsDescriptionApplication',['../classFeel_1_1detail_1_1Environment.html#a658d96fe22e5f71c135b57cdf509dabe',1,'Feel::detail::Environment']]],
+  ['optionsdescriptionlibrary',['optionsDescriptionLibrary',['../classFeel_1_1detail_1_1Environment.html#a420210381846d21dea52c9f8b96db605',1,'Feel::detail::Environment']]],
   ['opusapp_5foptions',['opusapp_options',['../namespaceFeel.html#a599520e9ce1572efc7e71afaef20fd70',1,'Feel']]],
   ['order',['order',['../classFeel_1_1Gmsh.html#a988f7731c0fe999eb32023a40f0bdc15',1,'Feel::Gmsh']]],
   ['orthonormalize',['orthonormalize',['../classFeel_1_1CRB.html#a502e37b1aab2435a5d0ec16c3ecc6de4',1,'Feel::CRB::orthonormalize()'],['../classFeel_1_1EIM.html#a6e8e7612ed98a4b6c2f1019ae28d3b67',1,'Feel::EIM::orthonormalize()']]],

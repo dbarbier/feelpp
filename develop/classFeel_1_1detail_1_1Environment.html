@@ -142,9 +142,9 @@ Public Member Functions</h2></td></tr>
 template&lt;class ArgumentPack &gt; </td></tr>
 <tr class="memitem:a879e9ab6ec73d1fbb10bb2b3decbda28"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Environment</b> (ArgumentPack const &amp;args)</td></tr>
 <tr class="separator:a879e9ab6ec73d1fbb10bb2b3decbda28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65ee4ab385d691005c955286c8c02fc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65ee4ab385d691005c955286c8c02fc9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (int argc, char **argv, po::options_description const &amp;desc, <a class="el" href="classFeel_1_1AboutData.html">AboutData</a> const &amp;about)</td></tr>
-<tr class="separator:a65ee4ab385d691005c955286c8c02fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaacbebd9f140123dc2bebfad40aeeaf4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaacbebd9f140123dc2bebfad40aeeaf4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (int argc, char **argv, po::options_description const &amp;desc, po::options_description const &amp;desc_lib, <a class="el" href="classFeel_1_1AboutData.html">AboutData</a> const &amp;about)</td></tr>
+<tr class="separator:aaacbebd9f140123dc2bebfad40aeeaf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1b19d2790ac19db7b56ea9bc129777a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1detail_1_1Environment.html#ab1b19d2790ac19db7b56ea9bc129777a">~Environment</a> ()</td></tr>
 <tr class="separator:ab1b19d2790ac19db7b56ea9bc129777a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -185,6 +185,12 @@ static <a class="el" href="classFeel_1_1AboutData.html">AboutData</a> const &amp
 <tr class="memitem:ab4b8596baef27e631769ab7ba5cbc8cf"><td class="memItemLeft" align="right" valign="top">static po::options_description <br class="typebreak"/>
 const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1detail_1_1Environment.html#ab4b8596baef27e631769ab7ba5cbc8cf">optionsDescription</a> ()</td></tr>
 <tr class="separator:ab4b8596baef27e631769ab7ba5cbc8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658d96fe22e5f71c135b57cdf509dabe"><td class="memItemLeft" align="right" valign="top">static po::options_description <br class="typebreak"/>
+const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1detail_1_1Environment.html#a658d96fe22e5f71c135b57cdf509dabe">optionsDescriptionApplication</a> ()</td></tr>
+<tr class="separator:a658d96fe22e5f71c135b57cdf509dabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a420210381846d21dea52c9f8b96db605"><td class="memItemLeft" align="right" valign="top">static po::options_description <br class="typebreak"/>
+const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1detail_1_1Environment.html#a420210381846d21dea52c9f8b96db605">optionsDescriptionLibrary</a> ()</td></tr>
+<tr class="separator:a420210381846d21dea52c9f8b96db605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Mutators</div></td></tr>
 <tr class="memitem:aca4440fef331b4cfa5fb75a8d6843158"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1detail_1_1Environment.html#aca4440fef331b4cfa5fb75a8d6843158">setWorldComm</a> (WorldComm &amp;worldcomm)</td></tr>
 <tr class="separator:aca4440fef331b4cfa5fb75a8d6843158"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -560,6 +566,54 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>clearSomeMemor
 </table>
 </div><div class="memdoc">
 <p>return options description data structure </p>
+
+</div>
+</div>
+<a class="anchor" id="a658d96fe22e5f71c135b57cdf509dabe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static po::options_description const&amp; Feel::detail::Environment::optionsDescriptionApplication </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>return options description data structure </p>
+
+</div>
+</div>
+<a class="anchor" id="a420210381846d21dea52c9f8b96db605"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static po::options_description const&amp; Feel::detail::Environment::optionsDescriptionLibrary </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>return the options description for the Feel++ library </p>
 
 </div>
 </div>

@@ -61,6 +61,8 @@ var searchData=
   ['options_2ehpp',['options.hpp',['../options_8hpp.html',1,'']]],
   ['options_5ftype',['options_type',['../classFeel_1_1SolverConstrained.html#ad732c5ba0d18cc72adfa78c031b9551c',1,'Feel::SolverConstrained::options_type()'],['../classFeel_1_1SolverUnconstrained.html#aa5cf95b9bde3790efac266c8066ab621',1,'Feel::SolverUnconstrained::options_type()']]],
   ['optionsdescription',['optionsDescription',['../classFeel_1_1Application.html#a7ea7f307aaafa0a0bd666c1c5d43410b',1,'Feel::Application::optionsDescription()'],['../classFeel_1_1detail_1_1Environment.html#ab4b8596baef27e631769ab7ba5cbc8cf',1,'Feel::detail::Environment::optionsDescription()']]],
+  ['optionsdescriptionapplication',['optionsDescriptionApplication',['../classFeel_1_1detail_1_1Environment.html#a658d96fe22e5f71c135b57cdf509dabe',1,'Feel::detail::Environment']]],
+  ['optionsdescriptionlibrary',['optionsDescriptionLibrary',['../classFeel_1_1detail_1_1Environment.html#a420210381846d21dea52c9f8b96db605',1,'Feel::detail::Environment']]],
   ['opusapp',['OpusApp',['../classFeel_1_1OpusApp.html',1,'Feel']]],
   ['opusapp_2ehpp',['opusapp.hpp',['../opusapp_8hpp.html',1,'']]],
   ['opusapp_5foptions',['opusapp_options',['../namespaceFeel.html#a599520e9ce1572efc7e71afaef20fd70',1,'Feel']]],

@@ -101,8 +101,7 @@ $(document).ready(function(){initNavTree('ginac_8hpp.html','');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ginac.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -111,6 +110,9 @@ $(document).ready(function(){initNavTree('ginac_8hpp.html','');});
 <code>#include &lt;boost/parameter/preprocessor.hpp&gt;</code><br/>
 <code>#include &lt;boost/foreach.hpp&gt;</code><br/>
 <code>#include &lt;boost/range/algorithm/for_each.hpp&gt;</code><br/>
+<code>#include &lt;feel/feelvf/detail/ginacex.hpp&gt;</code><br/>
+<code>#include &lt;feel/feelvf/detail/ginacexvf.hpp&gt;</code><br/>
+<code>#include &lt;feel/feelvf/detail/ginacmatrix.hpp&gt;</code><br/>
 </div>
 <p><a href="ginac_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -133,29 +135,45 @@ typedef <a class="el" href="classFeel_1_1Singleton.html">Feel::Singleton</a><br 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae04364759620ffc820d2cbd938e94e33"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae04364759620ffc820d2cbd938e94e33"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::CHECK</b> (fsize &gt; 0)&lt;&lt; &quot;bad expression format&quot;</td></tr>
-<tr class="separator:ae04364759620ffc820d2cbd938e94e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07cbc6e38a36962307107418c46992ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07cbc6e38a36962307107418c46992ad"></a>
 ex&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::diff</b> (ex const &amp;f, symbol const &amp;l, const int n)</td></tr>
 <tr class="separator:a07cbc6e38a36962307107418c46992ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68b331136975f2adf99ac29b8c2cd240"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68b331136975f2adf99ac29b8c2cd240"></a>
 matrix&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::diff</b> (matrix const &amp;f, symbol const &amp;l, const int n)</td></tr>
 <tr class="separator:a68b331136975f2adf99ac29b8c2cd240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec1c4f1d12a47d49741590276d8aa6b"><td class="memTemplParams" colspan="2">template&lt;typename ExprT , int Order = 2&gt; </td></tr>
+<tr class="memitem:a1ec1c4f1d12a47d49741590276d8aa6b"><td class="memTemplItemLeft" align="right" valign="top">Expr&lt; GinacExVF&lt; ExprT, Order &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Feel::vf::diff</b> (std::string const &amp;s, std::string const &amp;ds, std::string const &amp;se, ExprT const &amp;e, std::string filename=&quot;&quot;)</td></tr>
+<tr class="memdesc:a1ec1c4f1d12a47d49741590276d8aa6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an Feel++ expression from a GiNaC expression as a string.  <a href="#a1ec1c4f1d12a47d49741590276d8aa6b">More...</a><br/></td></tr>
+<tr class="separator:a1ec1c4f1d12a47d49741590276d8aa6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b7177f313bb680add53255ef22b42e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b7177f313bb680add53255ef22b42e9"></a>
 matrix&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::div</b> (matrix const &amp;f, std::vector&lt; symbol &gt; const &amp;l)</td></tr>
 <tr class="separator:a4b7177f313bb680add53255ef22b42e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42561fb286be8aa4976278f42490a3cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42561fb286be8aa4976278f42490a3cd"></a>
+Expr&lt; GinacEx&lt; 2 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::vf::expr</b> (GiNaC::ex const &amp;f, std::vector&lt; GiNaC::symbol &gt; const &amp;lsym, std::string filename=&quot;&quot;)</td></tr>
+<tr class="memdesc:a42561fb286be8aa4976278f42490a3cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">functor enabling ginac <br/></td></tr>
+<tr class="separator:a42561fb286be8aa4976278f42490a3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4086b0c8feb8e82640d264acb08bb4ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4086b0c8feb8e82640d264acb08bb4ab"></a>
+Expr&lt; GinacEx&lt; 2 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::vf::expr</b> (std::string const &amp;s, std::vector&lt; GiNaC::symbol &gt; const &amp;lsym, std::string filename=&quot;&quot;)</td></tr>
+<tr class="separator:a4086b0c8feb8e82640d264acb08bb4ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6983eb2320a775ade91618ec7bfa425d"><td class="memItemLeft" align="right" valign="top">Expr&lt; GinacEx&lt; 2 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::vf::expr</b> (std::string const &amp;s, std::string filename=&quot;&quot;)</td></tr>
+<tr class="memdesc:a6983eb2320a775ade91618ec7bfa425d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an Feel++ expression from a GiNaC expression as a string.  <a href="#a6983eb2320a775ade91618ec7bfa425d">More...</a><br/></td></tr>
+<tr class="separator:a6983eb2320a775ade91618ec7bfa425d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0b3b76be7c9e6a7a96b6fbf8f07e361"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab0b3b76be7c9e6a7a96b6fbf8f07e361"></a>
+template&lt;typename ExprT , int Order = 2&gt; </td></tr>
+<tr class="memitem:ab0b3b76be7c9e6a7a96b6fbf8f07e361"><td class="memTemplItemLeft" align="right" valign="top">Expr&lt; GinacExVF&lt; ExprT, Order &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Feel::vf::expr</b> (ex const &amp;myexpr, std::vector&lt; GiNaC::symbol &gt; const &amp;syms, GiNaC::symbol const &amp;s, ExprT const &amp;e, std::string filename=&quot;&quot;)</td></tr>
+<tr class="separator:ab0b3b76be7c9e6a7a96b6fbf8f07e361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf165fa86a390eed9b792403a0b66847"><td class="memTemplParams" colspan="2"><a class="anchor" id="abf165fa86a390eed9b792403a0b66847"></a>
+template&lt;typename ExprT , int Order = 2&gt; </td></tr>
+<tr class="memitem:abf165fa86a390eed9b792403a0b66847"><td class="memTemplItemLeft" align="right" valign="top">Expr&lt; GinacExVF&lt; ExprT, Order &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Feel::vf::expr</b> (std::string const &amp;s, std::vector&lt; GiNaC::symbol &gt; const &amp;lsym, std::pair&lt; GiNaC::symbol, ExprT &gt; const &amp;e, std::string filename=&quot;&quot;)</td></tr>
+<tr class="separator:abf165fa86a390eed9b792403a0b66847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e5bc1746ed6b6c003e60cd5c0b3cd34"><td class="memTemplParams" colspan="2">template&lt;typename ExprT , int Order = 2&gt; </td></tr>
+<tr class="memitem:a5e5bc1746ed6b6c003e60cd5c0b3cd34"><td class="memTemplItemLeft" align="right" valign="top">Expr&lt; GinacExVF&lt; ExprT, Order &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Feel::vf::expr</b> (std::string const &amp;s, std::string const &amp;se, ExprT const &amp;e, std::string filename=&quot;&quot;)</td></tr>
+<tr class="memdesc:a5e5bc1746ed6b6c003e60cd5c0b3cd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an Feel++ expression from a GiNaC expression as a string.  <a href="#a5e5bc1746ed6b6c003e60cd5c0b3cd34">More...</a><br/></td></tr>
+<tr class="separator:a5e5bc1746ed6b6c003e60cd5c0b3cd34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc7823abb8b37c5dd44b6e1df6d4eda1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc7823abb8b37c5dd44b6e1df6d4eda1"></a>
 Expr&lt; GinacMatrix&lt; 1, 1, 2 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Feel::vf::expr</b> (GiNaC::matrix const &amp;f, std::vector&lt; GiNaC::symbol &gt; const &amp;lsym, std::string filename=&quot;&quot;)</td></tr>
 <tr class="memdesc:abc7823abb8b37c5dd44b6e1df6d4eda1"><td class="mdescLeft">&#160;</td><td class="mdescRight">functor enabling ginac <br/></td></tr>
 <tr class="separator:abc7823abb8b37c5dd44b6e1df6d4eda1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18cbedd0521a6a229ad4ad63752bd687"><td class="memTemplParams" colspan="2"><a class="anchor" id="a18cbedd0521a6a229ad4ad63752bd687"></a>
-template&lt;int M, int N, int Order&gt; </td></tr>
-<tr class="memitem:a18cbedd0521a6a229ad4ad63752bd687"><td class="memTemplItemLeft" align="right" valign="top">Expr&lt; GinacMatrix&lt; M, N, Order &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Feel::vf::expr</b> (GiNaC::ex const &amp;f, std::vector&lt; GiNaC::symbol &gt; const &amp;lsym, std::string filename=&quot;&quot;)</td></tr>
-<tr class="separator:a18cbedd0521a6a229ad4ad63752bd687"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5aa047d6fc11edddbc5666feced16dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5aa047d6fc11edddbc5666feced16dd"></a>
-else&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::for</b> (auto it=fields.begin()+1;it!=fields.end();++it) strsyms.push_back(*it)</td></tr>
-<tr class="separator:ad5aa047d6fc11edddbc5666feced16dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf62d6fba46222a1e311a7061926b13b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf62d6fba46222a1e311a7061926b13b"></a>
 matrix&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::grad</b> (ex const &amp;f, std::vector&lt; symbol &gt; const &amp;l)</td></tr>
 <tr class="separator:aaf62d6fba46222a1e311a7061926b13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,18 +192,13 @@ ex&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::laplacian</b> (s
 <tr class="memitem:a40b21887be934c3e6008404c7215ce24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40b21887be934c3e6008404c7215ce24"></a>
 matrix&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::laplacian</b> (matrix const &amp;f, std::vector&lt; symbol &gt; const &amp;l)</td></tr>
 <tr class="separator:a40b21887be934c3e6008404c7215ce24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a2f2e53558d0bb1be7c71f1564ecf02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a2f2e53558d0bb1be7c71f1564ecf02"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::LOG</b> (INFO)&lt;&lt; &quot;Parsing &quot;&lt;&lt; str&lt;&lt; &quot; using GiNaC&quot;</td></tr>
-<tr class="separator:a5a2f2e53558d0bb1be7c71f1564ecf02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7b51ae92a2ed918f31eb653ecafdb4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7b51ae92a2ed918f31eb653ecafdb4a"></a>
 ex&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::parse</b> (std::string const &amp;str, std::vector&lt; symbol &gt; const &amp;syms, std::vector&lt; symbol &gt; const &amp;params=std::vector&lt; symbol &gt;())</td></tr>
 <tr class="separator:ae7b51ae92a2ed918f31eb653ecafdb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5449356a3e028c020a8daa4defb6b4a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5449356a3e028c020a8daa4defb6b4a9"></a>
-strsyms&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::push_back</b> (&quot;0&quot;)</td></tr>
-<tr class="separator:a5449356a3e028c020a8daa4defb6b4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a014eb008ce018b7acf13eb6bd378d6d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a014eb008ce018b7acf13eb6bd378d6d3"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::strexpr</b> (fields[0])</td></tr>
-<tr class="separator:a014eb008ce018b7acf13eb6bd378d6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaed7f2424d7c5d9bfab7df6440a4e0a2"><td class="memItemLeft" align="right" valign="top">std::pair&lt; ex, std::vector<br class="typebreak"/>
+&lt; symbol &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::parse</b> (std::string const &amp;str, std::string const &amp;seps=&quot;:&quot;, std::vector&lt; symbol &gt; const &amp;params=std::vector&lt; symbol &gt;())</td></tr>
+<tr class="memdesc:aaed7f2424d7c5d9bfab7df6440a4e0a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a string expression.  <a href="#aaed7f2424d7c5d9bfab7df6440a4e0a2">More...</a><br/></td></tr>
+<tr class="separator:aaed7f2424d7c5d9bfab7df6440a4e0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42e2e73f37d0793409f02bcd658aadf4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42e2e73f37d0793409f02bcd658aadf4"></a>
 ex&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::substitute</b> (ex const &amp;f, symbol const &amp;s, const double <a class="el" href="val_8hpp.html#a4c2eeba6d70e9edf83ff70349e3470a9">val</a>)</td></tr>
 <tr class="separator:a42e2e73f37d0793409f02bcd658aadf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,21 +233,6 @@ template&lt;&gt; </td></tr>
 template&lt;&gt; </td></tr>
 <tr class="memitem:a5721a7bd89a59ca5ffa0e7cd4d69ce3a"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; symbol &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Feel::symbols&lt; 3 &gt;</b> ()</td></tr>
 <tr class="separator:a5721a7bd89a59ca5ffa0e7cd4d69ce3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ad5d9be68162c07d1b003014a04a3a579"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5d9be68162c07d1b003014a04a3a579"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::fields</b></td></tr>
-<tr class="separator:ad5d9be68162c07d1b003014a04a3a579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e20491a1425b39fecaaebcad3891c47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e20491a1425b39fecaaebcad3891c47"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::fsize</b> = fields.size()</td></tr>
-<tr class="separator:a0e20491a1425b39fecaaebcad3891c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36b9cecb995a7b8b90ecb38acd360d7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36b9cecb995a7b8b90ecb38acd360d7a"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::strsyms</b></td></tr>
-<tr class="separator:a36b9cecb995a7b8b90ecb38acd360d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dcdecdc05f4e8660d0810dfc35bd6a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0dcdecdc05f4e8660d0810dfc35bd6a4"></a>
-std::vector&lt; symbol &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GiNaC::syms</b> = Symbols{ strsyms }</td></tr>
-<tr class="separator:a0dcdecdc05f4e8660d0810dfc35bd6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Christophe Prud'homme <a href="#" onclick="location.href='mai'+'lto:'+'pru'+'dh'+'omm'+'e@'+'uni'+'st'+'ra.'+'fr'; return false;">prudh<span style="display: none;">.nosp@m.</span>omme<span style="display: none;">.nosp@m.</span>@unis<span style="display: none;">.nosp@m.</span>tra.<span style="display: none;">.nosp@m.</span>fr</a> </dd></dl>
