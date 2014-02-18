@@ -409,8 +409,8 @@ $(document).ready(function(){initNavTree('solvereigen_8hpp_source.html','');});
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                                   ( matrixA,( d_sparse_matrix_ptrtype ) )</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                                   ( matrixB,( d_sparse_matrix_ptrtype ) ) )</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                                 ( optional</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                                   ( nev, ( <span class="keywordtype">int</span> ), 1 )</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                                   ( ncv, ( <span class="keywordtype">int</span> ), 3 )</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                                   ( nev, ( <span class="keywordtype">int</span> ), option(_name=<span class="stringliteral">&quot;solvereigen.nev&quot;</span>).<span class="keyword">template</span> as&lt;int&gt;() )</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                                   ( ncv, ( <span class="keywordtype">int</span> ), option(_name=<span class="stringliteral">&quot;solvereigen.ncv&quot;</span>).<span class="keyword">template</span> as&lt;int&gt;() )</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                                   ( backend,( <a class="code" href="namespaceFeel.html#a4da28efa430cc4bd3a6a86cde30a9809">BackendType</a> ), BACKEND_PETSC )</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                                   ( solver,( <a class="code" href="namespaceFeel.html#aa6ba49d3d8578adfc5ae20cff2b89e65">EigenSolverType</a> ), KRYLOVSCHUR )</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                                   ( <a class="code" href="classFeel_1_1problem.html">problem</a>,( <a class="code" href="namespaceFeel.html#ab9dd0a9c3b4ed8785c07c88ed8efafb3">EigenProblemType</a> ), GHEP )</div>
@@ -463,11 +463,101 @@ $(document).ready(function(){initNavTree('solvereigen_8hpp_source.html','');});
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keywordflow">return</span> eigen-&gt;eigenModes();</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;}</div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __SolverEigen_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Args&gt;</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;<span class="keyword">struct </span>compute_eigs_return_type</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;{</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> parameter::value_type&lt;Args, tag::formA&gt;::type A_type;</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> parameter::value_type&lt;Args, tag::formB&gt;::type B_type;</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> A_type::value_type value_type;</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <span class="comment">// return a vector trial space element</span></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <span class="keyword">typedef</span> std::vector&lt;std::pair&lt;value_type,typename A_type::element_2_type&gt; &gt; type;</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;};</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;BOOST_PARAMETER_MEMBER_FUNCTION( ( <span class="keyword">typename</span> compute_eigs_return_type&lt;Args&gt;::type ),</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;                                 veigs,</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;                                 tag,</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;                                 ( required</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                                   ( formA, *)<span class="comment">//*(mpl::is_convertible&lt;mpl::_,BilinearFormBase&gt;) )</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;                                   ( formB, *))<span class="comment">//*(mpl::is_convertible&lt;mpl::_,BilinearFormBase&gt;) ) )</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                                 ( optional</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                                   ( nev, ( <span class="keywordtype">int</span> ), option(_name=<span class="stringliteral">&quot;solvereigen.nev&quot;</span>).<span class="keyword">template</span> as&lt;int&gt;() )</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;                                   ( ncv, ( <span class="keywordtype">int</span> ), option(_name=<span class="stringliteral">&quot;solvereigen.ncv&quot;</span>).<span class="keyword">template</span> as&lt;int&gt;() )</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;                                   ( solver,( std::string ), option(_name=<span class="stringliteral">&quot;solvereigen.solver&quot;</span>).<span class="keyword">template</span> as&lt;std::string&gt;() )</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;                                   ( problem,( std::string ), option(_name=<span class="stringliteral">&quot;solvereigen.problem&quot;</span>).<span class="keyword">template</span> as&lt;std::string&gt;() )</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;                                   ( transform,( std::string ), option(_name=<span class="stringliteral">&quot;solvereigen.transform&quot;</span>).<span class="keyword">template</span> as&lt;std::string&gt;() )</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;                                   ( spectrum,( std::string ), option(_name=<span class="stringliteral">&quot;solvereigen.spectrum&quot;</span>).<span class="keyword">template</span> as&lt;std::string&gt;()  )</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;                                   ( maxit,( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> ), option(_name=<span class="stringliteral">&quot;solvereigen.maxiter&quot;</span>).<span class="keyword">template</span> as&lt;int&gt;() )</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;                                   ( tolerance,( <span class="keywordtype">double</span> ), option(_name=<span class="stringliteral">&quot;solvereigen.tolerance&quot;</span>).<span class="keyword">template</span> as&lt;double&gt;() )</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;                                   ( verbose,( <span class="keywordtype">bool</span> ), option(_name=<span class="stringliteral">&quot;solvereigen.verbose&quot;</span>).<span class="keyword">template</span> as&lt;bool&gt;() )</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                                 )</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                               )</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;{</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;Vector&lt;double&gt; &gt; vector_ptrtype;</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    <span class="comment">//boost::shared_ptr&lt;SolverEigen&lt;double&gt; &gt; eigen = SolverEigen&lt;double&gt;::build(  backend );</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    boost::shared_ptr&lt;SolverEigen&lt;double&gt; &gt; eigen = <a class="code" href="classFeel_1_1SolverEigen.html#ae3cfe6866bcfcfdcdedfdb629ff4d30b">SolverEigen&lt;double&gt;::build</a>();</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    eigen-&gt;setEigenSolverType( (<a class="code" href="namespaceFeel.html#aa6ba49d3d8578adfc5ae20cff2b89e65">EigenSolverType</a>)EigenMap[solver] );</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    eigen-&gt;setEigenProblemType( (<a class="code" href="namespaceFeel.html#ab9dd0a9c3b4ed8785c07c88ed8efafb3">EigenProblemType</a>)EigenMap[problem] );</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    eigen-&gt;setPositionOfSpectrum( (<a class="code" href="namespaceFeel.html#a7b06253b16577e9dede530ee4b24f863">PositionOfSpectrum</a>)EigenMap[spectrum] );</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    eigen-&gt;setNumberOfEigenValues( nev );</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    eigen-&gt;setNumberOfEigenValuesConverged( ncv );</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    eigen-&gt;setMaxIterations( maxit );</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    eigen-&gt;setSpectralTransform( (<a class="code" href="namespaceFeel.html#a969885acafaff68169ba5e22440655fe">SpectralTransformType</a>)EigenMap[transform] );</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    eigen-&gt;setTolerance( tolerance );</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    eigen-&gt;setMapRow( formA.matrixPtr()-&gt;mapRowPtr() );</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    eigen-&gt;setMapCol( formA.matrixPtr()-&gt;mapColPtr() );</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;number of eigen values = &quot;</span> &lt;&lt; nev &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;number of eigen values converged = &quot;</span> &lt;&lt; ncv &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;number of eigen value solver iterations = &quot;</span> &lt;&lt; maxit &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;eigenvalue tolerance = &quot;</span> &lt;&lt; tolerance &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nconv, nits;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    std::vector&lt;double&gt; err( ncv );</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    boost::tie( nconv, nits, err )  = eigen-&gt;solve( _matrixA=formA.matrixPtr(),</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                                                    _matrixB=formB.matrixPtr(),</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;                                                    _maxit=maxit,</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                                                    _tolerance=tolerance );</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="keywordflow">if</span> ( verbose )</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    {</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;        <span class="keywordflow">for</span>( <span class="keyword">auto</span> e : err )</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        {</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;            <span class="keywordflow">if</span> ( Environment::worldComm().isMasterRank() )</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;            {</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;                std::cout &lt;&lt; i++ &lt;&lt; <span class="stringliteral">&quot;-th mode error ||A x - lambda B x ||/||x|| = &quot;</span> &lt;&lt; e &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;            }</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        }</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    }</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    <span class="keyword">auto</span> modes = eigen-&gt;eigenModes();</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keyword">auto</span> Xh = formA.trialSpace();</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    <span class="keyword">auto</span> femodes = std::vector&lt;std::pair&lt;double, decltype( Xh-&gt;element() )&gt; &gt;( modes.size(), std::make_pair(0.,Xh-&gt;element() ) );</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    <span class="keywordflow">if</span> ( !modes.empty() )</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    {</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;eigenvalue &quot;</span> &lt;&lt; 0 &lt;&lt; <span class="stringliteral">&quot; = (&quot;</span> &lt;&lt; modes.begin()-&gt;second.get&lt;0&gt;() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt;  modes.begin()-&gt;second.get&lt;1&gt;() &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;        <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;        <span class="keywordflow">for</span>( <span class="keyword">auto</span> <span class="keyword">const</span>&amp; mode : modes )</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;        {</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot; -- eigenvalue &quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; = (&quot;</span> &lt;&lt; mode.second.get&lt;0&gt;() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt;  mode.second.get&lt;1&gt;() &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;            femodes[i].first = mode.second.get&lt;0&gt;();</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;            femodes[i].second = *mode.second.get&lt;2&gt;();</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;            ++i;</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;        }</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    }</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <span class="keywordflow">return</span> femodes;</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;}</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __SolverEigen_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="namespaceFeel_html_a969885acafaff68169ba5e22440655fe"><div class="ttname"><a href="namespaceFeel.html#a969885acafaff68169ba5e22440655fe">Feel::SpectralTransformType</a></div><div class="ttdeci">SpectralTransformType</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:194</div></div>
 <div class="ttc" id="classFeel_1_1SolverEigen_html_abfa743f92bc370ae269967664762e0bb"><div class="ttname"><a href="classFeel_1_1SolverEigen.html#abfa743f92bc370ae269967664762e0bb">Feel::SolverEigen::M_prefix</a></div><div class="ttdeci">std::string M_prefix</div><div class="ttdef"><b>Definition:</b> solvereigen.hpp:433</div></div>
-<div class="ttc" id="namespaceFeel_html_afa8c843b79988c097aea0aedd833c24b"><div class="ttname"><a href="namespaceFeel.html#afa8c843b79988c097aea0aedd833c24b">Feel::SolverPackage</a></div><div class="ttdeci">SolverPackage</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:204</div></div>
+<div class="ttc" id="namespaceFeel_html_afa8c843b79988c097aea0aedd833c24b"><div class="ttname"><a href="namespaceFeel.html#afa8c843b79988c097aea0aedd833c24b">Feel::SolverPackage</a></div><div class="ttdeci">SolverPackage</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:207</div></div>
 <div class="ttc" id="classFeel_1_1SolverEigen_html_aed58097eff9d807b3b02ca27a54c9219"><div class="ttname"><a href="classFeel_1_1SolverEigen.html#aed58097eff9d807b3b02ca27a54c9219">Feel::SolverEigen::numberOfEigenvaluesConverged</a></div><div class="ttdeci">size_type numberOfEigenvaluesConverged() const </div><div class="ttdef"><b>Definition:</b> solvereigen.hpp:207</div></div>
 <div class="ttc" id="classFeel_1_1SolverEigen_html_af26f97e2dfc3a7ca1fcfbca651c1cf8e"><div class="ttname"><a href="classFeel_1_1SolverEigen.html#af26f97e2dfc3a7ca1fcfbca651c1cf8e">Feel::SolverEigen::clear</a></div><div class="ttdeci">virtual void clear()</div><div class="ttdef"><b>Definition:</b> solvereigen.hpp:345</div></div>
 <div class="ttc" id="classFeel_1_1Vector_html"><div class="ttname"><a href="classFeel_1_1Vector.html">Feel::Vector</a></div><div class="ttdef"><b>Definition:</b> solverlinear.hpp:33</div></div>

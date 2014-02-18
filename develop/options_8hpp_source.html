@@ -144,33 +144,36 @@ $(document).ready(function(){initNavTree('options_8hpp_source.html','');});
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;po::options_description</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;feel_options( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a0269c708b09e8c351ed875ebb158032f">benchmark_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">inline</span> po::options_description</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;feel_nooptions() { <span class="keywordflow">return</span> po::options_description(); }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a04ed4818b422d55de7aba6f00ca59e0e">backend_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a745fa7e1c7f6cfb0b31c08b44d7ee967">backendpetsc_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;po::options_description mesh_options( <span class="keywordtype">int</span> Dim, std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;po::options_description gmsh_options( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a2f689a1f52e14fcb721d2d94f60b364e">parallel_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;po::options_description ginac_options( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#ab1352fb3297fdd0c417e899b59afa2f7">solvereigen_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a9310651aca14e583153bd22beeacc23f">nlsolver_options</a>();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a42f2fd19e68d4f42ca91774b81763086">bdf_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a7cf67b8474fa1ad278fc2338cc21c157">exporter_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#af8d052cdd8d5093c369ff7ff5d031b59">material_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;po::options_description error_options( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif // FEELPP_OPTIONS_HPP</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a0269c708b09e8c351ed875ebb158032f">benchmark_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a04ed4818b422d55de7aba6f00ca59e0e">backend_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a745fa7e1c7f6cfb0b31c08b44d7ee967">backendpetsc_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;po::options_description mesh_options( <span class="keywordtype">int</span> Dim, std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;po::options_description gmsh_options( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a2f689a1f52e14fcb721d2d94f60b364e">parallel_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;po::options_description ginac_options( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#ab1352fb3297fdd0c417e899b59afa2f7">solvereigen_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a9310651aca14e583153bd22beeacc23f">nlsolver_options</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a42f2fd19e68d4f42ca91774b81763086">bdf_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#a7cf67b8474fa1ad278fc2338cc21c157">exporter_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;po::options_description <a class="code" href="namespaceFeel.html#af8d052cdd8d5093c369ff7ff5d031b59">material_options</a>( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;po::options_description error_options( std::string <span class="keyword">const</span>&amp; prefix = <span class="stringliteral">&quot;&quot;</span> );</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif // FEELPP_OPTIONS_HPP</span></div>
 <div class="ttc" id="namespaceFeel_html_ab1352fb3297fdd0c417e899b59afa2f7"><div class="ttname"><a href="namespaceFeel.html#ab1352fb3297fdd0c417e899b59afa2f7">Feel::solvereigen_options</a></div><div class="ttdeci">po::options_description solvereigen_options(std::string const &amp;prefix)</div><div class="ttdef"><b>Definition:</b> options.cpp:253</div></div>
 <div class="ttc" id="namespaceFeel_html_af8d052cdd8d5093c369ff7ff5d031b59"><div class="ttname"><a href="namespaceFeel.html#af8d052cdd8d5093c369ff7ff5d031b59">Feel::material_options</a></div><div class="ttdeci">po::options_description material_options(std::string const &amp;prefix)</div><div class="ttdef"><b>Definition:</b> materiallib.cpp:40</div></div>
 <div class="ttc" id="namespaceFeel_html_a9310651aca14e583153bd22beeacc23f"><div class="ttname"><a href="namespaceFeel.html#a9310651aca14e583153bd22beeacc23f">Feel::nlsolver_options</a></div><div class="ttdeci">po::options_description nlsolver_options()</div><div class="ttdef"><b>Definition:</b> solvernonlinear.cpp:231</div></div>

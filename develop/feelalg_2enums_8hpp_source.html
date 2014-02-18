@@ -265,88 +265,91 @@ $(document).ready(function(){initNavTree('feelalg_2enums_8hpp_source.html','');}
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                            FOLD,</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                            CAYLEY</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                           };</div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="namespaceFeel.html#afa8c843b79988c097aea0aedd833c24b">  204</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="namespaceFeel.html#afa8c843b79988c097aea0aedd833c24b">SolverPackage</a></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    SOLVERS_FEEL=0,</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    SOLVERS_GMM,</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    SOLVERS_EIGEN,</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    SOLVERS_PETSC,</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    SOLVERS_TRILINOS,</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    SOLVERS_SLEPC,</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    SOLVER_INVALID_PACKAGE</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;};</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
-<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="namespaceFeel.html#a63d6d444a7e0d7bd77b307219a00ce2b">  219</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="namespaceFeel.html#a63d6d444a7e0d7bd77b307219a00ce2b">SolverNonLinearType</a></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;{</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    SELECT_IN_ARGLIST=0,</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    LINE_SEARCH,</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    TRUST_REGION,</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    NRICHARDSON,</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    NKSPONLY,</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    VINEWTONRSLS,</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    VINEWTONRSTR,</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    NGMRES,</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    QN,</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    NSHELL,</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    GS,</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    NCG,</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    FAS,</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    MS,</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    NASM,</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    ANDERSON,</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    ASPIN</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;};</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="keyword">enum</span> AitkenType</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;{</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    AITKEN_STANDARD=0,</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    AITKEN_METHOD_1=1,</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    FIXED_RELAXATION_METHOD=2</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;};</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="keyword">enum</span> DirichletType</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;{</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    STRONG=0,</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    WEAK=1</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;};</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="keyword">enum</span> ProjectorType</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;{</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    NODAL=-1,</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    L2=0,</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    H1=1,</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    DIFF=2,</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    HDIV=3,</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    HCURL=4,</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    LIFT=5,</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    CIP=6</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;};</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="keyword">enum</span> MatSolverPackageType</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;{</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    MATSOLVER_SPOOLES=0,</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    MATSOLVER_SUPERLU,</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    MATSOLVER_SUPERLU_DIST,</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    MATSOLVER_UMFPACK,</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    MATSOLVER_ESSL,</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    MATSOLVER_LUSOL,</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    MATSOLVER_MUMPS,</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    MATSOLVER_PASTIX,</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    MATSOLVER_DSCPACK,</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    MATSOLVER_MATLAB,</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    MATSOLVER_PETSC,</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    MATSOLVER_PLAPACK,</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    MATSOLVER_BAS</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;};</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="preprocessor">#if defined(FEELPP_HAS_MUMPS) &amp;&amp; PETSC_VERSION_GREATER_OR_EQUAL_THAN( 3,2,0 )</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="preprocessor"></span><span class="keyword">const</span> <span class="keyword">auto</span> MATSOLVER_DEFAULT = MATSOLVER_MUMPS;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="preprocessor"></span><span class="keyword">const</span> <span class="keyword">auto</span> MATSOLVER_DEFAULT = MATSOLVER_PETSC;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FEELPP_ALG_ENUMS_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="keyword">extern</span> std::map&lt;std::string, size_type&gt; EigenMap;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="namespaceFeel.html#afa8c843b79988c097aea0aedd833c24b">  207</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="namespaceFeel.html#afa8c843b79988c097aea0aedd833c24b">SolverPackage</a></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;{</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    SOLVERS_FEEL=0,</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    SOLVERS_GMM,</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    SOLVERS_EIGEN,</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    SOLVERS_PETSC,</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    SOLVERS_TRILINOS,</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    SOLVERS_SLEPC,</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    SOLVER_INVALID_PACKAGE</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;};</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="namespaceFeel.html#a63d6d444a7e0d7bd77b307219a00ce2b">  222</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="namespaceFeel.html#a63d6d444a7e0d7bd77b307219a00ce2b">SolverNonLinearType</a></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;{</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    SELECT_IN_ARGLIST=0,</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    LINE_SEARCH,</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    TRUST_REGION,</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    NRICHARDSON,</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    NKSPONLY,</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    VINEWTONRSLS,</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    VINEWTONRSTR,</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    NGMRES,</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    QN,</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    NSHELL,</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    GS,</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    NCG,</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    FAS,</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    MS,</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    NASM,</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    ANDERSON,</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    ASPIN</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;};</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keyword">enum</span> AitkenType</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;{</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    AITKEN_STANDARD=0,</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    AITKEN_METHOD_1=1,</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    FIXED_RELAXATION_METHOD=2</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;};</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="keyword">enum</span> DirichletType</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;{</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    STRONG=0,</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    WEAK=1</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;};</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="keyword">enum</span> ProjectorType</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;{</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    NODAL=-1,</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    L2=0,</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    H1=1,</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    DIFF=2,</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    HDIV=3,</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    HCURL=4,</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    LIFT=5,</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    CIP=6</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;};</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="keyword">enum</span> MatSolverPackageType</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;{</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    MATSOLVER_SPOOLES=0,</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    MATSOLVER_SUPERLU,</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    MATSOLVER_SUPERLU_DIST,</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    MATSOLVER_UMFPACK,</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    MATSOLVER_ESSL,</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    MATSOLVER_LUSOL,</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    MATSOLVER_MUMPS,</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    MATSOLVER_PASTIX,</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    MATSOLVER_DSCPACK,</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    MATSOLVER_MATLAB,</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    MATSOLVER_PETSC,</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    MATSOLVER_PLAPACK,</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    MATSOLVER_BAS</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;};</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="preprocessor">#if defined(FEELPP_HAS_MUMPS) &amp;&amp; PETSC_VERSION_GREATER_OR_EQUAL_THAN( 3,2,0 )</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="preprocessor"></span><span class="keyword">const</span> <span class="keyword">auto</span> MATSOLVER_DEFAULT = MATSOLVER_MUMPS;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="preprocessor"></span><span class="keyword">const</span> <span class="keyword">auto</span> MATSOLVER_DEFAULT = MATSOLVER_PETSC;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FEELPP_ALG_ENUMS_HPP */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="namespaceFeel_html_a969885acafaff68169ba5e22440655fe"><div class="ttname"><a href="namespaceFeel.html#a969885acafaff68169ba5e22440655fe">Feel::SpectralTransformType</a></div><div class="ttdeci">SpectralTransformType</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:194</div></div>
-<div class="ttc" id="namespaceFeel_html_afa8c843b79988c097aea0aedd833c24b"><div class="ttname"><a href="namespaceFeel.html#afa8c843b79988c097aea0aedd833c24b">Feel::SolverPackage</a></div><div class="ttdeci">SolverPackage</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:204</div></div>
+<div class="ttc" id="namespaceFeel_html_afa8c843b79988c097aea0aedd833c24b"><div class="ttname"><a href="namespaceFeel.html#afa8c843b79988c097aea0aedd833c24b">Feel::SolverPackage</a></div><div class="ttdeci">SolverPackage</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:207</div></div>
 <div class="ttc" id="feelpetsc_8hpp_html"><div class="ttname"><a href="feelpetsc_8hpp.html">feelpetsc.hpp</a></div></div>
 <div class="ttc" id="namespaceFeel_html_affe8f1716191835c1f39a4f88c8f7299"><div class="ttname"><a href="namespaceFeel.html#affe8f1716191835c1f39a4f88c8f7299">Feel::PreconditionerType</a></div><div class="ttdeci">PreconditionerType</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:100</div></div>
 <div class="ttc" id="namespaceFeel_html_af30a491cfca047316937626d0d9bad46ab50339a10e1de285ac99d4c3990b8693"><div class="ttname"><a href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46ab50339a10e1de285ac99d4c3990b8693">Feel::OnContext::NONE</a></div></div>
@@ -367,7 +370,7 @@ $(document).ready(function(){initNavTree('feelalg_2enums_8hpp_source.html','');}
 <div class="ttc" id="namespaceFeel_html_af30a491cfca047316937626d0d9bad46a2dd9728ea297afd9bdcc7749b1fa63dd"><div class="ttname"><a href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46a2dd9728ea297afd9bdcc7749b1fa63dd">Feel::OnContext::ELIMINATION_SYMMETRIC</a></div></div>
 <div class="ttc" id="namespaceFeel_html_af30a491cfca047316937626d0d9bad46a132622c4a416a2ab8f18f8e110a4763c"><div class="ttname"><a href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46a132622c4a416a2ab8f18f8e110a4763c">Feel::OnContext::ELIMINATION</a></div></div>
 <div class="ttc" id="namespaceFeel_html_af30a491cfca047316937626d0d9bad46"><div class="ttname"><a href="namespaceFeel.html#af30a491cfca047316937626d0d9bad46">Feel::OnContext</a></div><div class="ttdeci">OnContext</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:38</div></div>
-<div class="ttc" id="namespaceFeel_html_a63d6d444a7e0d7bd77b307219a00ce2b"><div class="ttname"><a href="namespaceFeel.html#a63d6d444a7e0d7bd77b307219a00ce2b">Feel::SolverNonLinearType</a></div><div class="ttdeci">SolverNonLinearType</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:219</div></div>
+<div class="ttc" id="namespaceFeel_html_a63d6d444a7e0d7bd77b307219a00ce2b"><div class="ttname"><a href="namespaceFeel.html#a63d6d444a7e0d7bd77b307219a00ce2b">Feel::SolverNonLinearType</a></div><div class="ttdeci">SolverNonLinearType</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:222</div></div>
 <div class="ttc" id="namespaceFeel_html_a4da28efa430cc4bd3a6a86cde30a9809"><div class="ttname"><a href="namespaceFeel.html#a4da28efa430cc4bd3a6a86cde30a9809">Feel::BackendType</a></div><div class="ttdeci">BackendType</div><div class="ttdef"><b>Definition:</b> feelalg/enums.hpp:62</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

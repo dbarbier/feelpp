@@ -2273,6 +2273,9 @@ DebugStream&#160;</td><td class="memItemRight" valign="bottom"><b>Fatal</b> (int
 <tr class="memitem:ac37b7639cb589ac68598965162dd7977"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac37b7639cb589ac68598965162dd7977"></a>
 DebugStream&#160;</td><td class="memItemRight" valign="bottom"><b>Fatal</b> (bool cond, int area)</td></tr>
 <tr class="separator:ac37b7639cb589ac68598965162dd7977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a21e7245e79c67837ad8b6166cfed94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a21e7245e79c67837ad8b6166cfed94"></a>
+po::options_description&#160;</td><td class="memItemRight" valign="bottom"><b>feel_nooptions</b> ()</td></tr>
+<tr class="separator:a9a21e7245e79c67837ad8b6166cfed94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8f0309ba9d31bcdfcbf60eaf2df0137"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8f0309ba9d31bcdfcbf60eaf2df0137"></a>
 po::options_description&#160;</td><td class="memItemRight" valign="bottom"><b>feel_options</b> (std::string const &amp;prefix)</td></tr>
 <tr class="separator:ac8f0309ba9d31bcdfcbf60eaf2df0137"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3517,6 +3520,8 @@ Variables</h2></td></tr>
 <tr class="memitem:af0de22d052a7d50f07108712f0edaa07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0de22d052a7d50f07108712f0edaa07"></a>
 BlocksStencilPattern&#160;</td><td class="memItemRight" valign="bottom"><b>default_block_pattern</b></td></tr>
 <tr class="separator:af0de22d052a7d50f07108712f0edaa07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3fec07c467b0b2a2b84782a41276bfb"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>EigenMap</b></td></tr>
+<tr class="separator:aa3fec07c467b0b2a2b84782a41276bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8cf505f48e1573eb277855c92b85258"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EXTRACTION_KEEP_ALL_IDS</b></td></tr>
 <tr class="separator:ae8cf505f48e1573eb277855c92b85258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c6a6aeb05db110842931d3572c693ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c6a6aeb05db110842931d3572c693ec"></a>
@@ -7450,6 +7455,45 @@ template&lt;int Ngeo = 1&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="aa3fec07c467b0b2a2b84782a41276bfb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, <a class="el" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> &gt; Feel::EigenMap</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;power&quot;</span>, POWER},</div>
+<div class="line">    {<span class="stringliteral">&quot;laplack&quot;</span>, LAPACK},</div>
+<div class="line">    {<span class="stringliteral">&quot;subspace&quot;</span>, SUBSPACE},</div>
+<div class="line">    {<span class="stringliteral">&quot;arnoldi&quot;</span>, ARNOLDI},</div>
+<div class="line">    {<span class="stringliteral">&quot;krylovschur&quot;</span>, KRYLOVSCHUR },</div>
+<div class="line">    {<span class="stringliteral">&quot;arpack&quot;</span>, ARPACK },</div>
+<div class="line">    </div>
+<div class="line">    { <span class="stringliteral">&quot;nhep&quot;</span>,  NHEP },</div>
+<div class="line">    { <span class="stringliteral">&quot;hep&quot;</span>,  HEP },</div>
+<div class="line">    { <span class="stringliteral">&quot;gnhep&quot;</span>,  GNHEP },</div>
+<div class="line">    { <span class="stringliteral">&quot;ghep&quot;</span>,  GHEP },</div>
+<div class="line">    { <span class="stringliteral">&quot;pgnhep&quot;</span>,  PGNHEP },</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;largest_magnitude&quot;</span>, LARGEST_MAGNITUDE },</div>
+<div class="line">    {<span class="stringliteral">&quot;smallest_magnitude&quot;</span>, SMALLEST_MAGNITUDE },</div>
+<div class="line">    {<span class="stringliteral">&quot;largest_real&quot;</span>, LARGEST_REAL },</div>
+<div class="line">    {<span class="stringliteral">&quot;smallest_real&quot;</span>, SMALLEST_REAL },</div>
+<div class="line">    {<span class="stringliteral">&quot;largest_imaginary&quot;</span>, LARGEST_IMAGINARY },</div>
+<div class="line">    {<span class="stringliteral">&quot;smallest_imaginary&quot;</span>, SMALLEST_IMAGINARY },</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;shift&quot;</span>, SHIFT },</div>
+<div class="line">    {<span class="stringliteral">&quot;shift_invert&quot;</span>, SINVERT },</div>
+<div class="line">    {<span class="stringliteral">&quot;fold&quot;</span>, FOLD },</div>
+<div class="line">    {<span class="stringliteral">&quot;cayley&quot;</span>, CAYLEY }</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="ae8cf505f48e1573eb277855c92b85258"></a>
 <div class="memitem">
 <div class="memproto">
@@ -7570,7 +7614,8 @@ template&lt;int Ngeo = 1&gt; </div>
 <div class="line">    {<span class="stringliteral">&quot;none&quot;</span>, OnContext::NONE},</div>
 <div class="line">    {<span class="stringliteral">&quot;elimination&quot;</span>, OnContext::ELIMINATION},</div>
 <div class="line">    {<span class="stringliteral">&quot;penalisation&quot;</span>, OnContext::PENALISATION},</div>
-<div class="line">    {<span class="stringliteral">&quot;elimination_symmetric&quot;</span>, OnContext::ELIMINATION_SYMMETRIC}</div>
+<div class="line">    {<span class="stringliteral">&quot;elimination_symmetric&quot;</span>, OnContext::ELIMINATION_SYMMETRIC},</div>
+<div class="line"></div>
 <div class="line">}</div>
 </div><!-- fragment -->
 </div>
