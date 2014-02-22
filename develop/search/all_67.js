@@ -124,7 +124,6 @@ var searchData=
   ['graphcsr',['GraphCSR',['../classFeel_1_1GraphCSR.html#a981c44a8874c196f652b929d2f2c2d1c',1,'Feel::GraphCSR::GraphCSR(size_type n=0, size_type first_row_entry_on_proc=0, size_type last_row_entry_on_proc=0, size_type first_col_entry_on_proc=0, size_type last_col_entry_on_proc=0, WorldComm const &amp;worldcomm=Environment::worldComm())'],['../classFeel_1_1GraphCSR.html#a7ad9b4d2ae630a1ff8a5d9d60929b86a',1,'Feel::GraphCSR::GraphCSR(GraphCSR const &amp;g)']]],
   ['graphcsr_2ecpp',['graphcsr.cpp',['../graphcsr_8cpp.html',1,'']]],
   ['graphcsr_2ehpp',['graphcsr.hpp',['../graphcsr_8hpp.html',1,'']]],
-  ['ground',['Ground',['../classFeel_1_1Ground.html',1,'Feel']]],
   ['ground_2ecpp',['ground.cpp',['../ground_8cpp.html',1,'']]],
   ['gtag',['gTag',['../group__GeoXD.html#ga87b6b0a77eb36ac8b8dbbee6ff1a0d98',1,'Feel::Geo0D']]]
 ];

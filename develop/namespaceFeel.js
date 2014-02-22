@@ -117,7 +117,6 @@ var namespaceFeel =
     [ "GmshHypercubeDomain", "classFeel_1_1GmshHypercubeDomain.html", "classFeel_1_1GmshHypercubeDomain" ],
     [ "GmshSimplexDomain", "classFeel_1_1GmshSimplexDomain.html", "classFeel_1_1GmshSimplexDomain" ],
     [ "GraphCSR", "classFeel_1_1GraphCSR.html", "classFeel_1_1GraphCSR" ],
-    [ "Ground", "classFeel_1_1Ground.html", "classFeel_1_1Ground" ],
     [ "HeatSink", "classFeel_1_1HeatSink.html", "classFeel_1_1HeatSink" ],
     [ "IMExact", "classFeel_1_1IMExact.html", "classFeel_1_1IMExact" ],
     [ "IMGeneral", "classFeel_1_1IMGeneral.html", "classFeel_1_1IMGeneral" ],
