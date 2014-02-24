@@ -493,6 +493,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Mortar.html">Mortar</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">brief description  <a href="classFeel_1_1Mortar.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html">Newmark</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classFeel_1_1Newmark.html" title="Newmark discretization. ">Newmark</a> discretization.  <a href="classFeel_1_1Newmark.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFeel_1_1node.html">node</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1NoPeriodicity.html">NoPeriodicity</a></td></tr>
@@ -3311,6 +3314,8 @@ bases&lt; Lagrange&lt; Order+1, <br class="typebreak"/>
 template&lt;typename RefEntity &gt; </td></tr>
 <tr class="memitem:ab3cd6c0bc878c473c33e3b67057ca823"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>toPython</b> (RefEntity const &amp;e, std::string str=&quot;simplex&quot;)</td></tr>
 <tr class="separator:ab3cd6c0bc878c473c33e3b67057ca823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc2734916cb7a4117357b42fbb6bf3b2"><td class="memItemLeft" align="right" valign="top">po::options_description&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#acc2734916cb7a4117357b42fbb6bf3b2">ts_options</a> (std::string const &amp;prefix)</td></tr>
+<tr class="separator:acc2734916cb7a4117357b42fbb6bf3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb52ee369375c35506744aa7b7f77850"><td class="memTemplParams" colspan="2">template&lt;int Ngeo = 1&gt; </td></tr>
 <tr class="memitem:acb52ee369375c35506744aa7b7f77850"><td class="memTemplItemLeft" align="right" valign="top">boost::shared_ptr&lt; <a class="el" href="classFeel_1_1Mesh.html">Mesh</a><br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1Simplex.html">Simplex</a>&lt; 2, Ngeo &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceFeel.html#acb52ee369375c35506744aa7b7f77850">unitCircle</a> (double h=option(_name=&quot;gmsh.hsize&quot;).template as&lt; double &gt;())</td></tr>
@@ -4345,8 +4350,7 @@ template&lt;typename MeshType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the command lines options for BDF</dd></dl>
-<p>command line options for BDF </p>
+<dl class="section return"><dt>Returns</dt><dd>the command lines options for BDF </dd></dl>
 
 </div>
 </div>
@@ -7260,6 +7264,23 @@ template&lt;int Order, typename MeshType &gt; </div>
 <p>Given a <code>mesh</code> and polynomial order <img class="formulaInl" alt="$k$" src="form_127.png"/>(template argument), build a product function space of <img class="formulaInl" alt="$[P_{k+1}]^d \times P_{k}]$" src="form_128.png"/> where $d$ is the dimension of the associated mesh. This kind of function space can be used for <a class="el" href="classFeel_1_1Stokes.html" title="solves the stokes equations ">Stokes</a> problems where the first space is associated to the velocity and the second one to the pressure.</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> Xh = THch&lt;2&gt;( mesh );</div>
 </div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="acc2734916cb7a4117357b42fbb6bf3b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">po::options_description Feel::ts_options </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>prefix</em> = <code>&quot;&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>command line options for BDF </p>
+
 </div>
 </div>
 <a class="anchor" id="acb52ee369375c35506744aa7b7f77850"></a>

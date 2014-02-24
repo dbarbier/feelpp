@@ -6480,228 +6480,230 @@ $(document).ready(function(){initNavTree('functionspace_8hpp_source.html','');})
 <div class="line"><a name="l06758"></a><span class="lineno"> 6758</span>&#160;                                                            <span class="keywordtype">bool</span> verbose,</div>
 <div class="line"><a name="l06759"></a><span class="lineno"> 6759</span>&#160;                                                            mpl::int_&lt;MESH_FACES&gt; )</div>
 <div class="line"><a name="l06760"></a><span class="lineno"> 6760</span>&#160;{</div>
-<div class="line"><a name="l06761"></a><span class="lineno"> 6761</span>&#160;    <span class="keyword">typedef</span> ExprType expression_type;</div>
-<div class="line"><a name="l06762"></a><span class="lineno"> 6762</span>&#160;    <span class="comment">// mesh element</span></div>
-<div class="line"><a name="l06763"></a><span class="lineno"> 6763</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> element_type::functionspace_type::mesh_type::element_type geoelement_type;</div>
-<div class="line"><a name="l06764"></a><span class="lineno"> 6764</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> geoelement_type::face_type face_type;</div>
-<div class="line"><a name="l06765"></a><span class="lineno"> 6765</span>&#160;</div>
-<div class="line"><a name="l06766"></a><span class="lineno"> 6766</span>&#160;    <span class="comment">// geometric mapping context</span></div>
-<div class="line"><a name="l06767"></a><span class="lineno"> 6767</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> element_type::functionspace_type::mesh_type::gm_type gm_type;</div>
-<div class="line"><a name="l06768"></a><span class="lineno"> 6768</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;gm_type&gt; gm_ptrtype;</div>
-<div class="line"><a name="l06769"></a><span class="lineno"> 6769</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> gm_type::template Context&lt;context, geoelement_type&gt; gmc_type;</div>
-<div class="line"><a name="l06770"></a><span class="lineno"> 6770</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;gmc_type&gt; gmc_ptrtype;</div>
-<div class="line"><a name="l06771"></a><span class="lineno"> 6771</span>&#160;    <span class="keyword">typedef</span> fusion::map&lt;fusion::pair&lt;Feel::vf::detail::gmc&lt;0&gt;, gmc_ptrtype&gt; &gt; map_gmc_type;</div>
-<div class="line"><a name="l06772"></a><span class="lineno"> 6772</span>&#160;</div>
-<div class="line"><a name="l06773"></a><span class="lineno"> 6773</span>&#160;</div>
-<div class="line"><a name="l06774"></a><span class="lineno"> 6774</span>&#160;    <span class="comment">// dof</span></div>
-<div class="line"><a name="l06775"></a><span class="lineno"> 6775</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> element_type::functionspace_type::dof_type dof_type;</div>
-<div class="line"><a name="l06776"></a><span class="lineno"> 6776</span>&#160;</div>
-<div class="line"><a name="l06777"></a><span class="lineno"> 6777</span>&#160;    <span class="comment">// basis</span></div>
-<div class="line"><a name="l06778"></a><span class="lineno"> 6778</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> element_type::functionspace_type::fe_type fe_type;</div>
-<div class="line"><a name="l06779"></a><span class="lineno"> 6779</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> fe_type::template Context&lt; context, fe_type, gm_type, geoelement_type&gt; fecontext_type;</div>
-<div class="line"><a name="l06780"></a><span class="lineno"> 6780</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;fecontext_type&gt; fecontext_ptrtype;</div>
-<div class="line"><a name="l06781"></a><span class="lineno"> 6781</span>&#160;    <span class="comment">//typedef fusion::map&lt;fusion::pair&lt;Feel::vf::detail::gmc&lt;0&gt;, fecontext_ptrtype&gt; &gt; map_gmc_type;</span></div>
-<div class="line"><a name="l06782"></a><span class="lineno"> 6782</span>&#160;</div>
-<div class="line"><a name="l06783"></a><span class="lineno"> 6783</span>&#160;    <span class="comment">// expression</span></div>
-<div class="line"><a name="l06784"></a><span class="lineno"> 6784</span>&#160;    <span class="comment">//typedef typename expression_type::template tensor&lt;map_gmc_type,fecontext_type&gt; t_expr_type;</span></div>
-<div class="line"><a name="l06785"></a><span class="lineno"> 6785</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> expression_type::template tensor&lt;map_gmc_type&gt; t_expr_type;</div>
-<div class="line"><a name="l06786"></a><span class="lineno"> 6786</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> t_expr_type::shape shape;</div>
-<div class="line"><a name="l06787"></a><span class="lineno"> 6787</span>&#160;</div>
-<div class="line"><a name="l06788"></a><span class="lineno"> 6788</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l06789"></a><span class="lineno"> 6789</span>&#160;    <span class="comment">// start</span></div>
+<div class="line"><a name="l06761"></a><span class="lineno"> 6761</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> context = ExprType::context|vm::POINT;</div>
+<div class="line"><a name="l06762"></a><span class="lineno"> 6762</span>&#160;    <span class="keyword">typedef</span> ExprType expression_type;</div>
+<div class="line"><a name="l06763"></a><span class="lineno"> 6763</span>&#160;    <span class="keyword">typedef</span> Element&lt;Y,Cont&gt; element_type;</div>
+<div class="line"><a name="l06764"></a><span class="lineno"> 6764</span>&#160;    <span class="comment">// mesh element</span></div>
+<div class="line"><a name="l06765"></a><span class="lineno"> 6765</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> element_type::functionspace_type::mesh_type::element_type geoelement_type;</div>
+<div class="line"><a name="l06766"></a><span class="lineno"> 6766</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> geoelement_type::face_type face_type;</div>
+<div class="line"><a name="l06767"></a><span class="lineno"> 6767</span>&#160;</div>
+<div class="line"><a name="l06768"></a><span class="lineno"> 6768</span>&#160;    <span class="comment">// geometric mapping context</span></div>
+<div class="line"><a name="l06769"></a><span class="lineno"> 6769</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> element_type::functionspace_type::mesh_type::gm_type gm_type;</div>
+<div class="line"><a name="l06770"></a><span class="lineno"> 6770</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;gm_type&gt; gm_ptrtype;</div>
+<div class="line"><a name="l06771"></a><span class="lineno"> 6771</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> gm_type::template Context&lt;context, geoelement_type&gt; gmc_type;</div>
+<div class="line"><a name="l06772"></a><span class="lineno"> 6772</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;gmc_type&gt; gmc_ptrtype;</div>
+<div class="line"><a name="l06773"></a><span class="lineno"> 6773</span>&#160;    <span class="keyword">typedef</span> fusion::map&lt;fusion::pair&lt;Feel::vf::detail::gmc&lt;0&gt;, gmc_ptrtype&gt; &gt; map_gmc_type;</div>
+<div class="line"><a name="l06774"></a><span class="lineno"> 6774</span>&#160;</div>
+<div class="line"><a name="l06775"></a><span class="lineno"> 6775</span>&#160;</div>
+<div class="line"><a name="l06776"></a><span class="lineno"> 6776</span>&#160;    <span class="comment">// dof</span></div>
+<div class="line"><a name="l06777"></a><span class="lineno"> 6777</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> element_type::functionspace_type::dof_type dof_type;</div>
+<div class="line"><a name="l06778"></a><span class="lineno"> 6778</span>&#160;</div>
+<div class="line"><a name="l06779"></a><span class="lineno"> 6779</span>&#160;    <span class="comment">// basis</span></div>
+<div class="line"><a name="l06780"></a><span class="lineno"> 6780</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> element_type::functionspace_type::fe_type fe_type;</div>
+<div class="line"><a name="l06781"></a><span class="lineno"> 6781</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> fe_type::template Context&lt; context, fe_type, gm_type, geoelement_type&gt; fecontext_type;</div>
+<div class="line"><a name="l06782"></a><span class="lineno"> 6782</span>&#160;    <span class="keyword">typedef</span> boost::shared_ptr&lt;fecontext_type&gt; fecontext_ptrtype;</div>
+<div class="line"><a name="l06783"></a><span class="lineno"> 6783</span>&#160;    <span class="comment">//typedef fusion::map&lt;fusion::pair&lt;Feel::vf::detail::gmc&lt;0&gt;, fecontext_ptrtype&gt; &gt; map_gmc_type;</span></div>
+<div class="line"><a name="l06784"></a><span class="lineno"> 6784</span>&#160;</div>
+<div class="line"><a name="l06785"></a><span class="lineno"> 6785</span>&#160;    <span class="comment">// expression</span></div>
+<div class="line"><a name="l06786"></a><span class="lineno"> 6786</span>&#160;    <span class="comment">//typedef typename expression_type::template tensor&lt;map_gmc_type,fecontext_type&gt; t_expr_type;</span></div>
+<div class="line"><a name="l06787"></a><span class="lineno"> 6787</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> expression_type::template tensor&lt;map_gmc_type&gt; t_expr_type;</div>
+<div class="line"><a name="l06788"></a><span class="lineno"> 6788</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> t_expr_type::shape shape;</div>
+<div class="line"><a name="l06789"></a><span class="lineno"> 6789</span>&#160;</div>
 <div class="line"><a name="l06790"></a><span class="lineno"> 6790</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l06791"></a><span class="lineno"> 6791</span>&#160;    boost::timer __timer;</div>
-<div class="line"><a name="l06792"></a><span class="lineno"> 6792</span>&#160;</div>
-<div class="line"><a name="l06793"></a><span class="lineno"> 6793</span>&#160;    std::vector&lt;int&gt; dofs;</div>
-<div class="line"><a name="l06794"></a><span class="lineno"> 6794</span>&#160;    std::vector&lt;value_type&gt; values;</div>
-<div class="line"><a name="l06795"></a><span class="lineno"> 6795</span>&#160;    <span class="keyword">auto</span> __face_it = r.first;</div>
-<div class="line"><a name="l06796"></a><span class="lineno"> 6796</span>&#160;    <span class="keyword">auto</span> __face_en = r.second;</div>
-<div class="line"><a name="l06797"></a><span class="lineno"> 6797</span>&#160;    <span class="keywordflow">if</span> ( __face_it != __face_en )</div>
-<div class="line"><a name="l06798"></a><span class="lineno"> 6798</span>&#160;    {</div>
-<div class="line"><a name="l06799"></a><span class="lineno"> 6799</span>&#160;        <span class="comment">// get the first face properly connected</span></div>
-<div class="line"><a name="l06800"></a><span class="lineno"> 6800</span>&#160;        <span class="keywordflow">for</span>( ; __face_it != __face_en; ++__face_it )</div>
-<div class="line"><a name="l06801"></a><span class="lineno"> 6801</span>&#160;            <span class="keywordflow">if</span> ( __face_it-&gt;isConnectedTo0() )</div>
-<div class="line"><a name="l06802"></a><span class="lineno"> 6802</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l06803"></a><span class="lineno"> 6803</span>&#160;</div>
-<div class="line"><a name="l06804"></a><span class="lineno"> 6804</span>&#160;</div>
-<div class="line"><a name="l06805"></a><span class="lineno"> 6805</span>&#160;        dof_type <span class="keyword">const</span>* __dof = this-&gt;functionSpace()-&gt;dof().get();</div>
+<div class="line"><a name="l06791"></a><span class="lineno"> 6791</span>&#160;    <span class="comment">// start</span></div>
+<div class="line"><a name="l06792"></a><span class="lineno"> 6792</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l06793"></a><span class="lineno"> 6793</span>&#160;    boost::timer __timer;</div>
+<div class="line"><a name="l06794"></a><span class="lineno"> 6794</span>&#160;</div>
+<div class="line"><a name="l06795"></a><span class="lineno"> 6795</span>&#160;    std::vector&lt;int&gt; dofs;</div>
+<div class="line"><a name="l06796"></a><span class="lineno"> 6796</span>&#160;    std::vector&lt;value_type&gt; values;</div>
+<div class="line"><a name="l06797"></a><span class="lineno"> 6797</span>&#160;    <span class="keyword">auto</span> __face_it = r.first;</div>
+<div class="line"><a name="l06798"></a><span class="lineno"> 6798</span>&#160;    <span class="keyword">auto</span> __face_en = r.second;</div>
+<div class="line"><a name="l06799"></a><span class="lineno"> 6799</span>&#160;    <span class="keywordflow">if</span> ( __face_it != __face_en )</div>
+<div class="line"><a name="l06800"></a><span class="lineno"> 6800</span>&#160;    {</div>
+<div class="line"><a name="l06801"></a><span class="lineno"> 6801</span>&#160;        <span class="comment">// get the first face properly connected</span></div>
+<div class="line"><a name="l06802"></a><span class="lineno"> 6802</span>&#160;        <span class="keywordflow">for</span>( ; __face_it != __face_en; ++__face_it )</div>
+<div class="line"><a name="l06803"></a><span class="lineno"> 6803</span>&#160;            <span class="keywordflow">if</span> ( __face_it-&gt;isConnectedTo0() )</div>
+<div class="line"><a name="l06804"></a><span class="lineno"> 6804</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l06805"></a><span class="lineno"> 6805</span>&#160;</div>
 <div class="line"><a name="l06806"></a><span class="lineno"> 6806</span>&#160;</div>
-<div class="line"><a name="l06807"></a><span class="lineno"> 6807</span>&#160;        fe_type <span class="keyword">const</span>* __fe = this-&gt;functionSpace()-&gt;fe().get();</div>
+<div class="line"><a name="l06807"></a><span class="lineno"> 6807</span>&#160;        dof_type <span class="keyword">const</span>* __dof = this-&gt;functionSpace()-&gt;dof().get();</div>
 <div class="line"><a name="l06808"></a><span class="lineno"> 6808</span>&#160;</div>
-<div class="line"><a name="l06809"></a><span class="lineno"> 6809</span>&#160;        gm_ptrtype __gm( <span class="keyword">new</span> gm_type );</div>
+<div class="line"><a name="l06809"></a><span class="lineno"> 6809</span>&#160;        fe_type <span class="keyword">const</span>* __fe = this-&gt;functionSpace()-&gt;fe().get();</div>
 <div class="line"><a name="l06810"></a><span class="lineno"> 6810</span>&#160;</div>
-<div class="line"><a name="l06811"></a><span class="lineno"> 6811</span>&#160;</div>
-<div class="line"><a name="l06812"></a><span class="lineno"> 6812</span>&#160;        <span class="comment">//</span></div>
-<div class="line"><a name="l06813"></a><span class="lineno"> 6813</span>&#160;        <span class="comment">// Precompute some data in the reference element for</span></div>
-<div class="line"><a name="l06814"></a><span class="lineno"> 6814</span>&#160;        <span class="comment">// geometric mapping and reference finite element</span></div>
-<div class="line"><a name="l06815"></a><span class="lineno"> 6815</span>&#160;        <span class="comment">//</span></div>
-<div class="line"><a name="l06816"></a><span class="lineno"> 6816</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> geoelement_type::permutation_type permutation_type;</div>
-<div class="line"><a name="l06817"></a><span class="lineno"> 6817</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> gm_type::precompute_ptrtype geopc_ptrtype;</div>
-<div class="line"><a name="l06818"></a><span class="lineno"> 6818</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> gm_type::precompute_type geopc_type;</div>
-<div class="line"><a name="l06819"></a><span class="lineno"> 6819</span>&#160;        DVLOG(2)  &lt;&lt; <span class="stringliteral">&quot;[elementon] numTopologicalFaces = &quot;</span> &lt;&lt; geoelement_type::numTopologicalFaces &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06820"></a><span class="lineno"> 6820</span>&#160;        std::vector&lt;std::map&lt;permutation_type, geopc_ptrtype&gt; &gt; __geopc( geoelement_type::numTopologicalFaces );</div>
-<div class="line"><a name="l06821"></a><span class="lineno"> 6821</span>&#160;</div>
-<div class="line"><a name="l06822"></a><span class="lineno"> 6822</span>&#160;        <span class="keywordflow">for</span> ( uint16_type __f = 0; __f &lt; geoelement_type::numTopologicalFaces; ++__f )</div>
-<div class="line"><a name="l06823"></a><span class="lineno"> 6823</span>&#160;        {</div>
-<div class="line"><a name="l06824"></a><span class="lineno"> 6824</span>&#160;            <span class="keywordflow">for</span> ( permutation_type __p( permutation_type::IDENTITY );</div>
-<div class="line"><a name="l06825"></a><span class="lineno"> 6825</span>&#160;                  __p &lt; permutation_type( permutation_type::N_PERMUTATIONS ); ++__p )</div>
-<div class="line"><a name="l06826"></a><span class="lineno"> 6826</span>&#160;            {</div>
-<div class="line"><a name="l06827"></a><span class="lineno"> 6827</span>&#160;                __geopc[__f][__p] = geopc_ptrtype(  <span class="keyword">new</span> geopc_type( __gm, __fe-&gt;points( __f ) ) );</div>
-<div class="line"><a name="l06828"></a><span class="lineno"> 6828</span>&#160;                <span class="comment">//DVLOG(2) &lt;&lt; &quot;[geopc] FACE_ID = &quot; &lt;&lt; __f &lt;&lt; &quot; ref pts=&quot; &lt;&lt; __fe-&gt;dual().points( __f ) &lt;&lt; &quot;\n&quot;;</span></div>
-<div class="line"><a name="l06829"></a><span class="lineno"> 6829</span>&#160;                FEELPP_ASSERT( __geopc[__f][__p]-&gt;nPoints() ).error( <span class="stringliteral">&quot;invalid number of points&quot;</span> );</div>
-<div class="line"><a name="l06830"></a><span class="lineno"> 6830</span>&#160;            }</div>
-<div class="line"><a name="l06831"></a><span class="lineno"> 6831</span>&#160;        }</div>
-<div class="line"><a name="l06832"></a><span class="lineno"> 6832</span>&#160;</div>
-<div class="line"><a name="l06833"></a><span class="lineno"> 6833</span>&#160;        uint16_type __face_id = __face_it-&gt;pos_first();</div>
-<div class="line"><a name="l06834"></a><span class="lineno"> 6834</span>&#160;        gmc_ptrtype __c( <span class="keyword">new</span> gmc_type( __gm, __face_it-&gt;element( 0 ), __geopc, __face_id ) );</div>
-<div class="line"><a name="l06835"></a><span class="lineno"> 6835</span>&#160;</div>
-<div class="line"><a name="l06836"></a><span class="lineno"> 6836</span>&#160;        map_gmc_type mapgmc( fusion::make_pair&lt;Feel::vf::detail::gmc&lt;0&gt; &gt;( __c ) );</div>
+<div class="line"><a name="l06811"></a><span class="lineno"> 6811</span>&#160;        gm_ptrtype __gm( <span class="keyword">new</span> gm_type );</div>
+<div class="line"><a name="l06812"></a><span class="lineno"> 6812</span>&#160;</div>
+<div class="line"><a name="l06813"></a><span class="lineno"> 6813</span>&#160;</div>
+<div class="line"><a name="l06814"></a><span class="lineno"> 6814</span>&#160;        <span class="comment">//</span></div>
+<div class="line"><a name="l06815"></a><span class="lineno"> 6815</span>&#160;        <span class="comment">// Precompute some data in the reference element for</span></div>
+<div class="line"><a name="l06816"></a><span class="lineno"> 6816</span>&#160;        <span class="comment">// geometric mapping and reference finite element</span></div>
+<div class="line"><a name="l06817"></a><span class="lineno"> 6817</span>&#160;        <span class="comment">//</span></div>
+<div class="line"><a name="l06818"></a><span class="lineno"> 6818</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> geoelement_type::permutation_type permutation_type;</div>
+<div class="line"><a name="l06819"></a><span class="lineno"> 6819</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> gm_type::precompute_ptrtype geopc_ptrtype;</div>
+<div class="line"><a name="l06820"></a><span class="lineno"> 6820</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> gm_type::precompute_type geopc_type;</div>
+<div class="line"><a name="l06821"></a><span class="lineno"> 6821</span>&#160;        DVLOG(2)  &lt;&lt; <span class="stringliteral">&quot;[elementon] numTopologicalFaces = &quot;</span> &lt;&lt; geoelement_type::numTopologicalFaces &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l06822"></a><span class="lineno"> 6822</span>&#160;        std::vector&lt;std::map&lt;permutation_type, geopc_ptrtype&gt; &gt; __geopc( geoelement_type::numTopologicalFaces );</div>
+<div class="line"><a name="l06823"></a><span class="lineno"> 6823</span>&#160;</div>
+<div class="line"><a name="l06824"></a><span class="lineno"> 6824</span>&#160;        <span class="keywordflow">for</span> ( uint16_type __f = 0; __f &lt; geoelement_type::numTopologicalFaces; ++__f )</div>
+<div class="line"><a name="l06825"></a><span class="lineno"> 6825</span>&#160;        {</div>
+<div class="line"><a name="l06826"></a><span class="lineno"> 6826</span>&#160;            <span class="keywordflow">for</span> ( permutation_type __p( permutation_type::IDENTITY );</div>
+<div class="line"><a name="l06827"></a><span class="lineno"> 6827</span>&#160;                  __p &lt; permutation_type( permutation_type::N_PERMUTATIONS ); ++__p )</div>
+<div class="line"><a name="l06828"></a><span class="lineno"> 6828</span>&#160;            {</div>
+<div class="line"><a name="l06829"></a><span class="lineno"> 6829</span>&#160;                __geopc[__f][__p] = geopc_ptrtype(  <span class="keyword">new</span> geopc_type( __gm, __fe-&gt;points( __f ) ) );</div>
+<div class="line"><a name="l06830"></a><span class="lineno"> 6830</span>&#160;                <span class="comment">//DVLOG(2) &lt;&lt; &quot;[geopc] FACE_ID = &quot; &lt;&lt; __f &lt;&lt; &quot; ref pts=&quot; &lt;&lt; __fe-&gt;dual().points( __f ) &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line"><a name="l06831"></a><span class="lineno"> 6831</span>&#160;                FEELPP_ASSERT( __geopc[__f][__p]-&gt;nPoints() ).error( <span class="stringliteral">&quot;invalid number of points&quot;</span> );</div>
+<div class="line"><a name="l06832"></a><span class="lineno"> 6832</span>&#160;            }</div>
+<div class="line"><a name="l06833"></a><span class="lineno"> 6833</span>&#160;        }</div>
+<div class="line"><a name="l06834"></a><span class="lineno"> 6834</span>&#160;</div>
+<div class="line"><a name="l06835"></a><span class="lineno"> 6835</span>&#160;        uint16_type __face_id = __face_it-&gt;pos_first();</div>
+<div class="line"><a name="l06836"></a><span class="lineno"> 6836</span>&#160;        gmc_ptrtype __c( <span class="keyword">new</span> gmc_type( __gm, __face_it-&gt;element( 0 ), __geopc, __face_id ) );</div>
 <div class="line"><a name="l06837"></a><span class="lineno"> 6837</span>&#160;</div>
-<div class="line"><a name="l06838"></a><span class="lineno"> 6838</span>&#160;        DVLOG(2)  &lt;&lt; <span class="stringliteral">&quot;face_type::numVertices = &quot;</span> &lt;&lt; face_type::numVertices &lt;&lt; <span class="stringliteral">&quot;, fe_type::nDofPerVertex = &quot;</span> &lt;&lt; fe_type::nDofPerVertex &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l06839"></a><span class="lineno"> 6839</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;face_type::numEdges = &quot;</span> &lt;&lt; face_type::numEdges &lt;&lt; <span class="stringliteral">&quot;, fe_type::nDofPerEdge = &quot;</span> &lt;&lt; fe_type::nDofPerEdge &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
-<div class="line"><a name="l06840"></a><span class="lineno"> 6840</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;face_type::numFaces = &quot;</span> &lt;&lt; face_type::numFaces &lt;&lt; <span class="stringliteral">&quot;, fe_type::nDofPerFace = &quot;</span> &lt;&lt; fe_type::nDofPerFace &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06841"></a><span class="lineno"> 6841</span>&#160;</div>
-<div class="line"><a name="l06842"></a><span class="lineno"> 6842</span>&#160;        <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> nbFaceDof = <a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a>;</div>
+<div class="line"><a name="l06838"></a><span class="lineno"> 6838</span>&#160;        map_gmc_type mapgmc( fusion::make_pair&lt;Feel::vf::detail::gmc&lt;0&gt; &gt;( __c ) );</div>
+<div class="line"><a name="l06839"></a><span class="lineno"> 6839</span>&#160;</div>
+<div class="line"><a name="l06840"></a><span class="lineno"> 6840</span>&#160;        DVLOG(2)  &lt;&lt; <span class="stringliteral">&quot;face_type::numVertices = &quot;</span> &lt;&lt; face_type::numVertices &lt;&lt; <span class="stringliteral">&quot;, fe_type::nDofPerVertex = &quot;</span> &lt;&lt; fe_type::nDofPerVertex &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l06841"></a><span class="lineno"> 6841</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;face_type::numEdges = &quot;</span> &lt;&lt; face_type::numEdges &lt;&lt; <span class="stringliteral">&quot;, fe_type::nDofPerEdge = &quot;</span> &lt;&lt; fe_type::nDofPerEdge &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><a name="l06842"></a><span class="lineno"> 6842</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;face_type::numFaces = &quot;</span> &lt;&lt; face_type::numFaces &lt;&lt; <span class="stringliteral">&quot;, fe_type::nDofPerFace = &quot;</span> &lt;&lt; fe_type::nDofPerFace &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l06843"></a><span class="lineno"> 6843</span>&#160;</div>
-<div class="line"><a name="l06844"></a><span class="lineno"> 6844</span>&#160;        <span class="keywordflow">if</span> ( !fe_type::is_modal )</div>
-<div class="line"><a name="l06845"></a><span class="lineno"> 6845</span>&#160;            nbFaceDof = ( face_type::numVertices * fe_type::nDofPerVertex +</div>
-<div class="line"><a name="l06846"></a><span class="lineno"> 6846</span>&#160;                          face_type::numEdges * fe_type::nDofPerEdge +</div>
-<div class="line"><a name="l06847"></a><span class="lineno"> 6847</span>&#160;                          face_type::numFaces * fe_type::nDofPerFace );</div>
-<div class="line"><a name="l06848"></a><span class="lineno"> 6848</span>&#160;</div>
-<div class="line"><a name="l06849"></a><span class="lineno"> 6849</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l06850"></a><span class="lineno"> 6850</span>&#160;            nbFaceDof = face_type::numVertices * fe_type::nDofPerVertex;</div>
-<div class="line"><a name="l06851"></a><span class="lineno"> 6851</span>&#160;</div>
-<div class="line"><a name="l06852"></a><span class="lineno"> 6852</span>&#160;        DVLOG(2)  &lt;&lt; <span class="stringliteral">&quot;nbFaceDof = &quot;</span> &lt;&lt; nbFaceDof &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06853"></a><span class="lineno"> 6853</span>&#160;        <span class="comment">//const size_type nbFaceDof = __fe-&gt;boundaryFE()-&gt;points().size2();</span></div>
-<div class="line"><a name="l06854"></a><span class="lineno"> 6854</span>&#160;</div>
-<div class="line"><a name="l06855"></a><span class="lineno"> 6855</span>&#160;        <span class="keywordflow">for</span> ( ;</div>
-<div class="line"><a name="l06856"></a><span class="lineno"> 6856</span>&#160;              __face_it != __face_en;</div>
-<div class="line"><a name="l06857"></a><span class="lineno"> 6857</span>&#160;              ++__face_it )</div>
-<div class="line"><a name="l06858"></a><span class="lineno"> 6858</span>&#160;        {</div>
-<div class="line"><a name="l06859"></a><span class="lineno"> 6859</span>&#160;            <span class="keywordflow">if</span> ( !__face_it-&gt;isConnectedTo0() )</div>
-<div class="line"><a name="l06860"></a><span class="lineno"> 6860</span>&#160;            {</div>
-<div class="line"><a name="l06861"></a><span class="lineno"> 6861</span>&#160;                LOG( WARNING ) &lt;&lt; <span class="stringliteral">&quot;face not connected&quot;</span> &lt;&lt; *__face_it;</div>
-<div class="line"><a name="l06862"></a><span class="lineno"> 6862</span>&#160;</div>
-<div class="line"><a name="l06863"></a><span class="lineno"> 6863</span>&#160;                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l06864"></a><span class="lineno"> 6864</span>&#160;            }</div>
-<div class="line"><a name="l06865"></a><span class="lineno"> 6865</span>&#160;            <span class="comment">// do not process the face if it is a ghost face: belonging to two</span></div>
-<div class="line"><a name="l06866"></a><span class="lineno"> 6866</span>&#160;            <span class="comment">// processes and being in a process id greater than the one</span></div>
-<div class="line"><a name="l06867"></a><span class="lineno"> 6867</span>&#160;            <span class="comment">// corresponding face</span></div>
-<div class="line"><a name="l06868"></a><span class="lineno"> 6868</span>&#160;            <span class="keywordflow">if</span> ( __face_it-&gt;isGhostFace() )</div>
-<div class="line"><a name="l06869"></a><span class="lineno"> 6869</span>&#160;            {</div>
-<div class="line"><a name="l06870"></a><span class="lineno"> 6870</span>&#160;                LOG(WARNING) &lt;&lt; <span class="stringliteral">&quot;face id : &quot;</span> &lt;&lt; __face_it-&gt;id() &lt;&lt; <span class="stringliteral">&quot; is a ghost face&quot;</span>;</div>
-<div class="line"><a name="l06871"></a><span class="lineno"> 6871</span>&#160;                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l06872"></a><span class="lineno"> 6872</span>&#160;            }</div>
-<div class="line"><a name="l06873"></a><span class="lineno"> 6873</span>&#160;</div>
-<div class="line"><a name="l06874"></a><span class="lineno"> 6874</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;FACE_ID = &quot;</span> &lt;&lt; __face_it-&gt;id()</div>
-<div class="line"><a name="l06875"></a><span class="lineno"> 6875</span>&#160;                     &lt;&lt; <span class="stringliteral">&quot; element id= &quot;</span> &lt;&lt; __face_it-&gt;ad_first()</div>
-<div class="line"><a name="l06876"></a><span class="lineno"> 6876</span>&#160;                     &lt;&lt; <span class="stringliteral">&quot; pos in elt= &quot;</span> &lt;&lt; __face_it-&gt;pos_first()</div>
-<div class="line"><a name="l06877"></a><span class="lineno"> 6877</span>&#160;                     &lt;&lt; <span class="stringliteral">&quot; marker: &quot;</span> &lt;&lt; __face_it-&gt;marker() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06878"></a><span class="lineno"> 6878</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;FACE_ID = &quot;</span> &lt;&lt; __face_it-&gt;id() &lt;&lt; <span class="stringliteral">&quot; face pts=&quot;</span> &lt;&lt; __face_it-&gt;G() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06879"></a><span class="lineno"> 6879</span>&#160;</div>
-<div class="line"><a name="l06880"></a><span class="lineno"> 6880</span>&#160;            uint16_type __face_id = __face_it-&gt;pos_first();</div>
-<div class="line"><a name="l06881"></a><span class="lineno"> 6881</span>&#160;            __c-&gt;update( __face_it-&gt;element( 0 ), __face_id );</div>
-<div class="line"><a name="l06882"></a><span class="lineno"> 6882</span>&#160;</div>
-<div class="line"><a name="l06883"></a><span class="lineno"> 6883</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;FACE_ID = &quot;</span> &lt;&lt; __face_it-&gt;id() &lt;&lt; <span class="stringliteral">&quot;  ref pts=&quot;</span> &lt;&lt; __c-&gt;xRefs() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06884"></a><span class="lineno"> 6884</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;FACE_ID = &quot;</span> &lt;&lt; __face_it-&gt;id() &lt;&lt; <span class="stringliteral">&quot; real pts=&quot;</span> &lt;&lt; __c-&gt;xReal() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06885"></a><span class="lineno"> 6885</span>&#160;</div>
-<div class="line"><a name="l06886"></a><span class="lineno"> 6886</span>&#160;            map_gmc_type mapgmc( fusion::make_pair&lt;Feel::vf::detail::gmc&lt;0&gt; &gt;( __c ) );</div>
+<div class="line"><a name="l06844"></a><span class="lineno"> 6844</span>&#160;        <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> nbFaceDof = <a class="code" href="namespaceFeel.html#a0d4d77cd361adda45d27d72ff0357e55">invalid_size_type_value</a>;</div>
+<div class="line"><a name="l06845"></a><span class="lineno"> 6845</span>&#160;</div>
+<div class="line"><a name="l06846"></a><span class="lineno"> 6846</span>&#160;        <span class="keywordflow">if</span> ( !fe_type::is_modal )</div>
+<div class="line"><a name="l06847"></a><span class="lineno"> 6847</span>&#160;            nbFaceDof = ( face_type::numVertices * fe_type::nDofPerVertex +</div>
+<div class="line"><a name="l06848"></a><span class="lineno"> 6848</span>&#160;                          face_type::numEdges * fe_type::nDofPerEdge +</div>
+<div class="line"><a name="l06849"></a><span class="lineno"> 6849</span>&#160;                          face_type::numFaces * fe_type::nDofPerFace );</div>
+<div class="line"><a name="l06850"></a><span class="lineno"> 6850</span>&#160;</div>
+<div class="line"><a name="l06851"></a><span class="lineno"> 6851</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l06852"></a><span class="lineno"> 6852</span>&#160;            nbFaceDof = face_type::numVertices * fe_type::nDofPerVertex;</div>
+<div class="line"><a name="l06853"></a><span class="lineno"> 6853</span>&#160;</div>
+<div class="line"><a name="l06854"></a><span class="lineno"> 6854</span>&#160;        DVLOG(2)  &lt;&lt; <span class="stringliteral">&quot;nbFaceDof = &quot;</span> &lt;&lt; nbFaceDof &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l06855"></a><span class="lineno"> 6855</span>&#160;        <span class="comment">//const size_type nbFaceDof = __fe-&gt;boundaryFE()-&gt;points().size2();</span></div>
+<div class="line"><a name="l06856"></a><span class="lineno"> 6856</span>&#160;</div>
+<div class="line"><a name="l06857"></a><span class="lineno"> 6857</span>&#160;        <span class="keywordflow">for</span> ( ;</div>
+<div class="line"><a name="l06858"></a><span class="lineno"> 6858</span>&#160;              __face_it != __face_en;</div>
+<div class="line"><a name="l06859"></a><span class="lineno"> 6859</span>&#160;              ++__face_it )</div>
+<div class="line"><a name="l06860"></a><span class="lineno"> 6860</span>&#160;        {</div>
+<div class="line"><a name="l06861"></a><span class="lineno"> 6861</span>&#160;            <span class="keywordflow">if</span> ( !__face_it-&gt;isConnectedTo0() )</div>
+<div class="line"><a name="l06862"></a><span class="lineno"> 6862</span>&#160;            {</div>
+<div class="line"><a name="l06863"></a><span class="lineno"> 6863</span>&#160;                LOG( WARNING ) &lt;&lt; <span class="stringliteral">&quot;face not connected&quot;</span> &lt;&lt; *__face_it;</div>
+<div class="line"><a name="l06864"></a><span class="lineno"> 6864</span>&#160;</div>
+<div class="line"><a name="l06865"></a><span class="lineno"> 6865</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l06866"></a><span class="lineno"> 6866</span>&#160;            }</div>
+<div class="line"><a name="l06867"></a><span class="lineno"> 6867</span>&#160;            <span class="comment">// do not process the face if it is a ghost face: belonging to two</span></div>
+<div class="line"><a name="l06868"></a><span class="lineno"> 6868</span>&#160;            <span class="comment">// processes and being in a process id greater than the one</span></div>
+<div class="line"><a name="l06869"></a><span class="lineno"> 6869</span>&#160;            <span class="comment">// corresponding face</span></div>
+<div class="line"><a name="l06870"></a><span class="lineno"> 6870</span>&#160;            <span class="keywordflow">if</span> ( __face_it-&gt;isGhostFace() )</div>
+<div class="line"><a name="l06871"></a><span class="lineno"> 6871</span>&#160;            {</div>
+<div class="line"><a name="l06872"></a><span class="lineno"> 6872</span>&#160;                LOG(WARNING) &lt;&lt; <span class="stringliteral">&quot;face id : &quot;</span> &lt;&lt; __face_it-&gt;id() &lt;&lt; <span class="stringliteral">&quot; is a ghost face&quot;</span>;</div>
+<div class="line"><a name="l06873"></a><span class="lineno"> 6873</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l06874"></a><span class="lineno"> 6874</span>&#160;            }</div>
+<div class="line"><a name="l06875"></a><span class="lineno"> 6875</span>&#160;</div>
+<div class="line"><a name="l06876"></a><span class="lineno"> 6876</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;FACE_ID = &quot;</span> &lt;&lt; __face_it-&gt;id()</div>
+<div class="line"><a name="l06877"></a><span class="lineno"> 6877</span>&#160;                     &lt;&lt; <span class="stringliteral">&quot; element id= &quot;</span> &lt;&lt; __face_it-&gt;ad_first()</div>
+<div class="line"><a name="l06878"></a><span class="lineno"> 6878</span>&#160;                     &lt;&lt; <span class="stringliteral">&quot; pos in elt= &quot;</span> &lt;&lt; __face_it-&gt;pos_first()</div>
+<div class="line"><a name="l06879"></a><span class="lineno"> 6879</span>&#160;                     &lt;&lt; <span class="stringliteral">&quot; marker: &quot;</span> &lt;&lt; __face_it-&gt;marker() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l06880"></a><span class="lineno"> 6880</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;FACE_ID = &quot;</span> &lt;&lt; __face_it-&gt;id() &lt;&lt; <span class="stringliteral">&quot; face pts=&quot;</span> &lt;&lt; __face_it-&gt;G() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l06881"></a><span class="lineno"> 6881</span>&#160;</div>
+<div class="line"><a name="l06882"></a><span class="lineno"> 6882</span>&#160;            uint16_type __face_id = __face_it-&gt;pos_first();</div>
+<div class="line"><a name="l06883"></a><span class="lineno"> 6883</span>&#160;            __c-&gt;update( __face_it-&gt;element( 0 ), __face_id );</div>
+<div class="line"><a name="l06884"></a><span class="lineno"> 6884</span>&#160;</div>
+<div class="line"><a name="l06885"></a><span class="lineno"> 6885</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;FACE_ID = &quot;</span> &lt;&lt; __face_it-&gt;id() &lt;&lt; <span class="stringliteral">&quot;  ref pts=&quot;</span> &lt;&lt; __c-&gt;xRefs() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l06886"></a><span class="lineno"> 6886</span>&#160;            DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;FACE_ID = &quot;</span> &lt;&lt; __face_it-&gt;id() &lt;&lt; <span class="stringliteral">&quot; real pts=&quot;</span> &lt;&lt; __c-&gt;xReal() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l06887"></a><span class="lineno"> 6887</span>&#160;</div>
-<div class="line"><a name="l06888"></a><span class="lineno"> 6888</span>&#160;            t_expr_type expr( ex, mapgmc );</div>
-<div class="line"><a name="l06889"></a><span class="lineno"> 6889</span>&#160;            expr.update( mapgmc );</div>
-<div class="line"><a name="l06890"></a><span class="lineno"> 6890</span>&#160;</div>
-<div class="line"><a name="l06891"></a><span class="lineno"> 6891</span>&#160;            std::pair&lt;size_type,size_type&gt; range_dof( std::make_pair( this-&gt;start(),</div>
-<div class="line"><a name="l06892"></a><span class="lineno"> 6892</span>&#160;                                                                      this-&gt;functionSpace()-&gt;nDof() ) );</div>
-<div class="line"><a name="l06893"></a><span class="lineno"> 6893</span>&#160;            DVLOG(2)  &lt;&lt; <span class="stringliteral">&quot;[elementon] dof start = &quot;</span> &lt;&lt; range_dof.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06894"></a><span class="lineno"> 6894</span>&#160;            DVLOG(2)  &lt;&lt; <span class="stringliteral">&quot;[elementon] dof range = &quot;</span> &lt;&lt; range_dof.second &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06895"></a><span class="lineno"> 6895</span>&#160;</div>
-<div class="line"><a name="l06896"></a><span class="lineno"> 6896</span>&#160;            <span class="keywordflow">for</span> ( uint16_type c1 = 0; c1 &lt; shape::M; ++c1 )</div>
-<div class="line"><a name="l06897"></a><span class="lineno"> 6897</span>&#160;                <span class="keywordflow">for</span> ( uint16_type c2 = 0; c2 &lt; shape::N; ++c2 )</div>
-<div class="line"><a name="l06898"></a><span class="lineno"> 6898</span>&#160;                {</div>
-<div class="line"><a name="l06899"></a><span class="lineno"> 6899</span>&#160;                    <span class="keywordflow">for</span> ( uint16_type l = 0; l &lt; nbFaceDof; ++l )</div>
-<div class="line"><a name="l06900"></a><span class="lineno"> 6900</span>&#160;                    {</div>
-<div class="line"><a name="l06901"></a><span class="lineno"> 6901</span>&#160;                        DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[elementonexpr] local dof=&quot;</span> &lt;&lt; l</div>
-<div class="line"><a name="l06902"></a><span class="lineno"> 6902</span>&#160;                                 &lt;&lt; <span class="stringliteral">&quot; |comp1=&quot;</span> &lt;&lt; c1 &lt;&lt; <span class="stringliteral">&quot; comp 2= &quot;</span> &lt;&lt; c2 &lt;&lt; <span class="stringliteral">&quot; | pt = &quot;</span> &lt;&lt;  __c-&gt;xReal( l ) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06903"></a><span class="lineno"> 6903</span>&#160;                        <span class="keyword">typename</span> expression_type::value_type __value = expr.evalq( c1, c2, l );</div>
-<div class="line"><a name="l06904"></a><span class="lineno"> 6904</span>&#160;                        DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[elementonexpr] value=&quot;</span> &lt;&lt; __value &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l06905"></a><span class="lineno"> 6905</span>&#160;</div>
-<div class="line"><a name="l06906"></a><span class="lineno"> 6906</span>&#160;                        <span class="comment">// global Dof</span></div>
-<div class="line"><a name="l06907"></a><span class="lineno"> 6907</span>&#160;                        <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> thedof =  this-&gt;start() +</div>
-<div class="line"><a name="l06908"></a><span class="lineno"> 6908</span>&#160;                            boost::get&lt;0&gt;( __dof-&gt;faceLocalToGlobal( __face_it-&gt;id(), l, c1 ) );</div>
-<div class="line"><a name="l06909"></a><span class="lineno"> 6909</span>&#160;</div>
-<div class="line"><a name="l06910"></a><span class="lineno"> 6910</span>&#160;                        <span class="comment">//size_type thedof_nproc = __dof-&gt;dofNProc( thedof );</span></div>
-<div class="line"><a name="l06911"></a><span class="lineno"> 6911</span>&#160;                        <span class="keywordflow">if</span> ( std::find( dofs.begin(),</div>
-<div class="line"><a name="l06912"></a><span class="lineno"> 6912</span>&#160;                                        dofs.end(),</div>
-<div class="line"><a name="l06913"></a><span class="lineno"> 6913</span>&#160;                                        thedof ) != dofs.end() )</div>
-<div class="line"><a name="l06914"></a><span class="lineno"> 6914</span>&#160;                            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l06915"></a><span class="lineno"> 6915</span>&#160;</div>
-<div class="line"><a name="l06916"></a><span class="lineno"> 6916</span>&#160;                        this-&gt;operator()( thedof ) = __value;</div>
-<div class="line"><a name="l06917"></a><span class="lineno"> 6917</span>&#160;                    } <span class="comment">// loop on space components</span></div>
-<div class="line"><a name="l06918"></a><span class="lineno"> 6918</span>&#160;</div>
-<div class="line"><a name="l06919"></a><span class="lineno"> 6919</span>&#160;                } <span class="comment">// loop on face dof</span></div>
-<div class="line"><a name="l06920"></a><span class="lineno"> 6920</span>&#160;        }</div>
-<div class="line"><a name="l06921"></a><span class="lineno"> 6921</span>&#160;</div>
-<div class="line"><a name="l06922"></a><span class="lineno"> 6922</span>&#160;    } <span class="comment">// __face_it != __face_en</span></div>
-<div class="line"><a name="l06923"></a><span class="lineno"> 6923</span>&#160;}</div>
-<div class="line"><a name="l06924"></a><span class="lineno"> 6924</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="keywordtype">int</span> M,<span class="keywordtype">int</span> N&gt;</div>
-<div class="line"><a name="l06925"></a><span class="lineno"> 6925</span>&#160;std::ostream&amp;</div>
-<div class="line"><a name="l06926"></a><span class="lineno"> 6926</span>&#160;operator&lt;&lt;( std::ostream&amp; os, Feel::detail::ID&lt;T,M,N&gt; <span class="keyword">const</span>&amp; id )</div>
-<div class="line"><a name="l06927"></a><span class="lineno"> 6927</span>&#160;{</div>
-<div class="line"><a name="l06928"></a><span class="lineno"> 6928</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a>* shape =  <span class="keywordtype">id</span>.M_id.shape();</div>
-<div class="line"><a name="l06929"></a><span class="lineno"> 6929</span>&#160;</div>
-<div class="line"><a name="l06930"></a><span class="lineno"> 6930</span>&#160;    <span class="keywordflow">for</span> ( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> i = 0; i &lt; shape[0]; ++i )</div>
-<div class="line"><a name="l06931"></a><span class="lineno"> 6931</span>&#160;    {</div>
-<div class="line"><a name="l06932"></a><span class="lineno"> 6932</span>&#160;        <span class="keywordflow">for</span> ( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> j = 0; j &lt; shape[1]; ++j )</div>
-<div class="line"><a name="l06933"></a><span class="lineno"> 6933</span>&#160;        {</div>
-<div class="line"><a name="l06934"></a><span class="lineno"> 6934</span>&#160;            <span class="keywordflow">for</span> ( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> k = 0; k &lt; shape[2]; ++k )</div>
-<div class="line"><a name="l06935"></a><span class="lineno"> 6935</span>&#160;            {</div>
-<div class="line"><a name="l06936"></a><span class="lineno"> 6936</span>&#160;                os &lt;&lt; id( i, j, k ) &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a name="l06937"></a><span class="lineno"> 6937</span>&#160;            }</div>
-<div class="line"><a name="l06938"></a><span class="lineno"> 6938</span>&#160;</div>
-<div class="line"><a name="l06939"></a><span class="lineno"> 6939</span>&#160;            os &lt;&lt; std::endl;</div>
-<div class="line"><a name="l06940"></a><span class="lineno"> 6940</span>&#160;        }</div>
-<div class="line"><a name="l06941"></a><span class="lineno"> 6941</span>&#160;</div>
-<div class="line"><a name="l06942"></a><span class="lineno"> 6942</span>&#160;        os &lt;&lt; std::endl;</div>
-<div class="line"><a name="l06943"></a><span class="lineno"> 6943</span>&#160;    }</div>
-<div class="line"><a name="l06944"></a><span class="lineno"> 6944</span>&#160;</div>
-<div class="line"><a name="l06945"></a><span class="lineno"> 6945</span>&#160;    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l06946"></a><span class="lineno"> 6946</span>&#160;}</div>
-<div class="line"><a name="l06947"></a><span class="lineno"> 6947</span>&#160;</div>
-<div class="line"><a name="l06948"></a><span class="lineno"> 6948</span>&#160;</div>
+<div class="line"><a name="l06888"></a><span class="lineno"> 6888</span>&#160;            map_gmc_type mapgmc( fusion::make_pair&lt;Feel::vf::detail::gmc&lt;0&gt; &gt;( __c ) );</div>
+<div class="line"><a name="l06889"></a><span class="lineno"> 6889</span>&#160;</div>
+<div class="line"><a name="l06890"></a><span class="lineno"> 6890</span>&#160;            t_expr_type expr( ex, mapgmc );</div>
+<div class="line"><a name="l06891"></a><span class="lineno"> 6891</span>&#160;            expr.update( mapgmc );</div>
+<div class="line"><a name="l06892"></a><span class="lineno"> 6892</span>&#160;</div>
+<div class="line"><a name="l06893"></a><span class="lineno"> 6893</span>&#160;            std::pair&lt;size_type,size_type&gt; range_dof( std::make_pair( this-&gt;start(),</div>
+<div class="line"><a name="l06894"></a><span class="lineno"> 6894</span>&#160;                                                                      this-&gt;functionSpace()-&gt;nDof() ) );</div>
+<div class="line"><a name="l06895"></a><span class="lineno"> 6895</span>&#160;            DVLOG(2)  &lt;&lt; <span class="stringliteral">&quot;[elementon] dof start = &quot;</span> &lt;&lt; range_dof.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l06896"></a><span class="lineno"> 6896</span>&#160;            DVLOG(2)  &lt;&lt; <span class="stringliteral">&quot;[elementon] dof range = &quot;</span> &lt;&lt; range_dof.second &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l06897"></a><span class="lineno"> 6897</span>&#160;</div>
+<div class="line"><a name="l06898"></a><span class="lineno"> 6898</span>&#160;            <span class="keywordflow">for</span> ( uint16_type c1 = 0; c1 &lt; shape::M; ++c1 )</div>
+<div class="line"><a name="l06899"></a><span class="lineno"> 6899</span>&#160;                <span class="keywordflow">for</span> ( uint16_type c2 = 0; c2 &lt; shape::N; ++c2 )</div>
+<div class="line"><a name="l06900"></a><span class="lineno"> 6900</span>&#160;                {</div>
+<div class="line"><a name="l06901"></a><span class="lineno"> 6901</span>&#160;                    <span class="keywordflow">for</span> ( uint16_type l = 0; l &lt; nbFaceDof; ++l )</div>
+<div class="line"><a name="l06902"></a><span class="lineno"> 6902</span>&#160;                    {</div>
+<div class="line"><a name="l06903"></a><span class="lineno"> 6903</span>&#160;                        DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[elementonexpr] local dof=&quot;</span> &lt;&lt; l</div>
+<div class="line"><a name="l06904"></a><span class="lineno"> 6904</span>&#160;                                 &lt;&lt; <span class="stringliteral">&quot; |comp1=&quot;</span> &lt;&lt; c1 &lt;&lt; <span class="stringliteral">&quot; comp 2= &quot;</span> &lt;&lt; c2 &lt;&lt; <span class="stringliteral">&quot; | pt = &quot;</span> &lt;&lt;  __c-&gt;xReal( l ) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l06905"></a><span class="lineno"> 6905</span>&#160;                        <span class="keyword">typename</span> expression_type::value_type __value = expr.evalq( c1, c2, l );</div>
+<div class="line"><a name="l06906"></a><span class="lineno"> 6906</span>&#160;                        DVLOG(2) &lt;&lt; <span class="stringliteral">&quot;[elementonexpr] value=&quot;</span> &lt;&lt; __value &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l06907"></a><span class="lineno"> 6907</span>&#160;</div>
+<div class="line"><a name="l06908"></a><span class="lineno"> 6908</span>&#160;                        <span class="comment">// global Dof</span></div>
+<div class="line"><a name="l06909"></a><span class="lineno"> 6909</span>&#160;                        <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> thedof =  this-&gt;start() +</div>
+<div class="line"><a name="l06910"></a><span class="lineno"> 6910</span>&#160;                            boost::get&lt;0&gt;( __dof-&gt;faceLocalToGlobal( __face_it-&gt;id(), l, c1 ) );</div>
+<div class="line"><a name="l06911"></a><span class="lineno"> 6911</span>&#160;</div>
+<div class="line"><a name="l06912"></a><span class="lineno"> 6912</span>&#160;                        <span class="comment">//size_type thedof_nproc = __dof-&gt;dofNProc( thedof );</span></div>
+<div class="line"><a name="l06913"></a><span class="lineno"> 6913</span>&#160;                        <span class="keywordflow">if</span> ( std::find( dofs.begin(),</div>
+<div class="line"><a name="l06914"></a><span class="lineno"> 6914</span>&#160;                                        dofs.end(),</div>
+<div class="line"><a name="l06915"></a><span class="lineno"> 6915</span>&#160;                                        thedof ) != dofs.end() )</div>
+<div class="line"><a name="l06916"></a><span class="lineno"> 6916</span>&#160;                            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l06917"></a><span class="lineno"> 6917</span>&#160;</div>
+<div class="line"><a name="l06918"></a><span class="lineno"> 6918</span>&#160;                        this-&gt;operator()( thedof ) = __value;</div>
+<div class="line"><a name="l06919"></a><span class="lineno"> 6919</span>&#160;                    } <span class="comment">// loop on space components</span></div>
+<div class="line"><a name="l06920"></a><span class="lineno"> 6920</span>&#160;</div>
+<div class="line"><a name="l06921"></a><span class="lineno"> 6921</span>&#160;                } <span class="comment">// loop on face dof</span></div>
+<div class="line"><a name="l06922"></a><span class="lineno"> 6922</span>&#160;        }</div>
+<div class="line"><a name="l06923"></a><span class="lineno"> 6923</span>&#160;</div>
+<div class="line"><a name="l06924"></a><span class="lineno"> 6924</span>&#160;    } <span class="comment">// __face_it != __face_en</span></div>
+<div class="line"><a name="l06925"></a><span class="lineno"> 6925</span>&#160;}</div>
+<div class="line"><a name="l06926"></a><span class="lineno"> 6926</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="keywordtype">int</span> M,<span class="keywordtype">int</span> N&gt;</div>
+<div class="line"><a name="l06927"></a><span class="lineno"> 6927</span>&#160;std::ostream&amp;</div>
+<div class="line"><a name="l06928"></a><span class="lineno"> 6928</span>&#160;operator&lt;&lt;( std::ostream&amp; os, Feel::detail::ID&lt;T,M,N&gt; <span class="keyword">const</span>&amp; id )</div>
+<div class="line"><a name="l06929"></a><span class="lineno"> 6929</span>&#160;{</div>
+<div class="line"><a name="l06930"></a><span class="lineno"> 6930</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a>* shape =  <span class="keywordtype">id</span>.M_id.shape();</div>
+<div class="line"><a name="l06931"></a><span class="lineno"> 6931</span>&#160;</div>
+<div class="line"><a name="l06932"></a><span class="lineno"> 6932</span>&#160;    <span class="keywordflow">for</span> ( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> i = 0; i &lt; shape[0]; ++i )</div>
+<div class="line"><a name="l06933"></a><span class="lineno"> 6933</span>&#160;    {</div>
+<div class="line"><a name="l06934"></a><span class="lineno"> 6934</span>&#160;        <span class="keywordflow">for</span> ( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> j = 0; j &lt; shape[1]; ++j )</div>
+<div class="line"><a name="l06935"></a><span class="lineno"> 6935</span>&#160;        {</div>
+<div class="line"><a name="l06936"></a><span class="lineno"> 6936</span>&#160;            <span class="keywordflow">for</span> ( <a class="code" href="namespaceFeel.html#a285d572c85de361b3f3e2695b41a4ce0">size_type</a> k = 0; k &lt; shape[2]; ++k )</div>
+<div class="line"><a name="l06937"></a><span class="lineno"> 6937</span>&#160;            {</div>
+<div class="line"><a name="l06938"></a><span class="lineno"> 6938</span>&#160;                os &lt;&lt; id( i, j, k ) &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l06939"></a><span class="lineno"> 6939</span>&#160;            }</div>
+<div class="line"><a name="l06940"></a><span class="lineno"> 6940</span>&#160;</div>
+<div class="line"><a name="l06941"></a><span class="lineno"> 6941</span>&#160;            os &lt;&lt; std::endl;</div>
+<div class="line"><a name="l06942"></a><span class="lineno"> 6942</span>&#160;        }</div>
+<div class="line"><a name="l06943"></a><span class="lineno"> 6943</span>&#160;</div>
+<div class="line"><a name="l06944"></a><span class="lineno"> 6944</span>&#160;        os &lt;&lt; std::endl;</div>
+<div class="line"><a name="l06945"></a><span class="lineno"> 6945</span>&#160;    }</div>
+<div class="line"><a name="l06946"></a><span class="lineno"> 6946</span>&#160;</div>
+<div class="line"><a name="l06947"></a><span class="lineno"> 6947</span>&#160;    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l06948"></a><span class="lineno"> 6948</span>&#160;}</div>
 <div class="line"><a name="l06949"></a><span class="lineno"> 6949</span>&#160;</div>
-<div class="line"><a name="l06953"></a><span class="lineno"> 6953</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> EltType&gt;</div>
-<div class="line"><a name="l06954"></a><span class="lineno"> 6954</span>&#160;<span class="keyword">typename</span> fusion::result_of::accumulate&lt;<span class="keyword">typename</span> EltType::functionspace_type::functionspace_vector_type,</div>
-<div class="line"><a name="l06955"></a><span class="lineno"> 6955</span>&#160;                                       fusion::vector&lt;&gt;,</div>
-<div class="line"><a name="l06956"></a><span class="lineno"> 6956</span>&#160;                                       Feel::detail::CreateElementVector&lt;EltType&gt; &gt;::type</div>
-<div class="line"><a name="l06957"></a><span class="lineno"><a class="line" href="namespaceFeel.html#a2eb3bfe66231d4aa5a681365d5a5c64b"> 6957</a></span>&#160;<a class="code" href="namespaceFeel.html#a2eb3bfe66231d4aa5a681365d5a5c64b">subelements</a>( EltType <span class="keyword">const</span>&amp; e, std::vector&lt;std::string&gt; <span class="keyword">const</span>&amp; n )</div>
-<div class="line"><a name="l06958"></a><span class="lineno"> 6958</span>&#160;{</div>
-<div class="line"><a name="l06959"></a><span class="lineno"> 6959</span>&#160;    <span class="keywordflow">return</span> fusion::accumulate( e.functionSpaces(), fusion::vector&lt;&gt;(), Feel::detail::CreateElementVector&lt;EltType&gt;( e, n ) );</div>
-<div class="line"><a name="l06960"></a><span class="lineno"> 6960</span>&#160;}</div>
-<div class="line"><a name="l06969"></a><span class="lineno"> 6969</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> A0, <span class="keyword">typename</span> A1, <span class="keyword">typename</span> A2, <span class="keyword">typename</span> A3, <span class="keyword">typename</span> A4&gt;</div>
-<div class="line"><a name="l06970"></a><span class="lineno"> 6970</span>&#160;std::ostream&amp;</div>
-<div class="line"><a name="l06971"></a><span class="lineno"><a class="line" href="namespaceFeel.html#a151701fe6139eaa2d40dc01fb0327698"> 6971</a></span>&#160;operator&lt;&lt;( std::ostream&amp; os, FunctionSpace&lt;A0, A1, A2, A3, A4&gt; <span class="keyword">const</span>&amp; Xh )</div>
-<div class="line"><a name="l06972"></a><span class="lineno"> 6972</span>&#160;{</div>
-<div class="line"><a name="l06973"></a><span class="lineno"> 6973</span>&#160;    os &lt;&lt; <span class="stringliteral">&quot;Number of Dof: Global=&quot;</span> &lt;&lt; Xh.nDof() &lt;&lt; <span class="stringliteral">&quot; , Local=&quot;</span> &lt;&lt; Xh.nLocalDof();</div>
-<div class="line"><a name="l06974"></a><span class="lineno"> 6974</span>&#160;    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l06975"></a><span class="lineno"> 6975</span>&#160;}</div>
-<div class="line"><a name="l06976"></a><span class="lineno"> 6976</span>&#160;</div>
-<div class="line"><a name="l06977"></a><span class="lineno"> 6977</span>&#160;</div>
-<div class="line"><a name="l06978"></a><span class="lineno"> 6978</span>&#160;<span class="keyword">namespace </span>detail</div>
-<div class="line"><a name="l06979"></a><span class="lineno"> 6979</span>&#160;{</div>
-<div class="line"><a name="l06980"></a><span class="lineno"> 6980</span>&#160;</div>
-<div class="line"><a name="l06981"></a><span class="lineno"> 6981</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> FuncSpaceType&gt;</div>
-<div class="line"><a name="l06982"></a><span class="lineno"> 6982</span>&#160;<span class="keyword">struct </span>is_function_space_ptr : mpl::false_ {};</div>
-<div class="line"><a name="l06983"></a><span class="lineno"> 6983</span>&#160;</div>
-<div class="line"><a name="l06984"></a><span class="lineno"> 6984</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> FuncSpaceType&gt;</div>
-<div class="line"><a name="l06985"></a><span class="lineno"> 6985</span>&#160;<span class="keyword">struct </span>is_function_space_ptr&lt;boost::shared_ptr&lt;FuncSpaceType&gt; &gt; : mpl::true_ {};</div>
-<div class="line"><a name="l06986"></a><span class="lineno"> 6986</span>&#160;} <span class="comment">// detail</span></div>
-<div class="line"><a name="l06987"></a><span class="lineno"> 6987</span>&#160;</div>
-<div class="line"><a name="l06988"></a><span class="lineno"> 6988</span>&#160;} <span class="comment">// Feel</span></div>
+<div class="line"><a name="l06950"></a><span class="lineno"> 6950</span>&#160;</div>
+<div class="line"><a name="l06951"></a><span class="lineno"> 6951</span>&#160;</div>
+<div class="line"><a name="l06955"></a><span class="lineno"> 6955</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> EltType&gt;</div>
+<div class="line"><a name="l06956"></a><span class="lineno"> 6956</span>&#160;<span class="keyword">typename</span> fusion::result_of::accumulate&lt;<span class="keyword">typename</span> EltType::functionspace_type::functionspace_vector_type,</div>
+<div class="line"><a name="l06957"></a><span class="lineno"> 6957</span>&#160;                                       fusion::vector&lt;&gt;,</div>
+<div class="line"><a name="l06958"></a><span class="lineno"> 6958</span>&#160;                                       Feel::detail::CreateElementVector&lt;EltType&gt; &gt;::type</div>
+<div class="line"><a name="l06959"></a><span class="lineno"><a class="line" href="namespaceFeel.html#a2eb3bfe66231d4aa5a681365d5a5c64b"> 6959</a></span>&#160;<a class="code" href="namespaceFeel.html#a2eb3bfe66231d4aa5a681365d5a5c64b">subelements</a>( EltType <span class="keyword">const</span>&amp; e, std::vector&lt;std::string&gt; <span class="keyword">const</span>&amp; n )</div>
+<div class="line"><a name="l06960"></a><span class="lineno"> 6960</span>&#160;{</div>
+<div class="line"><a name="l06961"></a><span class="lineno"> 6961</span>&#160;    <span class="keywordflow">return</span> fusion::accumulate( e.functionSpaces(), fusion::vector&lt;&gt;(), Feel::detail::CreateElementVector&lt;EltType&gt;( e, n ) );</div>
+<div class="line"><a name="l06962"></a><span class="lineno"> 6962</span>&#160;}</div>
+<div class="line"><a name="l06971"></a><span class="lineno"> 6971</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> A0, <span class="keyword">typename</span> A1, <span class="keyword">typename</span> A2, <span class="keyword">typename</span> A3, <span class="keyword">typename</span> A4&gt;</div>
+<div class="line"><a name="l06972"></a><span class="lineno"> 6972</span>&#160;std::ostream&amp;</div>
+<div class="line"><a name="l06973"></a><span class="lineno"><a class="line" href="namespaceFeel.html#a151701fe6139eaa2d40dc01fb0327698"> 6973</a></span>&#160;operator&lt;&lt;( std::ostream&amp; os, FunctionSpace&lt;A0, A1, A2, A3, A4&gt; <span class="keyword">const</span>&amp; Xh )</div>
+<div class="line"><a name="l06974"></a><span class="lineno"> 6974</span>&#160;{</div>
+<div class="line"><a name="l06975"></a><span class="lineno"> 6975</span>&#160;    os &lt;&lt; <span class="stringliteral">&quot;Number of Dof: Global=&quot;</span> &lt;&lt; Xh.nDof() &lt;&lt; <span class="stringliteral">&quot; , Local=&quot;</span> &lt;&lt; Xh.nLocalDof();</div>
+<div class="line"><a name="l06976"></a><span class="lineno"> 6976</span>&#160;    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l06977"></a><span class="lineno"> 6977</span>&#160;}</div>
+<div class="line"><a name="l06978"></a><span class="lineno"> 6978</span>&#160;</div>
+<div class="line"><a name="l06979"></a><span class="lineno"> 6979</span>&#160;</div>
+<div class="line"><a name="l06980"></a><span class="lineno"> 6980</span>&#160;<span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l06981"></a><span class="lineno"> 6981</span>&#160;{</div>
+<div class="line"><a name="l06982"></a><span class="lineno"> 6982</span>&#160;</div>
+<div class="line"><a name="l06983"></a><span class="lineno"> 6983</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> FuncSpaceType&gt;</div>
+<div class="line"><a name="l06984"></a><span class="lineno"> 6984</span>&#160;<span class="keyword">struct </span>is_function_space_ptr : mpl::false_ {};</div>
+<div class="line"><a name="l06985"></a><span class="lineno"> 6985</span>&#160;</div>
+<div class="line"><a name="l06986"></a><span class="lineno"> 6986</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> FuncSpaceType&gt;</div>
+<div class="line"><a name="l06987"></a><span class="lineno"> 6987</span>&#160;<span class="keyword">struct </span>is_function_space_ptr&lt;boost::shared_ptr&lt;FuncSpaceType&gt; &gt; : mpl::true_ {};</div>
+<div class="line"><a name="l06988"></a><span class="lineno"> 6988</span>&#160;} <span class="comment">// detail</span></div>
 <div class="line"><a name="l06989"></a><span class="lineno"> 6989</span>&#160;</div>
-<div class="line"><a name="l06990"></a><span class="lineno"> 6990</span>&#160;</div>
+<div class="line"><a name="l06990"></a><span class="lineno"> 6990</span>&#160;} <span class="comment">// Feel</span></div>
 <div class="line"><a name="l06991"></a><span class="lineno"> 6991</span>&#160;</div>
 <div class="line"><a name="l06992"></a><span class="lineno"> 6992</span>&#160;</div>
-<div class="line"><a name="l06993"></a><span class="lineno"> 6993</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __FunctionSpace_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l06993"></a><span class="lineno"> 6993</span>&#160;</div>
+<div class="line"><a name="l06994"></a><span class="lineno"> 6994</span>&#160;</div>
+<div class="line"><a name="l06995"></a><span class="lineno"> 6995</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __FunctionSpace_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="dofcomposite_8hpp_html"><div class="ttname"><a href="dofcomposite_8hpp.html">dofcomposite.hpp</a></div></div>
 <div class="ttc" id="classFeel_1_1FunctionSpace_html_a536e15615750d176c1875faac3ecd29c"><div class="ttname"><a href="classFeel_1_1FunctionSpace.html#a536e15615750d176c1875faac3ecd29c">Feel::FunctionSpace::mesh</a></div><div class="ttdeci">mesh_ptrtype &amp; mesh()</div><div class="ttdef"><b>Definition:</b> functionspace.hpp:3815</div></div>
 <div class="ttc" id="classFeel_1_1FunctionSpace_html_a64fff94ffa04575676b124344544432b"><div class="ttname"><a href="classFeel_1_1FunctionSpace.html#a64fff94ffa04575676b124344544432b">Feel::FunctionSpace::M_extendedDofTableComposite</a></div><div class="ttdeci">std::vector&lt; bool &gt; M_extendedDofTableComposite</div><div class="ttdoc">build the extended dof table in // </div><div class="ttdef"><b>Definition:</b> functionspace.hpp:4318</div></div>
@@ -6777,7 +6779,7 @@ $(document).ready(function(){initNavTree('functionspace_8hpp_source.html','');})
 <div class="ttc" id="classFeel_1_1detail_1_1Environment_html_ae60e87ffd72558a37c29852634190641"><div class="ttname"><a href="classFeel_1_1detail_1_1Environment.html#ae60e87ffd72558a37c29852634190641">Feel::detail::Environment::worldComm</a></div><div class="ttdeci">static WorldComm &amp; worldComm()</div><div class="ttdef"><b>Definition:</b> environment.hpp:241</div></div>
 <div class="ttc" id="classFeel_1_1FunctionSpace_html_a8b5c48433db6b1c787656fc06c1dc5c0"><div class="ttname"><a href="classFeel_1_1FunctionSpace.html#a8b5c48433db6b1c787656fc06c1dc5c0">Feel::FunctionSpace::nDofStart</a></div><div class="ttdeci">size_type nDofStart(size_type i=0) const </div><div class="ttdef"><b>Definition:</b> functionspace.hpp:3762</div></div>
 <div class="ttc" id="classFeel_1_1FunctionSpace_html_adbcd2b4e036c1069cca47e41c0c0bf51"><div class="ttname"><a href="classFeel_1_1FunctionSpace.html#adbcd2b4e036c1069cca47e41c0c0bf51">Feel::FunctionSpace::dofOnOff</a></div><div class="ttdeci">dof_ptrtype const &amp; dofOnOff() const </div><div class="ttdef"><b>Definition:</b> functionspace.hpp:3986</div></div>
-<div class="ttc" id="namespaceFeel_html_a2eb3bfe66231d4aa5a681365d5a5c64b"><div class="ttname"><a href="namespaceFeel.html#a2eb3bfe66231d4aa5a681365d5a5c64b">Feel::subelements</a></div><div class="ttdeci">fusion::result_of::accumulate&lt; typename EltType::functionspace_type::functionspace_vector_type, fusion::vector&lt;&gt;, Feel::detail::CreateElementVector&lt; EltType &gt; &gt;::type subelements(EltType const &amp;e, std::vector&lt; std::string &gt; const &amp;n)</div><div class="ttdef"><b>Definition:</b> functionspace.hpp:6957</div></div>
+<div class="ttc" id="namespaceFeel_html_a2eb3bfe66231d4aa5a681365d5a5c64b"><div class="ttname"><a href="namespaceFeel.html#a2eb3bfe66231d4aa5a681365d5a5c64b">Feel::subelements</a></div><div class="ttdeci">fusion::result_of::accumulate&lt; typename EltType::functionspace_type::functionspace_vector_type, fusion::vector&lt;&gt;, Feel::detail::CreateElementVector&lt; EltType &gt; &gt;::type subelements(EltType const &amp;e, std::vector&lt; std::string &gt; const &amp;n)</div><div class="ttdef"><b>Definition:</b> functionspace.hpp:6959</div></div>
 <div class="ttc" id="classFeel_1_1Context_html"><div class="ttname"><a href="classFeel_1_1Context.html">Feel::Context</a></div><div class="ttdoc">Context class. </div><div class="ttdef"><b>Definition:</b> feelcore/context.hpp:63</div></div>
 <div class="ttc" id="classFeel_1_1FunctionSpace_html_a5ffd7ab6be49fdf2f8b109a8f9645b29"><div class="ttname"><a href="classFeel_1_1FunctionSpace.html#a5ffd7ab6be49fdf2f8b109a8f9645b29">Feel::FunctionSpace::functionSpace</a></div><div class="ttdeci">mpl::at_c&lt; functionspace_vector_type, i &gt;::type functionSpace()</div><div class="ttdef"><b>Definition:</b> functionspace.hpp:4098</div></div>
 <div class="ttc" id="classFeel_1_1FunctionSpace_html_af1424ec781d3cb2a1f8bcf278f8800c5"><div class="ttname"><a href="classFeel_1_1FunctionSpace.html#af1424ec781d3cb2a1f8bcf278f8800c5">Feel::FunctionSpace::basisOrder</a></div><div class="ttdeci">std::vector&lt; int &gt; basisOrder() const </div><div class="ttdef"><b>Definition:</b> functionspace.hpp:3880</div></div>

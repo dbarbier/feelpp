@@ -157,6 +157,7 @@ var namespaceFeel =
     [ "MeshMover", "classFeel_1_1MeshMover.html", "classFeel_1_1MeshMover" ],
     [ "MeshTraits", "structFeel_1_1MeshTraits.html", "structFeel_1_1MeshTraits" ],
     [ "Mortar", "classFeel_1_1Mortar.html", null ],
+    [ "Newmark", "classFeel_1_1Newmark.html", "classFeel_1_1Newmark" ],
     [ "node", "structFeel_1_1node.html", "structFeel_1_1node" ],
     [ "NoPeriodicity", "classFeel_1_1NoPeriodicity.html", "classFeel_1_1NoPeriodicity" ],
     [ "Normalized", "structFeel_1_1Normalized.html", null ],

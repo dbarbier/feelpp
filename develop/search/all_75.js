@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['u',['u',['../group__GeoXD.html#ga34eb8201d0c8fdb61bd9e2718272e74e',1,'Feel::Geo0D::u()'],['../classFeel_1_1SVD.html#a9a8e75cf72a20bda520e843d2dbf1b2a',1,'Feel::SVD::U()']]],
+  ['u',['U',['../classFeel_1_1SVD.html#a9a8e75cf72a20bda520e843d2dbf1b2a',1,'Feel::SVD::U()'],['../group__GeoXD.html#ga34eb8201d0c8fdb61bd9e2718272e74e',1,'Feel::Geo0D::u()']]],
   ['ub',['ub',['../classFeel_1_1CRB.html#a2e3675cdd7b5f8a6d0045d1371e2a9d2',1,'Feel::CRB::ub(size_type N, parameter_type const &amp;mu, std::vector&lt; vectorN_type &gt; &amp;uN, std::vector&lt; vectorN_type &gt; &amp;uNdu) const '],['../classFeel_1_1CRB.html#a01376bad4656812518f9909ae9679684',1,'Feel::CRB::ub(size_type K, parameter_ptrtype const &amp;mu, std::vector&lt; vectorN_type &gt; &amp;uN, std::vector&lt; vectorN_type &gt; &amp;uNdu) const '],['../classFeel_1_1CRBSCM.html#a9f4e5e040647df091f5bf25af26376af',1,'Feel::CRBSCM::ub(parameter_type const &amp;mu, size_type K=invalid_size_type_value) const '],['../classFeel_1_1CRBSCM.html#a5f3d38ba13973f12b1d5a946f91c8352',1,'Feel::CRBSCM::ub(parameter_ptrtype const &amp;mu, size_type K=invalid_size_type_value) const ']]],
   ['unaryfunctor_2ecpp',['unaryfunctor.cpp',['../unaryfunctor_8cpp.html',1,'']]],
   ['unaryfunctor_2ehpp',['unaryfunctor.hpp',['../unaryfunctor_8hpp.html',1,'']]],
@@ -20,10 +20,10 @@ var searchData=
   ['unitsquare',['unitSquare',['../namespaceFeel.html#aaf2805e45809b7e7cd370220b9062da0',1,'Feel']]],
   ['unitsquare_2ecpp',['unitsquare.cpp',['../unitsquare_8cpp.html',1,'']]],
   ['unitsquare_2ehpp',['unitsquare.hpp',['../unitsquare_8hpp.html',1,'']]],
-  ['unknown',['unknown',['../classFeel_1_1Bdf.html#a98d2fd5f1560bc33f8d97ee02aa0aa74',1,'Feel::Bdf']]],
+  ['unknown',['unknown',['../classFeel_1_1Bdf.html#a98d2fd5f1560bc33f8d97ee02aa0aa74',1,'Feel::Bdf::unknown()'],['../classFeel_1_1Newmark.html#a4f732e5a683e8af2e50d8eb7ff1f2a5d',1,'Feel::Newmark::unknown()']]],
   ['unknownargc',['unknownArgc',['../classFeel_1_1Application.html#a79e745539709940f7d58a6fdb1837bb2',1,'Feel::Application']]],
   ['unknownargv',['unknownArgv',['../classFeel_1_1Application.html#a63fd0cdffe5299845a4bf01800d6de2e',1,'Feel::Application']]],
-  ['unknowns',['unknowns',['../classFeel_1_1Bdf.html#aebf7b26c94b6115d714ec42c60debb11',1,'Feel::Bdf']]],
+  ['unknowns',['unknowns',['../classFeel_1_1Bdf.html#aebf7b26c94b6115d714ec42c60debb11',1,'Feel::Bdf::unknowns()'],['../classFeel_1_1Newmark.html#a0444be470125f6f999166a57d73da2a2',1,'Feel::Newmark::unknowns()']]],
   ['unregisterproduct',['unregisterProduct',['../classFeel_1_1Factory.html#aa19ab8b052114ca1d7e5dd74e7bda1da',1,'Feel::Factory']]],
   ['update',['update',['../classFeel_1_1CRBModel.html#a5c631a31e170d12a4db9cfdaa67abe5d',1,'Feel::CRBModel::update()'],['../classFeel_1_1OperatorLinearParametrized.html#a0d07b6601ad299594e4e49df8dbb4e8c',1,'Feel::OperatorLinearParametrized::update()'],['../classFeel_1_1GeoMap_1_1Context.html#a456e2331293c2b0cb41955dbc4d4aaa7',1,'Feel::GeoMap::Context::update(element_type const &amp;__e, uint16_type __f)'],['../classFeel_1_1GeoMap_1_1Context.html#a839fac80fef87b19a1ba77fe83eb8915',1,'Feel::GeoMap::Context::update(element_type const &amp;__e)']]],
   ['updateapeebasisconstruction',['updateApeeBasisConstruction',['../classFeel_1_1CRB.html#a8e127cfaa0cd70e6d5210d2f79cf3e67',1,'Feel::CRB']]],

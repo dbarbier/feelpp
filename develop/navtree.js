@@ -73,17 +73,17 @@ var NAVTREEINDEX =
 "classFeel_1_1MatrixShellSparse.html#a505e9da702a73590eb82e99c494b3832",
 "classFeel_1_1Mesh.html#ac98d07dd8f7b70e16ccb9a01abf56b9c",
 "classFeel_1_1MeshBase.html#a57f5d3023519e382787590cf7fb6ff1c",
-"classFeel_1_1OperatorLinearFree.html#ac52755c53748c592ce12875ed6d919cd",
-"classFeel_1_1PointSet.html#a6c950a11dc92bc8bb1fe5d78fca03b33",
-"classFeel_1_1PreconditionerPetsc.html#a24b5ef9c4ff0b1303cb3b9dab79594c1",
-"classFeel_1_1SolverBase.html#a980d9511216a1f91bd7080a9f82c5ef8",
-"classFeel_1_1SolverNonLinear.html#afce003dc732ee4d422681e813b96c9fd",
-"classFeel_1_1TensorisedBoundaryAdapted.html#ad8c6e6e59cdbd0e3f28dd2ef07ade12e",
-"classFeel_1_1Vector.html#a884d738439c93bc2b7a57d8ecb6c5427",
-"classFeel_1_1core__data.html#a150f792dfe72093a233b6ad2f2c6a8cf",
-"classFeel_1_1problem.html#a782eba5d255ad201a7a8bd88cd4fd779",
-"classThreeFieldsLaplacian.html#acad841da2460f2615bcbe1d526c3a845",
-"structFeel_1_1math_1_1Constant.html#addc15598bd97c5823b2c49b4f42d137c"
+"classFeel_1_1OperatorLinear.html#ad4a5ed0688ead74d0ceed2bc9f9bb65e",
+"classFeel_1_1Periodic.html#a423b711bf4e3d86fff5516a53b694307",
+"classFeel_1_1PolynomialSet.html#af675e93488bd0efb2a46a5da02f9cc97",
+"classFeel_1_1Simget.html#a72944ae1c3974a228f6e94b69b8001b8",
+"classFeel_1_1SolverNonLinear.html#ab040e4b982dc7f4f6fd80b816e39acf4",
+"classFeel_1_1SystemImplicitNonLinear.html#a98d8565fa73b3bf00ed6134a64d63c2b",
+"classFeel_1_1Vector.html#a03ef1746d4704135b5c0728560012684",
+"classFeel_1_1VectorUblas.html#afb6c5f8ea8b5a06adb515f17e562f749",
+"classFeel_1_1functional_1_1IntegralMomentsOnFace.html#aa240eeb828780f2053ec03171baf2a4a",
+"classResidualEstimator.html#a9e70214e6f2f7a1c017e7a43d0233042",
+"structFeel_1_1functional_1_1DirectionalComponentPointEvaluation.html#aecb6eea3c076bc788c3e22d27e0ed238"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
