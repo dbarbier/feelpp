@@ -92,6 +92,7 @@ var classFeel_1_1CRBModel =
     [ "innerProductForMassMatrix", "classFeel_1_1CRBModel.html#a16dd5641ca8769be2b4afbdac061e9ac", null ],
     [ "innerProductForMassMatrix", "classFeel_1_1CRBModel.html#a0db7edb7b1859c39c424f4caa86f8dfe", null ],
     [ "isInitialized", "classFeel_1_1CRBModel.html#a1d17101cf424e8cca205dd87e4bc1b5c", null ],
+    [ "isLinear", "classFeel_1_1CRBModel.html#a77b0311f6fef85968ebf8a053a450e47", null ],
     [ "isSteady", "classFeel_1_1CRBModel.html#ad856fd86e045babc506c4e9039acbc15", null ],
     [ "isSteady", "classFeel_1_1CRBModel.html#a697b9fcae9706ae086f4acadb28e43a0", null ],
     [ "isSteady", "classFeel_1_1CRBModel.html#aaf86227912abc68768b2ac009125f1df", null ],

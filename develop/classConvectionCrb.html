@@ -326,6 +326,23 @@ backend_type::vector_ptrtype&#160;</td><td class="memItemRight" valign="bottom">
 typedef <a class="el" href="classFeel_1_1Vector.html">backend_type::vector_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>vector_type</b></td></tr>
 <tr class="separator:a1a5191eb969a9bea4e6bc409ee297c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classFeel_1_1ModelCrbBase"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classFeel_1_1ModelCrbBase')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classFeel_1_1ModelCrbBase.html">Feel::ModelCrbBase&lt; ParameterDefinition, FunctionSpaceDefinition, EimDefinition &gt;</a></td></tr>
+<tr class="memitem:ab67a7b5c06707c56090adbafd4ef95a6 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab67a7b5c06707c56090adbafd4ef95a6"></a>
+typedef mpl::if_&lt; mpl::bool_<br class="typebreak"/>
+&lt; is_time_dependent &gt;<br class="typebreak"/>
+, boost::tuple&lt; std::vector<br class="typebreak"/>
+&lt; std::vector<br class="typebreak"/>
+&lt; sparse_matrix_ptrtype &gt;<br class="typebreak"/>
+ &gt;, std::vector&lt; std::vector<br class="typebreak"/>
+&lt; sparse_matrix_ptrtype &gt;<br class="typebreak"/>
+ &gt;, std::vector&lt; std::vector<br class="typebreak"/>
+&lt; std::vector&lt; vector_ptrtype &gt;<br class="typebreak"/>
+ &gt; &gt; &gt;, boost::tuple<br class="typebreak"/>
+&lt; std::vector&lt; std::vector<br class="typebreak"/>
+&lt; sparse_matrix_ptrtype &gt;<br class="typebreak"/>
+ &gt;, std::vector&lt; std::vector<br class="typebreak"/>
+&lt; std::vector&lt; vector_ptrtype &gt;<br class="typebreak"/>
+ &gt; &gt; &gt; &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>affine_decomposition_type</b></td></tr>
+<tr class="separator:ab67a7b5c06707c56090adbafd4ef95a6 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9827b8cc5770aa077b43d3ec2717806e inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9827b8cc5770aa077b43d3ec2717806e"></a>
 typedef std::vector<br class="typebreak"/>
 &lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>beta_vector_type</b></td></tr>
@@ -361,6 +378,13 @@ typedef <br class="typebreak"/>
 FsFunctionalLinearComposite<br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1FunctionSpace.html">space_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>functionalcomposite_type</b></td></tr>
 <tr class="separator:a20c982534a51e0de18efc6553c63e6bb inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3c3d8ddb08495ec57d7da4f31b81960 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3c3d8ddb08495ec57d7da4f31b81960"></a>
+typedef boost::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classFeel_1_1FunctionSpace.html">functionspace_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>functionspace_ptrtype</b></td></tr>
+<tr class="separator:af3c3d8ddb08495ec57d7da4f31b81960 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefdaeb4c72bc7c1f5db0dfc0df024882 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aefdaeb4c72bc7c1f5db0dfc0df024882"></a>
+typedef <a class="el" href="classFeel_1_1FunctionSpace.html">space_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>functionspace_type</b></td></tr>
+<tr class="separator:aefdaeb4c72bc7c1f5db0dfc0df024882 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1036b9f3d5d8f992a0ed964c4bd7a21b inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1036b9f3d5d8f992a0ed964c4bd7a21b"></a>
 typedef boost::shared_ptr<br class="typebreak"/>
 &lt; fund_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fund_ptrtype</b></td></tr>
@@ -374,6 +398,10 @@ typedef std::vector&lt; fun_ptrtype &gt;&#160;</td><td class="memItemRight" vali
 <tr class="memitem:a0fdec4474a23d04454b0d55fc4d26d79 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fdec4474a23d04454b0d55fc4d26d79"></a>
 typedef std::vector&lt; fund_ptrtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>funsd_type</b></td></tr>
 <tr class="separator:a0fdec4474a23d04454b0d55fc4d26d79 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47a121e132f1c2843c1b31b3b02e6c0c inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47a121e132f1c2843c1b31b3b02e6c0c"></a>
+typedef <br class="typebreak"/>
+<a class="el" href="classFeel_1_1Mesh.html">FunctionSpaceDefinition::mesh_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mesh_type</b></td></tr>
+<tr class="separator:a47a121e132f1c2843c1b31b3b02e6c0c inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f8e585b94dabdbb1a637580555d83b9 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f8e585b94dabdbb1a637580555d83b9"></a>
 typedef boost::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classFeel_1_1OperatorLinear.html">operator_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator_ptrtype</b></td></tr>
@@ -399,6 +427,9 @@ typedef <br class="typebreak"/>
 typedef <br class="typebreak"/>
 <a class="el" href="classFeel_1_1ParameterSpace.html">ParameterDefinition::parameterspace_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>parameterspace_type</b></td></tr>
 <tr class="separator:a342bcf71502155fcebda75fe83e9ef50 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf131a4bf649415c174c7db0b70a9e9c inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf131a4bf649415c174c7db0b70a9e9c"></a>
+typedef ModelCrbBase&#160;</td><td class="memItemRight" valign="bottom"><b>self_type</b></td></tr>
+<tr class="separator:abf131a4bf649415c174c7db0b70a9e9c inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c5aa21946e5fd26f43e96e15534cfb4 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c5aa21946e5fd26f43e96e15534cfb4"></a>
 typedef <br class="typebreak"/>
 <a class="el" href="classFeel_1_1FunctionSpace.html">FunctionSpaceDefinition::space_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>space_type</b></td></tr>
@@ -411,6 +442,9 @@ backend_type::sparse_matrix_ptrtype&#160;</td><td class="memItemRight" valign="b
 typedef <br class="typebreak"/>
 <a class="el" href="classFeel_1_1MatrixSparse.html">backend_type::sparse_matrix_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sparse_matrix_type</b></td></tr>
 <tr class="separator:ab4317f830dd3de39ea47202bd3cb21c2 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a244ae7f092eac293fb80e97d4096be01 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a244ae7f092eac293fb80e97d4096be01"></a>
+typedef double&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
+<tr class="separator:a244ae7f092eac293fb80e97d4096be01 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abffeecb7af302ef9c0bb8277178fd8d8 inherit pub_types_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abffeecb7af302ef9c0bb8277178fd8d8"></a>
 typedef <br class="typebreak"/>
 backend_type::vector_ptrtype&#160;</td><td class="memItemRight" valign="bottom"><b>vector_ptrtype</b></td></tr>
@@ -545,6 +579,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateResidual</b> (c
 <tr class="memitem:aa02ebf67d5c16d50405d1835a04bb79b inherit pub_methods_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa02ebf67d5c16d50405d1835a04bb79b"></a>
 virtual beta_vector_type&#160;</td><td class="memItemRight" valign="bottom"><b>computeBetaInitialGuess</b> (<a class="el" href="classFeel_1_1ParameterSpace_1_1Element.html">parameter_type</a> const &amp;mu)</td></tr>
 <tr class="separator:aa02ebf67d5c16d50405d1835a04bb79b inherit pub_methods_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a08480cca1a113f0b497d085cdbd90f inherit pub_methods_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a08480cca1a113f0b497d085cdbd90f"></a>
+virtual std::vector<br class="typebreak"/>
+&lt; std::vector&lt; element_ptrtype &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>computeInitialGuessAffineDecomposition</b> ()</td></tr>
+<tr class="separator:a2a08480cca1a113f0b497d085cdbd90f inherit pub_methods_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4de0a83964971a9d2292967685599095 inherit pub_methods_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top">vectorN_type&#160;</td><td class="memItemRight" valign="bottom"><b>computeStatistics</b> (Eigen::VectorXd vector, std::string name)</td></tr>
 <tr class="separator:a4de0a83964971a9d2292967685599095 inherit pub_methods_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eed3e0411b3b488588a01403c5a133b inherit pub_methods_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8eed3e0411b3b488588a01403c5a133b"></a>
@@ -626,6 +664,16 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>Order_t</
 <tr class="memitem:a34bc3a104acc1233cf3132fea56f5e3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34bc3a104acc1233cf3132fea56f5e3d"></a>
 static const uint16_type&#160;</td><td class="memItemRight" valign="bottom"><b>ParameterSpaceDimension</b> = 2</td></tr>
 <tr class="separator:a34bc3a104acc1233cf3132fea56f5e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_attribs_classFeel_1_1ModelCrbBase"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classFeel_1_1ModelCrbBase')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classFeel_1_1ModelCrbBase.html">Feel::ModelCrbBase&lt; ParameterDefinition, FunctionSpaceDefinition, EimDefinition &gt;</a></td></tr>
+<tr class="memitem:a9dc14bd7496b7aa013bfb77e8ecd7608 inherit pub_static_attribs_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9dc14bd7496b7aa013bfb77e8ecd7608"></a>
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_linear</b> = FunctionSpaceDefinition::is_linear</td></tr>
+<tr class="separator:a9dc14bd7496b7aa013bfb77e8ecd7608 inherit pub_static_attribs_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac99bf3897ae0752e642c3607483ca899 inherit pub_static_attribs_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac99bf3897ae0752e642c3607483ca899"></a>
+static const bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_time_dependent</b> = FunctionSpaceDefinition::is_time_dependent</td></tr>
+<tr class="separator:ac99bf3897ae0752e642c3607483ca899 inherit pub_static_attribs_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9571e68101493dfe20b1cf8bc74a0d1a inherit pub_static_attribs_classFeel_1_1ModelCrbBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9571e68101493dfe20b1cf8bc74a0d1a"></a>
+static const uint16_type&#160;</td><td class="memItemRight" valign="bottom"><b>ParameterSpaceDimension</b> = ParameterDefinition::ParameterSpaceDimension</td></tr>
+<tr class="separator:a9571e68101493dfe20b1cf8bc74a0d1a inherit pub_static_attribs_classFeel_1_1ModelCrbBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>

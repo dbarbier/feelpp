@@ -14,7 +14,6 @@ var searchData=
   ['expansion_2ehpp',['expansion.hpp',['../expansion_8hpp.html',1,'']]],
   ['expansions_2ehpp',['expansions.hpp',['../expansions_8hpp.html',1,'']]],
   ['expansiontypes_2ehpp',['expansiontypes.hpp',['../expansiontypes_8hpp.html',1,'']]],
-  ['exporter_2ecpp',['exporter.cpp',['../exporter_8cpp.html',1,'']]],
   ['exporterexodus_2ehpp',['exporterexodus.hpp',['../exporterexodus_8hpp.html',1,'']]],
   ['exportergnuplot_2ecpp',['exportergnuplot.cpp',['../exportergnuplot_8cpp.html',1,'']]],
   ['exportergnuplot_2ehpp',['exportergnuplot.hpp',['../exportergnuplot_8hpp.html',1,'']]],

@@ -9,7 +9,7 @@ var classFeel_1_1fem_1_1Nedelec =
     [ "polyset_type", "classFeel_1_1fem_1_1Nedelec.html#a1f402b6296f1b69c502d4df1d563ceaa", null ],
     [ "primal_space_type", "classFeel_1_1fem_1_1Nedelec.html#afde2e28c3ba36156c2c1a6b966394e4f", null ],
     [ "reference_convex_type", "classFeel_1_1fem_1_1Nedelec.html#abc28e79b480505bd291a94d44829f5a0", null ],
-    [ "super", "classFeel_1_1fem_1_1Nedelec.html#a9b5cd15896abf944737b5904183efac7", null ],
+    [ "super", "classFeel_1_1fem_1_1Nedelec.html#ae5f4a94b7bae17abcc5038183e5e51d7", null ],
     [ "value_type", "classFeel_1_1fem_1_1Nedelec.html#a537916b6b6337edd706bf8b7ae47b8ca", null ],
     [ "Nedelec", "classFeel_1_1fem_1_1Nedelec.html#a5901906ecc5d7d0318f4785db96f1adb", null ],
     [ "Nedelec", "classFeel_1_1fem_1_1Nedelec.html#a1cc702a335e1f459c262fb87494497f5", null ],

@@ -43,6 +43,7 @@ var searchData=
   ['bdf2_2ehpp',['bdf2.hpp',['../bdf2_8hpp.html',1,'']]],
   ['bdf_5foptions',['bdf_options',['../namespaceFeel.html#a42f2fd19e68d4f42ca91774b81763086',1,'Feel']]],
   ['bdf_5ftype',['bdf_type',['../classFeel_1_1CRB.html#a27e55857c23991212b9b3b458cd8f822',1,'Feel::CRB::bdf_type()'],['../classFeel_1_1CRBModel.html#a130cb10e39947f8daf7d049c1ca037d3',1,'Feel::CRBModel::bdf_type()'],['../classFeel_1_1POD.html#ac7c4c6d74d30bac3583d0a2cfcbf533e',1,'Feel::POD::bdf_type()']]],
+  ['bdforder',['bdfOrder',['../classFeel_1_1Bdf.html#a85586d0801e8372507b839e8b94ef0a5',1,'Feel::Bdf']]],
   ['before',['before',['../classFeel_1_1TypeInfo.html#abd3d09d3b35ef984805ef27509f59fba',1,'Feel::TypeInfo']]],
   ['begin',['begin',['../classFeel_1_1GraphCSR.html#a6548a5741f94d66b0224e942ccf735d8',1,'Feel::GraphCSR::begin()'],['../classFeel_1_1GraphCSR.html#ac9f925aca2d09700be5cb5398fbd500b',1,'Feel::GraphCSR::begin() const '],['../classFeel_1_1Application.html#aec60ec2e94b8fb0ad0110a56dd306c74',1,'Feel::Application::begin()']]],
   ['beginelementonboundary',['beginElementOnBoundary',['../namespaceFeel.html#ae438d669199d3db3804d19975b99da35',1,'Feel']]],

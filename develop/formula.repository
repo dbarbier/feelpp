@@ -872,3 +872,5 @@
 \form#871:$ -\nabla cdot k(u) \nabla u + q(u) = 0, \quad u_\Gamma = 0$
 \form#872:$ \gamma $
 \form#873:$ \beta $
+\form#874:$ M \ddot{\boldsymbol{\eta}}^{n+1} = A \boldsymbol{\eta}^{n+1} + f $
+\form#875:\begin{eqnarray} \ddot{\boldsymbol{\eta}}^{n+1} &=& \frac{1}{\beta \Delta t^2} \left( \boldsymbol{\eta}^{n+1}-\boldsymbol{\eta}^{n} \right) - \frac{1}{\beta \Delta t} \dot{\boldsymbol{\eta}}^{n} - \left( \frac{1}{2 \beta} -1 \right) \ddot{\boldsymbol{\eta}}^{n} \ \ \dot{\boldsymbol{\eta}}^{n+1} &=& \frac{\gamma}{\beta \Delta t} \left( \boldsymbol{\eta}^{n+1}-\boldsymbol{\eta}^{n} \right) - \left( \frac{\gamma}{\beta} -1 \right) \dot{\boldsymbol{\eta}}^{n} - \Delta t \left( \frac{\gamma}{2\beta}-1 \right) \ddot{\boldsymbol{\eta}}^{n} \end{eqnarray}

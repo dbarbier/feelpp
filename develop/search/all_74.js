@@ -19,6 +19,7 @@ var searchData=
   ['tic_2ehpp',['tic.hpp',['../tic_8hpp.html',1,'']]],
   ['time',['time',['../classFeel_1_1TimeSet_1_1Step.html#a160e416457a8153ba951606d4b7ec216',1,'Feel::TimeSet::Step']]],
   ['timeincrement',['timeIncrement',['../classFeel_1_1TimeSet.html#a0d38ce27ed074aaffb6e5d5065c68533',1,'Feel::TimeSet']]],
+  ['timeorder',['timeOrder',['../classFeel_1_1Bdf.html#ac7883094b8dec4764e969a894b1a3459',1,'Feel::Bdf']]],
   ['timer_2ehpp',['timer.hpp',['../timer_8hpp.html',1,'']]],
   ['timermap',['TimerMap',['../classFeel_1_1TimerMap.html',1,'Feel']]],
   ['timermap_2ehpp',['timermap.hpp',['../timermap_8hpp.html',1,'']]],
@@ -44,8 +45,8 @@ var searchData=
   ['ts_5foptions',['ts_options',['../namespaceFeel.html#acc2734916cb7a4117357b42fbb6bf3b2',1,'Feel']]],
   ['twovalued_2ehpp',['twovalued.hpp',['../twovalued_8hpp.html',1,'']]],
   ['type',['type',['../classFeel_1_1Aitken.html#a84ad6ae1e2e70e9919921e516c9f6d18',1,'Feel::Aitken::type()'],['../classFeel_1_1Preconditioner.html#a15a913582c0e115780a87839ea56a10f',1,'Feel::Preconditioner::type()'],['../classFeel_1_1Exporter.html#a05214764672a228e2b93f4199833283c',1,'Feel::Exporter::type()']]],
-  ['typeinfo',['TypeInfo',['../classFeel_1_1TypeInfo.html',1,'Feel']]],
   ['typeinfo',['typeInfo',['../classFeel_1_1TypeInfo.html#aa97e4aeb3d0ea311834d598e63cc93c9',1,'Feel::TypeInfo']]],
+  ['typeinfo',['TypeInfo',['../classFeel_1_1TypeInfo.html',1,'Feel']]],
   ['typename',['typeName',['../classFeel_1_1ExprBase.html#a2e3783d9345882448a567002d311ad53',1,'Feel::ExprBase']]],
   ['typetraits_2ehpp',['typetraits.hpp',['../typetraits_8hpp.html',1,'']]]
 ];

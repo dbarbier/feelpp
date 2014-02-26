@@ -114,11 +114,21 @@ $(document).ready(function(){initNavTree('classFeel_1_1Newmark.html','');});
 class Feel::Newmark&lt; SpaceType &gt;</h3>
 
 <p><a class="el" href="classFeel_1_1Newmark.html" title="Newmark discretization. ">Newmark</a> discretization. </p>
-</div>
+<p>A differential equation of the form</p>
+<p><img class="formulaInl" alt="$ M \ddot{\boldsymbol{\eta}}^{n+1} = A \boldsymbol{\eta}^{n+1} + f $" src="form_874.png"/></p>
+<p>is discretized in time as</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\begin{eqnarray} \ddot{\boldsymbol{\eta}}^{n+1} &amp;=&amp; \frac{1}{\beta \Delta t^2} \left( \boldsymbol{\eta}^{n+1}-\boldsymbol{\eta}^{n} \right) - \frac{1}{\beta \Delta t} \dot{\boldsymbol{\eta}}^{n} - \left( \frac{1}{2 \beta} -1 \right) \ddot{\boldsymbol{\eta}}^{n} \ \ \dot{\boldsymbol{\eta}}^{n+1} &amp;=&amp; \frac{\gamma}{\beta \Delta t} \left( \boldsymbol{\eta}^{n+1}-\boldsymbol{\eta}^{n} \right) - \left( \frac{\gamma}{\beta} -1 \right) \dot{\boldsymbol{\eta}}^{n} - \Delta t \left( \frac{\gamma}{2\beta}-1 \right) \ddot{\boldsymbol{\eta}}^{n} \end{eqnarray}" src="form_875.png"/>
+</p>
+ </div>
 <p>Inherits Feel::TSBase.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr class="memitem:aaa54a3ca21aa15d4779b30fa0e976cc3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa54a3ca21aa15d4779b30fa0e976cc3"></a>
+typedef boost::shared_ptr<br class="typebreak"/>
+&lt; element_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>element_ptrtype</b></td></tr>
+<tr class="separator:aaa54a3ca21aa15d4779b30fa0e976cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c767185377fa5bc3d2e8ac94e66adbd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c767185377fa5bc3d2e8ac94e66adbd"></a>
 typedef space_type::element_type&#160;</td><td class="memItemRight" valign="bottom"><b>element_type</b></td></tr>
 <tr class="separator:a1c767185377fa5bc3d2e8ac94e66adbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,9 +159,6 @@ typedef super::time_iterator&#160;</td><td class="memItemRight" valign="bottom">
 typedef boost::shared_ptr<br class="typebreak"/>
 &lt; element_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>unknown_type</b></td></tr>
 <tr class="separator:a040eb73239b07cf74908dafb8a858633"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb662e403892439f2da27eca853f07e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9eb662e403892439f2da27eca853f07e"></a>
-typedef std::vector&lt; unknown_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>unknowns_type</b></td></tr>
-<tr class="separator:a9eb662e403892439f2da27eca853f07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57464e354263250f56bf87e05377194f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57464e354263250f56bf87e05377194f"></a>
 typedef element_type::value_type&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
 <tr class="separator:a57464e354263250f56bf87e05377194f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,10 +177,32 @@ typedef std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="b
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a498cd01a67eb8e00874eda6c0249c5fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a498cd01a67eb8e00874eda6c0249c5fa"></a>
+element_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>currentAcceleration</b> ()</td></tr>
+<tr class="separator:a498cd01a67eb8e00874eda6c0249c5fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d880f9777591bf12f91b2e15df53e05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d880f9777591bf12f91b2e15df53e05"></a>
+element_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>currentAcceleration</b> () const </td></tr>
+<tr class="separator:a8d880f9777591bf12f91b2e15df53e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad399cd70a8ffced4c49d5ccc0847fd12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad399cd70a8ffced4c49d5ccc0847fd12"></a>
+element_ptrtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>currentAccelerationPtr</b> ()</td></tr>
+<tr class="separator:ad399cd70a8ffced4c49d5ccc0847fd12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac058ff6c0743334c89f375b230cc8d72"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac058ff6c0743334c89f375b230cc8d72"></a>
+element_ptrtype const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>currentAccelerationPtr</b> () const </td></tr>
+<tr class="separator:ac058ff6c0743334c89f375b230cc8d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73ee8ff2b1060a571cdc341dc4d42445"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73ee8ff2b1060a571cdc341dc4d42445"></a>
+element_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>currentVelocity</b> ()</td></tr>
+<tr class="separator:a73ee8ff2b1060a571cdc341dc4d42445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab134aa24e0fde4e7a6d55260d6d538bf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab134aa24e0fde4e7a6d55260d6d538bf"></a>
+element_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>currentVelocity</b> () const </td></tr>
+<tr class="separator:ab134aa24e0fde4e7a6d55260d6d538bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a951ffb8e5ac90ac0733471d086608256"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a951ffb8e5ac90ac0733471d086608256"></a>
+element_ptrtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>currentVelocityPtr</b> ()</td></tr>
+<tr class="separator:a951ffb8e5ac90ac0733471d086608256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a221504974189cbedbcfd112d36685676"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a221504974189cbedbcfd112d36685676"></a>
+element_ptrtype const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>currentVelocityPtr</b> () const </td></tr>
+<tr class="separator:a221504974189cbedbcfd112d36685676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95887d00969aaebe87449dbfa55edc2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html#a95887d00969aaebe87449dbfa55edc2f">initialize</a> (element_type const &amp;u0)</td></tr>
 <tr class="separator:a95887d00969aaebe87449dbfa55edc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf1073521a5ff16e8b5b023a89fc074d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html#abf1073521a5ff16e8b5b023a89fc074d">initialize</a> (unknowns_type const &amp;uv0)</td></tr>
-<tr class="separator:abf1073521a5ff16e8b5b023a89fc074d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ce6e8c074b98cd0730d11abc491ad71"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ce6e8c074b98cd0730d11abc491ad71"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadCurrent</b> ()</td></tr>
 <tr class="separator:a3ce6e8c074b98cd0730d11abc491ad71"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,52 +221,37 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>next</b> () const <
 template&lt;typename container_type &gt; </td></tr>
 <tr class="memitem:a1c8e4655a39158672df59610093438a7"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>next</b> (typename space_type::template Element&lt; value_type, container_type &gt; const &amp;u_curr)</td></tr>
 <tr class="separator:a1c8e4655a39158672df59610093438a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7d593b182775e7b43ae967e052190e2"><td class="memItemLeft" align="right" valign="top">element_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html#ab7d593b182775e7b43ae967e052190e2">polyDeriv</a> () const </td></tr>
+<tr class="memitem:ab7d593b182775e7b43ae967e052190e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7d593b182775e7b43ae967e052190e2"></a>
+element_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html#ab7d593b182775e7b43ae967e052190e2">polyDeriv</a> () const </td></tr>
+<tr class="memdesc:ab7d593b182775e7b43ae967e052190e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the right hand side <img class="formulaInl" alt="$ \bar{p} $" src="form_205.png"/> of the time derivative formula. <br/></td></tr>
 <tr class="separator:ab7d593b182775e7b43ae967e052190e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a025ecde40ca77e78bbe310d3780a979e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a025ecde40ca77e78bbe310d3780a979e"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>polyDerivCoefficient</b> () const </td></tr>
 <tr class="separator:a025ecde40ca77e78bbe310d3780a979e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7d9f765285da8734f9b2b5bb742250f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7d9f765285da8734f9b2b5bb742250f"></a>
-element_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>previousAcc</b> () const </td></tr>
-<tr class="separator:ae7d9f765285da8734f9b2b5bb742250f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c2c5e4edd98d55fcfab2c99787931e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c2c5e4edd98d55fcfab2c99787931e4"></a>
-element_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>previousDisp</b> (int i=0) const </td></tr>
-<tr class="separator:a1c2c5e4edd98d55fcfab2c99787931e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1db37c4bd75a25dd7073b28e17ccb428"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1db37c4bd75a25dd7073b28e17ccb428"></a>
-element_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>previousVel</b> () const </td></tr>
-<tr class="separator:a1db37c4bd75a25dd7073b28e17ccb428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5f3604598e3c733f0dad2bd3481a466"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5f3604598e3c733f0dad2bd3481a466"></a>
+element_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>previousAcceleration</b> () const </td></tr>
+<tr class="separator:ad5f3604598e3c733f0dad2bd3481a466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8afee44659e409161b70e751fa30d52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8afee44659e409161b70e751fa30d52"></a>
+element_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html#ac8afee44659e409161b70e751fa30d52">previousUnknown</a> () const </td></tr>
+<tr class="memdesc:ac8afee44659e409161b70e751fa30d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the last unknown. <br/></td></tr>
+<tr class="separator:ac8afee44659e409161b70e751fa30d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9298bfff12e5095d85a6dcd8b3c52c36"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9298bfff12e5095d85a6dcd8b3c52c36"></a>
+element_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>previousVelocity</b> () const </td></tr>
+<tr class="separator:a9298bfff12e5095d85a6dcd8b3c52c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee6222f49f3a0e446dee16b7a7b40851"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html#aee6222f49f3a0e446dee16b7a7b40851">restart</a> ()</td></tr>
 <tr class="separator:aee6222f49f3a0e446dee16b7a7b40851"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67f8a79a458975fe04df9bae9d79590f"><td class="memTemplParams" colspan="2"><a class="anchor" id="a67f8a79a458975fe04df9bae9d79590f"></a>
-template&lt;typename container_type &gt; </td></tr>
-<tr class="memitem:a67f8a79a458975fe04df9bae9d79590f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>setUnknown</b> (int i, typename space_type::template Element&lt; value_type, container_type &gt; const &amp;e)</td></tr>
-<tr class="separator:a67f8a79a458975fe04df9bae9d79590f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a92fef9c982f2a1796ed4efd1263153"><td class="memTemplParams" colspan="2">template&lt;typename container_type &gt; </td></tr>
 <tr class="memitem:a3a92fef9c982f2a1796ed4efd1263153"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html#a3a92fef9c982f2a1796ed4efd1263153">shiftRight</a> (typename space_type::template Element&lt; value_type, container_type &gt; const &amp;u_curr)</td></tr>
 <tr class="separator:a3a92fef9c982f2a1796ed4efd1263153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd08b0a0a59be716d76408d9605cfdf4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd08b0a0a59be716d76408d9605cfdf4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>showMe</b> (std::ostream &amp;__out=std::cout) const </td></tr>
-<tr class="separator:abd08b0a0a59be716d76408d9605cfdf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a53ea35cde6af59bd7048daf462bb10"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html#a1a53ea35cde6af59bd7048daf462bb10">start</a> ()</td></tr>
 <tr class="separator:a1a53ea35cde6af59bd7048daf462bb10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1e084acbb2720eee25bb72ba69e3949"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1e084acbb2720eee25bb72ba69e3949"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (element_type const &amp;u0)</td></tr>
 <tr class="separator:ac1e084acbb2720eee25bb72ba69e3949"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a424fe1d20f76c3aff8c7945af0527cf2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a424fe1d20f76c3aff8c7945af0527cf2"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (unknowns_type const &amp;uv0)</td></tr>
-<tr class="separator:a424fe1d20f76c3aff8c7945af0527cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f732e5a683e8af2e50d8eb7ff1f2a5d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f732e5a683e8af2e50d8eb7ff1f2a5d"></a>
-element_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html#a4f732e5a683e8af2e50d8eb7ff1f2a5d">unknown</a> (int i)</td></tr>
-<tr class="memdesc:a4f732e5a683e8af2e50d8eb7ff1f2a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a vector with the last n state vectors. <br/></td></tr>
-<tr class="separator:a4f732e5a683e8af2e50d8eb7ff1f2a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0444be470125f6f999166a57d73da2a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0444be470125f6f999166a57d73da2a2"></a>
-unknowns_type const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1Newmark.html#a0444be470125f6f999166a57d73da2a2">unknowns</a> () const </td></tr>
-<tr class="memdesc:a0444be470125f6f999166a57d73da2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a vector with the last n state vectors. <br/></td></tr>
-<tr class="separator:a0444be470125f6f999166a57d73da2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbff619af20cc00eb5e7fca166c506ba"><td class="memTemplParams" colspan="2"><a class="anchor" id="afbff619af20cc00eb5e7fca166c506ba"></a>
+<tr class="memitem:a0a0c4b2fb44d7e3ec8b03a124d391c87"><td class="memTemplParams" colspan="2"><a class="anchor" id="a0a0c4b2fb44d7e3ec8b03a124d391c87"></a>
 template&lt;typename container_type &gt; </td></tr>
-<tr class="memitem:afbff619af20cc00eb5e7fca166c506ba"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>updateVelAcc</b> (typename space_type::template Element&lt; value_type, container_type &gt; const &amp;u_curr)</td></tr>
-<tr class="separator:afbff619af20cc00eb5e7fca166c506ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a0c4b2fb44d7e3ec8b03a124d391c87"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>updateFromDisp</b> (typename space_type::template Element&lt; value_type, container_type &gt; const &amp;u_curr)</td></tr>
+<tr class="separator:a0a0c4b2fb44d7e3ec8b03a124d391c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classFeel_1_1TSBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classFeel_1_1TSBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classFeel_1_1TSBase.html">Feel::TSBase</a></td></tr>
 <tr class="memitem:a54c9dc3d244b26869c6de964dc272769 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54c9dc3d244b26869c6de964dc272769"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>doRestartAtLastSave</b> () const </td></tr>
@@ -261,14 +275,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>iteration</b> () const
 int&#160;</td><td class="memItemRight" valign="bottom"><b>nRestart</b> () const </td></tr>
 <tr class="memdesc:a9aaa39f9af8828d27166048021624304 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of restarts <br/></td></tr>
 <tr class="separator:a9aaa39f9af8828d27166048021624304 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bfc41b66b699a706ad30adeef870b72 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bfc41b66b699a706ad30adeef870b72"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>numberOfIterationsBetweenOrderChange</b> () const </td></tr>
-<tr class="memdesc:a8bfc41b66b699a706ad30adeef870b72 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of iterations between order change <br/></td></tr>
-<tr class="separator:a8bfc41b66b699a706ad30adeef870b72 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a7dcbbbf1e4d5938fd1c5f0191d8420 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a7dcbbbf1e4d5938fd1c5f0191d8420"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>numberOfIterationsSinceOrderChange</b> () const </td></tr>
-<tr class="memdesc:a5a7dcbbbf1e4d5938fd1c5f0191d8420 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of iterations since last order change <br/></td></tr>
-<tr class="separator:a5a7dcbbbf1e4d5938fd1c5f0191d8420 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a889b50a5df3ec52d7eb886f4bcf0f38f inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a889b50a5df3ec52d7eb886f4bcf0f38f"></a>
 TSBase &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (TSBase const &amp;b)</td></tr>
 <tr class="separator:a889b50a5df3ec52d7eb886f4bcf0f38f inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -276,9 +282,9 @@ TSBase &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b>
 fs::path&#160;</td><td class="memItemRight" valign="bottom"><b>path</b> ()</td></tr>
 <tr class="memdesc:aaf3ca9488203414becd394fd8a9df170 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the relative path where the bdf data is stored <br/></td></tr>
 <tr class="separator:aaf3ca9488203414becd394fd8a9df170 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3420a9f936a3f3e1a248b998e2526c59 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3420a9f936a3f3e1a248b998e2526c59"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> () const </td></tr>
-<tr class="separator:a3420a9f936a3f3e1a248b998e2526c59 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a966ab0e4ff413a33626e0f787d12dffc inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a966ab0e4ff413a33626e0f787d12dffc"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> () const </td></tr>
+<tr class="separator:a966ab0e4ff413a33626e0f787d12dffc inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafb06da63c470403ab4b0b8665e6cafc inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafb06da63c470403ab4b0b8665e6cafc"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>rankProcInNameOfFiles</b> () const </td></tr>
 <tr class="separator:aafb06da63c470403ab4b0b8665e6cafc inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -312,9 +318,9 @@ template&lt;class Archive &gt; </td></tr>
 <tr class="memitem:a3afec35c4cf7a40fd6de1157dc46ace0 inherit pub_methods_classFeel_1_1TSBase"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>serialize</b> (Archive &amp;ar, const unsigned int version)</td></tr>
 <tr class="memdesc:a3afec35c4cf7a40fd6de1157dc46ace0 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">save/load <a class="el" href="classFeel_1_1Bdf.html" title="Backward differencing formula time discretization. ">Bdf</a> metadata <br/></td></tr>
 <tr class="separator:a3afec35c4cf7a40fd6de1157dc46ace0 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4996a4bd4579d831f0272b324afcc16 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4996a4bd4579d831f0272b324afcc16"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setOrder</b> (int order)</td></tr>
-<tr class="separator:aa4996a4bd4579d831f0272b324afcc16 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93bdba9113c8d99c4eb43f3ba3196f30 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93bdba9113c8d99c4eb43f3ba3196f30"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPathSave</b> (std::string s)</td></tr>
+<tr class="separator:a93bdba9113c8d99c4eb43f3ba3196f30 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f1ccb3bda57acfb1cfecd2d6fdaf670 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f1ccb3bda57acfb1cfecd2d6fdaf670"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setRankProcInNameOfFiles</b> (bool b)</td></tr>
 <tr class="separator:a0f1ccb3bda57acfb1cfecd2d6fdaf670 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -371,10 +377,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeFinal</b> () co
 double&#160;</td><td class="memItemRight" valign="bottom"><b>timeInitial</b> () const </td></tr>
 <tr class="memdesc:a62c255a95374686ff9cd0b9f70eb8c74 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the initial time <br/></td></tr>
 <tr class="separator:a62c255a95374686ff9cd0b9f70eb8c74 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0c6205b609505c40f2683ccaeaf0d09 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0c6205b609505c40f2683ccaeaf0d09"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>timeOrder</b> () const </td></tr>
-<tr class="memdesc:ac0c6205b609505c40f2683ccaeaf0d09 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the order in time <br/></td></tr>
-<tr class="separator:ac0c6205b609505c40f2683ccaeaf0d09 inherit pub_methods_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab25396600f99e7f5900bcb0fe1910944 inherit pub_methods_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab25396600f99e7f5900bcb0fe1910944"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> () const </td></tr>
 <tr class="memdesc:ab25396600f99e7f5900bcb0fe1910944 inherit pub_methods_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the final step <br/></td></tr>
@@ -418,13 +420,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>M_dt</b></td></tr>
 <tr class="separator:aaeedfeeb5685c693eb81ca315d5a5354 inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28364fe48700c050aa4adf565e5518cb inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28364fe48700c050aa4adf565e5518cb"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>M_iteration</b></td></tr>
+<tr class="memdesc:a28364fe48700c050aa4adf565e5518cb inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">iteration <br/></td></tr>
 <tr class="separator:a28364fe48700c050aa4adf565e5518cb inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae72cf68511f39e2d8cf53c40157297e5 inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae72cf68511f39e2d8cf53c40157297e5"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>M_iterations_between_order_change</b></td></tr>
-<tr class="separator:ae72cf68511f39e2d8cf53c40157297e5 inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23df2b980dbf35f96934c22c91b51d7d inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23df2b980dbf35f96934c22c91b51d7d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>M_last_iteration_since_order_change</b></td></tr>
-<tr class="separator:a23df2b980dbf35f96934c22c91b51d7d inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac7be14664106c1fe8834c3a98fe33a0 inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac7be14664106c1fe8834c3a98fe33a0"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>M_n_restart</b></td></tr>
 <tr class="memdesc:aac7be14664106c1fe8834c3a98fe33a0 inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">restart <br/></td></tr>
@@ -433,13 +430,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>M_n_restart</b></td></
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>M_name</b></td></tr>
 <tr class="memdesc:ae164884e44d490224b1e02dbe81e54c9 inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">name of the file holding the bdf data <br/></td></tr>
 <tr class="separator:ae164884e44d490224b1e02dbe81e54c9 inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f043be3f7da071697cbde3e3b5f8d5d inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f043be3f7da071697cbde3e3b5f8d5d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>M_order</b></td></tr>
-<tr class="memdesc:a8f043be3f7da071697cbde3e3b5f8d5d inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">time order <br/></td></tr>
-<tr class="separator:a8f043be3f7da071697cbde3e3b5f8d5d inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3b39c91349f5c4b25ef13eb76f63479 inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3b39c91349f5c4b25ef13eb76f63479"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>M_order_cur</b></td></tr>
-<tr class="separator:ad3b39c91349f5c4b25ef13eb76f63479 inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80cbcb68ed06201ee011faa9470e49c4 inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80cbcb68ed06201ee011faa9470e49c4"></a>
 fs::path&#160;</td><td class="memItemRight" valign="bottom"><b>M_path_save</b></td></tr>
 <tr class="memdesc:a80cbcb68ed06201ee011faa9470e49c4 inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">path to the directory to store the functions <br/></td></tr>
@@ -492,13 +482,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>M_Ti</b></td></tr>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>M_time</b></td></tr>
 <tr class="memdesc:a3e404ee116e89fb893d9e4966d95bfec inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">time <br/></td></tr>
 <tr class="separator:a3e404ee116e89fb893d9e4966d95bfec inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaca29c8f792e45432362ada9e30b866a inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaca29c8f792e45432362ada9e30b866a"></a>
-std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>M_time_orders</b></td></tr>
-<tr class="memdesc:aaca29c8f792e45432362ada9e30b866a inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector that holds the time order at each bdf step <br/></td></tr>
-<tr class="separator:aaca29c8f792e45432362ada9e30b866a inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a589c4887170c52b351ab91a32372c398 inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a589c4887170c52b351ab91a32372c398"></a>
-time_values_map_type&#160;</td><td class="memItemRight" valign="bottom"><b>M_time_values_map</b></td></tr>
-<tr class="memdesc:a589c4887170c52b351ab91a32372c398 inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector that holds the time value at each bdf step <br/></td></tr>
+<tr class="memitem:a589c4887170c52b351ab91a32372c398 inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top">time_values_map_type&#160;</td><td class="memItemRight" valign="bottom"><b>M_time_values_map</b></td></tr>
+<tr class="memdesc:a589c4887170c52b351ab91a32372c398 inherit pro_attribs_classFeel_1_1TSBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector that holds the time order at each bdf step  <a href="#a589c4887170c52b351ab91a32372c398">More...</a><br/></td></tr>
 <tr class="separator:a589c4887170c52b351ab91a32372c398 inherit pro_attribs_classFeel_1_1TSBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbef3aa03ea469d02f7c8aa092ea9f62 inherit pro_attribs_classFeel_1_1TSBase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbef3aa03ea469d02f7c8aa092ea9f62"></a>
 boost::timer&#160;</td><td class="memItemRight" valign="bottom"><b>M_timer</b></td></tr>
@@ -550,8 +535,10 @@ template&lt;typename SpaceType &gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">vm</td><td>option storage </td></tr>
     <tr><td class="paramname">space</td><td>approximation space </td></tr>
-    <tr><td class="paramname">n</td><td>order of the BDF </td></tr>
+    <tr><td class="paramname">name</td><td>name of the newmark ts </td></tr>
+    <tr><td class="paramname">prefix</td><td>prefix of the newmark ts </td></tr>
   </table>
   </dd>
 </dl>
@@ -587,7 +574,7 @@ template&lt;typename SpaceType &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">space</td><td>approximation space </td></tr>
-    <tr><td class="paramname">name</td><td>name of the BDF </td></tr>
+    <tr><td class="paramname">name</td><td>name of the newmark ts </td></tr>
   </table>
   </dd>
 </dl>
@@ -614,43 +601,6 @@ template&lt;typename SpaceType &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="abf1073521a5ff16e8b5b023a89fc074d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SpaceType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classFeel_1_1Newmark.html">Feel::Newmark</a>&lt; SpaceType &gt;::initialize </td>
-          <td>(</td>
-          <td class="paramtype">unknowns_type const &amp;&#160;</td>
-          <td class="paramname"><em>uv0</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Initialize all the entries of the unknown vector to be derived with a set of vectors uv0 </p>
-
-</div>
-</div>
-<a class="anchor" id="ab7d593b182775e7b43ae967e052190e2"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SpaceType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classFeel_1_1Newmark.html">Newmark</a>&lt; SpaceType &gt;::element_type const &amp; <a class="el" href="classFeel_1_1Newmark.html">Feel::Newmark</a>&lt; SpaceType &gt;::polyDeriv </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Returns the right hand side <img class="formulaInl" alt="$ \bar{p} $" src="form_205.png"/> of the time derivative formula </p>
-
-</div>
-</div>
 <a class="anchor" id="aee6222f49f3a0e446dee16b7a7b40851"></a>
 <div class="memitem">
 <div class="memproto">
@@ -666,7 +616,7 @@ template&lt;typename SpaceType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>restart the bdf </p>
+<p>restart the newmark scheme </p>
 
 </div>
 </div>
@@ -711,7 +661,7 @@ template&lt;typename SpaceType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>start the bdf </p>
+<p>start the newmark scheme </p>
 
 </div>
 </div>

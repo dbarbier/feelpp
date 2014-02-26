@@ -19,6 +19,7 @@ var searchData=
   ['basisorder',['basisOrder',['../classFeel_1_1FunctionSpace.html#af1424ec781d3cb2a1f8bcf278f8800c5',1,'Feel::FunctionSpace']]],
   ['bdf',['Bdf',['../classFeel_1_1Bdf.html#ae17468517bfd4e375b4ffbdd4b8193d0',1,'Feel::Bdf::Bdf(po::variables_map const &amp;vm, space_ptrtype const &amp;space, std::string const &amp;name, std::string const &amp;prefix=&quot;&quot;)'],['../classFeel_1_1Bdf.html#adade75346211ea559e1e4b36feb3e3fb',1,'Feel::Bdf::Bdf(space_ptrtype const &amp;space, std::string const &amp;name)'],['../classFeel_1_1Bdf.html#ac3d2fcaade573fd55ea7a59c780b74fb',1,'Feel::Bdf::Bdf(Bdf const &amp;b)']]],
   ['bdf_5foptions',['bdf_options',['../namespaceFeel.html#a42f2fd19e68d4f42ca91774b81763086',1,'Feel']]],
+  ['bdforder',['bdfOrder',['../classFeel_1_1Bdf.html#a85586d0801e8372507b839e8b94ef0a5',1,'Feel::Bdf']]],
   ['before',['before',['../classFeel_1_1TypeInfo.html#abd3d09d3b35ef984805ef27509f59fba',1,'Feel::TypeInfo']]],
   ['begin',['begin',['../classFeel_1_1GraphCSR.html#a6548a5741f94d66b0224e942ccf735d8',1,'Feel::GraphCSR::begin()'],['../classFeel_1_1GraphCSR.html#ac9f925aca2d09700be5cb5398fbd500b',1,'Feel::GraphCSR::begin() const '],['../classFeel_1_1Application.html#aec60ec2e94b8fb0ad0110a56dd306c74',1,'Feel::Application::begin()']]],
   ['beginelementonboundary',['beginElementOnBoundary',['../namespaceFeel.html#ae438d669199d3db3804d19975b99da35',1,'Feel']]],

@@ -7,19 +7,10 @@
 \usepackage{/home/vhuber/feelpp.git/doc/api/feelppmacros}
 \pagestyle{empty}
 \begin{document}
-\[ \mathrm{curl}( \nabla \times \psi) = \Delta \psi + \nabla (div \psi) \]
+$ M \ddot{\boldsymbol{\eta}}^{n+1} = A \boldsymbol{\eta}^{n+1} + f $
 \pagebreak
 
-\[ \int_\Omega \bvec{v}\cdot \mathrm{curl}w = \int_\Omega w ( \nabla \times \bvec{v}) -\int_{\partial\Omega} w (\bvec{v}\times n) \]
-\pagebreak
-
-$ \left\{ \begin{aligned} \mu \mathrm{curl}( \nabla \times \bvec{u}) - \nabla (div \bvec{u}) + \nabla p & = \bvec{f} & \text{on}\; \Omega \;, \ \ \nabla\cdot \bvec{u} & = 0 & \text{on}\; \Omega \; \end{aligned} \right $
-\pagebreak
-
-\[ \mu \int_\Omega \mathrm{curl}( \nabla \times \bvec{u}) \cdot \bf \bvec{v} - \mu \int_\Omega \nabla (div \bvec{u}) \cdot \bvec{v} + \nabla p \cdot \bvec{v} & = \int_\Omega \bvec{f}\cdot \bvec{v} \]
-\pagebreak
-
-\[ \mu \int_\Omega ( \nabla \times \bvec{u})( \nabla \times \bvec{v}) - \mu \int_{\partial\Omega} (\nabla \times \bvec{u}) \cdot ( \bvec{v} \times \bvec{n})+ \mu \int_\Omega ( \nabla \cdot \bvec{u})( \nabla \times \bvec{v}) - \mu \int_{\partial\Omega} (\nabla \cdot \bvec{u})n \cdot \bvec{v} + \int_\Omega p \nabla \cdot \bvec{v} -\int_{\partial\Omega} p \mathbf n \cdot \bvec{v} = \int_\Omega \bvec{f} \cdot \bvec{v} \]
+\begin{eqnarray} \ddot{\boldsymbol{\eta}}^{n+1} &=& \frac{1}{\beta \Delta t^2} \left( \boldsymbol{\eta}^{n+1}-\boldsymbol{\eta}^{n} \right) - \frac{1}{\beta \Delta t} \dot{\boldsymbol{\eta}}^{n} - \left( \frac{1}{2 \beta} -1 \right) \ddot{\boldsymbol{\eta}}^{n} \ \ \dot{\boldsymbol{\eta}}^{n+1} &=& \frac{\gamma}{\beta \Delta t} \left( \boldsymbol{\eta}^{n+1}-\boldsymbol{\eta}^{n} \right) - \left( \frac{\gamma}{\beta} -1 \right) \dot{\boldsymbol{\eta}}^{n} - \Delta t \left( \frac{\gamma}{2\beta}-1 \right) \ddot{\boldsymbol{\eta}}^{n} \end{eqnarray}
 \pagebreak
 
 \end{document}

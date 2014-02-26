@@ -468,7 +468,7 @@ $(document).ready(function(){initNavTree('exporter_8hpp_source.html','');});
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                            ( fileset, *, option(_name=<span class="stringliteral">&quot;exporter.fileset&quot;</span>).<span class="keyword">template</span> as&lt;bool&gt;() )</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                            ( order, *, mpl::int_&lt;1&gt;() )</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                            ( name,  *, Environment::about().appName() )</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                            ( geo,   *, option(_name=<span class="stringliteral">&quot;exporter.geometry&quot;</span>).<span class="keyword">template</span> as&lt;int&gt;() )</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                            ( geo,   *, option(_name=<span class="stringliteral">&quot;exporter.geometry&quot;</span>).<span class="keyword">template</span> as&lt;std::string&gt;() )</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                            ( path, *( boost::is_convertible&lt;mpl::_,std::string&gt; ), std::string(<span class="stringliteral">&quot;.&quot;</span>) )</div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                          ) )</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;{</div>
@@ -476,22 +476,27 @@ $(document).ready(function(){initNavTree('exporter_8hpp_source.html','');});
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="keyword">auto</span> e =  exporter_type::New( Environment::vm(),name,mesh-&gt;worldComm() );</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    e-&gt;<a class="code" href="classFeel_1_1Exporter.html#ae3bba0a66e5982b327b2592a4d92100f">setPrefix</a>( name );</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    e-&gt;setUseSingleTransientFile( fileset );</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    e-&gt;setMesh( mesh, (ExporterGeometry) geo );</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    e-&gt;setPath( path );</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <span class="comment">// addRegions not work with transient simulation!</span></div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="comment">//e-&gt;addRegions();</span></div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keywordflow">return</span> e;</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="comment">//return Exporter&lt;Mesh&lt;Simplex&lt;2&gt; &gt;,1&gt;::New();</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;}</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;} <span class="comment">// Feel</span></div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="comment">//#if !defined( FEELPP_INSTANTIATION_MODE )</span></div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="preprocessor"># include &lt;<a class="code" href="exporterimpl_8hpp.html">feel/feelfilters/exporterimpl.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="comment">//#endif // FEELPP_INSTANTIATION_MODE</span></div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <span class="keywordflow">if</span> ( geo == <span class="stringliteral">&quot;change_coords_only&quot;</span> )</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        e-&gt;setMesh( mesh, EXPORTER_GEOMETRY_CHANGE_COORDS_ONLY );</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( geo == <span class="stringliteral">&quot;change&quot;</span> )</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        e-&gt;setMesh( mesh, EXPORTER_GEOMETRY_CHANGE );</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keywordflow">else</span> <span class="comment">// default</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        e-&gt;setMesh( mesh, EXPORTER_GEOMETRY_STATIC );</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    e-&gt;setPath( path );</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="comment">// addRegions not work with transient simulation!</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <span class="comment">//e-&gt;addRegions();</span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="keywordflow">return</span> e;</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    <span class="comment">//return Exporter&lt;Mesh&lt;Simplex&lt;2&gt; &gt;,1&gt;::New();</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;}</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;} <span class="comment">// Feel</span></div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __Exporter_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="comment">//#if !defined( FEELPP_INSTANTIATION_MODE )</span></div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="preprocessor"># include &lt;<a class="code" href="exporterimpl_8hpp.html">feel/feelfilters/exporterimpl.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment">//#endif // FEELPP_INSTANTIATION_MODE</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __Exporter_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_aafb99b3d9e9a36b33c3b7fe50ad351ac"><div class="ttname"><a href="classFeel_1_1Exporter.html#aafb99b3d9e9a36b33c3b7fe50ad351ac">Feel::Exporter::setFreq</a></div><div class="ttdeci">Exporter&lt; MeshType, N &gt; * setFreq(int __freq)</div><div class="ttdef"><b>Definition:</b> exporter.hpp:306</div></div>
 <div class="ttc" id="classFeel_1_1VisitorBase_html"><div class="ttname"><a href="classFeel_1_1VisitorBase.html">Feel::VisitorBase</a></div><div class="ttdoc">The base class of any Acyclic Visitor. </div><div class="ttdef"><b>Definition:</b> visitor.hpp:52</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_aeb82f802a761712a6c4fcd9f25f25720"><div class="ttname"><a href="classFeel_1_1Exporter.html#aeb82f802a761712a6c4fcd9f25f25720">Feel::Exporter::cptOfSave</a></div><div class="ttdeci">int cptOfSave() const </div><div class="ttdef"><b>Definition:</b> exporter.hpp:218</div></div>
@@ -504,7 +509,7 @@ $(document).ready(function(){initNavTree('exporter_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1Exporter_html_aa21e55341295c3d0c59a537fc8d13a7a"><div class="ttname"><a href="classFeel_1_1Exporter.html#aa21e55341295c3d0c59a537fc8d13a7a">Feel::Exporter::saveTimeSet</a></div><div class="ttdeci">void saveTimeSet() const </div><div class="ttdef"><b>Definition:</b> exporter.hpp:418</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_a5d95df5f9870598eee0c0e74f56171d5"><div class="ttname"><a href="classFeel_1_1Exporter.html#a5d95df5f9870598eee0c0e74f56171d5">Feel::Exporter::path</a></div><div class="ttdeci">std::string path() const </div><div class="ttdef"><b>Definition:</b> exporter.hpp:234</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_a388352373374f0c8b6875d3543335919"><div class="ttname"><a href="classFeel_1_1Exporter.html#a388352373374f0c8b6875d3543335919">Feel::Exporter::fileType</a></div><div class="ttdeci">file_type fileType() const </div><div class="ttdef"><b>Definition:</b> exporter.hpp:226</div></div>
-<div class="ttc" id="classFeel_1_1TimeSet_html"><div class="ttname"><a href="classFeel_1_1TimeSet.html">Feel::TimeSet</a></div><div class="ttdoc">data TimeSet </div><div class="ttdef"><b>Definition:</b> timeset.hpp:90</div></div>
+<div class="ttc" id="classFeel_1_1TimeSet_html"><div class="ttname"><a href="classFeel_1_1TimeSet.html">Feel::TimeSet</a></div><div class="ttdoc">data TimeSet </div><div class="ttdef"><b>Definition:</b> timeset.hpp:91</div></div>
 <div class="ttc" id="feelmacros_8hpp_html_a0b3a75b0b154ecf75a6a1c7878d942cd"><div class="ttname"><a href="feelmacros_8hpp.html#a0b3a75b0b154ecf75a6a1c7878d942cd">FEELPP_DEPRECATED</a></div><div class="ttdeci">#define FEELPP_DEPRECATED</div><div class="ttdef"><b>Definition:</b> feelmacros.hpp:352</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_ae0cbadd9f3e483d8edb7b4664b3a67e5"><div class="ttname"><a href="classFeel_1_1Exporter.html#ae0cbadd9f3e483d8edb7b4664b3a67e5">Feel::Exporter::addTimeSet</a></div><div class="ttdeci">void addTimeSet(timeset_ptrtype const &amp;__ts)</div><div class="ttdef"><b>Definition:</b> exporter.hpp:402</div></div>
 <div class="ttc" id="exporterimpl_8hpp_html"><div class="ttname"><a href="exporterimpl_8hpp.html">exporterimpl.hpp</a></div></div>
@@ -514,7 +519,7 @@ $(document).ready(function(){initNavTree('exporter_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1Exporter_html_ab5184fd78b9c90b74127ab2027808996"><div class="ttname"><a href="classFeel_1_1Exporter.html#ab5184fd78b9c90b74127ab2027808996">Feel::Exporter::New</a></div><div class="ttdeci">static boost::shared_ptr&lt; Exporter&lt; MeshType, N &gt; &gt; New(std::string const &amp;exportername, std::string prefix=Environment::about().appName(), WorldComm const &amp;worldComm=Environment::worldComm())</div><div class="ttdef"><b>Definition:</b> exporterimpl.hpp:127</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_ab14aab6a193acef6384113f63182689d"><div class="ttname"><a href="classFeel_1_1Exporter.html#ab14aab6a193acef6384113f63182689d">Feel::Exporter::save</a></div><div class="ttdeci">virtual void save() const =0</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_aceba2adf3feb8a1421bccab6ac1f90bc"><div class="ttname"><a href="classFeel_1_1Exporter.html#aceba2adf3feb8a1421bccab6ac1f90bc">Feel::Exporter::setPath</a></div><div class="ttdeci">void setPath(std::string path)</div><div class="ttdef"><b>Definition:</b> exporter.hpp:284</div></div>
-<div class="ttc" id="classFeel_1_1TimeSet_1_1Step_html"><div class="ttname"><a href="classFeel_1_1TimeSet_1_1Step.html">Feel::TimeSet::Step</a></div><div class="ttdoc">a step in a time set </div><div class="ttdef"><b>Definition:</b> timeset.hpp:126</div></div>
+<div class="ttc" id="classFeel_1_1TimeSet_1_1Step_html"><div class="ttname"><a href="classFeel_1_1TimeSet_1_1Step.html">Feel::TimeSet::Step</a></div><div class="ttdoc">a step in a time set </div><div class="ttdef"><b>Definition:</b> timeset.hpp:127</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_a051ae133781cdee4795df46f2fb850f9"><div class="ttname"><a href="classFeel_1_1Exporter.html#a051ae133781cdee4795df46f2fb850f9">Feel::Exporter::doExport</a></div><div class="ttdeci">bool doExport() const </div><div class="ttdef"><b>Definition:</b> exporter.hpp:185</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_a03a33495cbe99a0458567467915a7d00"><div class="ttname"><a href="classFeel_1_1Exporter.html#a03a33495cbe99a0458567467915a7d00">Feel::Exporter::Exporter</a></div><div class="ttdeci">Exporter(WorldComm const &amp;worldComm=Environment::worldComm())</div><div class="ttdef"><b>Definition:</b> exporterimpl.hpp:50</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_a05214764672a228e2b93f4199833283c"><div class="ttname"><a href="classFeel_1_1Exporter.html#a05214764672a228e2b93f4199833283c">Feel::Exporter::type</a></div><div class="ttdeci">std::string const &amp; type() const </div><div class="ttdef"><b>Definition:</b> exporter.hpp:193</div></div>
@@ -522,7 +527,7 @@ $(document).ready(function(){initNavTree('exporter_8hpp_source.html','');});
 <div class="ttc" id="classFeel_1_1Exporter_html_a1b857c462efb43399f378a2ab8daca31"><div class="ttname"><a href="classFeel_1_1Exporter.html#a1b857c462efb43399f378a2ab8daca31">Feel::Exporter::freq</a></div><div class="ttdeci">int freq() const </div><div class="ttdef"><b>Definition:</b> exporter.hpp:209</div></div>
 <div class="ttc" id="classFeel_1_1Exporter_html_a78163db59b573510f143641b795838f2"><div class="ttname"><a href="classFeel_1_1Exporter.html#a78163db59b573510f143641b795838f2">Feel::Exporter::~Exporter</a></div><div class="ttdeci">virtual ~Exporter()</div><div class="ttdef"><b>Definition:</b> exporterimpl.hpp:122</div></div>
 <div class="ttc" id="classFeel_1_1Singleton_html"><div class="ttname"><a href="classFeel_1_1Singleton.html">Feel::Singleton</a></div><div class="ttdoc">implement the Singleton pattern </div><div class="ttdef"><b>Definition:</b> singleton.hpp:57</div></div>
-<div class="ttc" id="classFeel_1_1Exporter_html_a2d3b2127a4d49196277b734b7a0a2ccd"><div class="ttname"><a href="classFeel_1_1Exporter.html#a2d3b2127a4d49196277b734b7a0a2ccd">Feel::Exporter::addPath</a></div><div class="ttdeci">Exporter&lt; MeshType, N &gt; * addPath(boost::format fmt)</div><div class="ttdef"><b>Definition:</b> exporterimpl.hpp:204</div></div>
+<div class="ttc" id="classFeel_1_1Exporter_html_a2d3b2127a4d49196277b734b7a0a2ccd"><div class="ttname"><a href="classFeel_1_1Exporter.html#a2d3b2127a4d49196277b734b7a0a2ccd">Feel::Exporter::addPath</a></div><div class="ttdeci">Exporter&lt; MeshType, N &gt; * addPath(boost::format fmt)</div><div class="ttdef"><b>Definition:</b> exporterimpl.hpp:208</div></div>
 <div class="ttc" id="visitor_8hpp_html"><div class="ttname"><a href="visitor_8hpp.html">visitor.hpp</a></div></div>
 <div class="ttc" id="factory_8hpp_html"><div class="ttname"><a href="factory_8hpp.html">factory.hpp</a></div></div>
 <div class="ttc" id="singleton_8hpp_html"><div class="ttname"><a href="singleton_8hpp.html">singleton.hpp</a></div></div>
