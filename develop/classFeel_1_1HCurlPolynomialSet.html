@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Feel++: polynomialset.hpp File Reference</title>
+<title>Feel++: Feel::HCurlPolynomialSet Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('polynomialset_8hpp.html','');});
+$(document).ready(function(){initNavTree('classFeel_1_1HCurlPolynomialSet.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -98,52 +98,18 @@ $(document).ready(function(){initNavTree('polynomialset_8hpp.html','');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">polynomialset.hpp File Reference</div>  </div>
+<div class="title">Feel::HCurlPolynomialSet Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;vector&gt;</code><br/>
-<code>#include &lt;boost/multi_array.hpp&gt;</code><br/>
-<code>#include &lt;boost/multi_array/extent_gen.hpp&gt;</code><br/>
-<code>#include &lt;boost/foreach.hpp&gt;</code><br/>
-<code>#include &lt;boost/optional.hpp&gt;</code><br/>
-<code>#include &lt;boost/mpl/min_max.hpp&gt;</code><br/>
-<code>#include &lt;Eigen/Core&gt;</code><br/>
-<code>#include &lt;feel/feelpoly/context.hpp&gt;</code><br/>
-<code>#include &lt;<a class="el" href="svd_8hpp_source.html">feel/feelalg/svd.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="dubiner_8hpp_source.html">feel/feelpoly/dubiner.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="legendre_8hpp_source.html">feel/feelpoly/legendre.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="boundadapted_8hpp_source.html">feel/feelpoly/boundadapted.hpp</a>&gt;</code><br/>
-<code>#include &lt;feel/feelpoly/tensorisedboundadapted.hpp&gt;</code><br/>
-<code>#include &lt;<a class="el" href="polynomial_8hpp_source.html">feel/feelpoly/polynomial.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="expansiontypes_8hpp_source.html">feel/feelpoly/expansiontypes.hpp</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="quadmapped_8hpp_source.html">feel/feelpoly/quadmapped.hpp</a>&gt;</code><br/>
-<code>#include &lt;feel/feelpoly/hdivpolynomialset.hpp&gt;</code><br/>
-<code>#include &lt;feel/feelpoly/hcurlpolynomialset.hpp&gt;</code><br/>
-<code>#include &lt;feel/feelpoly/polynomialset_impl.hpp&gt;</code><br/>
-<code>#include &lt;<a class="el" href="orthonormalpolynomialset_8hpp_source.html">feel/feelpoly/orthonormalpolynomialset.hpp</a>&gt;</code><br/>
-</div>
-<p><a href="polynomialset_8hpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFeel_1_1PolynomialSet.html">Feel::PolynomialSet&lt; Poly, PolySetType &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a Set of polynomials  <a href="classFeel_1_1PolynomialSet.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespaceFeel"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFeel.html">Feel</a></td></tr>
-<tr class="memdesc:namespaceFeel"><td class="mdescLeft">&#160;</td><td class="mdescRight">[marker1] <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
+
+<p><code>#include &lt;<a class="el" href="hcurlpolynomialset_8hpp_source.html">hcurlpolynomialset.hpp</a>&gt;</code></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Christophe Prud'homme <a href="#" onclick="location.href='mai'+'lto:'+'chr'+'is'+'top'+'he'+'.pr'+'ud'+'hom'+'me'+'@fe'+'el'+'pp.'+'or'+'g'; return false;">chris<span style="display: none;">.nosp@m.</span>toph<span style="display: none;">.nosp@m.</span>e.pru<span style="display: none;">.nosp@m.</span>dhom<span style="display: none;">.nosp@m.</span>me@fe<span style="display: none;">.nosp@m.</span>elpp<span style="display: none;">.nosp@m.</span>.org</a> </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2005-10-11 </dd></dl>
-</div></div><!-- contents -->
+<div class="textblock"><p>HCurl conforming polynomialset base class </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="hcurlpolynomialset_8hpp_source.html">hcurlpolynomialset.hpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

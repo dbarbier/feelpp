@@ -15,5 +15,7 @@ var searchData=
   ['integralmomentsonface',['IntegralMomentsOnFace',['../classFeel_1_1functional_1_1IntegralMomentsOnFace.html',1,'Feel::functional']]],
   ['integrationdegree',['IntegrationDegree',['../structFeel_1_1IntegrationDegree.html',1,'Feel']]],
   ['inverse',['Inverse',['../classFeel_1_1GeoMap_1_1Inverse.html',1,'Feel::GeoMap']]],
+  ['is_5fhcurl_5fconforming',['is_hcurl_conforming',['../classFeel_1_1is__hcurl__conforming.html',1,'Feel']]],
+  ['is_5fhdiv_5fconforming',['is_hdiv_conforming',['../classFeel_1_1is__hdiv__conforming.html',1,'Feel']]],
   ['iteration',['Iteration',['../classFeel_1_1Iteration.html',1,'Feel']]]
 ];

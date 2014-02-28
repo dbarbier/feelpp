@@ -45,6 +45,7 @@ var searchData=
   ['copy_5fx0_5fto_5fx',['copy_x0_to_x',['../classFeel_1_1problem.html#ac77e7ba536f35ecf734f8db8856c8cd4',1,'Feel::problem']]],
   ['copy_5fx_5fto_5fx0',['copy_x_to_x0',['../classFeel_1_1problem.html#a88ff78b4e2efd40188f1e02c721ec4ae',1,'Feel::problem']]],
   ['copyrightstatement',['copyrightStatement',['../classFeel_1_1AboutData.html#ae7bfc4fc37d728c6cb88a0524a3336b8',1,'Feel::AboutData']]],
+  ['countaffinedecompositionterms',['countAffineDecompositionTerms',['../classFeel_1_1CRBModel.html#a680e067bb0bae71f80637863c548dca2',1,'Feel::CRBModel']]],
   ['cptofsave',['cptOfSave',['../classFeel_1_1Exporter.html#aeb82f802a761712a6c4fcd9f25f25720',1,'Feel::Exporter']]],
   ['crb',['CRB',['../classFeel_1_1CRB.html#ac1ebf1a0031cd9f1c2f0a07d7dce726e',1,'Feel::CRB::CRB()'],['../classFeel_1_1CRB.html#a16df68c3b0a412d2bc29ab97a1c09dfe',1,'Feel::CRB::CRB(std::string name, po::variables_map const &amp;vm, truth_model_ptrtype const &amp;model)'],['../classFeel_1_1CRB.html#ab599edbc7305ff9e6758e3b75f070e9c',1,'Feel::CRB::CRB(CRB const &amp;o)']]],
   ['crbdb',['CRBDB',['../classFeel_1_1CRBDB.html#a63ce83e6c566106d8f133bfa4f222706',1,'Feel::CRBDB::CRBDB()'],['../classFeel_1_1CRBDB.html#a5588d26adb8901000229116ae52c7e3f',1,'Feel::CRBDB::CRBDB(std::string prefixdir, std::string name, std::string dbprefix, po::variables_map const &amp;vm)'],['../classFeel_1_1CRBDB.html#a67230499eef6f0d876ff4549c494d09d',1,'Feel::CRBDB::CRBDB(CRBDB const &amp;)']]],

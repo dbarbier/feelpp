@@ -1,7 +1,6 @@
 var searchData=
 [
   ['h',['h',['../classFeel_1_1Gmsh.html#aae9d4a2398e4f50e4a1ba60343c24538',1,'Feel::Gmsh::h() const '],['../classFeel_1_1Gmsh.html#a9f58806b4350c47918fba1126e938a8b',1,'Feel::Gmsh::h(double _h)'],['../classFeel_1_1GeoND.html#a2c924cbf076f3718e0d7e309f156639f',1,'Feel::GeoND::h()'],['../classFeel_1_1GeoMap_1_1Context.html#a5b1f54751519a848c3d3be35ec2d58af',1,'Feel::GeoMap::Context::h()']]],
-  ['h1',['h1',['../classFeel_1_1CRBModel.html#a52e8be521c0cc6452c6fe2e0533717a6',1,'Feel::CRBModel::h1() const '],['../classFeel_1_1CRBModel.html#a1c8deb8ba5df0197195fde43abb36f9c',1,'Feel::CRBModel::h1(element_type const &amp;xi_i, element_type const &amp;xi_j) const '],['../classFeel_1_1CRBModel.html#ac36e52235de1cc532a18c494e6713357',1,'Feel::CRBModel::h1(element_type const &amp;xi_i) const ']]],
   ['harmonic_2ecpp',['harmonic.cpp',['../harmonic_8cpp.html',1,'']]],
   ['hasconstantnullspace',['hasConstantNullSpace',['../classFeel_1_1Backend.html#a9ad1f4d37cc5d51dda696d87c620f327',1,'Feel::Backend']]],
   ['hasdata',['hasData',['../classFeel_1_1TimeSet_1_1Step.html#a324ec86b7bae50b1c4549d024718ef03',1,'Feel::TimeSet::Step']]],
@@ -12,8 +11,10 @@ var searchData=
   ['hasregiontree',['hasRegionTree',['../classFeel_1_1FunctionSpace.html#a59bdae47631a540513d2b3e8345cadc6',1,'Feel::FunctionSpace']]],
   ['hasshape',['hasShape',['../classFeel_1_1GeoEntity.html#a6dbea56c0d2bdfeed841b3ba00923e26',1,'Feel::GeoEntity']]],
   ['hassubmeshdata',['hasSubMeshData',['../classFeel_1_1MeshBase.html#ab9cd5b8ba76773a6619c9b45575d72b9',1,'Feel::MeshBase']]],
+  ['hcurlpolynomialset',['HCurlPolynomialSet',['../classFeel_1_1HCurlPolynomialSet.html',1,'Feel']]],
   ['hdf5_2ecpp',['hdf5.cpp',['../hdf5_8cpp.html',1,'']]],
   ['hdf5_2ehpp',['hdf5.hpp',['../hdf5_8hpp.html',1,'']]],
+  ['hdivpolynomialset',['HDivPolynomialSet',['../classFeel_1_1HDivPolynomialSet.html',1,'Feel']]],
   ['heatsink',['HeatSink',['../classFeel_1_1HeatSink.html#aad7b3f3eb6ea8aad078ecfd2cc5dafa9',1,'Feel::HeatSink::HeatSink()'],['../HeatSink.html',1,'HeatTransfer']]],
   ['heatsink',['HeatSink',['../classFeel_1_1HeatSink.html',1,'Feel']]],
   ['heat_20transfer',['Heat Transfer',['../HeatTransfer.html',1,'Learning']]],
